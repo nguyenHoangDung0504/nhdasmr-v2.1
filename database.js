@@ -3,20 +3,24 @@ var db_code = [0];
 var db_rjCode = [0];
 var db_cvs = [0];
 var db_japName = [0];
-
+var db_engName = [0];
+var db_thumbnail = [0];
+var db_tags = [0];
+var db_images = [0];
+var db_audios = [0];
 /*END DATABASE*/
 
-function pushData(i, _class_arr, r_code, j_name, e_name, c_name_arr, l_pic, tr_tag, img, aud) {
-  stt.push(i);
-  cv_class.push(_class_arr);
-  rj_code.push(r_code);
-  jap_name.push(j_name);
-  eng_name.push(e_name);
-  cv_name.push(c_name_arr);
-  link_pic.push(l_pic);
-  track_tags.push(tr_tag);
-  links_image.push(img);
-  links_audio.push(aud);
+/*ADD DATA TO DATABASE*/
+function pushData(code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios) {
+  db_code.push(code);
+  db_rjCode.push(rjCode);
+  db_cvs.push(cvs);
+  db_japName.push(japName);
+  db_engName.push(engName);
+  db_thumbnail.push(thumbnail);
+  db_tags.push(tags);
+  db_images.push(images);
+  db_audios.push(audios);
 }
 
 
@@ -189,3 +193,16 @@ pushData(75252, "RJ01009404", "Haru Amachi,Koibane Moko", "【悪魔のメスガ
 pushData(53311, "RJ338641", "MOMOKA,Yuka Hinata", "【低音クール×正統派クール】おま○こ学園臨海学校「えっちサボりはダメですよ!」～クールな風紀委員とラブラブ生ハメ特別実習～【KU100/フォーリーサウンド】", "Oma*ko Gakuen Rinkai School “Don’t Skip Sex!” ~Cool Discipline Committee and Lovey-dovey Raw Fucking Special Practice~", "https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/53311(0)?v=1693795264955", "Breast Sex, Ear Licking, Hand Job, Nipple Play, School, Swimwear", "https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/53311(1)?v=1693795267607,https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/53311(2)?v=1693795271261", "https://cdn.glitch.me/1d46fb5f-c750-4e6d-9785-7de06c91262f/53311.mp3?v=1693795337573");
 pushData(98389, "RJ01072089", "MOMOKA,Yui Otokura,Yuka Hinata", "おま〇こ学園定期試験「テスト赤点許しません!」～クールな3人の風紀委員とみっちり生ハメ補習～【低音×ダウナー×正統派3種のクール!/KU100】", "Pussy school regular exam “I won’t allow red marks on the test!” ～Supplementary raw sex lesson with three cool disciplinary committee members～", "https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/98389(0)?v=1693799352188", "Big Breasts, Blowjob, Ear Licking, School Uniform, School, Student", "https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/98389(1)?v=1693799354667,https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/98389(2)?v=1693799358353", "https://cdn.glitch.me/1d46fb5f-c750-4e6d-9785-7de06c91262f/98389t1.mp3?v=1693799493232,https://cdn.glitch.me/1d46fb5f-c750-4e6d-9785-7de06c91262f/98389t2.mp3?v=1693799558158");
 pushData(88888, "RJ01065824", "Meiya Yume", "迷夜ゆめ ファンティアオナサポASMR総集編2022.9-2023.2", "Meiya Yume Fantia Ona Support ASMR Compilation", "https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(0)?v=1694502918272", "3D, Ahegao, Animation, ASMR, Blowjob, Ear Licking, Foot Job, Futanari, Hand Job, Kissing, Peeing, Peeing Oneself, Perverted, School Uniform, Vtuber", "https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(1)?v=1694503283496,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(2)?v=1694503421366,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(3)?v=1694503519083,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(4)?v=1694503834216,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(5)?v=1694504051626,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(6)?v=1694504178551", "https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_1.mp4?v=1694504395153,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_2.mp4?v=1694504429342,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_3.mp4?v=1694504466949,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_4.mp4?v=1694504506876,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_5.mp4?v=1694504532582,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_6.mp4?v=1694504553862");
+
+var database = {
+  code:       db_code,
+  rjCode:     db_rjCode,
+  cvs:        db_cvs,
+  japName:    db_japName,
+  engName:    db_engName,
+  thumbnail:  db_thumbnail,
+  tags:       db_tags,
+  images:     db_images,
+  audios:     db_audios
+}
+console.table(database);
