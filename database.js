@@ -1,13 +1,13 @@
 /*DATA OF DATABASE*/
-    var db_code = [0];
-    var db_rjCode = [0];
-    var db_cvs = [0];
-    var db_japName = [0];
-    var db_engName = [0];
-    var db_thumbnail = [0];
-    var db_tags = [0];
-    var db_images = [0];
-    var db_audios = [0];
+    var db_code       = [0];
+    var db_rjCode     = [0];
+    var db_cvs        = [0];
+    var db_japName    = [0];
+    var db_engName    = [0];
+    var db_thumbnail  = [0];
+    var db_tags       = [0];
+    var db_images     = [0];
+    var db_audios     = [0];
 /*END DATA OF DATABASE*/
 
 /*ADD DATA TO DATABASE*/
@@ -222,20 +222,51 @@
     // pushData(, [""], "", "", "", [""], "", "", [""], [""]);
 /*END ADD DATA TO DATABASE*/
 
-var database = {
-  code:       db_code,
-  rjCode:     db_rjCode,
-  cvs:        db_cvs,
-  japName:    db_japName,
-  engName:    db_engName,
-  thumbnail:  db_thumbnail,
-  tags:       db_tags,
-  images:     db_images,
-  audios:     db_audios
-}
-
-var listCv = [];
-function buildListCv() {
-  let listTier1 = database.cvs;
+/*DATABASE OBJECT*/
+    var database = {
+      code:       db_code,
+      rjCode:     db_rjCode,
+      cvs:        db_cvs,
+      japName:    db_japName,
+      engName:    db_engName,
+      thumbnail:  db_thumbnail,
+      tags:       db_tags,
+      images:     db_images,
+      audios:     db_audios
+    }
+/*END DATABASE OBJECT*/
+    
+//     var db_code = [0];
+//     var db_rjCode = [0];
+//     var db_cvs = [0];
+//     var db_japName = [0];
+//     var db_engName = [0];
+//     var db_thumbnail = [0];
+//     var db_tags = [0];
+//     var db_images = [0];
+//     var db_audios = [0];  
   
-}
+/*BUILD NECESSARY LISTS FROM THE DATABASE*/
+    /*DEFININTION*/
+        var listCvToFilter  = [];
+        var listTagToFilter = [];
+    /*END DEFINITION*/
+
+
+    function buildListCvToFilter() {
+      let listTier1 = database.cvs;
+      console.log(listTier1);
+      for(let i=1; i<listTier1.length; i++) {
+        
+      }
+    }
+    function buildListTagToFilter() {
+      let listTier1 = database.tags;
+      console.log(listTier1);
+    }
+
+
+
+    buildListCvToFilter();
+    buildListTagToFilter();
+/*END BUILD NECESSARY LISTS FROM THE DATABASE*/
