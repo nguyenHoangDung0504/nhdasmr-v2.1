@@ -100,7 +100,7 @@
     pushData(65932, "RJ393829", "Haruru Akiyama", "性癖を狂わせるドSメイドの主従逆転いじわる乳首責め", "De S Maid’s Master-Servant Reversal Nipple Blame", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/65932(0)?v=1686581234767", "Perverted, Armpit, Ear Licking, Foot Job, Maid, Nipple Play, Thighjob", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/65932(1)?v=1686581255100,https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/65932(2)?v=1686581258991", "https://cdn.glitch.me/43bf1b52-1acd-4635-9e88-afc9baf0e898/65932.mp3?v=1686581407917");
     pushData(75921, "RJ01024807", "Yuka Hinata,Tsubame Yuzuki", "ダウナーオホ声義理の姉妹とだらだらえっち同居生活【全編ゆるオホ】", "Downer Oho voice sister-in-law and lazy sex cohabitation life", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/75921(0)?v=1686581969977", "ASMR, Blowjob, Dirty Talk, Ear Licking, Fingering, Hand Job, Masturbation, Sister-In-Law, Sisters", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/75921(1)?v=1686581972788,https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/75921(2)?v=1686581977022,https://raw.kiko-play-niptan.one/media/stream/daily/2023-03-16/RJ01024807/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%81%A8%E5%8B%95%E7%94%BB/%E3%83%80%E3%82%A4%E3%82%B8%E3%82%A7%E3%82%B9%E3%83%88%E5%8B%95%E7%94%BB.mp4", "https://cdn.glitch.me/43bf1b52-1acd-4635-9e88-afc9baf0e898/75921.mp3?v=1686582099862");
     pushData(38274, "RJ308408", "Yuka Hinata", "甘えんぼ促進課のお姉さんによる少子高齢化対策エッチ ～癒しのラブあま奉仕活動、実施します～", "The Amaenbo Promotion Division’s Older Sister’s Etiquette Against Aging Population～Healing Love Ama Volunteer Activities Will Be Implemented～", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/38274(0)?v=1686663848021", "ASMR, Blowjob, Ear Licking, Hand Job", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/38274(2)?v=1686663861841,https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/38274(1)?v=1686663860467", "https://cdn.glitch.me/43bf1b52-1acd-4635-9e88-afc9baf0e898/38274t1.mp3?v=1686664072643,https://cdn.glitch.me/43bf1b52-1acd-4635-9e88-afc9baf0e898/38274t2.mp3?v=1686664100932");
-    pushData(81817, "RJ01065697", "Popura Sawano", "母性の塊!爆乳爆尻サキュバスママと密着あまあまイチャラブエッチ♪温かいフカフカマシュマロボディに優しく包まれて、何度も射精させてもらえちゃう幸せいっぱいの夜♪", "A lump of motherhood! Adhesion to a succubus mom with huge breasts and huge buttocks♪", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/81817(0)?v=1686664556281", "Anal, Anilingus, Big Breasts, Blowjob, Chubby, Facesitting, Hand Job, Kissing, Mother, Nipple Play, Succubus", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/81817(1)?v=1686664576632", "https://cdn.glitch.me/43bf1b52-1acd-4635-9e88-afc9baf0e898/81817.mp3?v=1686664659165");
+    pushData(81817, "RJ01065697", "Popura Sawano", "母性の塊!爆乳爆尻サキュバスママと密着あまあまイチャラブエッチ♪温かいフカフカマシュマロボディに優しく包まれて、何度も射精させてもらえちゃう幸せいっぱいの夜♪", "A lump of motherhood! Adhesion to a succubus mom with huge breasts and huge buttocks♪", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/81817(0)?v=1686664556281", "Anal, Big Breasts, Blowjob, Chubby, Facesitting, Hand Job, Kissing, Mother, Nipple Play, Succubus", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/81817(1)?v=1686664576632", "https://cdn.glitch.me/43bf1b52-1acd-4635-9e88-afc9baf0e898/81817.mp3?v=1686664659165");
     pushData(81409, "RJ01058204", "Yuka Hinata", "あまトロ聖女♪～安眠しながらお射精できる♪～あまあま女神官さまの癒したっぷり超密着濃密えっち♪【KU100】", "Ama Toro Holy Maiden ♪ ~ You can ejaculate while sleeping ♪ ~ Amaama Priestess-sama’s healing and super close and intense sex♪", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/81409(0)?v=1686753083043", "ASMR, Big Breasts, Ear Licking, Hand Job", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/81409(1)?v=1686753111440,https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/81409(2)?v=1686753118475,https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/81409(3)?v=1686753145281,https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/81409(4)?v=1686753147949", "https://cdn.glitch.me/43bf1b52-1acd-4635-9e88-afc9baf0e898/81409.mp3?v=1686753544044");
     pushData(61841, "RJ372806", "Narumi Aisaka", "【KU100】彼女の妹からこっそり誘惑されて隠密姉妹丼〜ドMが発覚したお姉ちゃんに逆NTR公認えっちを見せつけちゃえ♪〜", "My Girlfriend’s Younger Sister Secretly Seduced Me To My Secret Sister Bowl ~ Show Off Your Sister Who Has A Masochistic Sex With A Reverse NTR Official Etiquette♪~", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/61841(0)?v=1686753766732", "ASMR, Big Breasts, Breast Sex, Cheating, Ear Licking, Guided Masturbation, Sisters", "https://cdn.glitch.global/43bf1b52-1acd-4635-9e88-afc9baf0e898/61841(1)?v=1686753856222", "https://cdn.glitch.me/43bf1b52-1acd-4635-9e88-afc9baf0e898/61841.mp3?v=1686754336936");
     pushData(72339, "RJ431161", "Kaede Akino", "【ほぼマゾ向け】ヤリチン男の娘アイドルによる強制女装×奴隷調教～【わからせアリ】", "Forced cross-dressing by Yarichin male daughter idol x slave training~", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/63be099d-6e1d-4778-82df-2168e3d437dd.image.png?v=1684207924044", "Anal, ASMR, Blowjob, Nipple Play, Reverse Anal, Trap", "https://cdn.glitch.global/9eb27ab6-a0db-461d-9bbd-628ecc9a6769/72339(1)?v=1684209489588", "https://cdn.glitch.me/9eb27ab6-a0db-461d-9bbd-628ecc9a6769/72339.mp3?v=1684209627530");
@@ -259,20 +259,30 @@
       let listTier1 = database.cvs;
       // console.log(listTier1);
       for(let i=1; i<listTier1.length; i++) {
-        let cv = listTier1[i];
-        let listTier2 = cv.split(",");
+        let cvsToCheck = listTier1[i];
+        let listTier2 = cvsToCheck.split(",");
         for(let j=0; j<listTier2.length; j++) {
-          (listCvToFilter.indexOf(listTier2[j])==-1)?listCvToFilter.push(listTier2[j]):'';
+          let cvToCheck = listTier2[j].trim();
+          (listCvToFilter.indexOf(cvToCheck)==-1)?listCvToFilter.push(cvToCheck):'';
         }
       }
       listCvToFilter.sort();
+      console.log(listCvToFilter);
     }
+
     function buildListTagToFilter() {
       let listTier1 = database.tags;
       // console.log(listTier1);
       for(let i=1; i<listTier1.length; i++) {
-        
-      }      
+        let tagToCheck = listTier1[i];
+        let listTier2 = tagToCheck.split(",");
+        for(let j=0; j<listTier2.length; j++) {
+          let tagToCheck = listTier2[j].trim();
+          (listTagToFilter.indexOf(tagToCheck)==-1 && tagToCheck.length!=0)?listTagToFilter.push(tagToCheck):'';
+        }        
+      }
+      listTagToFilter.sort();
+      console.log(listTagToFilter);
     }
 
 
