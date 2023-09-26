@@ -323,33 +323,34 @@
           }
         } else if (typeToFilter.toLowerCase()=='tag') {
           if(Number.isInteger(valueToFilter)) {
-            return dataProcessing.getData('cv',listToFilter.cvs[valueToFilter]);
+            return dataProcessing.getData('tag',listToFilter.tags[valueToFilter]);
           } else if(typeof valueToFilter === "string") {
-            
-          }
-          for(let i=1; i<database.code.length; i++) {
-            if(database.tags[i].indexOf(valueToFilter) != -1) {
-              code.push(database.code[i]);
-              rjCode.push(database.rjCode[i]);
-              cvs.push(database.cvs[i]);
-              japName.push(database.japName[i]);
-              engName.push(database.engName[i]);
-              thumbnail.push(database.thumbnail[i]);
-              tags.push(database.tags[i]);
-              images.push(database.images[i]);
-              audios.push(database.audios[i]);
-            }                        
-          }  
-          return {
-            code: code,
-            rjCode: rjCode,
-            cvs: cvs,
-            japName: japName,
-            engName: engName,
-            thumbnail: thumbnail,
-            tags: tags,
-            images: images,
-            audios: audios,
+            for(let i=1; i<database.code.length; i++) {
+              if(database.tags[i].indexOf(valueToFilter) != -1) {
+                code.push(database.code[i]);
+                rjCode.push(database.rjCode[i]);
+                cvs.push(database.cvs[i]);
+                japName.push(database.japName[i]);
+                engName.push(database.engName[i]);
+                thumbnail.push(database.thumbnail[i]);
+                tags.push(database.tags[i]);
+                images.push(database.images[i]);
+                audios.push(database.audios[i]);
+              }                        
+            }  
+            return {
+              code: code,
+              rjCode: rjCode,
+              cvs: cvs,
+              japName: japName,
+              engName: engName,
+              thumbnail: thumbnail,
+              tags: tags,
+              images: images,
+              audios: audios,
+            }            
+          } else {
+            return null;
           }
         } else {
           return null;
@@ -359,9 +360,44 @@
           TEST
           dataProcessing.getData('cv',listToFilter.cvs[10]);
           dataProcessing.getData('tag',listToFilter.tags[10]);
+          dataProcessing.getData('cv',10);
+          dataProcessing.getData('tag',10);
       */
       getDataAdvance(listCvToFilter, listTagToFilter) {
-        
+        if()
+        let code      = []; 
+        let rjCode    = []; 
+        let cvs       = [];
+        let japName   = [];
+        let engName   = []; 
+        let thumbnail = [];
+        let tags      = []; 
+        let images    = []; 
+        let audios    = [];
+        for(let i=1; i<database.code.length; i++) {
+          if(listCvToFilter.every(element=>database.cvs[i].includes(element))===true && listTagToFilter.every(element=>database.tags[i].includes(element))===true) {
+            code.push(database.code[i]);
+            rjCode.push(database.rjCode[i]);
+            cvs.push(database.cvs[i]);
+            japName.push(database.japName[i]);
+            engName.push(database.engName[i]);
+            thumbnail.push(database.thumbnail[i]);
+            tags.push(database.tags[i]);
+            images.push(database.images[i]);
+            audios.push(database.audios[i]);            
+          }
+        }
+        return {
+          code: code,
+          rjCode: rjCode,
+          cvs: cvs,
+          japName: japName,
+          engName: engName,
+          thumbnail: thumbnail,
+          tags: tags,
+          images: images,
+          audios: audios,
+        }  
       }
     }
     /*FUNCTION TO PROCESSING DATA*/
