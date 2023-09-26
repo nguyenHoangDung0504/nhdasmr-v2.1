@@ -245,7 +245,9 @@
 //     var db_tags = [0];
 //     var db_images = [0];
 //     var db_audios = [0];  
-  
+
+//PHƯƠNG THỨC XÓA KHOẢNG TRẮNG Ở TRƯỚC/SAU CHUỖI: str.trim();
+    
 /*BUILD NECESSARY LISTS FROM THE DATABASE*/
     /*DEFININTION*/
         var listCvToFilter  = [];
@@ -255,14 +257,22 @@
 
     function buildListCvToFilter() {
       let listTier1 = database.cvs;
-      console.log(listTier1);
+      // console.log(listTier1);
       for(let i=1; i<listTier1.length; i++) {
-        
+        let cv = listTier1[i];
+        let listTier2 = cv.split(",");
+        for(let j=0; j<listTier2.length; j++) {
+          (listCvToFilter.indexOf(listTier2[j])==-1)?listCvToFilter.push(listTier2[j]):'';
+        }
       }
+      listCvToFilter.sort();
     }
     function buildListTagToFilter() {
       let listTier1 = database.tags;
-      console.log(listTier1);
+      // console.log(listTier1);
+      for(let i=1; i<listTier1.length; i++) {
+        
+      }      
     }
 
 
