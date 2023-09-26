@@ -254,38 +254,41 @@
         var listTagToFilter = [];
     /*END DEFINITION*/
 
-
-    function buildListCvToFilter() {
-      let listTier1 = database.cvs;
-      // console.log(listTier1);
-      for(let i=1; i<listTier1.length; i++) {
-        let cvsToCheck = listTier1[i];
-        let listTier2 = cvsToCheck.split(",");
-        for(let j=0; j<listTier2.length; j++) {
-          let cvToCheck = listTier2[j].trim();
-          (listCvToFilter.indexOf(cvToCheck)==-1)?listCvToFilter.push(cvToCheck):'';
+    /*BUILD LIST CVS & TAGS TO FILTER*/
+    (function() {
+        function buildListCvToFilter() {
+          let listTier1 = database.cvs;
+          // console.log(listTier1);
+          for(let i=1; i<listTier1.length; i++) {
+            let cvsToCheck = listTier1[i];
+            let listTier2 = cvsToCheck.split(",");
+            for(let j=0; j<listTier2.length; j++) {
+              let cvToCheck = listTier2[j].trim();
+              (listCvToFilter.indexOf(cvToCheck)==-1)?listCvToFilter.push(cvToCheck):'';
+            }
+          }
+          listCvToFilter.sort();
+          console.log(listCvToFilter);
         }
-      }
-      listCvToFilter.sort();
-      console.log(listCvToFilter);
-    }
 
-    function buildListTagToFilter() {
-      let listTier1 = database.tags;
-      // console.log(listTier1);
-      for(let i=1; i<listTier1.length; i++) {
-        let tagToCheck = listTier1[i];
-        let listTier2 = tagToCheck.split(",");
-        for(let j=0; j<listTier2.length; j++) {
-          let tagToCheck = listTier2[j].trim();
-          (listTagToFilter.indexOf(tagToCheck)==-1 && tagToCheck.length!=0)?listTagToFilter.push(tagToCheck):'';
-        }        
-      }
-      listTagToFilter.sort();
-      console.log(listTagToFilter);
-    }
+        function buildListTagToFilter() {
+          let listTier1 = database.tags;
+          // console.log(listTier1);
+          for(let i=1; i<listTier1.length; i++) {
+            let tagToCheck = listTier1[i];
+            let listTier2 = tagToCheck.split(",");
+            for(let j=0; j<listTier2.length; j++) {
+              let tagToCheck = listTier2[j].trim();
+              (listTagToFilter.indexOf(tagToCheck)==-1 && tagToCheck.length!=0)?listTagToFilter.push(tagToCheck):'';
+            }        
+          }
+          listTagToFilter.sort();
+          console.log(listTagToFilter);
+        }
+        buildListCvToFilter();
+        buildListTagToFilter();      
+    })();
+    /*END BUILD LIST CVS & TAGS TO FILTER*/
 
 
-    buildListCvToFilter();
-    buildListTagToFilter();
 /*END BUILD NECESSARY LISTS FROM THE DATABASE*/
