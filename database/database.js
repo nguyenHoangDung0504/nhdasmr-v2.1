@@ -278,9 +278,8 @@
 
     /*FUNCTION TO PROCESSING DATA*/
     var dataProcessing = {
-      duplicateChecking(rjCodeToCheck) {
-        return (database.rjCode.indexOf(rjCodeToCheck.trim())!=-1)?true:false;
-      },
+      duplicateChecking(rjCodeToCheck) {return (database.rjCode.indexOf(rjCodeToCheck.trim())!=-1)?true:false;},
+      
       getData(typeToFilter, valueToFilter) {
         let code      = []; 
         let rjCode    = []; 
@@ -317,8 +316,8 @@
             audios: audios,
           }
         } else if (typeToFilter.toLowerCase()=='tag') {
-          for(let i=1; i<db_code.length; i++) {
-            if(database.cvs[i].indexOf(valueToFilter) != -1) {
+          for(let i=1; i<database.code.length; i++) {
+            if(database.tags[i].indexOf(valueToFilter) != -1) {
               code.push(database.code[i]);
               rjCode.push(database.rjCode[i]);
               cvs.push(database.cvs[i]);
@@ -345,7 +344,8 @@
           return null;
         }
       },
-      getDataAdvance(cvsToFilter, tagsToFilter) {
+      
+      getDataAdvance(listCvToFilter, listTagToFilter) {
         
       }
     }
