@@ -254,6 +254,17 @@
           cvs:  [],
           tags: []
         };
+        var dataToUse = {
+          code:       db_code,
+          rjCode:     db_rjCode,
+          cvs:        db_cvs,
+          japName:    db_japName,
+          engName:    db_engName,
+          thumbnail:  db_thumbnail,
+          tags:       db_tags,
+          images:     db_images,
+          audios:     db_audios
+        };
     /*END DEFINITION*/
 
     /*BUILD LIST CVS & TAGS TO FILTER*/
@@ -289,15 +300,26 @@
         // console.table(listToFilter);     
     })();
     /*END BUILD LIST CVS & TAGS TO FILTER*/
+    
+    /*TRANSFORM DATA FROM DATABASE*/
+    
+    /*END TRANSFORM DATA FROM DATABASE*/
 
-    /*FUNCTION TO PROCESSING DATA FROM DATABASE*/
+    /*FUNCTION TO PROCESSING DATA*/
     var dataProcessing = {
-      duplicateChecking() {
-        
+      duplicateChecking(valueToCheck) {
+        return (database.rjCode.indexOf(valueToCheck.trim())!=-1)?true:false;
       },
-      getData(cvOrTag, valueToFilter) {
-        
+      getData(typeToFilter, valueToFilter) {
+        let code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios = [0];
+        if(typeToFilter.toLowerCase()=='cv') {
+          
+        } else if (typeToFilter.toLowerCase()=='tag') {
+          
+        } else {
+          return null;
+        }
       }
     }
-    /*FUNCTION TO PROCESSING DATA FROM DATABASE*/
+    /*FUNCTION TO PROCESSING DATA*/
 /*END BUILD NECESSARY LISTS FROM THE DATABASE*/
