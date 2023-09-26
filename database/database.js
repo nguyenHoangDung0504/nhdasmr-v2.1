@@ -291,31 +291,42 @@
         let images    = []; 
         let audios    = [];
         if (typeToFilter.toLowerCase()=='cv') {
-          for(let i=1; i<database.code.length; i++) {
-            if(database.cvs[i].indexOf(valueToFilter) != -1) {
-              code.push(database.code[i]);
-              rjCode.push(database.rjCode[i]);
-              cvs.push(database.cvs[i]);
-              japName.push(database.japName[i]);
-              engName.push(database.engName[i]);
-              thumbnail.push(database.thumbnail[i]);
-              tags.push(database.tags[i]);
-              images.push(database.images[i]);
-              audios.push(database.audios[i]);
+          if(Number.isInteger(valueToFilter)) {
+            return dataProcessing.getData('cv',listToFilter.cvs[valueToFilter]);
+          } else if(typeof valueToFilter === "string") {
+            for(let i=1; i<database.code.length; i++) {
+              if(database.cvs[i].indexOf(valueToFilter) != -1) {
+                code.push(database.code[i]);
+                rjCode.push(database.rjCode[i]);
+                cvs.push(database.cvs[i]);
+                japName.push(database.japName[i]);
+                engName.push(database.engName[i]);
+                thumbnail.push(database.thumbnail[i]);
+                tags.push(database.tags[i]);
+                images.push(database.images[i]);
+                audios.push(database.audios[i]);
+              }
             }
-          }
-          return {
-            code: code,
-            rjCode: rjCode,
-            cvs: cvs,
-            japName: japName,
-            engName: engName,
-            thumbnail: thumbnail,
-            tags: tags,
-            images: images,
-            audios: audios,
+            return {
+              code: code,
+              rjCode: rjCode,
+              cvs: cvs,
+              japName: japName,
+              engName: engName,
+              thumbnail: thumbnail,
+              tags: tags,
+              images: images,
+              audios: audios,
+            }
+          } else {
+            return null
           }
         } else if (typeToFilter.toLowerCase()=='tag') {
+          if(Number.isInteger(valueToFilter)) {
+            return dataProcessing.getData('cv',listToFilter.cvs[valueToFilter]);
+          } else if(typeof valueToFilter === "string") {
+            
+          }
           for(let i=1; i<database.code.length; i++) {
             if(database.tags[i].indexOf(valueToFilter) != -1) {
               code.push(database.code[i]);
@@ -344,7 +355,11 @@
           return null;
         }
       },
-      
+      /*
+          TEST
+          dataProcessing.getData('cv',listToFilter.cvs[10]);
+          dataProcessing.getData('tag',listToFilter.tags[10]);
+      */
       getDataAdvance(listCvToFilter, listTagToFilter) {
         
       }
