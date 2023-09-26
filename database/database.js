@@ -282,23 +282,30 @@
         return (database.rjCode.indexOf(rjCodeToCheck.trim())!=-1)?true:false;
       },
       getData(typeToFilter, valueToFilter) {
-        let code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios = [0];
+        let code      = []; 
+        let rjCode    = []; 
+        let cvs       = [];
+        let japName   = [];
+        let engName   = []; 
+        let thumbnail = [];
+        let tags      = []; 
+        let images    = []; 
+        let audios    = [];
         if (typeToFilter.toLowerCase()=='cv') {
           for(let i=1; i<database.code.length; i++) {
             if(database.cvs[i].indexOf(valueToFilter) != -1) {
               code.push(database.code[i]);
               rjCode.push(database.rjCode[i]);
               cvs.push(database.cvs[i]);
-              .push(database.[i]);
-              .push(database.[i]);
-              .push(database.[i]);
-              .push(database.[i]);
-              .push(database.[i]);
-              .push(database.[i]);
+              japName.push(database.japName[i]);
+              engName.push(database.engName[i]);
+              thumbnail.push(database.thumbnail[i]);
+              tags.push(database.tags[i]);
+              images.push(database.images[i]);
+              audios.push(database.audios[i]);
             }
-            
           }
-          let resultSet = {
+          return {
             code: code,
             rjCode: rjCode,
             cvs: cvs,
@@ -309,11 +316,31 @@
             images: images,
             audios: audios,
           }
-          return resultSet;
         } else if (typeToFilter.toLowerCase()=='tag') {
           for(let i=1; i<db_code.length; i++) {
-
-          }          
+            if(database.cvs[i].indexOf(valueToFilter) != -1) {
+              code.push(database.code[i]);
+              rjCode.push(database.rjCode[i]);
+              cvs.push(database.cvs[i]);
+              japName.push(database.japName[i]);
+              engName.push(database.engName[i]);
+              thumbnail.push(database.thumbnail[i]);
+              tags.push(database.tags[i]);
+              images.push(database.images[i]);
+              audios.push(database.audios[i]);
+            }                        
+          }  
+          return {
+            code: code,
+            rjCode: rjCode,
+            cvs: cvs,
+            japName: japName,
+            engName: engName,
+            thumbnail: thumbnail,
+            tags: tags,
+            images: images,
+            audios: audios,
+          }
         } else {
           return null;
         }
