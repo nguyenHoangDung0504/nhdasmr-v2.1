@@ -262,8 +262,7 @@
           let listTier1 = database.cvs;
           // console.log(listTier1);
           for(let i=1; i<listTier1.length; i++) {
-            let cvsToCheck = listTier1[i];
-            let listTier2 = cvsToCheck.split(",");
+            let listTier2 = listTier1[i].split(",");
             for(let j=0; j<listTier2.length; j++) {
               let cvToCheck = listTier2[j].trim();
               (listToFilter.cvs.indexOf(cvToCheck)==-1 && cvToCheck.length>=2)?listToFilter.cvs.push(cvToCheck):'';
@@ -275,8 +274,7 @@
           let listTier1 = database.tags;
           // console.log(listTier1);
           for(let i=1; i<listTier1.length; i++) {
-            let tagToCheck = listTier1[i];
-            let listTier2 = tagToCheck.split(",");
+            let listTier2 = listTier1[i].split(",");
             for(let j=0; j<listTier2.length; j++) {
               let tagToCheck = listTier2[j].trim();
               (listToFilter.tags.indexOf(tagToCheck)==-1 && tagToCheck.length>=2)?listToFilter.tags.push(tagToCheck):'';
@@ -286,14 +284,14 @@
         }
         buildListCvToFilter();
         buildListTagToFilter(); 
-        console.log(listToFilter);     
+        // console.log(listToFilter);     
     })();
     /*END BUILD LIST CVS & TAGS TO FILTER*/
 
     /*FUNCTION TO PROCESSING DATA*/
     var dataProcessing = {
-      duplicateChecking(valueToCheck) {
-        return (database.rjCode.indexOf(valueToCheck.trim())!=-1)?true:false;
+      duplicateChecking(rjCodeToCheck) {
+        return (database.rjCode.indexOf(rjCodeToCheck.trim())!=-1)?true:false;
       },
       getData(typeToFilter, valueToFilter) {
         let code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios = [0];
