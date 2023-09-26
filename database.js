@@ -286,7 +286,7 @@
         }
         buildListCvToFilter();
         buildListTagToFilter(); 
-        console.table(listToFilter);     
+        console.log(listToFilter);     
     })();
     /*END BUILD LIST CVS & TAGS TO FILTER*/
 
