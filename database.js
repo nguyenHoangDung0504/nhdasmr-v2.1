@@ -14,16 +14,16 @@
     function pushData(code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios) {
       db_code.push(code);
       db_rjCode.push(rjCode);
-      db_cvs.push(cvs.replace(' ',''));
+      db_cvs.push(cvs.replaceAll(' ','').trim());
       db_japName.push(japName);
       db_engName.push(engName);
       db_thumbnail.push(thumbnail);
-      db_tags.push(tags.replace(' ',''));
-      db_images.push(images.replace(' ',''));
-      db_audios.push(audios.replace(' ',''));
+      db_tags.push(tags.replaceAll(' ','').trim());
+      db_images.push(images.replaceAll(' ','').trim());
+      db_audios.push(audios.replaceAll(' ','').trim());
     }
 
-    pushData(1, "????????", "Nightfawn", "", "A Virgin Visits A Monster Brothel", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ddf755fb-9863-433a-8cf2-4f0dcdc6b3db.image.png?v=1691559673421", "Blowjob, English, Handjob, Milf, Succubus, Tailjob", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ec161a3c-0672-45c8-bfa7-688fb86f7abb.image.png?v=1691559602418", "https://cdn.glitch.me/eefb1a2d-90ba-478b-b95a-dd50511909fe/SpankBang.com_mom%2Basmr%2Bwuhu_720p.mp4?v=1681911404572");
+    pushData(1, "????????", "Nightfawn", "", "A Virgin Visits A Monster Brothel", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ddf755fb-9863-433a-8cf2-4f0dcdc6b3db.image.png?v=1691559673421", "   Blowjob, English, Handjob, Milf, Succubus, Tailjob", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ec161a3c-0672-45c8-bfa7-688fb86f7abb.image.png?v=1691559602418", "https://cdn.glitch.me/eefb1a2d-90ba-478b-b95a-dd50511909fe/SpankBang.com_mom%2Basmr%2Bwuhu_720p.mp4?v=1681911404572");
     pushData(19178, "RJ276886", "Eikyuu", "熟れた女12:友だちのお母さん 2人目", "Ripe Woman 12: Another Friend’s Mother", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/19178(0)?v=1681912840969", "Blowjob, Housewife, Married Woman, Milf", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/c9354b92-f6a5-4ee8-b462-2272442be003.image.png?v=1681912840969", "https://cdn.glitch.me/8a12e68a-154b-4206-a6d7-dadd1141b198/Ripe%20Woman%2012_%20Another%20Friend's%20Mother%20%E2%80%93%20Japanese%20ASMR_1_128k.mp3?v=1682074183773");
     pushData(51602, "RJ332705", "Narumi Aisaka", "寝ている間にツンデレ彼女に夜這いされちゃう音声_英語版", "While You Sleep, You Tsundere Visits You in Bed", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/51602(0)?v=1682677326878", "ASMR, Ear Licking, English, Tsundere", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ca7ec869-cb99-45ab-af7b-2196f01f1d88.image.png?v=1681913140339,https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/a9e7ec35-1494-436e-a7fe-5e0f07a77845.image.png?v=1687960681163", "https://cdn.glitch.me/8a12e68a-154b-4206-a6d7-dadd1141b198/While%20You%20Sleep%2C%20You%20Tsundere%20Visits%20You%20in%20Bed_(%E5%AF%9D%E3%81%A6%E3%81%84%E3%82%8B%E9%96%93%E3%81%AB%E3%83%84%E3%83%B3%E3%83%87%E3%83%AC%E5%BD%BC%E5%A5%B3%E3%81%AB%E5%A4%9C%E9%80%99%E3%81%84%E3%81%95%E3%82%8C%E3%81%A1%E3%82%83%E3%81%86%E9%9F%B3%E5%A3%B0_%E8%8B%B1%E8%AA%9E%E7%89%88)%20%E2%80%93%20Japanese%20ASMR_1_128k.mp3?v=1682074629386");
     pushData(48817, "RJ319007", "Narumi Aisaka", "純愛おまんこセラピー ～その満たされなさ、おまんこセラピストが解消します♪～", "Pure Love Pussy Therapy ~ A Pussy Therapist Will Relieve That Unfulfilled Feeling ♪~", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/48817(0)?v=1682677774962", "Blowjob, Hand Job", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/RJ319007(1).jpg?v=1682074301830", "https://cdn.glitch.me/8a12e68a-154b-4206-a6d7-dadd1141b198/%E7%B4%94%E6%84%9B%E3%81%8A%E3%81%BE%E3%82%93%E3%81%93%E3%82%BB%E3%83%A9%E3%83%94%E3%83%BC%20%EF%BD%9E%E3%81%9D%E3%81%AE%E6%BA%80%E3%81%9F%E3%81%95%E3%82%8C%E3%81%AA%E3%81%95%E3%80%81%E3%81%8A%E3%81%BE%E3%82%93%E3%81%93%E3%82%BB%E3%83%A9%E3%83%94%E3%82%B9%E3%83%88%E3%81%8C%E8%A7%A3%E6%B6%88%E3%81%97%E3%81%BE%E3%81%99%E2%99%AA%EF%BD%9E%20%E2%80%93%20Japanese%20ASMR_1_128k.mp3?v=1682074469531");
@@ -113,7 +113,7 @@
     pushData(80247, "RJ01053773", "Narumi Aisaka", "即ハメ風俗 みつどもえ～隠れドスケベが働く魅惑の店にて〜", "Immediate Sex Mitsudomoe〜At A Fascinating Shop Where A Hidden Lewd Woman Works〜", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/80247(0)?v=1688137202069", "ASMR, Big Breasts, Ear Licking, Student", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/80247(1)?v=1688137206364,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/80247(2)?v=1688137208160", "https://cdn.glitch.me/cbd0ac37-5557-4012-b498-643e6f89d54c/80247.mp3?v=1688137539150");
     pushData(79781, "RJ01025790", "Haruru Akiyama", "【sample動画付き】僕らは僕らためにNTR報告することにした ～彼女はしきたりで親が決めたドラ息子とセックスをする～【バイノーラル】", "We Decided To Report NTR For Us～She Has Sex With The Dora Son That Her Parents Decided By Tradition～", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/79781(0)?v=1688137574084", "Blowjob, Cheating", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/79781(1)?v=1688137581122,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/79781(2)?v=1688137577194", "https://cdn.glitch.me/cbd0ac37-5557-4012-b498-643e6f89d54c/79781.mp3?v=1688137971039");
     pushData(95894, "RJ01045739", "Tsubame Yuzuki", "【NTR視点付き】クール委員長はドスケベオナホまんこに堕とされたい【アヘイき・オホ声・マスクフェラ他】", "The Cool Committee Chair Wants To Be Fallen Into A Horny Masturbation Manko", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/95894(0)?v=1688138133857", "Blowjob, Dirty Talk, Glasses, Hand Job, School Uniform, Student", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/95894(1)?v=1688138136020", "https://cdn.glitch.me/cbd0ac37-5557-4012-b498-643e6f89d54c/95894.mp3?v=1688138402007,https://cdn.glitch.me/cbd0ac37-5557-4012-b498-643e6f89d54c/95894(1).mp3?v=1688138417131");
-    pushData(54829, "RJ339029", "Yuka Hinata,Narumi Aisaka,Kaede Akino", "放課後おま〇こdays ～むっつりドスケベJK3人との分からせおま〇こラブコメディ～", "After School Pussy Days ~A Pussy Love Comedy with 3 Secretly Perverse JKs~", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/54829(0)?v=1688304193182", "Blowjob, Dirty Talk, Ear Licking, Hand Job, ", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/54829(1)?v=1688304194482,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/54829(2)?v=1688304197400", "https://cdn.glitch.me/cbd0ac37-5557-4012-b498-643e6f89d54c/54829track1.mp3?v=1688304440826,https://cdn.glitch.me/cbd0ac37-5557-4012-b498-643e6f89d54c/54829track2.mp3?v=1688304457084,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/54829omake.mp3?v=1688304412879");
+    pushData(54829, "RJ339029", "Yuka Hinata,Narumi Aisaka,Kaede Akino", "放課後おま〇こdays ～むっつりドスケベJK3人との分からせおま〇こラブコメディ～", "After School Pussy Days ~A Pussy Love Comedy with 3 Secretly Perverse JKs~", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/54829(0)?v=1688304193182", "Blowjob, Dirty Talk, Ear Licking, Hand Job", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/54829(1)?v=1688304194482,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/54829(2)?v=1688304197400", "https://cdn.glitch.me/cbd0ac37-5557-4012-b498-643e6f89d54c/54829track1.mp3?v=1688304440826,https://cdn.glitch.me/cbd0ac37-5557-4012-b498-643e6f89d54c/54829track2.mp3?v=1688304457084,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/54829omake.mp3?v=1688304412879");
     pushData(96253, "RJ01060878", "MOMOKA", "【甘オホ】好きな人のために弟くんと甘オホエッチをしちゃうクールでママみのある姉", "A cool and mommy older sister who has sweet sex with her younger brother for someone she likes", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(0)?v=1688304788995", "Blowjob, Breast Feeding, Ear Licking, Fingering, Hand Job, Incest, Kissing, Nipple Licking, Oneesan, Thighjob", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(1)?v=1688304790676,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(2)?v=1688304844986,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(3)?v=1688304831555,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(4)?v=1688304800785,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(5)?v=1688305551689,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(6)?v=1688305615801,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(7)?v=1688305637655,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(8)?v=1688304793816,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(9)?v=1688305675890,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(10)?v=1688304839353,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(11)?v=1688304827829,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/96253(12)?v=1688304797169", "https://cdn.glitch.me/cbd0ac37-5557-4012-b498-643e6f89d54c/96253.mp3?v=1688305210698");
     pushData(95970, "RJ01064065", "Kosuzu Momoka", "【期間限定】夫に浮気された隣に住む爆乳美人妻の仕返しえっち～強制NTR中出しでおちんぽ上書き～", "Revenge Etch Of A Beautiful Married Woman With Colossal Tits Who Lives Next Door Who Was Cheated On By Her Husband ~ Overwritten Penis With Forced NTR Creampie ~", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/95970(0)?v=1688306020253", "Big Breasts, Cheating, Ear Licking, Hand Job, Married Woman, Milf", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/95970(1)?v=1688306023756", "https://cdn.glitch.me/cbd0ac37-5557-4012-b498-643e6f89d54c/95970.mp3?v=1688306196822,https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/95970omake.mp3?v=1688306201477");
     pushData(95930, "RJ01060123", "ありがた～い私", "むっつりドスケベ新妻がお隣のおじさんにおまんこを可愛がってもらう話【おほ声/飲ザーゲップ】", "A story about a sullen new wife who gets her pussy loved by the man next door", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/95930(0)?v=1688306413126", "Big Breasts, Blowjob, Married Woman, Milf, Peeing Oneself, Smell Fetish", "https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/95930(1)?v=1688306421948", "https://cdn.glitch.me/cbd0ac37-5557-4012-b498-643e6f89d54c/95930.mp3?v=1688306595250");
@@ -254,17 +254,6 @@
           cvs:  [],
           tags: []
         };
-        var dataToUse = {
-          code:       db_code,
-          rjCode:     db_rjCode,
-          cvs:        db_cvs,
-          japName:    db_japName,
-          engName:    db_engName,
-          thumbnail:  db_thumbnail,
-          tags:       db_tags,
-          images:     db_images,
-          audios:     db_audios
-        };
     /*END DEFINITION*/
 
     /*BUILD LIST CVS & TAGS TO FILTER*/
@@ -291,6 +280,9 @@
             for(let j=0; j<listTier2.length; j++) {
               let tagToCheck = listTier2[j].trim();
               (listToFilter.tags.indexOf(tagToCheck)==-1)?listToFilter.tags.push(tagToCheck):'';
+              if(tagToCheck.length==0) {
+                alert(db_code[i])
+              }
             }        
           }
           listToFilter.tags.sort();
@@ -300,12 +292,6 @@
         console.table(listToFilter);     
     })();
     /*END BUILD LIST CVS & TAGS TO FILTER*/
-    
-    /*TRANSFORM DATA FROM DATABASE*/
-    (function(){
-      
-    })();
-    /*END TRANSFORM DATA FROM DATABASE*/
 
     /*FUNCTION TO PROCESSING DATA*/
     var dataProcessing = {
@@ -314,13 +300,20 @@
       },
       getData(typeToFilter, valueToFilter) {
         let code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios = [0];
-        if(typeToFilter.toLowerCase()=='cv') {
-          
+        if (typeToFilter.toLowerCase()=='cv') {
+          for(let i=1; i<db_code.length; i++) {
+            
+          }
         } else if (typeToFilter.toLowerCase()=='tag') {
-          
+          for(let i=1; i<db_code.length; i++) {
+
+          }          
         } else {
           return null;
         }
+      },
+      getDataAdvance(cvsToFilter, tagsToFilter) {
+        
       }
     }
     /*FUNCTION TO PROCESSING DATA*/
