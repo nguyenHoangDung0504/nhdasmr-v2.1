@@ -14,13 +14,13 @@
     function pushData(code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios) {
       db_code.push(code);
       db_rjCode.push(rjCode);
-      db_cvs.push(cvs);
+      db_cvs.push(cvs.replace(' ',''));
       db_japName.push(japName);
       db_engName.push(engName);
       db_thumbnail.push(thumbnail);
-      db_tags.push(tags);
-      db_images.push(images);
-      db_audios.push(audios);
+      db_tags.push(tags.replace(' ',''));
+      db_images.push(images.replace(' ',''));
+      db_audios.push(audios.replace(' ',''));
     }
 
     pushData(1, "????????", "Nightfawn", "", "A Virgin Visits A Monster Brothel", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ddf755fb-9863-433a-8cf2-4f0dcdc6b3db.image.png?v=1691559673421", "Blowjob, English, Handjob, Milf, Succubus, Tailjob", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ec161a3c-0672-45c8-bfa7-688fb86f7abb.image.png?v=1691559602418", "https://cdn.glitch.me/eefb1a2d-90ba-478b-b95a-dd50511909fe/SpankBang.com_mom%2Basmr%2Bwuhu_720p.mp4?v=1681911404572");
@@ -277,7 +277,7 @@
             let listTier2 = cvsToCheck.split(",");
             for(let j=0; j<listTier2.length; j++) {
               let cvToCheck = listTier2[j].trim();
-              (listToFilter.cvs.indexOf(cvToCheck)==-1 && cvToCheck.length!=0)?listToFilter.cvs.push(cvToCheck):'';
+              (listToFilter.cvs.indexOf(cvToCheck)==-1)?listToFilter.cvs.push(cvToCheck):'';
             }
           }
           listToFilter.cvs.sort();
@@ -290,19 +290,21 @@
             let listTier2 = tagToCheck.split(",");
             for(let j=0; j<listTier2.length; j++) {
               let tagToCheck = listTier2[j].trim();
-              (listToFilter.tags.indexOf(tagToCheck)==-1 && tagToCheck.length!=0)?listToFilter.tags.push(tagToCheck):'';
+              (listToFilter.tags.indexOf(tagToCheck)==-1)?listToFilter.tags.push(tagToCheck):'';
             }        
           }
           listToFilter.tags.sort();
         }
         buildListCvToFilter();
         buildListTagToFilter(); 
-        // console.table(listToFilter);     
+        console.table(listToFilter);     
     })();
     /*END BUILD LIST CVS & TAGS TO FILTER*/
     
     /*TRANSFORM DATA FROM DATABASE*/
-    
+    (function(){
+      
+    })();
     /*END TRANSFORM DATA FROM DATABASE*/
 
     /*FUNCTION TO PROCESSING DATA*/
