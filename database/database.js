@@ -364,7 +364,11 @@
           dataProcessing.getData('tag',10);
       */
       getDataAdvance(listCvToFilter, listTagToFilter) {
-        if()
+        if(Number.isNumber(listCvToFilter)===true && list) {
+          
+        } else
+        listCvToFilter = (Array.isArray(listCvToFilter)===false)?[listCvToFilter]:listCvToFilter;
+        listTagToFilter = (Array.isArray(listTagToFilter)===false)?[listTagToFilter]:listTagToFilter;
         let code      = []; 
         let rjCode    = []; 
         let cvs       = [];
@@ -374,6 +378,7 @@
         let tags      = []; 
         let images    = []; 
         let audios    = [];
+        let change = 0;
         for(let i=1; i<database.code.length; i++) {
           if(listCvToFilter.every(element=>database.cvs[i].includes(element))===true && listTagToFilter.every(element=>database.tags[i].includes(element))===true) {
             code.push(database.code[i]);
@@ -384,10 +389,11 @@
             thumbnail.push(database.thumbnail[i]);
             tags.push(database.tags[i]);
             images.push(database.images[i]);
-            audios.push(database.audios[i]);            
+            audios.push(database.audios[i]);   
+            change++;
           }
         }
-        return {
+        return (change!=0)?{
           code: code,
           rjCode: rjCode,
           cvs: cvs,
@@ -397,7 +403,7 @@
           tags: tags,
           images: images,
           audios: audios,
-        }  
+        }:null;  
       }
     }
     /*FUNCTION TO PROCESSING DATA*/
