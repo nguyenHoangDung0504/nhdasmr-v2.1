@@ -15,7 +15,7 @@ let links=[
     "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/41099(0)?v=1682680447902",
     "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/72371(0)?v=1682684914072",
     "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/45123(0)?v=1682685003784",
-    "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/76230?v=1682263301645",
+    "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/76230(0)?v=1682263301645",
     "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/74842(0)?v=1682685123660",
     "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/71789(0)?v=1682685285699",
     "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/77079(0)?v=1682685355003",
@@ -168,50 +168,6 @@ let links=[
     "https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/75252(0)?v=1693796411443",
     "https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/53311(0)?v=1693795264955",
     "https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/98389(0)?v=1693799352188",
-    "https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/88888(0)?v=1694502918272",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
+    "https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/88888(0)?v=1694502918272"
 ]
 
-function getCodeFromLink(link) {
-  const start = link.lastIndexOf('/') + 1;
-  const end = link.indexOf('(');
-  const rs = link.substring(start, end);
-  const n = Number(link.substring(start, end));
-  console.log(rs+"   "+n);
-  // return link.substring(start, end);
-}
-
-let codes=[0, 1];
-links.forEach((ele)=>{
-  getCodeFromLink(ele); 
-});
