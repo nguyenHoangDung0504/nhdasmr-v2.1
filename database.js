@@ -233,7 +233,7 @@
       tags:       db_tags,
       images:     db_images,
       audios:     db_audios
-    }
+    };
 /*END DATABASE OBJECT*/
     
 //     var db_code = [0];
@@ -253,9 +253,7 @@
         var listToFilter = {
           cvs:  [],
           tags: []
-        }
-        var listCvToFilter  = listToFilter.cvs;
-        var listTagToFilter = listToFilter.tags;
+        };
     /*END DEFINITION*/
 
     /*BUILD LIST CVS & TAGS TO FILTER*/
@@ -273,7 +271,6 @@
           }
           listToFilter.cvs.sort();
         }
-
         function buildListTagToFilter() {
           let listTier1 = database.tags;
           // console.log(listTier1);
@@ -287,11 +284,20 @@
           }
           listToFilter.tags.sort();
         }
-        console.table(listToFilter);
         buildListCvToFilter();
-        buildListTagToFilter();      
+        buildListTagToFilter(); 
+        // console.table(listToFilter);     
     })();
     /*END BUILD LIST CVS & TAGS TO FILTER*/
 
-
+    /*FUNCTION TO PROCESSING DATA FROM DATABASE*/
+    var dataProcessing = {
+      duplicateChecking() {
+        
+      },
+      getData(cvOrTag, valueToFilter) {
+        
+      }
+    }
+    /*FUNCTION TO PROCESSING DATA FROM DATABASE*/
 /*END BUILD NECESSARY LISTS FROM THE DATABASE*/
