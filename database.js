@@ -250,8 +250,12 @@
     
 /*BUILD NECESSARY LISTS FROM THE DATABASE*/
     /*DEFININTION*/
-        var listCvToFilter  = [];
-        var listTagToFilter = [];
+        var listToFilter = {
+          cvs:  [],
+          tags: []
+        }
+        var listCvToFilter  = listToFilter.cvs;
+        var listTagToFilter = listToFilter.tags;
     /*END DEFINITION*/
 
     /*BUILD LIST CVS & TAGS TO FILTER*/
@@ -264,11 +268,10 @@
             let listTier2 = cvsToCheck.split(",");
             for(let j=0; j<listTier2.length; j++) {
               let cvToCheck = listTier2[j].trim();
-              (listCvToFilter.indexOf(cvToCheck)==-1)?listCvToFilter.push(cvToCheck):'';
+              (listToFilter.cvs.indexOf(cvToCheck)==-1 && cvToCheck.length!=0)?listToFilter.cvs.push(cvToCheck):'';
             }
           }
-          listCvToFilter.sort();
-          console.log(listCvToFilter);
+          listToFilter.cvs.sort();
         }
 
         function buildListTagToFilter() {
@@ -279,12 +282,12 @@
             let listTier2 = tagToCheck.split(",");
             for(let j=0; j<listTier2.length; j++) {
               let tagToCheck = listTier2[j].trim();
-              (listTagToFilter.indexOf(tagToCheck)==-1 && tagToCheck.length!=0)?listTagToFilter.push(tagToCheck):'';
+              (listToFilter.tags.indexOf(tagToCheck)==-1 && tagToCheck.length!=0)?listToFilter.tags.push(tagToCheck):'';
             }        
           }
-          listTagToFilter.sort();
-          console.log(listTagToFilter);
+          listToFilter.tags.sort();
         }
+        console.table(listToFilter);
         buildListCvToFilter();
         buildListTagToFilter();      
     })();
