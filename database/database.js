@@ -279,7 +279,6 @@
     /*FUNCTION TO PROCESSING DATA*/
     var dataProcessing = {
       duplicateChecking(rjCodeToCheck) {return (database.rjCode.indexOf(rjCodeToCheck.trim())!=-1)?true:false;},
-      
       getData(typeToFilter, valueToFilter) {
         let code      = []; 
         let rjCode    = []; 
@@ -364,9 +363,16 @@
           dataProcessing.getData('tag',10);
       */
       getDataAdvance(listCvToFilter, listTagToFilter) {
-        if(Number.isNumber(listCvToFilter)===true && list) {
-          
-        } else
+        if(Number.isInteger(listCvToFilter)===true && listTagToFilter=='') {
+          console.log("Filtered - CV:"+listToFilter.cvs[listCvToFilter]);
+          return dataProcessing.getDataAdvance(listToFilter.cvs[listCvToFilter], '');
+        } else if(Number.isInteger(listCvToFilter=='' && listTagToFilter)===true) {
+          console.log("Filtered - Tag:"+listToFilter.tags[listTagToFilter]);
+          return dataProcessing.getDataAdvance('', listToFilter.tags[listTagToFilter]);
+        } else if(Number.isInteger(listCvToFilter)===true && Number.isInteger(listTagToFilter)===true) {
+          console.log("Filtered - CV:"+listToFilter.cvs[listCvToFilter]+"   Tag:"+listToFilter.tags[listTagToFilter]);
+          return dataProcessing.getDataAdvance(listToFilter.cvs[listCvToFilter], listToFilter.tags[listTagToFilter]);
+        }
         listCvToFilter = (Array.isArray(listCvToFilter)===false)?[listCvToFilter]:listCvToFilter;
         listTagToFilter = (Array.isArray(listTagToFilter)===false)?[listTagToFilter]:listTagToFilter;
         let code      = []; 
