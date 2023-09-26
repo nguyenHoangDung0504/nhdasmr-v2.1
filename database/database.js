@@ -1,13 +1,13 @@
 /*DATA OF DATABASE*/
-    var db_code       = [0];
-    var db_rjCode     = [0];
-    var db_cvs        = [0];
-    var db_japName    = [0];
-    var db_engName    = [0];
-    var db_thumbnail  = [0];
-    var db_tags       = [0];
-    var db_images     = [0];
-    var db_audios     = [0];
+    var db_code       = [];
+    var db_rjCode     = [];
+    var db_cvs        = [];
+    var db_japName    = [];
+    var db_engName    = [];
+    var db_thumbnail  = [];
+    var db_tags       = [];
+    var db_images     = [];
+    var db_audios     = [];
 /*END DATA OF DATABASE*/
 
 /*ADD DATA TO DATABASE*/
@@ -236,18 +236,6 @@
     };
 /*END DATABASE OBJECT*/
     
-//     var db_code = [0];
-//     var db_rjCode = [0];
-//     var db_cvs = [0];
-//     var db_japName = [0];
-//     var db_engName = [0];
-//     var db_thumbnail = [0];
-//     var db_tags = [0];
-//     var db_images = [0];
-//     var db_audios = [0];  
-
-//PHƯƠNG THỨC XÓA KHOẢNG TRẮNG Ở TRƯỚC/SAU CHUỖI: str.trim();
-    
 /*BUILD NECESSARY LISTS FROM THE DATABASE*/
     /*DEFININTION*/
         var listToFilter = {
@@ -296,9 +284,32 @@
       getData(typeToFilter, valueToFilter) {
         let code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios = [0];
         if (typeToFilter.toLowerCase()=='cv') {
-          for(let i=1; i<db_code.length; i++) {
+          for(let i=1; i<database.code.length; i++) {
+            if(database.cvs[i].indexOf(valueToFilter) != -1) {
+              code.push(database.code[i]);
+              rjCode.push(database.rjCode[i]);
+              cvs.push(database.cvs[i]);
+              .push(database.[i]);
+              .push(database.[i]);
+              .push(database.[i]);
+              .push(database.[i]);
+              .push(database.[i]);
+              .push(database.[i]);
+            }
             
           }
+          let resultSet = {
+            code: code,
+            rjCode: rjCode,
+            cvs: cvs,
+            japName: japName,
+            engName: engName,
+            thumbnail: thumbnail,
+            tags: tags,
+            images: images,
+            audios: audios,
+          }
+          return resultSet;
         } else if (typeToFilter.toLowerCase()=='tag') {
           for(let i=1; i<db_code.length; i++) {
 
