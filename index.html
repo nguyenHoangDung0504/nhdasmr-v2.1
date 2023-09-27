@@ -9,11 +9,9 @@
   <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
-  <form>
-    <label for="cv">CV: </label><input type="text" id="cv"><br>
-    <label for="tag">Tag: </label><input type="text" id="tag"><br>
+    <label for="cv">CV: </label><input type="text" id="cv" value=""><br>
+    <label for="tag">Tag: </label><input type="text" id="tag" value=""><br>
     <button onclick="showData()">Test</button>
-  </form>
   <br><br>
   <table id="table">
     <tr>
@@ -25,7 +23,23 @@
   </table>
   <script>
     function showData() {
-      
+      let cvs = document.getElementById('cv').value.trim().replaceAll(/\s*,\s*/g, ",");
+      let tags = document.getElementById('tag').value.trim().replaceAll(/\s*,\s*/g, ",");
+      alert(cvs+"  "+tags);
+      let rs = dataProcessing.getDataAdvance(cvs, tags);
+      let tb = document.querySelector('#table');
+      let dataToInner;
+      let i=0;
+      while(rs[i]) {
+        dataToInner += '<tr>'+
+                          '<td>'+rs[i].code+'</td>'+
+                          '<td>'+rs[i].rjCode+'</td>'+
+                          '<td>'+rs[i].cvs.join(", ")+'</td>'+
+                          '<td>'+rs[i].tags.join(", ")+'</td>'+
+                       '</tr>';
+        i++;
+      }
+      tb.innerHTML += dataToInner;
     }
   </script>
 </body>
