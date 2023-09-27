@@ -305,7 +305,9 @@
         let audios    = [];
         let change = 0;
         for(let i=1; i<database.code.length; i++) {
-          if(listCvToFilter.every(element=>database.cvs[i].includes(element))===true && listTagToFilter.every(element=>database.tags[i].includes(element))===true) {
+          let cvList = database.cvs[i];
+          console.log(cvList);
+          if(listCvToFilter.every(element => cvList.include(element))===true && listTagToFilter.every(element=>database.tags[i].include(element))===true) {
             code.push(database.code[i]);
             rjCode.push(database.rjCode[i]);
             cvs.push(database.cvs[i]);
