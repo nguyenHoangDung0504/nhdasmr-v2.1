@@ -1,0 +1,10 @@
+input, button, td, th{
+  padding: 10px 20px; margin: 10px 20px;
+}
+td, th{
+  border: 1px solid;
+}
+table{
+  border-collapse: collapse;
+  border: 1px solid;
+}
