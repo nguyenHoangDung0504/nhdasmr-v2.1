@@ -23,19 +23,21 @@
   </table>
   <script>
     function showData() {
-      let cvs = document.getElementById('cv').value.trim().replaceAll(/\s*,\s*/g, ",");
-      let tags = document.getElementById('tag').value.trim().replaceAll(/\s*,\s*/g, ",");
+      let cvs = document.getElementById('cv').value.trim().replaceAll(/\s*,\s*/g, ",").split(",");
+      let tags = document.getElementById('tag').value.trim().replaceAll(/\s*,\s*/g, ",").split(",");
       alert(cvs+"  "+tags);
       let rs = dataProcessing.getDataAdvance(cvs, tags);
+      console.log(rs);
       let tb = document.querySelector('#table');
       let dataToInner;
       let i=0;
-      while(rs[i]) {
+      while(rs.code[i]) {
+        console.log(rs[i]);
         dataToInner += '<tr>'+
-                          '<td>'+rs[i].code+'</td>'+
-                          '<td>'+rs[i].rjCode+'</td>'+
-                          '<td>'+rs[i].cvs.join(", ")+'</td>'+
-                          '<td>'+rs[i].tags.join(", ")+'</td>'+
+                          '<td>'+rs.code[i]+'</td>'+
+                          '<td>'+rs.rjCode[i]+'</td>'+
+                          '<td>'+rs.cvs[i].join(", ")+'</td>'+
+                          '<td>'+rs.tags[i].join(", ")+'</td>'+
                        '</tr>';
         i++;
       }

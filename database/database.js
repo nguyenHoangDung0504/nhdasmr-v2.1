@@ -22,7 +22,7 @@
       db_images.push(images.trim().replaceAll(/\s*,\s*/g, ","));
       db_audios.push(audios.trim().replaceAll(/\s*,\s*/g, ","));
     }
-
+    
     pushData(1, "????????", "Nightfawn", "", "A Virgin Visits A Monster Brothel", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ddf755fb-9863-433a-8cf2-4f0dcdc6b3db.image.png?v=1691559673421", "Blowjob, English, Handjob, Milf, Succubus, Tailjob", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ec161a3c-0672-45c8-bfa7-688fb86f7abb.image.png?v=1691559602418", "https://cdn.glitch.me/eefb1a2d-90ba-478b-b95a-dd50511909fe/SpankBang.com_mom%2Basmr%2Bwuhu_720p.mp4?v=1681911404572");
     pushData(19178, "RJ276886", "Eikyuu", "熟れた女12:友だちのお母さん 2人目", "Ripe Woman 12: Another Friend’s Mother", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/19178(0)?v=1681912840969", "Blowjob, Housewife, Married Woman, Milf", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/c9354b92-f6a5-4ee8-b462-2272442be003.image.png?v=1681912840969", "https://cdn.glitch.me/8a12e68a-154b-4206-a6d7-dadd1141b198/Ripe%20Woman%2012_%20Another%20Friend's%20Mother%20%E2%80%93%20Japanese%20ASMR_1_128k.mp3?v=1682074183773");
     pushData(51602, "RJ332705", "Narumi Aisaka", "寝ている間にツンデレ彼女に夜這いされちゃう音声_英語版", "While You Sleep, You Tsundere Visits You in Bed", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/51602(0)?v=1682677326878", "ASMR, Ear Licking, English, Tsundere", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ca7ec869-cb99-45ab-af7b-2196f01f1d88.image.png?v=1681913140339,https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/a9e7ec35-1494-436e-a7fe-5e0f07a77845.image.png?v=1687960681163", "https://cdn.glitch.me/8a12e68a-154b-4206-a6d7-dadd1141b198/While%20You%20Sleep%2C%20You%20Tsundere%20Visits%20You%20in%20Bed_(%E5%AF%9D%E3%81%A6%E3%81%84%E3%82%8B%E9%96%93%E3%81%AB%E3%83%84%E3%83%B3%E3%83%87%E3%83%AC%E5%BD%BC%E5%A5%B3%E3%81%AB%E5%A4%9C%E9%80%99%E3%81%84%E3%81%95%E3%82%8C%E3%81%A1%E3%82%83%E3%81%86%E9%9F%B3%E5%A3%B0_%E8%8B%B1%E8%AA%9E%E7%89%88)%20%E2%80%93%20Japanese%20ASMR_1_128k.mp3?v=1682074629386");
@@ -221,16 +221,18 @@
     // pushData(, [""], "", "", "", [""], "", "", [""], [""]);
     // pushData(, [""], "", "", "", [""], "", "", [""], [""]);
 /*END ADD DATA TO DATABASE*/
-
+    // console.log(typeof db_cvs[0]);
 /*DATABASE OBJECT*/
+     db_cvs = db_cvs.split(",").sort();
+     db_tags = db_cvs.split(",").sort();
      var database = {
       code:       db_code,
       rjCode:     db_rjCode,
-      cvs:        db_cvs.sort(),
+      cvs:        db_cvs,
       japName:    db_japName,
       engName:    db_engName,
       thumbnail:  db_thumbnail,
-      tags:       db_tags.sort(),
+      tags:       db_tags,
       images:     db_images,
       audios:     db_audios
     };
