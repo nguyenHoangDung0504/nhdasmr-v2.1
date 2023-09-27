@@ -29,10 +29,9 @@
       let rs = dataProcessing.getDataAdvance(cvs, tags);
       console.log(rs);
       let tb = document.querySelector('#table');
-      let dataToInner;
+      let dataToInner='';
       let i=0;
       while(rs.code[i]) {
-        console.log(rs[i]);
         dataToInner += '<tr>'+
                           '<td>'+rs.code[i]+'</td>'+
                           '<td>'+rs.rjCode[i]+'</td>'+

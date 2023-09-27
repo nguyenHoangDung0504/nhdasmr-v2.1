@@ -14,11 +14,11 @@
     function pushData(code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios) {
       db_code.push(code);
       db_rjCode.push(rjCode);
-      db_cvs.push(cvs.trim().replaceAll(/\s*,\s*/g, ","));
+      db_cvs.push( (cvs.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
       db_japName.push(japName);
       db_engName.push(engName);
       db_thumbnail.push(thumbnail);
-      db_tags.push(tags.trim().replaceAll(/\s*,\s*/g, ","));
+      db_tags.push( (tags.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
       db_images.push(images.trim().replaceAll(/\s*,\s*/g, ","));
       db_audios.push(audios.trim().replaceAll(/\s*,\s*/g, ","));
     }
@@ -223,8 +223,6 @@
 /*END ADD DATA TO DATABASE*/
     // console.log(typeof db_cvs[0]);
 /*DATABASE OBJECT*/
-     db_cvs = db_cvs.split(",").sort();
-     db_tags = db_cvs.split(",").sort();
      var database = {
       code:       db_code,
       rjCode:     db_rjCode,
@@ -252,7 +250,7 @@
           let listTier1 = database.cvs;
           // console.log(listTier1);
           for(let i=1; i<listTier1.length; i++) {
-            let listTier2 = listTier1[i].split(",");
+            let listTier2 = listTier1[i];
             for(let j=0; j<listTier2.length; j++) {
               let cvToCheck = listTier2[j].trim();
               (listToFilter.cvs.indexOf(cvToCheck)==-1 && cvToCheck.length>=2)?listToFilter.cvs.push(cvToCheck):'';
@@ -264,7 +262,7 @@
           let listTier1 = database.tags;
           // console.log(listTier1);
           for(let i=1; i<listTier1.length; i++) {
-            let listTier2 = listTier1[i].split(",");
+            let listTier2 = listTier1[i];
             for(let j=0; j<listTier2.length; j++) {
               let tagToCheck = listTier2[j].trim();
               (listToFilter.tags.indexOf(tagToCheck)==-1 && tagToCheck.length>=2)?listToFilter.tags.push(tagToCheck):'';
@@ -285,12 +283,14 @@
         if(Number.isInteger(listCvToFilter)===true && listTagToFilter=='') {
           console.log("Filtered - CV:"+listToFilter.cvs[listCvToFilter]);
           return dataProcessing.getDataAdvance(listToFilter.cvs[listCvToFilter], '');
-        } else if(Number.isInteger(listCvToFilter=='' && listTagToFilter)===true) {
+        } else if(listCvToFilter=='' && Number.isInteger(listTagToFilter)===true) {
           console.log("Filtered - Tag:"+listToFilter.tags[listTagToFilter]);
           return dataProcessing.getDataAdvance('', listToFilter.tags[listTagToFilter]);
         } else if(Number.isInteger(listCvToFilter)===true && Number.isInteger(listTagToFilter)===true) {
           console.log("Filtered - CV:"+listToFilter.cvs[listCvToFilter]+" / Tag:"+listToFilter.tags[listTagToFilter]);
           return dataProcessing.getDataAdvance(listToFilter.cvs[listCvToFilter], listToFilter.tags[listTagToFilter]);
+        } else if(listCvToFilter=='' && listTagToFilter=='') {
+          return database;
         }
         listCvToFilter = (Array.isArray(listCvToFilter)===false)?[listCvToFilter]:listCvToFilter;
         listTagToFilter = (Array.isArray(listTagToFilter)===false)?[listTagToFilter]:listTagToFilter;
