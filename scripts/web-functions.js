@@ -6,4 +6,4 @@ function log() {
   console.log(data.dataProcessing);  
 }
 
-$('')
+document.querySelector('button#').onclick = log;
