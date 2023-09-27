@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NHD ASMR - My Favourite ASMR Tracks</title>
+  <script src="scripts/strings-processing-functions.js"></script>
+  <script src="database/database.js"></script>
+  <link rel="stylesheet" href="test-data/style.css">
+</head>
+<body>
+    <label for="cv">CV: </label><input type="text" id="cv" value=""><br>
+    <label for="tag">Tag: </label><input type="text" id="tag" value=""><br>
+    <select id="sx">
+      <option>ASC</option>
+      <option>DESC</option>
+    </select><br>
+    <button onclick="showData()">Test</button>
+  <br><br>
+  <table id="table">
+    
+  </table>
+  <script>
+    function showData() {
+      let cvs = document.getElementById('cv').value.trim().replaceAll(/\s*,\s*/g, ",").split(",");
+      let tags = document.getElementById('tag').value.trim().replaceAll(/\s*,\s*/g, ",").split(",");
+      let order = document.getElementById('sx').value;
+      let rs = dataProcessing.getDataAdvance(cvs, tags);
+      let tb = document.querySelector('#table');
+      let dataToInner='<tr><th>STT</th><th>Code</th><th>RJ Code</th><th>CVs</th><th>Tags</th><th>Thumbnail</th></tr>';
+      let i=0;
+      if(rs==null) {
+        tb.innerHTML = dataToInner+'<tr>No Result<tr>';
+        return;
+      }
+      if(order=='ASC') {
+        while(rs.code[i]) {
+          dataToInner += '<tr>'+
+                            '<td>'+(i+1)+'</td>'+
+                            '<td>'+rs.code[i]+'</td>'+
+                            '<td>'+rs.rjCode[i]+'</td>'+
+                            '<td>'+rs.cvs[i].join(", ")+'</td>'+
+                            '<td>'+rs.tags[i].join(", ")+'</td>'+
+                            '<td><img src="'+rs.thumbnail[i]+'"></td>'+
+                         '</tr>';
+          i++;
+        }
+        tb.innerHTML = dataToInner;        
+      } else {
+        for(let i=rs.code.length-1; i>)
+      }
+    }
+  </script>
+</body>
+</html>
