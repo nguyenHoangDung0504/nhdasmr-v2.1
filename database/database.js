@@ -328,15 +328,12 @@
           audios: audios,
         }:null;  
       }
-    }
+    };
     /*FUNCTION TO PROCESSING DATA*/
 /*END BUILD NECESSARY LISTS FROM THE DATABASE*/
-
-/*EXPORT DATA*/
-    let dataToExport = {
-      database: database, 
-      listToFilter: listToFilter, 
-      dataProcessing: dataProcessing
-    }
-    export default dataToExport;    
-/*END EXPORT DATA*/
+    
+/*BUILD WEB FUNCTIONS*/
+    var webFunctions = {
+      
+    };
+/*END BUILD WEB FUNCTIONS*/
