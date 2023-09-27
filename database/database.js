@@ -223,7 +223,7 @@
 /*END ADD DATA TO DATABASE*/
 
 /*DATABASE OBJECT*/
-    var database = {
+    export var database = {
       code:       db_code,
       rjCode:     db_rjCode,
       cvs:        db_cvs.sort(),
@@ -238,7 +238,7 @@
     
 /*BUILD NECESSARY LISTS FROM THE DATABASE*/
     /*DEFININTION*/
-        var listToFilter = {
+        export var listToFilter = {
           cvs:  [],
           tags: []
         };
@@ -277,7 +277,7 @@
     /*END BUILD LIST CVS & TAGS TO FILTER*/
 
     /*FUNCTION TO PROCESSING DATA*/
-    var dataProcessing = {
+    export var dataProcessing = {
       duplicateChecking(rjCodeToCheck) {return (database.rjCode.indexOf(rjCodeToCheck.trim())!=-1)?true:false;},
       getDataAdvance(listCvToFilter, listTagToFilter) {
         if(Number.isInteger(listCvToFilter)===true && listTagToFilter=='') {
@@ -331,4 +331,4 @@
     }
     /*FUNCTION TO PROCESSING DATA*/
 /*END BUILD NECESSARY LISTS FROM THE DATABASE*/
-    
+export default {database, listToFilter, dataProcessing};    
