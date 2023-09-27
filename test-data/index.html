@@ -47,7 +47,17 @@
         }
         tb.innerHTML = dataToInner;        
       } else {
-        for(let i=rs.code.length-1; i>)
+        for(let i=rs.code.length-1; i>=0; i--) {
+          dataToInner += '<tr>'+
+                            '<td>'+(i+1)+'</td>'+
+                            '<td>'+rs.code[i]+'</td>'+
+                            '<td>'+rs.rjCode[i]+'</td>'+
+                            '<td>'+rs.cvs[i].join(", ")+'</td>'+
+                            '<td>'+rs.tags[i].join(", ")+'</td>'+
+                            '<td><img src="'+rs.thumbnail[i]+'"></td>'+
+                         '</tr>';  
+        }
+        tb.innerHTML = dataToInner;
       }
     }
   </script>
