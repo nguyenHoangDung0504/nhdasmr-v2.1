@@ -14,12 +14,7 @@
     <button onclick="showData()">Test</button>
   <br><br>
   <table id="table">
-    <tr>
-      <th>Code</th>
-      <th>RJ Code</th>
-      <th>CVs</th>
-      <th>Tags</th>
-    </tr>
+    
   </table>
   <script>
     function showData() {
@@ -28,10 +23,10 @@
       alert(cvs+"  "+tags);
       let rs = dataProcessing.getDataAdvance(cvs, tags);
       let tb = document.querySelector('#table');
-      let dataToInner='';
+      let dataToInner='<tr><th>Code</th><th>RJ Code</th><th>CVs</th><th>Tags</th></tr>';
       let i=0;
       if(rs==null) {
-        tb.innerHTML += 'No Result';
+        tb.innerHTML = dataToInner+'<tr>No Result<tr>';
         return;
       }
       while(rs.code[i]) {
@@ -43,7 +38,7 @@
                        '</tr>';
         i++;
       }
-      tb.innerHTML += dataToInner;
+      tb.innerHTML = dataToInner;
     }
   </script>
 </body>

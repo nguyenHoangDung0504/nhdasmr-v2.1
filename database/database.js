@@ -14,13 +14,13 @@
     function pushData(code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios) {
       db_code.push(code);
       db_rjCode.push(rjCode);
-      db_cvs.push( (cvs.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
+      db_cvs.push( (cvs.trim().replaceAll(/\s*,\s*/g, ",")).split(",").sort() );
       db_japName.push(japName);
       db_engName.push(engName);
       db_thumbnail.push(thumbnail);
-      db_tags.push( (tags.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
-      db_images.push(images.trim().replaceAll(/\s*,\s*/g, ","));
-      db_audios.push(audios.trim().replaceAll(/\s*,\s*/g, ","));
+      db_tags.push( (tags.trim().replaceAll(/\s*,\s*/g, ",")).split(",").sort() );
+      db_images.push( (images.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
+      db_audios.push( (audios.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
     }
     
     pushData(1, "????????", "Nightfawn", "", "A Virgin Visits A Monster Brothel", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ddf755fb-9863-433a-8cf2-4f0dcdc6b3db.image.png?v=1691559673421", "Blowjob, English, Handjob, Milf, Succubus, Tailjob", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ec161a3c-0672-45c8-bfa7-688fb86f7abb.image.png?v=1691559602418", "https://cdn.glitch.me/eefb1a2d-90ba-478b-b95a-dd50511909fe/SpankBang.com_mom%2Basmr%2Bwuhu_720p.mp4?v=1681911404572");
