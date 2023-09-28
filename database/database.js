@@ -249,7 +249,7 @@
         function buildListCvToFilter() {
           let listTier1 = database.cvs;
           // console.log(listTier1);
-          for(let i=1; i<listTier1.length; i++) {
+          for(let i=0; i<listTier1.length; i++) {
             let listTier2 = listTier1[i];
             for(let j=0; j<listTier2.length; j++) {
               let cvToCheck = listTier2[j].trim();
@@ -261,7 +261,7 @@
         function buildListTagToFilter() {
           let listTier1 = database.tags;
           // console.log(listTier1);
-          for(let i=1; i<listTier1.length; i++) {
+          for(let i=0; i<listTier1.length; i++) {
             let listTier2 = listTier1[i];
             for(let j=0; j<listTier2.length; j++) {
               let tagToCheck = listTier2[j].trim();
@@ -304,7 +304,7 @@
         let images    = []; 
         let audios    = [];
         let change = 0;
-        for(let i=1; i<database.code.length; i++) {
+        for(let i=0; i<database.code.length; i++) {
           if(listCvToFilter!='' && listTagToFilter!='') {
             if(listCvToFilter.every(element=>database.cvs[i].includes(element))===true && listTagToFilter.every(element=>database.tags[i].includes(element))===true) {
               code.push(database.code[i]);
