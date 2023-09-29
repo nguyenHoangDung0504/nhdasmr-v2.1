@@ -477,6 +477,13 @@
         } else {
           return null;
         }
+      },
+      /*PHÂN TÁCH DỮ LIỆU THÀNH CÁC DANH SÁCH ĐỂ ĐỔ RA WEB*/
+      separateData(listDataTypeObject) {
+        const numberDataPerArray = ;
+        let result = [];
+        
+        return result;
       }
     };
     /*FUNCTION TO PROCESSING DATA*/
