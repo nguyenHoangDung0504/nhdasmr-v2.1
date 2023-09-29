@@ -251,14 +251,14 @@
         images:     database.images[i],
         audios:     database.audios[i]
       };
-      objArray.push(obj);
+      databaseTypeObject.push(obj);
     }
-    objArray.sort(function(a, b) {
+    databaseTypeObject.sort(function(a, b) {
       return a.code-b.code;
     });
     /*
       GIẢM DẦN
-      objArray.sort(function(a, b) {
+      databaseTypeObject.sort(function(a, b) {
         return b.code-a.code;
       });          
     */
@@ -273,8 +273,8 @@
       images:     [],
       audios:     []
     };    
-    for (var index in objArray) {
-      let obj = objArray[index];
+    for (var index in databaseTypeObject) {
+      let obj = databaseTypeObject[index];
       database.code.push(obj.code);
       database.rjCode.push(obj.rjCode);
       database.cvs.push(obj.cvs);
