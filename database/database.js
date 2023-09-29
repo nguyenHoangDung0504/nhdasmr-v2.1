@@ -287,21 +287,21 @@
 /*END CONVERT LIST DATA TYPE*/
 
 /*SORT DATABASE*/
-    // let length = database.code.length;
-    // for (let i=0; i<length; i++) {
-    //   let obj = {
-    //     code:       database.code[i],
-    //     rjCode:     database.rjCode[i],
-    //     cvs:        database.cvs[i],
-    //     japName:    database.japName[i],
-    //     engName:    database.engName[i],
-    //     thumbnail:  database.thumbnail[i],
-    //     tags:       database.tags[i],
-    //     images:     database.images[i],
-    //     audios:     database.audios[i]
-    //   };
-    //   databaseTypeObject.push(obj);
-    // } CODE CŨ BỊ THAY BỞI DÒNG DƯỚI.
+    /*let length = database.code.length;
+    for (let i=0; i<length; i++) {
+      let obj = {
+        code:       database.code[i],
+        rjCode:     database.rjCode[i],
+        cvs:        database.cvs[i],
+        japName:    database.japName[i],
+        engName:    database.engName[i],
+        thumbnail:  database.thumbnail[i],
+        tags:       database.tags[i],
+        images:     database.images[i],
+        audios:     database.audios[i]
+      };
+      databaseTypeObject.push(obj);
+    } CODE CŨ BỊ THAY BỞI DÒNG DƯỚI.*/
     var databaseTypeObject = convertListDataType(database);
     //SẮP XẾP LẠI DỮ LIỆU THEO CODE TĂNG DẦN.
     databaseTypeObject.sort(function(a, b) {
@@ -309,29 +309,29 @@
       /*GIẢM DẦN: return b.code-a.code;*/
     });
     
-    // database = {
-    //   code:       [],
-    //   rjCode:     [],
-    //   cvs:        [],
-    //   japName:    [],
-    //   engName:    [],
-    //   thumbnail:  [],
-    //   tags:       [],
-    //   images:     [],
-    //   audios:     []
-    // };    
-    // for (var index in databaseTypeObject) {
-    //   let obj = databaseTypeObject[index];
-    //   database.code.push(obj.code);
-    //   database.rjCode.push(obj.rjCode);
-    //   database.cvs.push(obj.cvs);
-    //   database.japName.push(obj.japName);
-    //   database.engName.push(obj.engName);
-    //   database.thumbnail.push(obj.thumbnail);
-    //   database.tags.push(obj.tags);
-    //   database.images.push(obj.images);
-    //   database.audios.push(obj.audios);
-    // } CODE CŨ BỊ THAY THẾ BỞI DÒNG DƯỚI.
+    /*database = {
+      code:       [],
+      rjCode:     [],
+      cvs:        [],
+      japName:    [],
+      engName:    [],
+      thumbnail:  [],
+      tags:       [],
+      images:     [],
+      audios:     []
+    };    
+    for (var index in databaseTypeObject) {
+      let obj = databaseTypeObject[index];
+      database.code.push(obj.code);
+      database.rjCode.push(obj.rjCode);
+      database.cvs.push(obj.cvs);
+      database.japName.push(obj.japName);
+      database.engName.push(obj.engName);
+      database.thumbnail.push(obj.thumbnail);
+      database.tags.push(obj.tags);
+      database.images.push(obj.images);
+      database.audios.push(obj.audios);
+    } CODE CŨ BỊ THAY THẾ BỞI DÒNG DƯỚI.*/
     database = convertListDataType(databaseTypeObject);
 /*END SORT DATABASE*/
 
@@ -457,38 +457,32 @@
       },
       findData(data) {
         function findIndices(arr, substring) {
-          const indices = [];
-          for (let i = 0; i < arr.length; i++) {
-            if (arr[i].includes(substring)) {indices.push(i);}
-          }
+          const indices = []; 
+          for (let i = 0; i < arr.length; i++) { if(arr[i].includes(substring)){indices.push(i);} } 
           return (indices.length > 0)?indices:null;
         }
-        if(listToFilter.cvs.indexOf(data) != -1) {
-          return dataProcessing.getDataAdvance(data, '');
-        } else if(listToFilter.tags.indexOf(data) != -1) {
-          return dataProcessing.getDataAdvance('', data);
-        } else if(database.code.indexOf(data) != -1) {
-          return databaseTypeObject[database.code.indexOf(data)];
-        } else if(findIndices(database.rjCode, data) != null) {
-          let listResult = findIndices(database.rjCode, data);
-          let result = [];
-          for(let i in listResult) {
-            result.push(databaseTypeObject[listResult[i]]);
-          }
+        //FIND BY CV
+        if(listToFilter.cvs.indexOf(data) != -1) { return dataProcessing.getDataAdvance(data, ''); } 
+        //FIND BY TAG
+        else if(listToFilter.tags.indexOf(data) != -1) { return dataProcessing.getDataAdvance('', data); } 
+        //FIND BY CODE
+        else if(database.code.indexOf(data) != -1) { return databaseTypeObject[database.code.indexOf(data)]; } 
+        //FIND BY RJCODE
+        else if(findIndices(database.rjCode, data) != null) {
+          let listResult = findIndices(database.rjCode, data), result = [];
+          for(let i in listResult) { result.push(databaseTypeObject[listResult[i]]); }
           return result;
-        } else if(findIndices(database.engName, data) != null) {
-          let listResult = findIndices(database.rjCode, data);
-          let result = [];
-          for(let i in listResult) {
-            result.push(databaseTypeObject[listResult[i]]);
-          }
+        } 
+        //FIND BY ENGNAME
+        else if(findIndices(database.engName, data) != null) {
+          let listResult = findIndices(database.engName, data), result = [];
+          for(let i in listResult) { result.push(databaseTypeObject[listResult[i]]); }
           return result;
-        } else if(findIndices(database.japName, data) != null) {
-          let listResult = findIndices(database.rjCode, data);
-          let result = [];
-          for(let i in listResult) {
-            result.push(databaseTypeObject[listResult[i]]);
-          }
+        } 
+        //FIND BY JAPNAME
+        else if(findIndices(database.japName, data) != null) {
+          let listResult = findIndices(database.japName, data), result = [];
+          for(let i in listResult) { result.push(databaseTypeObject[listResult[i]]); }
           return result;
         } else {
           return null;
@@ -497,9 +491,3 @@
     };
     /*FUNCTION TO PROCESSING DATA*/
 /*END BUILD NECESSARY LISTS FROM THE DATABASE*/
-    
-/*BUILD WEB FUNCTIONS*/
-    var webFunctions = {
-      
-    };
-/*END BUILD WEB FUNCTIONS*/
