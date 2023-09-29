@@ -350,7 +350,9 @@
 
     /*FUNCTION TO PROCESSING DATA*/
     var dataProcessing = {
+      /*KIỂM TRA TRÙNG LẶP RJCODE*/
       duplicateChecking(rjCodeToCheck) {return (database.rjCode.indexOf(rjCodeToCheck.trim())!=-1)?true:false;},
+      /*LẤY DỮ LIỆU CHO (NHIỀU) CV, TAG TRẢ VỀ ĐỐI TƯỢNG GỒM CÁC THUỘC TÍNH CHỨA MẢNG*/
       getDataAdvance(listCvToFilter, listTagToFilter) {
         if(Number.isInteger(listCvToFilter)===true && listTagToFilter=='') {
           console.log("Filtered - CV:"+listToFilter.cvs[listCvToFilter]);
@@ -430,29 +432,30 @@
           audios: audios,
         }:null;  
       },
+      /*DỰ KIẾN LÀ CHỨC NĂNG TÌM KIẾM BAO GỒM CV, TAG, TÊN, CODE, RJCODE. TRẢ VỀ MẢNG CHỨA CÁC ĐỐI TƯỢNG.*/
       findData(data) {
         function findIndices(arr, substring) {
           const indices = []; 
           for (let i = 0; i < arr.length; i++) { if(arr[i].includes(substring)){indices.push(i);} } 
           return (indices.length > 0)?indices:null;
-        }         
+        }
         //FIND BY CV
-        if(listToFilter.cvs.indexOf(data) != -1) { return dataProcessing.getDataAdvance(data, ''); } 
+        if(listToFilter.cvs.indexOf(data) != -1) { return convertListDataType(dataProcessing.getDataAdvance(data, '')); } 
         //FIND BY TAG
-        else if(listToFilter.tags.indexOf(data) != -1) { return dataProcessing.getDataAdvance('', data); } 
+        else if(listToFilter.tags.indexOf(data) != -1) { return convertListDataType(dataProcessing.getDataAdvance('', data)); } 
         //FIND BY CODE
         else if(database.code.indexOf(data) != -1) { return databaseTypeObject[database.code.indexOf(data)]; } 
         //FIND BY RJCODE
         else if(data.length>4 && findIndices(listToFilter.cvs, data) != null) {
           return {
             mess: "Do you mean "+listToFilter.cvs[findIndices(listToFilter.cvs, data)[0]]+" (CV)?",
-            data: dataProcessing.getDataAdvance(listToFilter.cvs[findIndices(listToFilter.cvs, data)[0]], '')
+            data: convertListDataType(dataProcessing.getDataAdvance(listToFilter.cvs[findIndices(listToFilter.cvs, data)[0]], ''))
           }
         }
         else if(data.length>1 && findIndices(listToFilter.tags, data) != null) {
           return {
             mess: "Do you mean "+listToFilter.tags[findIndices(listToFilter.tags, data)[0]]+" (Tag)?",
-            data: dataProcessing.getDataAdvance('', listToFilter.tags[findIndices(listToFilter.tags, data)[0]])
+            data: convertListDataType(dataProcessing.getDataAdvance('', listToFilter.tags[findIndices(listToFilter.tags, data)[0]]))
           }          
         }
         else if(findIndices(database.rjCode, data) != null) {
@@ -461,13 +464,13 @@
           return result;
         } 
         //FIND BY ENGNAME
-        else if(findIndices(database.engName, data) != null) {
+        else if(data.length>4 && findIndices(database.engName, data) != null) {
           let listResult = findIndices(database.engName, data), result = [];
           for(let i in listResult) { result.push(databaseTypeObject[listResult[i]]); }
           return result;
         } 
         //FIND BY JAPNAME
-        else if(findIndices(database.japName, data) != null) {
+        else if(data.length>4 && findIndices(database.japName, data) != null) {
           let listResult = findIndices(database.japName, data), result = [];
           for(let i in listResult) { result.push(databaseTypeObject[listResult[i]]); }
           return result;
