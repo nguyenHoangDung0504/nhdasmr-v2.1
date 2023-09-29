@@ -235,7 +235,26 @@
       audios:     db_audios
     };
 /*END DATABASE OBJECT*/
-    
+
+/*SORT DATABASE*/
+    let objArray = [];
+    let length = database.code.length;
+    for (let i=0; i<length; i++) {
+      let obj = {
+        code:       database.code[i],
+        rjCode:     database.rjCode[i],
+        cvs:        database.cvs[i],
+        japName:    database.japName[i],
+        engName:    database.,
+        thumbnail:  database.,
+        tags:       database.,
+        images:     database.,
+        audios:     database.
+      };
+      objArray.push(obj);
+    }
+/*END SORT DATABASE*/
+
 /*BUILD NECESSARY LISTS FROM THE DATABASE*/
     /*DEFININTION*/
         var listToFilter = {
