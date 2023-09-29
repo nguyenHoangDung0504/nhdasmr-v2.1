@@ -435,7 +435,7 @@
           const indices = []; 
           for (let i = 0; i < arr.length; i++) { if(arr[i].includes(substring)){indices.push(i);} } 
           return (indices.length > 0)?indices:null;
-        }
+        }         
         //FIND BY CV
         if(listToFilter.cvs.indexOf(data) != -1) { return dataProcessing.getDataAdvance(data, ''); } 
         //FIND BY TAG
