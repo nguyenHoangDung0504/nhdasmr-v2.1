@@ -456,18 +456,40 @@
         }:null;  
       },
       findData(data) {
+        function findIndices(arr, substring) {
+          const indices = [];
+          for (let i = 0; i < arr.length; i++) {
+            if (arr[i].includes(substring)) {indices.push(i);}
+          }
+          return (indices.length > 0)?indices:null;
+        }
         if(listToFilter.cvs.indexOf(data) != -1) {
           return dataProcessing.getDataAdvance(data, '');
         } else if(listToFilter.tags.indexOf(data) != -1) {
           return dataProcessing.getDataAdvance('', data);
         } else if(database.code.indexOf(data) != -1) {
           return databaseTypeObject[database.code.indexOf(data)];
-        } else if(database.rjCode.indexOf(data) != -1) {
-          return databaseTypeObject[database.rjCode.indexOf(data)];
-        } else if(database.engName.indexOf(data) != -1) {
-          return databaseTypeObject[database.code.indexOf(data)];
-        } else if(database.code.indexOf(data) != -1) {
-          return databaseTypeObject[database.code.indexOf(data)];
+        } else if(findIndices(database.rjCode, data) != null) {
+          let listResult = findIndices(database.rjCode, data);
+          let result = [];
+          for(let i in listResult) {
+            result.push(databaseTypeObject[listResult[i]]);
+          }
+          return result;
+        } else if(findIndices(database.engName, data) != null) {
+          let listResult = findIndices(database.rjCode, data);
+          let result = [];
+          for(let i in listResult) {
+            result.push(databaseTypeObject[listResult[i]]);
+          }
+          return result;
+        } else if(findIndices(database.japName, data) != null) {
+          let listResult = findIndices(database.rjCode, data);
+          let result = [];
+          for(let i in listResult) {
+            result.push(databaseTypeObject[listResult[i]]);
+          }
+          return result;
         } else {
           return null;
         }
