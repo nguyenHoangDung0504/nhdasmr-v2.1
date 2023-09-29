@@ -337,10 +337,7 @@
 
 /*BUILD NECESSARY LISTS FROM THE DATABASE*/
     /*DEFININTION*/
-        var listToFilterOrFind = {
-          code: [],
-          rjCode: [],
-          
+        var listToFilter = {
           cvs:  [],
           tags: []
         };
@@ -350,31 +347,29 @@
     (function() {
         function buildListCvToFilter() {
           let listTier1 = database.cvs;
-          // console.log(listTier1);
           for(let i=0; i<listTier1.length; i++) {
             let listTier2 = listTier1[i];
             for(let j=0; j<listTier2.length; j++) {
               let cvToCheck = listTier2[j].trim();
-              (listToFilterOrFind.cvs.indexOf(cvToCheck)==-1 && cvToCheck.length>=2)?listToFilterOrFind.cvs.push(cvToCheck):'';
+              (listToFilter.cvs.indexOf(cvToCheck)==-1 && cvToCheck.length>=2)?listToFilter.cvs.push(cvToCheck):'';
             }
           }
-          listToFilterOrFind.cvs.sort();
+          listToFilter.cvs.sort();
         }
         function buildListTagToFilter() {
           let listTier1 = database.tags;
-          // console.log(listTier1);
           for(let i=0; i<listTier1.length; i++) {
             let listTier2 = listTier1[i];
             for(let j=0; j<listTier2.length; j++) {
               let tagToCheck = listTier2[j].trim();
-              (listToFilterOrFind.tags.indexOf(tagToCheck)==-1 && tagToCheck.length>=2)?listToFilterOrFind.tags.push(tagToCheck):'';
+              (listToFilter.tags.indexOf(tagToCheck)==-1 && tagToCheck.length>=2)?listToFilter.tags.push(tagToCheck):'';
             }        
           }
-          listToFilterOrFind.tags.sort();
+          listToFilter.tags.sort();
         }
         buildListCvToFilter();
-        buildListTagToFilter(); 
-        // console.log(listToFilterOrFind);     
+        buildListTagToFilter();
+        // console.log(listToFilter);     
     })();
     /*END BUILD LIST CVS & TAGS TO FILTER*/
 
@@ -461,9 +456,9 @@
         }:null;  
       },
       findData(data) {
-        if(listToFilter.cvs.indexOf(data) != -1) {
+        if(listToFilterOrFind.cvs.indexOf(data) != -1) {
           return dataProcessing.getDataAdvance(data, '');
-        } else if(listToFilter.tags.indexOf(data) != -1) {
+        } else if(listToFilterOrFind.tags.indexOf(data) != -1) {
           return dataProcessing.getDataAdvance('', data);
         } else {
           /**/
