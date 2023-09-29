@@ -237,7 +237,7 @@
 /*END DATABASE OBJECT*/
 
 /*SORT DATABASE*/
-    let objArray = [];
+    var databaseTypeObject = [];
     let length = database.code.length;
     for (let i=0; i<length; i++) {
       let obj = {
@@ -408,6 +408,15 @@
           images: images,
           audios: audios,
         }:null;  
+      },
+      findData(data) {
+        if(listToFilter.cvs.indexOf(data) != -1) {
+          return dataProcessing.getDataAdvance(data, '');
+        } else if(listToFilter.tags.indexOf(data) != -1) {
+          return dataProcessing.getDataAdvance('', data);
+        } else {
+          /**/
+        }
       }
     };
     /*FUNCTION TO PROCESSING DATA*/
