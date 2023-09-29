@@ -237,6 +237,7 @@
 /*END DATABASE OBJECT*/
 
 /*CONVERT LIST DATA TYPE*/
+    //CHỨC NĂNG: CHUYỂN DẠNG ĐỐI TƯỢNG CÓ CÁC THUỘC TÍNH LÀ CÁC MẢNG VỀ DẠNG MẢNG CÓ PHẦN TỬ LÀ CÁC ĐỐI TƯỢNG & NGƯỢC LẠI.
     function convertListDataType(listData) {
       if(Array.isArray(listData)) {
         let result = {
@@ -250,18 +251,19 @@
           images:     [],
           audios:     []
         };    
-        for (var index in listData) {
-          let obj = databaseTypeObject[index];
-          database.code.push(obj.code);
-          database.rjCode.push(obj.rjCode);
-          database.cvs.push(obj.cvs);
-          database.japName.push(obj.japName);
-          database.engName.push(obj.engName);
-          database.thumbnail.push(obj.thumbnail);
-          database.tags.push(obj.tags);
-          database.images.push(obj.images);
-          database.audios.push(obj.audios);
-        }        
+        for (let index in listData) {
+          let obj = listData[index];
+          result.code.push(obj.code);
+          result.rjCode.push(obj.rjCode);
+          result.cvs.push(obj.cvs);
+          result.japName.push(obj.japName);
+          result.engName.push(obj.engName);
+          result.thumbnail.push(obj.thumbnail);
+          result.tags.push(obj.tags);
+          result.images.push(obj.images);
+          result.audios.push(obj.audios);
+        }  
+        return result;
       } else {
         let result = [];
         let length = listData.code.length;
@@ -285,7 +287,6 @@
 /*END CONVERT LIST DATA TYPE*/
 
 /*SORT DATABASE*/
-    var databaseTypeObject = convertListDataType(database);
     // let length = database.code.length;
     // for (let i=0; i<length; i++) {
     //   let obj = {
@@ -300,44 +301,46 @@
     //     audios:     database.audios[i]
     //   };
     //   databaseTypeObject.push(obj);
-    // }
+    // } CODE CŨ BỊ THAY BỞI DÒNG DƯỚI.
+    var databaseTypeObject = convertListDataType(database);
+    //SẮP XẾP LẠI DỮ LIỆU THEO CODE TĂNG DẦN.
     databaseTypeObject.sort(function(a, b) {
       return a.code-b.code;
+      /*GIẢM DẦN: return b.code-a.code;*/
     });
-    /*
-      GIẢM DẦN
-      databaseTypeObject.sort(function(a, b) {
-        return b.code-a.code;
-      });          
-    */
-    database = {
-      code:       [],
-      rjCode:     [],
-      cvs:        [],
-      japName:    [],
-      engName:    [],
-      thumbnail:  [],
-      tags:       [],
-      images:     [],
-      audios:     []
-    };    
-    for (var index in databaseTypeObject) {
-      let obj = databaseTypeObject[index];
-      database.code.push(obj.code);
-      database.rjCode.push(obj.rjCode);
-      database.cvs.push(obj.cvs);
-      database.japName.push(obj.japName);
-      database.engName.push(obj.engName);
-      database.thumbnail.push(obj.thumbnail);
-      database.tags.push(obj.tags);
-      database.images.push(obj.images);
-      database.audios.push(obj.audios);
-    }
+    
+    // database = {
+    //   code:       [],
+    //   rjCode:     [],
+    //   cvs:        [],
+    //   japName:    [],
+    //   engName:    [],
+    //   thumbnail:  [],
+    //   tags:       [],
+    //   images:     [],
+    //   audios:     []
+    // };    
+    // for (var index in databaseTypeObject) {
+    //   let obj = databaseTypeObject[index];
+    //   database.code.push(obj.code);
+    //   database.rjCode.push(obj.rjCode);
+    //   database.cvs.push(obj.cvs);
+    //   database.japName.push(obj.japName);
+    //   database.engName.push(obj.engName);
+    //   database.thumbnail.push(obj.thumbnail);
+    //   database.tags.push(obj.tags);
+    //   database.images.push(obj.images);
+    //   database.audios.push(obj.audios);
+    // } CODE CŨ BỊ THAY THẾ BỞI DÒNG DƯỚI.
+    database = convertListDataType(databaseTypeObject);
 /*END SORT DATABASE*/
 
 /*BUILD NECESSARY LISTS FROM THE DATABASE*/
     /*DEFININTION*/
-        var listToFilter = {
+        var listToFilterOrFind = {
+          code: [],
+          rjCode: [],
+          
           cvs:  [],
           tags: []
         };
@@ -352,10 +355,10 @@
             let listTier2 = listTier1[i];
             for(let j=0; j<listTier2.length; j++) {
               let cvToCheck = listTier2[j].trim();
-              (listToFilter.cvs.indexOf(cvToCheck)==-1 && cvToCheck.length>=2)?listToFilter.cvs.push(cvToCheck):'';
+              (listToFilterOrFind.cvs.indexOf(cvToCheck)==-1 && cvToCheck.length>=2)?listToFilterOrFind.cvs.push(cvToCheck):'';
             }
           }
-          listToFilter.cvs.sort();
+          listToFilterOrFind.cvs.sort();
         }
         function buildListTagToFilter() {
           let listTier1 = database.tags;
@@ -364,14 +367,14 @@
             let listTier2 = listTier1[i];
             for(let j=0; j<listTier2.length; j++) {
               let tagToCheck = listTier2[j].trim();
-              (listToFilter.tags.indexOf(tagToCheck)==-1 && tagToCheck.length>=2)?listToFilter.tags.push(tagToCheck):'';
+              (listToFilterOrFind.tags.indexOf(tagToCheck)==-1 && tagToCheck.length>=2)?listToFilterOrFind.tags.push(tagToCheck):'';
             }        
           }
-          listToFilter.tags.sort();
+          listToFilterOrFind.tags.sort();
         }
         buildListCvToFilter();
         buildListTagToFilter(); 
-        // console.log(listToFilter);     
+        // console.log(listToFilterOrFind);     
     })();
     /*END BUILD LIST CVS & TAGS TO FILTER*/
 
