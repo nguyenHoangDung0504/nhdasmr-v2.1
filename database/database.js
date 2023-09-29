@@ -443,6 +443,18 @@
         //FIND BY CODE
         else if(database.code.indexOf(data) != -1) { return databaseTypeObject[database.code.indexOf(data)]; } 
         //FIND BY RJCODE
+        else if(data.length>4 && findIndices(listToFilter.cvs, data) != null) {
+          return {
+            mess: "Do you mean "+listToFilter.cvs[findIndices(listToFilter.cvs, data)[0]]+" (CV)?",
+            data: dataProcessing.getDataAdvance(listToFilter.cvs[findIndices(listToFilter.cvs, data)[0]], '')
+          }
+        }
+        else if(data.length>1 && findIndices(listToFilter.tags, data) != null) {
+          return {
+            mess: "Do you mean "+listToFilter.tags[findIndices(listToFilter.tags, data)[0]]+" (Tag)?",
+            data: dataProcessing.getDataAdvance('', listToFilter.tags[findIndices(listToFilter.tags, data)[0]])
+          }          
+        }
         else if(findIndices(database.rjCode, data) != null) {
           let listResult = findIndices(database.rjCode, data), result = [];
           for(let i in listResult) { result.push(databaseTypeObject[listResult[i]]); }
