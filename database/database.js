@@ -456,12 +456,20 @@
         }:null;  
       },
       findData(data) {
-        if(listToFilterOrFind.cvs.indexOf(data) != -1) {
+        if(listToFilter.cvs.indexOf(data) != -1) {
           return dataProcessing.getDataAdvance(data, '');
-        } else if(listToFilterOrFind.tags.indexOf(data) != -1) {
+        } else if(listToFilter.tags.indexOf(data) != -1) {
           return dataProcessing.getDataAdvance('', data);
+        } else if(database.code.indexOf(data) != -1) {
+          return databaseTypeObject[database.code.indexOf(data)];
+        } else if(database.rjCode.indexOf(data) != -1) {
+          return databaseTypeObject[database.rjCode.indexOf(data)];
+        } else if(database.engName.indexOf(data) != -1) {
+          return databaseTypeObject[database.code.indexOf(data)];
+        } else if(database.code.indexOf(data) != -1) {
+          return databaseTypeObject[database.code.indexOf(data)];
         } else {
-          /**/
+          return null;
         }
       }
     };
