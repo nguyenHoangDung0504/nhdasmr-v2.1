@@ -236,23 +236,71 @@
     };
 /*END DATABASE OBJECT*/
 
-/*SORT DATABASE*/
-    var databaseTypeObject = [];
-    let length = database.code.length;
-    for (let i=0; i<length; i++) {
-      let obj = {
-        code:       database.code[i],
-        rjCode:     database.rjCode[i],
-        cvs:        database.cvs[i],
-        japName:    database.japName[i],
-        engName:    database.engName[i],
-        thumbnail:  database.thumbnail[i],
-        tags:       database.tags[i],
-        images:     database.images[i],
-        audios:     database.audios[i]
-      };
-      databaseTypeObject.push(obj);
+/*CONVERT LIST DATA TYPE*/
+    function convertListDataType(listData) {
+      if(Array.isArray(listData)) {
+        let result = {
+          code:       [],
+          rjCode:     [],
+          cvs:        [],
+          japName:    [],
+          engName:    [],
+          thumbnail:  [],
+          tags:       [],
+          images:     [],
+          audios:     []
+        };    
+        for (var index in listData) {
+          let obj = databaseTypeObject[index];
+          database.code.push(obj.code);
+          database.rjCode.push(obj.rjCode);
+          database.cvs.push(obj.cvs);
+          database.japName.push(obj.japName);
+          database.engName.push(obj.engName);
+          database.thumbnail.push(obj.thumbnail);
+          database.tags.push(obj.tags);
+          database.images.push(obj.images);
+          database.audios.push(obj.audios);
+        }        
+      } else {
+        let result = [];
+        let length = listData.code.length;
+        for (let i=0; i<length; i++) {
+          let obj = {
+            code:       listData.code[i],
+            rjCode:     listData.rjCode[i],
+            cvs:        listData.cvs[i],
+            japName:    listData.japName[i],
+            engName:    listData.engName[i],
+            thumbnail:  listData.thumbnail[i],
+            tags:       listData.tags[i],
+            images:     listData.images[i],
+            audios:     listData.audios[i]
+          };
+          result.push(obj);
+        }    
+        return result;
+      }
     }
+/*END CONVERT LIST DATA TYPE*/
+
+/*SORT DATABASE*/
+    var databaseTypeObject = convertListDataType(database);
+    // let length = database.code.length;
+    // for (let i=0; i<length; i++) {
+    //   let obj = {
+    //     code:       database.code[i],
+    //     rjCode:     database.rjCode[i],
+    //     cvs:        database.cvs[i],
+    //     japName:    database.japName[i],
+    //     engName:    database.engName[i],
+    //     thumbnail:  database.thumbnail[i],
+    //     tags:       database.tags[i],
+    //     images:     database.images[i],
+    //     audios:     database.audios[i]
+    //   };
+    //   databaseTypeObject.push(obj);
+    // }
     databaseTypeObject.sort(function(a, b) {
       return a.code-b.code;
     });
