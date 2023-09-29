@@ -245,13 +245,45 @@
         rjCode:     database.rjCode[i],
         cvs:        database.cvs[i],
         japName:    database.japName[i],
-        engName:    database.,
-        thumbnail:  database.,
-        tags:       database.,
-        images:     database.,
-        audios:     database.
+        engName:    database.engName[i],
+        thumbnail:  database.thumbnail[i],
+        tags:       database.tags[i],
+        images:     database.images[i],
+        audios:     database.audios[i]
       };
       objArray.push(obj);
+    }
+    objArray.sort(function(a, b) {
+      return a.code-b.code;
+    });
+    /*
+      GIẢM DẦN
+      objArray.sort(function(a, b) {
+        return b.code-a.code;
+      });          
+    */
+    database = {
+      code:       [],
+      rjCode:     [],
+      cvs:        [],
+      japName:    [],
+      engName:    [],
+      thumbnail:  [],
+      tags:       [],
+      images:     [],
+      audios:     []
+    };    
+    for (var index in objArray) {
+      let obj = objArray[index];
+      database.code.push(obj.code);
+      database.rjCode.push(obj.rjCode);
+      database.cvs.push(obj.cvs);
+      database.japName.push(obj.japName);
+      database.engName.push(obj.engName);
+      database.thumbnail.push(obj.thumbnail);
+      database.tags.push(obj.tags);
+      database.images.push(obj.images);
+      database.audios.push(obj.audios);
     }
 /*END SORT DATABASE*/
 
