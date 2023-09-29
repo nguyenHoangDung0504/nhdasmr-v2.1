@@ -480,9 +480,18 @@
       },
       /*PHÂN TÁCH DỮ LIỆU THÀNH CÁC DANH SÁCH ĐỂ ĐỔ RA WEB*/
       separateData(listDataTypeObject) {
-        const numberDataPerArray = ;
-        let result = [];
-        
+        const n = 24;
+        const reversedArray = [...listDataTypeObject].reverse(); // Đảo ngược mảng ban đầu
+        const result = [];
+        let subArray = [];
+        for (let i = 0; i < reversedArray.length; i++) {
+          subArray.push(reversedArray[i]);
+          if (subArray.length === n || i === reversedArray.length - 1) {
+            // Đạt tới độ dài tối đa hoặc đã duyệt qua hết mảng
+            result.push(subArray); // Thêm mảng con vào kết quả
+            subArray = []; // Reset mảng con
+          }
+        }
         return result;
       }
     };
