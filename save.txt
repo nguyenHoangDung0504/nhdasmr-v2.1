@@ -81,3 +81,7 @@
           dataProcessing.getData('cv',10);
           dataProcessing.getData('tag',10);
       */
+      
+      
+      
+      MẤT KHOẢNG 13 TIẾNG ĐỂ HOÀN THÀNH TẠM ỔN CÁC FUNCTION THAO TÁC VÀ QUẢN LÝ DỮ LIỆU.

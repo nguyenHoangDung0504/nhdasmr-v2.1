@@ -1,0 +1,7 @@
+:root{
+  --screen-height: 864;
+  --screen-width: 1536;
+}
+*{
+  box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth;
+}
