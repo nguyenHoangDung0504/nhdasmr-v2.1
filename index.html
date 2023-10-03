@@ -8,6 +8,7 @@
     <script>const rootPage = "https://nhdasmr-v4.glitch.me/";</script>
     <script src="database/database.js"></script>
     <script src="scripts/strings-processing-functions.js"></script>
+    <script src="scripts/build-data.js"></script>
     <script src="scripts/onload.js"></script>
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
@@ -91,6 +92,7 @@
     <div class="content">
         <div></div>
         <div class="grid-container">
+          
             <a href="#" class="grid-item">
                 <div class="image-container">
                     <img src="https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg" alt="Ảnh" />
@@ -102,40 +104,7 @@
                     <p class="singleline-ellipsis">Đây là một đoạn văn ngắn chỉ nằm trong một dòng.</p>
                 </div>
             </a>
-
-            <a class="grid-item">
-                <div class="image-container">
-                    <img src="https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg" alt="Ảnh" />
-                </div>
-                <div class="text-container">
-                    <p class="multiline-ellipsis">Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...</p>
-                  </div>
-                <div class="text-container">
-                    <p class="singleline-ellipsis">Đây là một đoạn văn ngắn chỉ nằm trong một dòng.</p>
-                </div>
-            </a>
-            <a class="grid-item">
-                <div class="image-container">
-                    <img src="https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg" alt="Ảnh" />
-                </div>
-                <div class="text-container">
-                    <p class="multiline-ellipsis">Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...</p>
-                  </div>
-                <div class="text-container">
-                    <p class="singleline-ellipsis">Đây là một đoạn văn ngắn chỉ nằm trong một dòng.</p>
-                </div>
-            </a>
-            <a class="grid-item">
-                <div class="image-container">
-                    <img src="https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg" alt="Ảnh" />
-                </div>
-                <div class="text-container">
-                    <p class="multiline-ellipsis">Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...</p>
-                  </div>
-                <div class="text-container">
-                    <p class="singleline-ellipsis">Đây là một đoạn văn ngắn chỉ nằm trong một dòng.</p>
-                </div>
-            </a>
+          
         </div>
         <div></div>
     </div>
@@ -151,6 +120,7 @@
             <a id="next-link">&gt;</a>
             <a id="last-link">&gt;&gt;</a>
         </div>
+      <script>buildPagination()</script>
     </div>
 
     <div class="footer">

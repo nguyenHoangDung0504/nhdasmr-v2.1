@@ -1,3 +1,4 @@
+/*SETTING BUTTON ONLOAD*/
 function isLightMode() {
     let body = document.querySelector('body');
     return (Array.from(body.classList).indexOf('lightMode') != -1) ?true:false;   
