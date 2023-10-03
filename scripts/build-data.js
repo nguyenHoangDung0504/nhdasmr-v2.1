@@ -6,19 +6,19 @@ let linkToProcess = "?";
 if(urlParams.get('s')) {
   linkToProcess = "?s="+urlParams.get('s')+"&";
 };
-let numberpage = 0;
+let numberpage;
 let listOfData = [];
 let listDataToInner = [];
 if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
-   listOfData = dataProcessing.seperateData(databaseTypeObject);
-    
+   listOfData = dataProcessing.separateData(databaseTypeObject);
+   numberpage = listOfData.length;
 }
 
 function buildListData() {
   if(!page || page<1){
     page = 1;
   }
-  
+  listDataToInner = listOfData[page-1];
 }
 
 function buildPagination() {

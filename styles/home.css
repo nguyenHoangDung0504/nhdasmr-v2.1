@@ -249,7 +249,7 @@ body.openMenu>.menu{
     padding-top: 10px;
     display: grid;
     grid-template-columns: calc(var(--screen-width) * 0.012) calc(var(--screen-width) * 0.97) calc(var(--screen-width) * 0.012);
-    transition: var(--time);
+    transition: grid-template-columns .3s;
 }
 .content .grid-container {
     display: grid;
