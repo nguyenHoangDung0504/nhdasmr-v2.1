@@ -283,19 +283,25 @@ body.openMenu>.menu{
     top: 0;
     left: 0;
   }
-.content .grid-container .grid-item .text-container {
+.content .grid-container .grid-item .flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+}
+.content .grid-container .grid-item .flex-container .text-container {
   width: 100%;
   margin-top: 15px;
   font-size: 18px;
 }
-.content .grid-container .grid-item .text-container .multiline-ellipsis {
+.content .grid-container .grid-item .flex-container .text-container .multiline-ellipsis {
   display: -webkit-box;
   -webkit-line-clamp: 2; /* Số dòng tối đa trước khi cắt ngắn */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.content .grid-container .grid-item .text-container .singleline-ellipsis {
+.content .grid-container .grid-item .flex-container .text-container .singleline-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

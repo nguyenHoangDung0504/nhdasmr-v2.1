@@ -18,30 +18,24 @@ function buildListData() {
   if(!page || page<1){
     page = 1;
   }
-  listDataToInner = listOfData[page-1];
   let dataToInner = '';
-  /*
-            code:       listData.code[i],
-            rjCode:     listData.rjCode[i],
-            cvs:        listData.cvs[i],
-            japName:    listData.japName[i],
-            engName:    listData.engName[i],
-            thumbnail:  listData.thumbnail[i],
-            tags:       listData.tags[i],
-            images:     listData.images[i],
-            audios:     listData.audios[i]
-  */
-  for(let i=0; i<listDataToInner; i++){
+  listDataToInner = listOfData[page-1];
+  console.log(listDataToInner);
+  for(let i=0; i<listDataToInner.length; i++){
+    console.log(i);
     let track = listDataToInner[i];
-    dataToInner+='<a href="/watch?code='+track.code+'" class="grid-item">'+
+    console.log(track);
+    dataToInner += '<a href="/watch?code='+track.code+'" class="grid-item">'+
                       '<div class="image-container">'+
                           '<img src="'+track.thumbnail+'" alt="thumbnail'+track.code+'" />'+
                       '</div>'+
-                      '<div class="text-container">'+
-                          '<p class="multiline-ellipsis">'+track.engName+'</p>'+
-                      '</div>'+
-                      '<div class="text-container">'+
-                          '<p class="singleline-ellipsis">'+track.cvs+'</p>'+
+                      '<div class="flex-container">'+
+                          '<div class="text-container">'+
+                              '<p class="multiline-ellipsis">'+track.engName+'</p>'+
+                          '</div>'+
+                          '<div class="text-container">'+
+                              '<p class="singleline-ellipsis">'+track.cvs.join(', ')+'</p>'+
+                          '</div>'+
                       '</div>'+
                   '</a>';
   }
