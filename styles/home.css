@@ -258,7 +258,7 @@ body.openMenu>.menu{
     grid-column-gap: 10px;
 }
 .content .grid-container .grid-item {
-    display: block;
+    display: flex;
     color: var(--text-color);
     border-radius: 10px;
     background-color: var(--bg);
@@ -267,6 +267,7 @@ body.openMenu>.menu{
     min-height: 200px;
     overflow: hidden;
     position: relative;
+    flex-direction: column;
 }
 .content .grid-container .grid-item .image-container {
     width: 100%;
@@ -287,7 +288,7 @@ body.openMenu>.menu{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: auto;
+  flex-grow: 1;
 }
 .content .grid-container .grid-item .flex-container .text-container {
   width: 100%;

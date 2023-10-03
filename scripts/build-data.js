@@ -20,14 +20,11 @@ function buildListData() {
   }
   let dataToInner = '';
   listDataToInner = listOfData[page-1];
-  console.log(listDataToInner);
   for(let i=0; i<listDataToInner.length; i++){
-    console.log(i);
     let track = listDataToInner[i];
-    console.log(track);
     dataToInner += '<a href="/watch?code='+track.code+'" class="grid-item">'+
                       '<div class="image-container">'+
-                          '<img src="'+track.thumbnail+'" alt="thumbnail'+track.code+'" />'+
+                          '<img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail'+track.code+'" />'+
                       '</div>'+
                       '<div class="flex-container">'+
                           '<div class="text-container">'+
