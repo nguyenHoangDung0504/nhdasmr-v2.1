@@ -149,14 +149,10 @@
   // Output: { param1: 'value1', param2: 'value2' }
 /*END HANDLING DATA*/
 
-/*OPEN&CLOSE MENU/LIGHT MODE*/
+/*OPEN&CLOSE MENU*/
 function isOpenMenu() {
     let body = document.querySelector('body');
     return (Array.from(body.classList).indexOf('openMenu') != -1) ?true:false;
-}
-function isLightMode() {
-    let body = document.querySelector('body');
-    return (Array.from(body.classList).indexOf('lightMode') != -1) ?true:false;   
 }
 
 document.querySelector("h1.button-open").onclick=function(){
@@ -169,24 +165,7 @@ document.querySelector("h1.button-open").onclick=function(){
       sessionStorage.removeItem('menuIs');
     }
 };
-let button = document.querySelector(".light-mode-button");
-button.innerHTML = "Light: <span style=\"color: green\">Turned On</span>";
-if(isLightMode()==false){
-  button.innerHTML = "Light: <span style=\"color: red\">Turned Off</span>";
-}
-button.onclick=function(){
-    let body = document.querySelector('body');
-    if(isLightMode()==false){
-        body.classList.add('lightMode');
-        this.innerHTML = "Light: <span style=\"color: green\">Turned On</span>";
-        sessionStorage.setItem('lightMode', 'on');
-    } else {
-        body.classList.remove('lightMode');  
-        this.innerHTML = "Light: <span style=\"color: red\">Turned Off</span>";
-        sessionStorage.removeItem('lightMode');
-    }  
-}
-/*END OPEN&CLOSE MENU/LIGHT MODE*/
+/*END OPEN&CLOSE MENU*/
 
 /*OPEN&CLOSE LIST IN MENU*/
 function closeAllListExept(ii) {

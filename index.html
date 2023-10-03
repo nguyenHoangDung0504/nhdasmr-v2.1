@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NHD ASMR - My Favourite ASMR Tracks</title>
-  <script src="scripts/strings-processing-functions.js"></script>
-  <script src="database/database.js"></script>
-  <link rel="stylesheet" href="styles/home.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  
+    <script>const rootPage = "https://nhdasmr-v4.glitch.me/";</script>
+    <script src="database/database.js"></script>
+    <script src="scripts/strings-processing-functions.js"></script>
+    <script src="scripts/onload.js"></script>
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 </head>
 <body class="" onload=""><!-- 🔎 -->
     <script src="scripts/keep-setting.js"></script>
@@ -16,7 +19,8 @@
             <h1 class="button-open">&#9776;</h1>
         </div>
         <div class="title-div">
-            <a href="#"><h1 class="title">Web Title</h1></a>
+            <a><h1 class="title">Web Title</h1></a>
+            <script>document.querySelector('.header .title-div a').href = rootPage;</script>
         </div>
         <div class="search-div">
             <div class="search-div2">
@@ -37,6 +41,7 @@
     <div class="menu">
         <a class="title"><h1>Web Title - Menu</h1></a>
         <a class="menu-item light-mode-button"></a>
+        <script>settingLightModeButton()</script>
         <a href="javascript:void(0)" class="menu-item">Advance Search 🔎</a>
         <a class="menu-item list-open-button" name="list1">list1&ensp; <i id="open-icon1" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
         <div class="hidden-list" id="list1">
