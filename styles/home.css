@@ -27,7 +27,7 @@ body{
     --big-bg: #333333; 
     --bg2: #111111;
     background-color: var(--big-bg);
-    transition: var(--time);
+/*     transition: var(--time); */
     overflow-x: hidden;
 }
 body.lightMode{
@@ -38,7 +38,7 @@ body.lightMode{
     --text-color: #111111;
 }
 body p.message{
-    transition: var(--time);
+    transition: width var(--time);
     color: var(--text-color);
     display: block; 
     font-size: 20px; 
