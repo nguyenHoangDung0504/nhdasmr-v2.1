@@ -1,17 +1,4 @@
 /*HANDLING DATA*/
-  // Ví dụ URL: http://example.com/page?param1=value1&param2=value2
-  let lightMode = sessionStorage.getItem('lightMode');
-  if(lightMode){
-    // document.querySelector('body').style.transition = '0s';
-    turnOnLightMode();
-    // setTimeout(function(){document.querySelector('body').style.transition = '.3s'}, 15000);
-  }
-  // let menuIs = sessionStorage.getItem('menuIs');
-  // if(menuIs){
-  //   document.querySelector('.menu').style.transition = '0s';
-  //   document.querySelector('body').classList.add('openMenu');
-  //   document.querySelector('.menu').style.transition = '.3s';
-  // }
   const urlParams = new URLSearchParams(window.location.search);
   // Lấy giá trị của một tham số cụ thể
   var page = urlParams.get('page');
@@ -182,18 +169,12 @@ document.querySelector("h1.button-open").onclick=function(){
       sessionStorage.removeItem('menuIs');
     }
 };
-
-function turnOnLightMode(){
-  sessionStorage.setItem('lightMode', 'on');
-  let button = document.querySelector(".light-mode-button");
-  document.querySelector('body').classList.add('lightMode');  
-  button.innerHTML = "Light: <span style=\"color: green\">Turned On</span>";
-}
-
+let button = document.querySelector(".light-mode-button");
+button.innerHTML = "Light: <span style=\"color: green\">Turned On</span>";
 if(isLightMode()==false){
-  document.querySelector(".light-mode-button").innerHTML = "Light: <span style=\"color: red\">Turned Off</span>";
+  button.innerHTML = "Light: <span style=\"color: red\">Turned Off</span>";
 }
-document.querySelector(".light-mode-button").onclick=function(){
+button.onclick=function(){
     let body = document.querySelector('body');
     if(isLightMode()==false){
         body.classList.add('lightMode');

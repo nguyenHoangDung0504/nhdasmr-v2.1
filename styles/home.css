@@ -38,7 +38,7 @@ body.lightMode{
     --text-color: #111111;
 }
 body p.message{
-    transition: width var(--time);
+    transition: margin var(--time);
     color: var(--text-color);
     display: block; 
     font-size: 20px; 
@@ -58,7 +58,7 @@ body.openMenu .footer, body.openMenu .pagination{
 a {text-decoration: none; color: var(--text-color)}
 /*HEADER*/
 .header{
-    transition: var(--time);
+/*     transition: var(--time); */
     display: flex;
     position: sticky;
     top: 0;
@@ -74,7 +74,7 @@ a {text-decoration: none; color: var(--text-color)}
     height: inherit;
 }
 .header .button-div h1.button-open{
-    transition: var(--time);
+/*     transition: var(--time); */
     color: var(--text-color);
     display: block;
     margin: auto;
