@@ -19,6 +19,33 @@ function buildListData() {
     page = 1;
   }
   listDataToInner = listOfData[page-1];
+  let dataToInner = '';
+  /*
+            code:       listData.code[i],
+            rjCode:     listData.rjCode[i],
+            cvs:        listData.cvs[i],
+            japName:    listData.japName[i],
+            engName:    listData.engName[i],
+            thumbnail:  listData.thumbnail[i],
+            tags:       listData.tags[i],
+            images:     listData.images[i],
+            audios:     listData.audios[i]
+  */
+  for(let i=0; i<listDataToInner; i++){
+    let track = listDataToInner[i];
+    dataToInner+='<a href="/watch?code='+track.code+'" class="grid-item">'+
+                      '<div class="image-container">'+
+                          '<img src="'+track.thumbnail+'" alt="thumbnail'+track.code+'" />'+
+                      '</div>'+
+                      '<div class="text-container">'+
+                          '<p class="multiline-ellipsis">'+track.engName+'</p>'+
+                      '</div>'+
+                      '<div class="text-container">'+
+                          '<p class="singleline-ellipsis">'+track.cvs+'</p>'+
+                      '</div>'+
+                  '</a>';
+  }
+  document.querySelector('.content .grid-container').innerHTML = dataToInner;
 }
 
 function buildPagination() {
