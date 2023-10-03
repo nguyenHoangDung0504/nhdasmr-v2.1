@@ -7,10 +7,171 @@
   <script src="scripts/strings-processing-functions.js"></script>
   <script src="database/database.js"></script>
   <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 </head>
-<body>
-  <script>
-    document.write("Width: "+screen.width+"<br>Height: "+screen.height);
-  </script>
+<body class=""><!-- 🔎 -->
+
+    <div class="header">
+        <div class="button-div">
+            <h1 class="button-open">&#9776;</h1>
+        </div>
+        <div class="title-div">
+            <a href="#"><h1 class="title">Web Title</h1></a>
+        </div>
+        <div class="search-div">
+            <div class="search-div2">
+                <input type="text" class="search-input" id="input" placeholder="Search here..." value=""
+                        >
+                <div class="search-icon"><h1><i class="fas fa-search"></i></h1></div>
+            </div>
+            <div class="result-box">
+                <a href="?s=result1"><i class="fas fa-search"></i> Result 1</a>
+                <a href="?s=result2"><i class="fas fa-search"></i> Result 2</a>
+                <a href="?s=result3"><i class="fas fa-search"></i> Result 3</a>
+                <a href="?s=resultx"><i class="fas fa-search"></i> ...</a>
+                <a href="?s=resultn"><i class="fas fa-search"></i> Result n</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        <a class="title"><h1>Web Title - Menu</h1></a>
+        <a class="menu-item light-mode-button"></a>
+        <a href="javascript:void(0)" class="menu-item">Advance Search 🔎</a>
+        <a class="menu-item list-open-button" name="list1">list1&ensp; <i id="open-icon1" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
+        <div class="hidden-list" id="list1">
+            <input type="text" id="input-of-hidden-list-1" placeholder="Filter...">
+            <a class="sub-item">Sub Item 1.1</a>
+            <a class="sub-item">Sub Item 1.2</a>
+            <a class="sub-item">Sub Item 1.3</a>
+            <a class="sub-item">Sub Item 1.4</a>
+            <a class="sub-item">Sub Item 1.5</a>
+            <a class="sub-item">Sub Item 1.6</a>
+        </div>
+        <a class="menu-item list-open-button" name="list2">list2&ensp; <i id="open-icon2" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
+        <div class="hidden-list" id="list2">
+            <input type="text" id="input-of-hidden-list-2" placeholder="Filter...">
+            <a class="sub-item">Sub Item 2.1</a>
+            <a class="sub-item">Sub Item 2.2</a>  
+            <a class="sub-item">Sub Item 2.3</a>          
+        </div>
+        <a class="menu-item list-open-button" name="list3">list3&ensp; <i id="open-icon3" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
+        <div class="hidden-list" id="list3">
+            <input type="text" id="input-of-hidden-list-3" placeholder="Filter...">
+            <a class="sub-item">Sub Item 3.1</a>
+            <a class="sub-item">Sub Item 3.2</a>
+            <a class="sub-item">Sub Item 3.3</a>
+            <a class="sub-item">Sub Item 3.4</a>
+            <a class="sub-item">Sub Item 3.5</a>
+            <a class="sub-item">Sub Item 3.6</a>   
+            <a class="sub-item">Sub Item 3.1</a>
+            <a class="sub-item">Sub Item 3.2</a>
+            <a class="sub-item">Sub Item 3.3</a>
+            <a class="sub-item">Sub Item 3.4</a>
+            <a class="sub-item">Sub Item 3.5</a>
+            <a class="sub-item">Sub Item 3.6</a> 
+            <a class="sub-item">Sub Item 3.1</a>
+            <a class="sub-item">Sub Item 3.2</a>
+            <a class="sub-item">Sub Item 3.3</a>
+            <a class="sub-item">Sub Item 3.4</a>
+            <a class="sub-item">Sub Item 3.5</a>
+            <a class="sub-item">Sub Item 3.6</a>                      
+        </div>
+    </div>
+
+    <p class="message">
+        Message: <strong>Some Message</strong>
+    </p>
+
+    <div class="content">
+        <div></div>
+        <div class="grid-container">
+            <a href="#" class="grid-item">
+                <div class="image-container">
+                    <img src="https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg" alt="Ảnh" />
+                </div>
+                <div class="text-container">
+                    <p class="multiline-ellipsis">Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...</p>
+                  </div>
+                <div class="text-container">
+                    <p class="singleline-ellipsis">Đây là một đoạn văn ngắn chỉ nằm trong một dòng.</p>
+                </div>
+            </a>
+
+            <a class="grid-item">
+                <div class="image-container">
+                    <img src="https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg" alt="Ảnh" />
+                </div>
+                <div class="text-container">
+                    <p class="multiline-ellipsis">Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...</p>
+                  </div>
+                <div class="text-container">
+                    <p class="singleline-ellipsis">Đây là một đoạn văn ngắn chỉ nằm trong một dòng.</p>
+                </div>
+            </a>
+            <a class="grid-item">
+                <div class="image-container">
+                    <img src="https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg" alt="Ảnh" />
+                </div>
+                <div class="text-container">
+                    <p class="multiline-ellipsis">Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...</p>
+                  </div>
+                <div class="text-container">
+                    <p class="singleline-ellipsis">Đây là một đoạn văn ngắn chỉ nằm trong một dòng.</p>
+                </div>
+            </a>
+            <a class="grid-item">
+                <div class="image-container">
+                    <img src="https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg" alt="Ảnh" />
+                </div>
+                <div class="text-container">
+                    <p class="multiline-ellipsis">Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...Đây là một đoạn văn dài có thể vượt quá hai dòng và sẽ được cắt ngắn thành dấu ...</p>
+                  </div>
+                <div class="text-container">
+                    <p class="singleline-ellipsis">Đây là một đoạn văn ngắn chỉ nằm trong một dòng.</p>
+                </div>
+            </a>
+        </div>
+        <div></div>
+    </div>
+    
+    <div class="pagination">
+        <div class="pagination-body">
+            <a id="first-link">&lt;&lt;</a>
+            <a id="previous-link">&lt;</a>
+            <a id="link1"></a>
+            <a id="link2"></a>
+            <a id="link3"></a>
+            <a id="link4"></a>
+            <a id="next-link">&gt;</a>
+            <a id="last-link">&gt;&gt;</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h1 class="title">Footer Title</h1>
+        <div class="footer-content">
+            <div class="grid-item">
+                <h2>Title 1</h2>
+                <a>Link1.1</a>
+                <a>Link1.2</a>
+                <a>Link1.3</a>
+            </div>
+            <div class="grid-item">
+                <h2>Title 2</h2>
+                <a>Link2.1</a>
+                <a>Link2.2</a>
+                <a>Link2.3</a>               
+            </div>
+            <div class="grid-item">
+                <h2>Title 3</h2>
+                <a>Link3.1</a>
+                <a>Link3.2</a>
+                <a>Link3.3</a>                
+            </div>            
+        </div>
+        Footer Content
+    </div>
+  <script src="scripts/front-end-script.js"></script>
 </body>
 </html>
