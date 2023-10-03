@@ -6,9 +6,23 @@ let linkToProcess = "?";
 if(urlParams.get('s')) {
   linkToProcess = "?s="+urlParams.get('s')+"&";
 };
-let numberpage = 10;
+let numberpage = 0;
+let listOfData = [];
+let listDataToInner = [];
+if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
+   listOfData = dataProcessing.seperateData(databaseTypeObject);
+    
+}
+
+function buildListData() {
+  if(!page || page<1){
+    page = 1;
+  }
+  
+}
 
 function buildPagination() {
+  if(numberpage<1) {return;}
   if(!page || page<1){
     page = 1;
   } else if(page>numberpage) {
@@ -142,9 +156,9 @@ function buildPagination() {
   }
 }
 
-function buildListData() {
-  
-}
+
+
+
 
 
 
