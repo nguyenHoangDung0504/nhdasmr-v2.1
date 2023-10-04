@@ -22,7 +22,7 @@ if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
    let sl = listFinded.length;
    listOfData = dataProcessing.separateData(listFinded);
    numberpage = listOfData.length;
-   message = 'CV: <span class="cv">'+urlParams.get('cv')+'</span> (';
+   message = 'CV: <span class="cv">'+urlParams.get('cv')+'</span> ('+sl+')';
 }
 
 function buildListData() {
