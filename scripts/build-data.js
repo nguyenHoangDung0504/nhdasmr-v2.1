@@ -39,19 +39,22 @@ function buildListData() {
         cv_string += '<a class="cv" onclick="event.stopPropagation();" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>';
       }
     }
-    dataToInner += '<a href="/watch?code='+track.code+'" class="grid-item">'+
-                      '<div class="image-container">'+
-                          '<img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail'+track.code+'" />'+
-                      '</div>'+
-                      '<div class="flex-container">'+
-                          '<div class="text-container">'+
-                              '<p class="multiline-ellipsis">'+track.engName+'</p>'+
-                          '</div>'+
-                          '<div class="text-container">'+
-                              '<p class="singleline-ellipsis">'+cv_string+'</p>'+
-                          '</div>'+
-                      '</div>'+
-                  '</a>';
+    if(i==1){console.log(cv_string)}
+    // dataToInner += '<a href="/watch?code='+track.code+'" class="grid-item">'+
+    //                   '<div class="image-container">'+
+    //                       '<img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail'+track.code+'" />'+
+    //                   '</div>'+
+    //                   '<div class="flex-container">'+
+    //                       '<div class="text-container">'+
+    //                           '<p class="multiline-ellipsis">'+track.engName+'</p>'+
+    //                       '</div>'+
+    //                       '<div class="text-container">'+
+    //                           '<p class="singleline-ellipsis">'+cv_string+'</p>'+
+    //                       '</div>'+
+    //                   '</div>'+
+    //               '</a>';
+    dataToInner += '<a href="/watch?code='+track.code+'" class="grid-item"><div class="image-container"><img loading="lazy" src="https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/99284(0)?v=1693740501130" alt="thumbnail99284" /></div><div class="flex-container"><div class="text-container"><p class="multiline-ellipsis">Low tone brown succubus ♀'s limit ejaculation management</p></div><div class="text-container"><p class="singleline-ellipsis"><a class="cv" onclick="event.stopPropagation();" href="?cv=Mio Namimi">Mio Namimi</a></p></div></div></a><a href="/watch?code=75549" class="grid-item"><div class="image-container"><img loading="lazy" src="https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/75549(0)?v=1682679608585" alt="thumbnail75549" /></div><div class="flex-container"><div class="text-container"><p class="multiline-ellipsis">Tomboyish girl and Gal girl are too familiar with each other!</p></div><div class="text-container"><p class="singleline-ellipsis"><a class="cv" onclick="event.stopPropagation();" href="?cv=Kaede Akino">Kaede Akino</a>, <a class="cv" onclick="event.stopPropagation();" href="?cv=Mio Namimi">Mio Namimi</a></p></div></div></a>'
+    if(i==1){console.log(dataToInner);}
   }
   document.querySelector('.content .grid-container').innerHTML = dataToInner;
 }
