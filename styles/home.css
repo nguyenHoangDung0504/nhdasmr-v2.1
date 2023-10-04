@@ -269,6 +269,9 @@ body.openMenu>.menu{
     position: relative;
     flex-direction: column;
 }
+.content .grid-container .grid-item .cv {
+  color: deeppink;
+}
 .content .grid-container .grid-item .image-container {
     width: 100%;
     aspect-ratio: 4 / 3;

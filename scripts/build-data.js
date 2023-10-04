@@ -12,6 +12,9 @@ let listDataToInner = [];
 if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
    listOfData = dataProcessing.separateData(databaseTypeObject);
    numberpage = listOfData.length;
+} else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv')) {
+   listOfData = dataProcessing.separateData(dataProcessing.findData(urlParams.get('cv')));
+   numberpage = listOfData.length;   
 }
 
 function buildListData() {
@@ -22,6 +25,15 @@ function buildListData() {
   listDataToInner = listOfData[page-1];
   for(let i=0; i<listDataToInner.length; i++){
     let track = listDataToInner[i];
+    let cv_string = '';
+    for(let j=0; j<track.cvs.length; j++) {
+      if(j<track.cvs.length-1) {
+        cv_string += '<a class="cv" onclick="event.stopPropagation();" href="?cv='+track.cvs[j]+'"></a>';
+      } else if(j==track.cvs.length-1) {
+        
+      }
+      
+    }
     dataToInner += '<a href="/watch?code='+track.code+'" class="grid-item">'+
                       '<div class="image-container">'+
                           '<img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail'+track.code+'" />'+
