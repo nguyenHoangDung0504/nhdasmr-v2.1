@@ -41,7 +41,7 @@ body p.message{
     transition: margin var(--time);
     color: var(--text-color);
     display: block; 
-    font-size: 20px; 
+    font-size: 24px; 
     margin: calc(var(--screen-width) * .02);
 }
 body.openMenu .content{
@@ -295,8 +295,8 @@ body.openMenu>.menu{
   margin-top: 15px;
   font-size: 18px;
 }
-a.cv {
-  display: inline !important;
+.cv {
+  font-weight: bold;
   color: deeppink;
 }
 .content .grid-container .grid-item .flex-container .text-container .multiline-ellipsis {

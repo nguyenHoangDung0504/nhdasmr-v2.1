@@ -18,9 +18,11 @@ if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
    listOfData = dataProcessing.separateData(databaseTypeObject);
    numberpage = listOfData.length;
 } else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv')) {
-   listOfData = dataProcessing.separateData(dataProcessing.findData(urlParams.get('cv')));
+   let listFinded = dataProcessing.findData(urlParams.get('cv'));
+   let sl = listFinded.length;
+   listOfData = dataProcessing.separateData(listFinded);
    numberpage = listOfData.length;
-   message = 'CV: '+urlParams.get('cv');
+   message = 'CV: <span class="cv">'+urlParams.get('cv')+'</span> (';
 }
 
 function buildListData() {
@@ -31,30 +33,29 @@ function buildListData() {
   listDataToInner = listOfData[page-1];
   for(let i=0; i<listDataToInner.length; i++){
     let track = listDataToInner[i];
-    let cv_string = '';
+    let cv_string = 'CV';
+    if(track.cvs.length>1){cv_string+='s';}
+    cv_string += ': '
     for(let j=0; j<track.cvs.length; j++) {
       if(j<track.cvs.length-1) {//event.stopPropagation()   ?cv='+track.cvs[j]+'
-        cv_string += '<a class=cv onclick="" href="">'+track.cvs[j]+'</a>, ';
+        cv_string += '<a class=cv onclick="" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>, ';
       } else if(j==track.cvs.length-1) {
-        cv_string += '<a class=cv onclick="" href="">'+track.cvs[j]+'</a>';
+        cv_string += '<a class=cv onclick="" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>';
       }
     }
-    if(i==1){console.log(cv_string)}
-    dataToInner += '<a href="/watch?code='+track.code+'" class="grid-item">'+
+    dataToInner += '<div class="grid-item">'+
                       '<div class="image-container">'+
-                          '<img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail'+track.code+'" />'+
+                        '<a href="/watch?code='+track.code+'"><img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail '+track.code+'"/></a>'+
                       '</div>'+
                       '<div class="flex-container">'+
-                          '<div class="text-container">'+
-                              '<p class="multiline-ellipsis">'+track.engName+'</p>'+
-                          '</div>'+
-                          '<div class="text-container">'+
-                              '<p class="singleline-ellipsis">'+cv_string+'</p>'+
-                          '</div>'+
+                        '<div class="text-container"><a href="/watch?code='+track.code+'">'+
+                          '<p class="multiline-ellipsis">'+track.engName+'</p>'+
+                        '</a></div>'+
+                        '<div class="text-container">'+
+                          '<p class="singleline-ellipsis">'+cv_string+'</p>'+
+                        '</div>'+
                       '</div>'+
-                  '</a>';
-    dataT
-    if(i==1){console.log(dataToInner);}
+                  '</div>';
   }
   document.querySelector('.content .grid-container').innerHTML = dataToInner;
 }
