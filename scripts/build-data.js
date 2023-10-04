@@ -3,18 +3,24 @@ const urlParams = new URLSearchParams(window.location.search);
 // Lấy giá trị của một tham số cụ thể
 var page = urlParams.get('page');
 let linkToProcess = "?";
-if(urlParams.get('s')) {
+if(urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
   linkToProcess = "?s="+urlParams.get('s')+"&";
-};
+} else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv')) {
+  linkToProcess = "?s="+urlParams.get('cv')+"&";
+}
+
 let numberpage;
 let listOfData = [];
 let listDataToInner = [];
+let message = '';
+
 if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
    listOfData = dataProcessing.separateData(databaseTypeObject);
    numberpage = listOfData.length;
 } else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv')) {
    listOfData = dataProcessing.separateData(dataProcessing.findData(urlParams.get('cv')));
-   numberpage = listOfData.length;   
+   numberpage = listOfData.length;
+   message = 'CV: '+urlParams.get('cv');
 }
 
 function buildListData() {
@@ -28,11 +34,10 @@ function buildListData() {
     let cv_string = '';
     for(let j=0; j<track.cvs.length; j++) {
       if(j<track.cvs.length-1) {
-        cv_string += '<a class="cv" onclick="event.stopPropagation();" href="?cv='+track.cvs[j]+'"></a>';
+        cv_string += '<a class="cv" onclick="event.stopPropagation();" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>, ';
       } else if(j==track.cvs.length-1) {
-        
+        cv_string += '<a class="cv" onclick="event.stopPropagation();" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>';
       }
-      
     }
     dataToInner += '<a href="/watch?code='+track.code+'" class="grid-item">'+
                       '<div class="image-container">'+
@@ -43,7 +48,7 @@ function buildListData() {
                               '<p class="multiline-ellipsis">'+track.engName+'</p>'+
                           '</div>'+
                           '<div class="text-container">'+
-                              '<p class="singleline-ellipsis">'+track.cvs.join(', ')+'</p>'+
+                              '<p class="singleline-ellipsis">'+cv_string+'</p>'+
                           '</div>'+
                       '</div>'+
                   '</a>';

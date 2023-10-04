@@ -270,6 +270,7 @@ body.openMenu>.menu{
     flex-direction: column;
 }
 .content .grid-container .grid-item .cv {
+  display: inline !important;
   color: deeppink;
 }
 .content .grid-container .grid-item .image-container {
