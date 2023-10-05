@@ -12,7 +12,7 @@ if(urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
 let numberpage;
 let listOfData = [];
 let listDataToInner = [];
-let message = '';
+let message = 'NHD Hentai - ASMR Hentai Tracks';
 
 if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
    listOfData = dataProcessing.separateData(databaseTypeObject);
@@ -25,8 +25,13 @@ if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
    message = 'CV: <span class="cv">'+urlParams.get('cv')+'</span> ('+sl+')';
 }
 
+if(page && (page<1 || page>numberpage)) {
+  alert("Page not found!");
+  window.location = linkToProcess+"page=1";
+}
+
 function buildListData() {
-  if(!page || page<1){
+  if(!page){
     page = 1;
   }
   let dataToInner = '';
