@@ -35,6 +35,7 @@ function closeAllListExept(ii) {
       button.classList.add('fa-chevron-down');
     }
   }
+  document.querySelector('.menu').scrollTop=0;
 }
 let menu_buttons = document.querySelectorAll('.list-open-button');
 for (let i=0; i<menu_buttons.length; i++) {

@@ -204,7 +204,7 @@ function buildListCv() {
   let container = document.querySelector('div.hidden-list#list1');
   let dataToInner = '<input type="text" id="input-of-hidden-list-1" placeholder="Filter...">';
   for(let i=0; i<listToFilter.cvs.length; i++) {
-    dataToInner += '<a class="sub-item" href="?cv='+listToFilter.cvs[i]+'">'+listToFilter.cvs[i]+'</a>';
+    dataToInner += '<a class="sub-item" href="?cv='+listToFilter.cvs[i]+'"><span style="color: red;">❤</span><span class="hover">'+listToFilter.cvs[i]+'</span></a>';
   }
   container.innerHTML = dataToInner;
 }

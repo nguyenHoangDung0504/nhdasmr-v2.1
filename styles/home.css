@@ -167,7 +167,7 @@ a {text-decoration: none; color: var(--text-color)}
     position: fixed;
     --width: calc(var(--screen-width) * calc(.185 - .01));
     width: var(--width);
-    height: calc(var(--screen-height) * .90);
+    height: calc(100vh - calc(var(--screen-height) * .10));
     top: calc(var(--screen-height) * .10);
     /*left: calc(0 - calc(var(--screen-width)*(0.185-0.02)));*/
     left: calc(-1 * var(--width));
@@ -236,7 +236,7 @@ a {text-decoration: none; color: var(--text-color)}
     cursor: pointer;
     overflow: hidden;
 }
-.menu .hidden-list .sub-item:hover{
+.menu .hidden-list .sub-item .hover:hover{
     text-decoration: underline;
 }
 body.openMenu>.menu{
