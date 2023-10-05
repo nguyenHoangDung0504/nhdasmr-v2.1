@@ -7,6 +7,8 @@ if(urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
   linkToProcess = "?s="+urlParams.get('s')+"&";
 } else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv')) {
   linkToProcess = "?cv="+urlParams.get('cv')+"&";
+} else if(!urlParams.get('s') && urlParams.get('tag') && !urlParams.get('cv')) {
+  linkToProcess = "?tag="+urlParams.get('tag')+"&";
 }
 
 let numberpage;
@@ -22,7 +24,13 @@ if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
    let sl = listFinded.length;
    listOfData = dataProcessing.separateData(listFinded);
    numberpage = listOfData.length;
-   message = 'CV: <span class="cv">'+urlParams.get('cv')+'</span> ('+sl+')';
+   message = '<b>CV</b>: <span class="cv">'+urlParams.get('cv')+'</span> ('+sl+')';
+} else if(!urlParams.get('s') && urlParams.get('tag') && !urlParams.get('cv')) {
+   let listFinded = dataProcessing.findData(urlParams.get('tag'));
+   let sl = listFinded.length;
+   listOfData = dataProcessing.separateData(listFinded);
+   numberpage = listOfData.length;
+   message = '<b>Tag</b>: <span class="tag">'+urlParams.get('tag')+'</span> ('+sl+')';
 }
 
 if(page && (page<1 || page>numberpage)) {
@@ -202,7 +210,7 @@ function buildPagination() {
 
 function buildListCv() {
   let container = document.querySelector('div.hidden-list#list1');
-  let dataToInner = '<input type="text" id="input-of-hidden-list-1" placeholder="Filter...">';
+  let dataToInner = '<input type="text" id="input-of-hidden-list-1" placeholder="Find...">';
   for(let i=0; i<listToFilter.cvs.length; i++) {
     dataToInner += '<a class="sub-item" href="?cv='+listToFilter.cvs[i]+'"><span style="color: red;">❤</span><span class="hover">'+listToFilter.cvs[i]+'</span></a>';
   }
@@ -210,7 +218,7 @@ function buildListCv() {
 }
 function buildListTag() {
   let container = document.querySelector('div.hidden-list#list2');
-  let dataToInner = '<input type="text" id="input-of-hidden-list-2" placeholder="Filter...">';
+  let dataToInner = '<input type="text" id="input-of-hidden-list-2" placeholder="Find...">';
   for(let i=0; i<listToFilter.tags.length; i++) {
     dataToInner += '<a class="sub-item" href="?tag='+listToFilter.tags[i]+'">'+listToFilter.tags[i]+'</a>';
   }
