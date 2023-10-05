@@ -12,7 +12,7 @@ if(urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
 let numberpage;
 let listOfData = [];
 let listDataToInner = [];
-let message = 'NHD Hentai - ASMR Hentai Tracks';
+let message = 'NHD Hentai - List of ASMR Hentai';
 
 if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
    listOfData = dataProcessing.separateData(databaseTypeObject);
@@ -200,8 +200,22 @@ function buildPagination() {
   }
 }
 
-
-
+function buildListCv() {
+  let container = document.querySelector('div.hidden-list#list1');
+  let dataToInner = '<input type="text" id="input-of-hidden-list-1" placeholder="Filter...">';
+  for(let i=0; i<listToFilter.cvs.length; i++) {
+    dataToInner += '<a class="sub-item" href="?cv='+listToFilter.cvs[i]+'">'+listToFilter.cvs[i]+'</a>';
+  }
+  container.innerHTML = dataToInner;
+}
+function buildListTag() {
+  let container = document.querySelector('div.hidden-list#list2');
+  let dataToInner = '<input type="text" id="input-of-hidden-list-2" placeholder="Filter...">';
+  for(let i=0; i<listToFilter.tags.length; i++) {
+    dataToInner += '<a class="sub-item" href="?tag='+listToFilter.tags[i]+'">'+listToFilter.tags[i]+'</a>';
+  }
+  container.innerHTML = dataToInner;
+}
 
 
 
