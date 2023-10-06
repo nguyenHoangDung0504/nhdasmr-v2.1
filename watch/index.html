@@ -19,6 +19,7 @@
         alert("Page not found!");
         window.location="https://nhdasmr-v4.glitch.me/";
       }
+      document.title = "Watch "+id_vid+" - NHD ASMR";
       let index = database.code.indexOf(Number(id_vid));
       let watch_data = databaseTypeObject[index];
       if(watch_data.audios[0].indexOf('.mp4')>-1) { isVideo = true; }
@@ -259,8 +260,8 @@
       let i=0;
       let centerContainer = document.getElementById('center-container');
       let dataToInner = '';
-      while(links_image[id_vid][i]) {
-        dataToInner += '<video class="vid" id="'+Number(Number(i)+1)+'" height="100%" width="100%" poster="'+links_image[id_vid][i]+'" controls><source src="'+links_audio[id_vid][i]+'"></video>';
+      while(watch_data.images[i]) {
+        dataToInner += '<video class="vid" id="'+Number(Number(i)+1)+'" height="100%" width="100%" poster="'+watch_data.images[i]+'" controls><source src="'+watch_data.audios[i]+'"></video>';
         number_images++;
         i++;
       }
