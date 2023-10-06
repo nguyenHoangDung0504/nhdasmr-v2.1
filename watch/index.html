@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="styles/watch.css"/>
+    <link rel="icon" type="image/x-icon" href="https://cdn.glitch.global/59cd60db-caa3-4316-b0ea-44f47d68054c/75e4a449-5026-4d1f-b34b-ffe16f706675.image.ico?v=1678545578735"/>
     <script src="database/database.js"></script>
     <script>
       var open=false;
@@ -18,12 +19,9 @@
         alert("Page not found!");
         window.location="https://nhdasmr-v4.glitch.me/";
       }
-      let index = database.code.indexOf(code);
-      alert(index);
-      let check = links_audio[id_vid][0];
-      if(check.indexOf('.mp4')>-1) {
-        isVideo = true;
-      }
+      let index = database.code.indexOf(Number(id_vid));
+      let watch_data = databaseTypeObject[index];
+      if(watch_data.audios[0].indexOf('.mp4')>-1) { isVideo = true; }
     </script>
   </head>
   
@@ -191,31 +189,34 @@
       const audios_container = document.getElementById("audioContainer");
       let i=0;
       let dataToInner = '';
-      while(links_image[id_vid][i]) {
-        let link = links_image[id_vid][i];
+      
+      while(watch_data.images[i]) {
+        let link = watch_data.images[i];
         if(link.indexOf(".mp4")>-1) {
           //document.getElementById('dbc').style.display='none';
-          dataToInner += '<video poster="'+(links_image[id_vid][0])+'" controls id="'+Number(Number(i)+1)+'" class="img" style="height:99%; width: 100%;"><source src="'+link+'"></video>';
+          dataToInner += '<video poster="'+(watch_data.images[0])+'" controls id="'+Number(Number(i)+1)+'" class="img" style="height:99%; width: 100%;"><source src="'+link+'"></video>';
           //continue;
         } else {
-          dataToInner += '<img id="'+Number(Number(i)+1)+'" class="img" src="'+links_image[id_vid][i]+'" style="height:100%;">';
+          dataToInner += '<img id="'+Number(Number(i)+1)+'" class="img" src="'+watch_data.images[i]+'" style="height:100%;">';
         }
         i++;
       } 
       images_container.innerHTML += dataToInner;
       number_images = i;
       if(number_images==1) {document.getElementById("next").style.display="none";document.getElementById("prev").style.display="none";}
+      
       i=0;
       dataToInner = '';
-      while(links_audio[id_vid][i]) {
+      
+      while(watch_data.audios[i]) {
         if(screen.width>1200) {
           dataToInner += '<i onclick="setTime('+i+', 5)" class="material-icons control-audio" style="font-size:36px; float:right;">forward_5</i>'+
                          '<i onclick="setTime('+i+', -5)" class="material-icons control-audio" style="font-size:36px; float:right;">replay_5</i>'+
-                         '<audio id="aud'+i+'" controls style="width:91%; float:left;"><source src="'+links_audio[id_vid][i]+'"></audio>';
+                         '<audio id="aud'+i+'" controls style="width:91%; float:left;"><source src="'+watch_data.audios[i]+'"></audio>';
         } else {
           dataToInner += '<i onclick="setTime('+i+', -5)" class="material-icons control-audio" style="font-size:36px">replay_5</i>'+
                          '<i onclick="setTime('+i+', 5)" class="material-icons control-audio" style="font-size:36px">forward_5</i>'+
-                         '<audio id="aud'+i+'" controls><source src="'+links_audio[id_vid][i]+'"></audio>';
+                         '<audio id="aud'+i+'" controls><source src="'+watch_data.audios[i]+'"></audio>';
         }
         i++;
       }
