@@ -17,11 +17,11 @@ function settingLightModeButton() {
       if(isLightMode()==false){
           body.classList.add('lightMode');
           this.innerHTML = "Light: <span style=\"color: green\">Turned On</span>";
-          sessionStorage.setItem('lightMode', 'on');
+          localStorage.setItem('lightMode', 'on');
       } else {
           body.classList.remove('lightMode');  
           this.innerHTML = "Light: <span style=\"color: red\">Turned Off</span>";
-          sessionStorage.removeItem('lightMode');
+          localStorage.removeItem('lightMode');
       }  
   } 
 }

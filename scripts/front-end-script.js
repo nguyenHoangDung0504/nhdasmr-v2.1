@@ -8,10 +8,10 @@ document.querySelector("h1.button-open").onclick=function(){
     let body = document.querySelector('body');
     if(isOpenMenu()==false){
       body.classList.add('openMenu');
-      sessionStorage.setItem('menuIs', 'open');
+      localStorage.setItem('menuIs', 'open');
     } else {
       body.classList.remove('openMenu');
-      sessionStorage.removeItem('menuIs');
+      localStorage.removeItem('menuIs');
     }
 };
 /*END OPEN&CLOSE MENU*/

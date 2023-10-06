@@ -1,11 +1,11 @@
 
 function turnOnLightMode(){
-  sessionStorage.setItem('lightMode', 'on');
+  localStorage.setItem('lightMode', 'on');
   document.querySelector('body').classList.add('lightMode'); 
 }
-if(sessionStorage.getItem('lightMode')){
+if(localStorage.getItem('lightMode')){
   turnOnLightMode();
 }
-if(sessionStorage.getItem('menuIs')){
+if(localStorage.getItem('menuIs')){
   document.querySelector('body').classList.add('openMenu');
 }
