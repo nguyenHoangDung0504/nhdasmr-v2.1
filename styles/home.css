@@ -398,8 +398,8 @@ body.openMenu>.menu{
     margin: 12px 0;
 }
 .footer .footer-content .grid-item a:hover{
-    text-decoration: underline;
-    /* color: deeppink; */
+/*     text-decoration: underline; */
+    color: deeppink;
 }
 .footer .footer-content .grid-item h2{
     display: block;
