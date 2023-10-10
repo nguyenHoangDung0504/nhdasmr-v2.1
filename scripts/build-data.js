@@ -46,7 +46,7 @@ function buildListData() {
   listDataToInner = listOfData[page-1];
   for(let i=0; i<listDataToInner.length; i++){
     let track = listDataToInner[i];
-    let cv_string = 'CV';
+    let cv_string = '<br>CV';
     if(track.cvs.length>1){cv_string+='s';}
     cv_string += ': '
     for(let j=0; j<track.cvs.length; j++) {
@@ -65,7 +65,7 @@ function buildListData() {
                           '<p class="multiline-ellipsis">'+track.engName+'</p>'+
                         '</a></div>'+
                         '<div class="text-container">'+
-                          '<p class="singleline-ellipsis">'+cv_string+'</p>'+
+                          '<p class="singleline-ellipsis">'+cv_string+'.'+'</p>'+
                         '</div>'+
                       '</div>'+
                   '</div>';
@@ -225,15 +225,10 @@ function buildListTag() {
   container.innerHTML = dataToInner;
 }
 
-
-
-
-
-
 // Lấy tất cả các tham số và giá trị
-const allParams = {};
-for (const param of urlParams) {
-  allParams[param[0]] = param[1];
-}
-console.log(allParams);
+// const allParams = {};
+// for (const param of urlParams) {
+//   allParams[param[0]] = param[1];
+// }
+// console.log(allParams);
 /*END HANDLING DATA*/
