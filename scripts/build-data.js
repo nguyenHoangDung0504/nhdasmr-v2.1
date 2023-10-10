@@ -1,4 +1,3 @@
-console.time('build_data_time');
 /*HANDLING DATA*/
 const urlParams = new URLSearchParams(window.location.search);
 // Lấy giá trị của một tham số cụ thể
@@ -40,6 +39,7 @@ if(page && (page<1 || page>numberpage)) {
 }
 
 function buildListData() {
+  console.time('build_list_data_time');
   if(!page){
     page = 1;
   }
@@ -72,6 +72,7 @@ function buildListData() {
                   '</div>';
   }
   document.querySelector('.content .grid-container').innerHTML = dataToInner;
+  console.timeEnd('build_list_data_time');
 }
 
 function buildPagination() {
@@ -233,4 +234,3 @@ function buildListTag() {
 // }
 // console.log(allParams);
 /*END HANDLING DATA*/
-console.timeEnd('build_data_time');

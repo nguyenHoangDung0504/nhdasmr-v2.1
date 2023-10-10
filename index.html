@@ -124,5 +124,12 @@
   
     <script src="scripts/front-end-script.js"></script>
   
+    <script>
+      window.addEventListener('load', function() {
+        // Trang đã tải xong
+        const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+        console.log('Loading time: ' + loadTime + ' ms');
+      });
+    </script>
 </body>
 </html>
