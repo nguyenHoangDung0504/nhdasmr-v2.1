@@ -1,3 +1,4 @@
+console.time('build_data_time');
 /*HANDLING DATA*/
 const urlParams = new URLSearchParams(window.location.search);
 // Lấy giá trị của một tham số cụ thể
@@ -232,3 +233,4 @@ function buildListTag() {
 // }
 // console.log(allParams);
 /*END HANDLING DATA*/
+console.timeEnd('build_data_time');

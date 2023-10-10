@@ -1,3 +1,4 @@
+console.time('build_database_and_database_functions_time');
 /*DATA OF DATABASE*/
     var db_code       = [];
     var db_rjCode     = [];
@@ -22,7 +23,7 @@
       db_images.push( (images.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
       db_audios.push( (audios.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
     }
-
+    
     (function() {
         pushData(1, "????????", "Nightfawn", "", "A Virgin Visits A Monster Brothel", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ddf755fb-9863-433a-8cf2-4f0dcdc6b3db.image.png?v=1691559673421", "Blowjob, English, Handjob, Milf, Succubus, Tailjob", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/ec161a3c-0672-45c8-bfa7-688fb86f7abb.image.png?v=1691559602418", "https://cdn.glitch.me/eefb1a2d-90ba-478b-b95a-dd50511909fe/SpankBang.com_mom%2Basmr%2Bwuhu_720p.mp4?v=1681911404572");
         pushData(19178, "RJ276886", "Eikyuu", "熟れた女12:友だちのお母さん 2人目", "Ripe Woman 12: Another Friend’s Mother", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/19178(0)?v=1681912840969", "Blowjob, Housewife, Married Woman, Milf", "https://cdn.glitch.global/8a12e68a-154b-4206-a6d7-dadd1141b198/c9354b92-f6a5-4ee8-b462-2272442be003.image.png?v=1681912840969", "https://cdn.glitch.me/8a12e68a-154b-4206-a6d7-dadd1141b198/Ripe%20Woman%2012_%20Another%20Friend's%20Mother%20%E2%80%93%20Japanese%20ASMR_1_128k.mp3?v=1682074183773");
@@ -195,6 +196,7 @@
         pushData(88888, "RJ01065824", "Meiya Yume", "迷夜ゆめ ファンティアオナサポASMR総集編2022.9-2023.2", "Meiya Yume Fantia Ona Support ASMR Compilation", "https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(0)?v=1694502918272", "3D, Ahegao, Animation, ASMR, Blowjob, Ear Licking, Foot Job, Futanari, Hand Job, Kissing, Peeing, Peeing Oneself, Perverted, School Uniform, Vtuber", "https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(1)?v=1694503283496,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(2)?v=1694503421366,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(3)?v=1694503519083,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(4)?v=1694503834216,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(5)?v=1694504051626,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(6)?v=1694504178551", "https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_1.mp4?v=1694504395153,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_2.mp4?v=1694504429342,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_3.mp4?v=1694504466949,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_4.mp4?v=1694504506876,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_5.mp4?v=1694504532582,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_6.mp4?v=1694504553862");
         // pushData(, [""], "", "", "", [""], "", "", [""], [""]);
     })();
+
 /*END ADD DATA TO DATABASE*/
     // console.log(typeof db_cvs[0]);
 /*DATABASE OBJECT*/
@@ -311,11 +313,12 @@
 /*END SORT DATABASE*/
 
 /*BUILD NECESSARY LISTS FROM THE DATABASE*/
+
     /*DEFININTION*/
-        var listToFilter = {
-          cvs:  [],
-          tags: []
-        };
+    var listToFilter = {
+      cvs:  [],
+      tags: []
+    };
     /*END DEFINITION*/
 
     /*BUILD LIST CVS & TAGS TO FILTER*/
@@ -438,7 +441,7 @@
       
       /*DỰ KIẾN LÀ CHỨC NĂNG TÌM KIẾM BAO GỒM CV, TAG, TÊN, CODE, RJCODE. TRẢ VỀ MẢNG CHỨA CÁC ĐỐI TƯỢNG.*/
       findData(data) {
-        let result = {
+        let findResult = {
           code: null,
           rjCode: null,
           cvs: null,
@@ -503,4 +506,6 @@
       }
     };
     /*FUNCTION TO PROCESSING DATA*/
+
 /*END BUILD NECESSARY LISTS FROM THE DATABASE*/
+console.timeEnd('build_database_and_database_functions_time');
