@@ -351,7 +351,10 @@
     /*FUNCTION TO PROCESSING DATA*/
     var dataProcessing = {
       /*KIỂM TRA TRÙNG LẶP RJCODE*/
-      duplicateChecking(rjCodeToCheck) {return (database.rjCode.indexOf(rjCodeToCheck.trim())!=-1)?true:false;},
+      duplicateChecking(rjCodeToCheck) {
+        return (database.rjCode.indexOf(rjCodeToCheck.trim())!=-1)?true:false;
+      },
+      
       /*LẤY DỮ LIỆU CHO (NHIỀU) CV, TAG TRẢ VỀ ĐỐI TƯỢNG GỒM CÁC THUỘC TÍNH CHỨA MẢNG*/
       getDataAdvance(listCvToFilter, listTagToFilter) {
         if(Number.isInteger(listCvToFilter)===true && listTagToFilter=='') {
@@ -432,10 +435,12 @@
           audios: audios,
         }:null;  
       },
+      
       /*DỰ KIẾN LÀ CHỨC NĂNG TÌM KIẾM BAO GỒM CV, TAG, TÊN, CODE, RJCODE. TRẢ VỀ MẢNG CHỨA CÁC ĐỐI TƯỢNG.*/
       findData(data) {
         function findIndices(arr, substring) {
           const indices = []; 
+          let arr_lower_key = [...arr];
           for (let i = 0; i < arr.length; i++) { if(arr[i].includes(substring)){indices.push(i);} } 
           return (indices.length > 0)?indices:null;
         }
@@ -478,6 +483,7 @@
           return null;
         }
       },
+      
       /*PHÂN TÁCH DỮ LIỆU THÀNH CÁC DANH SÁCH ĐỂ ĐỔ RA WEB*/
       separateData(listDataTypeObject) {
         const n = 24;
@@ -493,6 +499,10 @@
           }
         }
         return result;
+      },
+      
+      getDataByCode(code) {
+        return databaseTypeObject[database.code.indexOf(Number(code))];
       }
     };
     /*FUNCTION TO PROCESSING DATA*/
