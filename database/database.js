@@ -438,30 +438,27 @@
       
       /*DỰ KIẾN LÀ CHỨC NĂNG TÌM KIẾM BAO GỒM CV, TAG, TÊN, CODE, RJCODE. TRẢ VỀ MẢNG CHỨA CÁC ĐỐI TƯỢNG.*/
       findData(data) {
+        let result = {
+          code: null,
+          rjCode: null,
+          cvs: null,
+          tags: null,
+          engName: null,
+          japName: null,
+        }
         function findIndices(arr, substring) {
           const indices = []; 
-          let arr_lower_key = [...arr];
-          for (let i = 0; i < arr.length; i++) { if(arr[i].includes(substring)){indices.push(i);} } 
+          let arr_lower_key = [...arr].map(item => item.toLowerCase());
+          for (let i = 0; i < arr.length; i++) { if(arr_lower_key[i].includes(substring.toLowerCase())){indices.push(i);} } 
           return (indices.length > 0)?indices:null;
         }
-        //FIND BY CV
-        if(listToFilter.cvs.indexOf(data) != -1) { return convertListDataType(dataProcessing.getDataAdvance(data, '')); } 
-        //FIND BY TAG
-        else if(listToFilter.tags.indexOf(data) != -1) { return convertListDataType(dataProcessing.getDataAdvance('', data)); } 
-        //FIND BY CODE
-        else if(database.code.indexOf(data) != -1) { return databaseTypeObject[database.code.indexOf(data)]; } 
+
         //FIND BY RJCODE
-        else if(data.length>4 && findIndices(listToFilter.cvs, data) != null) {
-          return {
-            mess: "Do you mean "+listToFilter.cvs[findIndices(listToFilter.cvs, data)[0]]+" (CV)?",
-            data: convertListDataType(dataProcessing.getDataAdvance(listToFilter.cvs[findIndices(listToFilter.cvs, data)[0]], ''))
-          }
+        if(data.length>4 && findIndices(listToFilter.cvs, data) != null) {
+          return convertListDataType(dataProcessing.getDataAdvance(listToFilter.cvs[findIndices(listToFilter.cvs, data)[0]], ''));
         }
         else if(data.length>1 && findIndices(listToFilter.tags, data) != null) {
-          return {
-            mess: "Do you mean "+listToFilter.tags[findIndices(listToFilter.tags, data)[0]]+" (Tag)?",
-            data: convertListDataType(dataProcessing.getDataAdvance('', listToFilter.tags[findIndices(listToFilter.tags, data)[0]]))
-          }          
+          return convertListDataType(dataProcessing.getDataAdvance('', listToFilter.tags[findIndices(listToFilter.tags, data)[0]]));        
         }
         else if(findIndices(database.rjCode, data) != null) {
           let listResult = findIndices(database.rjCode, data), result = [];
