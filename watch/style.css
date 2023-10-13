@@ -47,6 +47,7 @@
   border-radius: 5px;
   flex-direction: row;
   align-items: stretch;
+  position: relative;
 }
 .container .content_div a:hover {
   background-color: var(--bg);
@@ -59,16 +60,16 @@
   border-radius: 3px;
 }
 .container .content_div a .text-box {
+  flex: 1;
   display: flex;
   align-items: center;
   width: 62%;
-  height: 100%;
-  padding: auto;
 }
 .container .content_div a .text-box p.content {
+  padding: 0;
   font-size: 20px;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Số dòng tối đa trước khi cắt ngắn */
+  -webkit-line-clamp: 3; /* Số dòng tối đa trước khi cắt ngắn */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
