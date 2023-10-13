@@ -9,7 +9,11 @@
     <title>NHD ASMR - My Favourite ASMR Tracks</title>
 
     <script src="database/database.js"></script>                          <!--!PHẢI Ở TRÊN CÙNG!-->
-    
+    <script>
+      const rootPage = "https://nhdasmr-v4.glitch.me/";
+    </script>
+    <script src="scripts/build-data.js"></script>
+  
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="watch/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
@@ -68,26 +72,13 @@
         </div> -->
     </div>
 
-
-    <div class="content">
-      <div></div>
-        <div class="grid-container"></div>
-        <script>buildListData();</script>
-      <div></div>
-    </div>
-    
-    <div class="pagination">
-        <div class="pagination-body">
-            <a id="first-link">&lt;&lt;</a>
-            <a id="previous-link">&lt;</a>
-            <a id="link1"></a>
-            <a id="link2"></a>
-            <a id="link3"></a>
-            <a id="link4"></a>
-            <a id="next-link">&gt;</a>
-            <a id="last-link">&gt;&gt;</a>
+    <div class="container">
+        <div class="vid_div">
+            <iframe id="vid_frame"></iframe>
         </div>
-      <script>buildPagination()</script>
+        <div class="content_div">
+            <h3>Related Content</h3>
+        </div>
     </div>
 
     <div class="footer">
@@ -115,6 +106,8 @@
         </div>
         © 2023 NHD Hentai - ASMR Hentai. All rights reserved.
     </div>
+    
+    <script src="scripts/front-end-script.js"></script>
   
     <script>
       window.addEventListener('load', function() {
