@@ -59,10 +59,10 @@ function buildListData() {
     }
     dataToInner += '<div class="grid-item">'+
                       '<div class="image-container">'+
-                        '<a href="/watch?code='+track.code+'"><img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'"/></a>'+
+                        '<a href="/alt-player?code='+track.code+'"><img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'"/></a>'+
                       '</div>'+
                       '<div class="flex-container">'+
-                        '<div class="text-container"><a href="/watch?code='+track.code+'">'+
+                        '<div class="text-container"><a href="/alt-player?code='+track.code+'">'+
                           '<p class="multiline-ellipsis">'+'<span style="font-weight: bold">'+track.rjCode+'</span> - '+track.engName+'</p>'+
                         '</a></div>'+
                         '<div class="text-container">'+

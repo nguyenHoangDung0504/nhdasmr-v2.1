@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.container .vid_div {
+    display: block;
+    width: 70%;
+    min-height: 100vh;
+    border: 1px solid;
+    padding: 20px 40px;
+}
+.container iframe#vid_frame {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    outline: none;
+    border: none;
+    background-color: #999;
+    border-radius: 10px;
+}
+
+.container .content_div {
+    display: block;
+    width: 30%;
+    min-height: 100vh;
+    border: 1px solid;
+}
+.container .content_div h3 {
+    display: block; 
+    width: 100%; 
+    text-align: center; 
+    padding: 10px; 
+    font-size: 23px;
+}
