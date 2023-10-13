@@ -3,6 +3,6 @@ if(!id_vid) {
   window.history.back();
 } 
 
-function buildContent() {
-  
+function buildIframe() {
+  document.querySelector('#vid_frame').src = 'https://nhdasmr-v4.glitch.me/alt-player/?code='+id_vid;
 }
