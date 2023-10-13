@@ -5,7 +5,7 @@
 
 .container .vid_div {
     display: block;
-    width: 70%;
+    width: 68%;
     min-height: 100vh;
     padding: 20px 40px;
 }
@@ -25,37 +25,45 @@
   font-weight: normal;
 }
 
+
 .container .content_div {
     display: block;
-    width: 30%;
+    width: 32%;
     min-height: 100vh;
+    padding-right: 10px;
 }
-.container .content_div h3 {
+.container .content_div h2 {
     display: block; 
     width: 100%; 
     text-align: center; 
     padding: 10px; 
-    font-size: 23px;
+    font-weight: bold;
 }
 .container .content_div a {
   display: flex;
   width: 100%;
   min-height: 30px;
-  height: fit-content;
-  padding: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  flex-direction: row;
+  align-items: stretch;
 }
 .container .content_div a:hover {
   background-color: var(--bg);
 }
 .container .content_div a img {
   display: block;
-  width: 38%;
+  width: 35%;
+  margin-right: 3%;
   aspect-ratio: 4/3;
+  border-radius: 3px;
 }
 .container .content_div a .text-box {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 62%;
-  height: inherit;
+  height: 100%;
+  padding: auto;
 }
 .container .content_div a .text-box p.content {
   font-size: 20px;
