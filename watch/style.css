@@ -23,6 +23,7 @@
   padding: 10px;
   font-size: 23px;
   font-weight: normal;
+  color: var(--text-color);
 }
 
 
@@ -38,6 +39,7 @@
     text-align: center; 
     padding: 10px; 
     font-weight: bold;
+    color: var(--text-color);
 }
 .container .content_div a {
   display: flex;
