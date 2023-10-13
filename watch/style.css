@@ -29,7 +29,6 @@
     display: block;
     width: 30%;
     min-height: 100vh;
-    border: 1px solid;
 }
 .container .content_div h3 {
     display: block; 
@@ -41,8 +40,28 @@
 .container .content_div a {
   display: flex;
   width: 100%;
-  min-
+  min-height: 30px;
+  height: fit-content;
+  padding: 5px;
 }
 .container .content_div a:hover {
   background-color: var(--bg);
+}
+.container .content_div a img {
+  display: block;
+  width: 38%;
+  aspect-ratio: 4/3;
+}
+.container .content_div a .text-box {
+  display: block;
+  width: 62%;
+  height: inherit;
+}
+.container .content_div a .text-box p.content {
+  font-size: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Số dòng tối đa trước khi cắt ngắn */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
