@@ -92,6 +92,11 @@ a {text-decoration: none; color: var(--text-color)}
     overflow: hidden;
     white-space: nowrap;
 }
+.header .title-div h1 img {
+  display: inline; 
+  height: 25px; 
+  width: auto;
+}
 .header .title-div h1.title{
     color: var(--text-color);
     display: block;
