@@ -38,3 +38,11 @@
     padding: 10px; 
     font-size: 23px;
 }
+.container .content_div a {
+  display: flex;
+  width: 100%;
+  min-
+}
+.container .content_div a:hover {
+  background-color: var(--bg);
+}

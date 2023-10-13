@@ -503,6 +503,22 @@ console.time('build_database_and_database_functions_time');
       
       getDataByCode(code) {
         return databaseTypeObject[database.code.indexOf(Number(code))];
+      },
+      
+      getRandom10DataFromDatabase() {
+        let n = 10;
+        let array = databaseTypeObject.slice(); // Tạo một bản sao của mảng gốc để không ảnh hưởng đến mảng ban đầu
+        let result = [];
+
+        while (n > 0 && array.length > 0) {
+          let randomIndex = Math.floor(Math.random() * array.length);
+          let randomElement = array.splice(randomIndex, 1)[0]; // Lấy phần tử ngẫu nhiên và loại bỏ khỏi mảng
+
+          result.push(randomElement);
+          n--;
+        }
+
+        return result;
       }
     };
     /*FUNCTION TO PROCESSING DATA*/
