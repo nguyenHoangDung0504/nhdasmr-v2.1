@@ -32,6 +32,6 @@ function turnOnLightMode(){
 if(localStorage.getItem('lightMode')){
   turnOnLightMode();
 }
-if(localStorage.getItem('menuIs')){
+if(localStorage.getItem('menuIs') && location.href.indexOf("/watch")==-1){
   document.querySelector('body').classList.add('openMenu');
 }

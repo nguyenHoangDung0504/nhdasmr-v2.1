@@ -104,7 +104,7 @@ a {text-decoration: none; color: var(--text-color)}
     text-overflow: ellipsis;
 }
 .header .search-div{
-    margin-left: 210px;
+    margin-left: 180px;
     display: block;
     width: fit-content;
     height: inherit;
