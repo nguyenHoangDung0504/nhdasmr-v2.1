@@ -78,3 +78,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.hover:hover {
+  text-decoration: underline;
+}
