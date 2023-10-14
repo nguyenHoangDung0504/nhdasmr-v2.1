@@ -91,6 +91,10 @@ function buildListData() {
   console.timeEnd('build_list_data_time');
 }
 
+function buildActionData() {
+  
+}
+
 function buildPagination() {
   let firstlink = document.getElementById('first-link');
   let prelink = document.getElementById('previous-link');
