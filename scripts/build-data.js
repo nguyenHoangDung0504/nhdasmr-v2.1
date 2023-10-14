@@ -99,7 +99,7 @@ function buildListData() {
                     +'<img src="'+track.thumbnail+'" alt="thumbnail of "'+track.code+'>'
                     +'<h3><b>RJ Code</b>: '+track.rjCode+'</h3>'
                     +'<h3><b>Eng Name</b>: '+track.engName+'</h3>'
-                    +'<h3><b>Original Name</b>:'+track.japName+'</h3>'
+                    +'<h3><b>Original Name</b>: '+track.japName+'</h3>'
                     +'<h3>'+cv_string.substring(4)+'</h3>'
                     +'<h3>'+tag_string+'</h3>'
                   +'</div>';
@@ -122,7 +122,7 @@ function buildActionData() {
     element.addEventListener('mousemove', (event) => {
       const x = event.clientX;
       const y = event.clientY;
-      if(x <= screen.width - obj.offsetWidth) {
+      if(x <= 20 + screen.width - obj.offsetWidth) {
         obj.style.left = x+"px";
       } else {
         obj.style.left = (x - obj.offsetWidth)+"px";
