@@ -92,12 +92,6 @@ function buildListData() {
 }
 
 function buildPagination() {
-  if(numberpage<1) {return;}
-  if(!page || page<1){
-    page = 1;
-  } else if(page>numberpage) {
-    page = numberpage;
-  }
   let firstlink = document.getElementById('first-link');
   let prelink = document.getElementById('previous-link');
   let link1 = document.getElementById('link1');
@@ -107,6 +101,19 @@ function buildPagination() {
   let nextlink = document.getElementById('next-link');
   let lastlink = document.getElementById('last-link');
   let links = [0, link1, link2, link3, link4];
+  let links2 = [firstlink, prelink, link1, link2, link3, link4, nextlink, lastlink];
+  
+  if(numberpage<1) {
+    links2.forEach(element => {
+      element.style.display = 'none';
+    });
+    return;
+  }
+  if(!page || page<1){
+    page = 1;
+  } else if(page>numberpage) {
+    page = numberpage;
+  }
 
   if(numberpage==1) {
     firstlink.classList.add('block');

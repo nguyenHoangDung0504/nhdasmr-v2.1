@@ -55,7 +55,7 @@ body.openMenu .footer, body.openMenu .pagination{
     width: calc(100% - calc(calc(var(--screen-width) * 0.185) - 20px));
 }
 a {text-decoration: none; color: var(--text-color)}
-a:not(.hover), img, audio {user-select: none;}
+img, audio {user-select: none;}
 ::selection {background-color: var(--text-color); color: var(--bg2);}
 /*HEADER*/
 .header{
@@ -259,7 +259,7 @@ body.openMenu>.menu{
     display: grid;
     grid-template-columns: calc(var(--screen-width) * 0.012) calc(var(--screen-width) * 0.97) calc(var(--screen-width) * 0.012);
     transition: grid-template-columns .3s;
-    
+    min-height: 20vh;
 }
 .content .grid-container {
     display: grid;
