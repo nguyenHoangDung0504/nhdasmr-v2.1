@@ -76,7 +76,7 @@
 }
 .container .content_div div a .text-box p.content-p {
   padding: 0;
-  font-size: 20px;
+  font-size: 17px;
   display: -webkit-box;
   -webkit-line-clamp: 3; /* Số dòng tối đa trước khi cắt ngắn */
   -webkit-box-orient: vertical;
