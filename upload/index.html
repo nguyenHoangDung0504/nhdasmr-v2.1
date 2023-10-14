@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NHD ASMR - Generate Code To Upload</title>
   <script src="database/database.js"></script>
+  <script src="https://nhdasmr-v2.glitch.me/upload/process.js"></script>
+  <style>td{padding: 5px;}</style>
 </head>
 <body>
   <table>
     <form>
-      <tr><td><label for="code">Code: </label></td> <td><input type="text" id="code" value=""></td></tr> 
+      <tr><td><label for="code">Code: </label></td> <td><input type="number" id="code" value=""></td></tr> 
       <tr><td><label for="rjcode">RJ Code: </label></td> <td><input type="text" id="rjcode" value=""></td></tr> 
       <tr><td><label for="engname">End Name: </label></td> <td><input type="text" id="engname" value=""></td></tr> 
       <tr><td><label for="japname">Jap Name: </label></td> <td><input type="text" id="japname" value=""></td></tr> 
@@ -17,9 +19,10 @@
       <tr><td><label for="tags">Tags: </label></td> <td><input type="text" id="tags" value=""></td></tr> 
       <tr><td><label for="thumbnail">Thumbnail: </label></td> <td><input type="text" id="thumbnail" value=""></td></tr> 
       <tr><td><label for="images">Images: </label></td> <td><input type="text" id="images" value=""></td></tr> 
-      <tr><td><label for="videos"></label></td> <td><input type="text" id="videos" value=""></td></tr> 
-      <button>Genarate</button>
+      <tr><td><label for="tracks">Tracks:</label></td> <td><input type="text" id="tracks" value=""></td></tr> 
+      <tr><td colspan="2"><button onclick="handleForm()">Genarate</button></td></tr>
     </form>
+    
   </table>
   <script src="https://nhdasmr-v2.glitch.me/upload/process.js"></script>
 </body>
