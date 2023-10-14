@@ -255,14 +255,12 @@ body.openMenu>.menu{
 
 /*CONTENT*/
 .hidden-info {
-  position: fixed; 
-  top: 0;
-  right: 0;
+  position: fixed;
   display: none;
   background-color: var(--bg2);
   color: var(--text-color);
   padding: 13px;
-  border-radius: 20px;
+  border-radius: 10px;
   width: 400px;
   z-index: 99999999;
 }
@@ -271,7 +269,10 @@ body.openMenu>.menu{
   width: 100%;
 }
 .hidden-info h3 {
-  margin: 15px 0;
+  display: block;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: normal;
 }
 .content{
     padding-top: 10px;

@@ -103,33 +103,41 @@ function buildListData() {
                   +'</div>';
   }
   document.querySelector('.content .grid-container').innerHTML = dataToInner;
-  document.querySelector('.header').innerHTML += hiddenData; 
+  document.querySelector('.menu').innerHTML += hiddenData; 
   console.timeEnd('build_list_data_time');
 }
 
 function buildActionData() {
-  let elements = document.querySelector('.grid-container .grid-item');
-  elements.forEach(element => {
+  console.time('build_mouse_action');
+  let elements = document.querySelectorAll('.grid-container .grid-item');
+  console.log(elements);
+  for(let i=0; i < elements.length; i++) {
+    let element = elements[i];
     let code = element.id;
     let obj = document.querySelector('#hidden_info_of_'+code);
+    console.log(obj);
     
     element.addEventListener('mouseenter', () => {
-      
       obj.style.display = 'block';
     });
 
     element.addEventListener('mouseleave', () => {
-      console.log('Ra khỏi element');
+      obj.style.display = 'none';
     });
 
     // Gắn sự kiện khi chuột di chuyển trong element
     element.addEventListener('mousemove', (event) => {
-      const x = event.clientX; // Tọa độ x của chuột
-      const y = event.clientY; // Tọa độ y của chuột
-      console.log(`Tọa độ chuột: (${x}, ${y})`);
+      const x = event.clientX;
+      const y = event.clientY;
+      if(x >= screen.width - obj.offSetWidth) {
+        obj.style.left = x+"px";
+      } else {
+        obj.style.left = (x-+"px";
+      }
+      obj.style.top = y+"px";
     });
-    
-  });
+  }
+  console.timeEnd('build_mouse_action');
 }
 
 function buildPagination() {
