@@ -508,11 +508,9 @@ console.time('build_database_and_database_functions_time');
       getRandomDataFrom(array, n) {
         array = array.slice();
         let result = [];
-        
         if (n >= array.length) {
           return array; 
         }
-        
         while (n > 0 && array.length > 0) {
           let randomIndex = Math.floor(Math.random() * array.length);
           let randomElement = array.splice(randomIndex, 1)[0];
@@ -520,7 +518,6 @@ console.time('build_database_and_database_functions_time');
           result.push(randomElement);
           n--;
         }
-
         return result;
       }
     };

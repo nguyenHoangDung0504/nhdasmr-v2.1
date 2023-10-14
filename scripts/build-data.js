@@ -37,6 +37,16 @@ if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv') && !urlP
   listOfData = dataProcessing.separateData(listFinded);
   numberpage = listOfData.length;
   message = 'Random '+sl+' Track';
+} else if(urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv') && !urlParams.get('random')) {
+  let listFinded = dataProcessing.findData(urlParams.get('s'));
+  if(listFinded != null) {
+    listOfData = dataProcessing.separateData(listFinded);
+    numberpage = listOfData.length;
+    message = 'Search Results: '+urlParams.get('s')+' ('+listFinded.length+')';    
+  } else {
+    numberpage = 0;
+    message = 'No Result';
+  }
 }
 
 if(page && (page<1 || page>numberpage)) {
@@ -69,7 +79,7 @@ function buildListData() {
                       '</div>'+
                       '<div class="flex-container">'+
                         '<div class="text-container"><a href="/watch?code='+track.code+'">'+
-                          '<p class="multiline-ellipsis">'+'<span style="font-weight: bold">'+track.rjCode+'</span> - '+track.engName+'</p>'+
+                          '<p class="multiline-ellipsis">'+'<b><i>'+track.rjCode+'</i></b> - '+track.engName+'</p>'+
                         '</a></div>'+
                         '<div class="text-container">'+
                           '<p class="singleline-ellipsis">'+cv_string+'</p>'+
