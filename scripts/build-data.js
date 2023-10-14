@@ -60,6 +60,7 @@ function buildListData() {
     page = 1;
   }
   let dataToInner = '';
+  let hiddenData = '';
   listDataToInner = listOfData[page-1];
   for(let i=0; i<listDataToInner.length; i++){
     let track = listDataToInner[i];
@@ -71,6 +72,14 @@ function buildListData() {
         cv_string += '<a class=cv onclick="" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>, ';
       } else if(j==track.cvs.length-1) {
         cv_string += '<a class=cv onclick="" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>';
+      }
+    }
+    let tag_string = 'Tags: ';
+    for(let j=0; j<track.tags.length; j++) {
+      if(j<track.tags.length-1) {
+        tag_string += track.tags[j]+', ';
+      } else if(j==track.tags.length-1) {
+        tag_string += track.tags[j];
       }
     }
     dataToInner += '<div class="grid-item">'+
@@ -86,8 +95,10 @@ function buildListData() {
                         '</div>'+
                       '</div>'+
                   '</div>';
+    hiddenData += '';
   }
   document.querySelector('.content .grid-container').innerHTML = dataToInner;
+  document.querySelector('.header').innerHTML += hiddenData; 
   console.timeEnd('build_list_data_time');
 }
 

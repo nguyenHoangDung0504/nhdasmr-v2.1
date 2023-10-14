@@ -261,8 +261,17 @@ body.openMenu>.menu{
   display: block;
   background-color: var(--bg2);
   color: var(--text-color);
-  padding: 10px;
-  border-radius: 10px;
+  padding: 13px;
+  border-radius: 20px;
+  width: 400px;
+  z-index: 99999999;
+}
+.hidden-info img {
+  border-radius: 8px;
+  width: 100%;
+}
+.hidden-info h3 {
+  margin: 15px 0;
 }
 .content{
     padding-top: 10px;
@@ -270,9 +279,6 @@ body.openMenu>.menu{
     grid-template-columns: calc(var(--screen-width) * 0.012) calc(var(--screen-width) * 0.97) calc(var(--screen-width) * 0.012);
     transition: grid-template-columns .3s;
     min-height: 20vh;
-}
-.content img {
-  border-radius: 
 }
 .content .grid-container {
     display: grid;
