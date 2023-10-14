@@ -34,5 +34,5 @@ function buildIframeAndContent() {
 }
 
 function buildListRandom() {
-  
+  let container = document.querySelector('');
 }
