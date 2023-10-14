@@ -37,15 +37,32 @@ function buildListRandom() {
   let container = document.querySelector('#random-post');
   let dataToInner = '';
   let listData = dataProcessing.getRandomDataFrom(databaseTypeObject, 5);
-  for(let i=0; i<listData.length; i++) {           
-  /*<a>
-      <img src="https://cdn.glitch.global/cbd0ac37-5557-4012-b498-643e6f89d54c/97022(0)?v=1690885344757">
-      <div class="text-box"><p class="content">Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello</p></div>
-    </a>*/
+  for(let i=0; i<listData.length; i++) {
     let track = listData[i];
     dataToInner += '<a href="https://nhdasmr-v4.glitch.me/watch?code='+track.code+'"><img src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'">'
                     +'<div class="text-box"><p class="content"><b>'+track.rjCode+'</b> - '+track.engName+'</p></div>'
                     +'</a>'; 
   }
   container.innerHTML = dataToInner;
+}
+
+function buildListCvRandom() {
+  let container = document.querySelector('div.content_div');
+  let index = database.code.indexOf(Number(id_vid));
+  let data = databaseTypeObject[index];
+  let dataToInner = '';
+  for(let i=0; i<data.cvs.length; i++) {
+    let cv = data.cvs[i];
+    let dataToInner1 = '<h2>CV: '+cv+'</h2><div>';
+    let listdata = dataProcessing.getRandomDataFrom(convertListDataType(dataProcessing.getDataAdvance(cv, '')), 3);
+    for(let j=0; j<listdata.length; j++) {
+      let track = listdata[j];
+      dataToInner1 += '<a href="https://nhdasmr-v4.glitch.me/watch?code='+track.code+'"><img src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'">'
+                    +'<div class="text-box"><p class="content"><b>'+track.rjCode+'</b> - '+track.engName+'</p></div>'
+                    +'</a>';
+    }
+    dataToInner1 += '</div>'
+    dataToInner += dataToInner1;
+  }
+  container.innerHTML += dataToInner;
 }
