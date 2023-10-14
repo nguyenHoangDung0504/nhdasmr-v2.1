@@ -97,7 +97,9 @@ function buildListData() {
                   '</div>';
     hiddenData += '<div class="hidden-info" id="hidden_info_of_'+track.code+'">'
                     +'<img src="'+track.thumbnail+'" alt="thumbnail of "'+track.code+'>'
-                    +'<h3>'+track.engName+'</h3>'
+                    +'<h3>RJ Code: '+track.rjCode+'</h3>'
+                    +'<h3>Eng Name: '+track.engName+'</h3>'
+                    +'<h3>Original Name:'+track.japName+'</h3>'
                     +'<h3>'+cv_string+'</h3>'
                     +'<h3>'+tag_string+'</h3>'
                   +'</div>';
@@ -110,32 +112,24 @@ function buildListData() {
 function buildActionData() {
   console.time('build_mouse_action');
   let elements = document.querySelectorAll('.grid-container .grid-item');
-  console.log(elements);
   for(let i=0; i < elements.length; i++) {
     let element = elements[i];
     let code = element.id;
     let obj = document.querySelector('#hidden_info_of_'+code);
-    console.log(obj);
     
-    element.addEventListener('mouseenter', () => {
-      obj.style.display = 'block';
-    });
-
-    element.addEventListener('mouseleave', () => {
-      obj.style.display = 'none';
-    });
-
-    // Gắn sự kiện khi chuột di chuyển trong element
+    element.addEventListener('mouseenter', () => { obj.style.display = 'block'; });
+    element.addEventListener('mouseleave', () => { obj.style.display = 'none'; });
     element.addEventListener('mousemove', (event) => {
       const x = event.clientX;
       const y = event.clientY;
-      if(x >= screen.width - obj.offSetWidth) {
+      if(x <= screen.width - obj.offsetWidth) {
         obj.style.left = x+"px";
       } else {
-        obj.style.left = (x-+"px";
+        obj.style.left = (x - obj.offsetWidth)+"px";
       }
       obj.style.top = y+"px";
     });
+    
   }
   console.timeEnd('build_mouse_action');
 }

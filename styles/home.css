@@ -263,6 +263,7 @@ body.openMenu>.menu{
   border-radius: 10px;
   width: 400px;
   z-index: 99999999;
+  pointer-events: none;
 }
 .hidden-info img {
   border-radius: 8px;
