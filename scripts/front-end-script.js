@@ -39,7 +39,7 @@ function closeAllListExept(ii) {
 }
 let menu_buttons = document.querySelectorAll('.list-open-button');
 for (let i=0; i<menu_buttons.length; i++) {
-  menu_buttons[i].onclick=function(){
+  menu_buttons[i].onclick = function(){
     let open_icon = document.getElementById('open-icon'+this.name[this.name.length-1]);
     let listName = this.name;
     let list = document.getElementById(listName);
