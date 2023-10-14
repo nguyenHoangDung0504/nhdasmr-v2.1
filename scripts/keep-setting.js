@@ -36,6 +36,7 @@ function changeLightMode() {
       localStorage.removeItem('lightMode');
   }    
 }
+
 function turnOnLightMode(){
   localStorage.setItem('lightMode', 'on');
   document.querySelector('body').classList.add('lightMode'); 
