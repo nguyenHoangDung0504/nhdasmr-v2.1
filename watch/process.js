@@ -55,14 +55,17 @@ function buildListCvRandom() {
     let cv = data.cvs[i];
     let dataToInner1 = '<br><h2>Related tracks by <span class="cv">'+cv+'</span></h2><div>';
     let listdata = dataProcessing.getRandomDataFrom(convertListDataType(dataProcessing.getDataAdvance(cv, '')), 4);
+    let change = 0;
     for(let j=0; j<listdata.length; j++) {
       let track = listdata[j];
       if(track.code == id_vid) {continue;}
       dataToInner1 += '<a href="'+rootPage+'watch?code='+track.code+'"><img src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'">'
                     +'<div class="text-box"><p class="content-p"><b><i>'+track.rjCode+'</i></b> - '+track.engName+'</p></div>'
                     +'</a>';
+      change++;
     }
-    dataToInner1 += '</div>'
+    if(change==0) {dataToInner1 = '';}
+    dataToInner1 += '</div>';
     dataToInner += dataToInner1;
   }
   container.innerHTML += dataToInner;
