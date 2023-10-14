@@ -214,7 +214,7 @@ function buildListCv() {
   let container = document.querySelector('div.hidden-list#list1');
   let dataToInner = '<input type="text" id="input-of-hidden-list-1" placeholder="Find...">';
   for(let i=0; i<listToFilter.cvs.length; i++) {
-    dataToInner += '<a class="sub-item" href="https://nhdasmr-v4.glitch.me/?cv='+listToFilter.cvs[i]+'"><span style="color: red;">❤</span> <span class="hover">'+listToFilter.cvs[i]+'</span></a>';
+    dataToInner += '<a class="sub-item" href="https://nhdasmr-v2.glitch.me/?cv='+listToFilter.cvs[i]+'"><span style="color: red;">❤</span> <span class="hover">'+listToFilter.cvs[i]+'</span></a>';
   }
   container.innerHTML = dataToInner;
 }
@@ -222,7 +222,7 @@ function buildListTag() {
   let container = document.querySelector('div.hidden-list#list2');
   let dataToInner = '<input type="text" id="input-of-hidden-list-2" placeholder="Find...">';
   for(let i=0; i<listToFilter.tags.length; i++) {
-    dataToInner += '<a class="sub-item" href="https://nhdasmr-v4.glitch.me/?tag='+listToFilter.tags[i]+'"><span style="color: #00BFFF;">►</span> <span class="hover">'+listToFilter.tags[i]+'</span></a>';
+    dataToInner += '<a class="sub-item" href="https://nhdasmr-v2.glitch.me/?tag='+listToFilter.tags[i]+'"><span style="color: #00BFFF;">►</span> <span class="hover">'+listToFilter.tags[i]+'</span></a>';
   }
   container.innerHTML = dataToInner;
 }
