@@ -66,11 +66,18 @@
         <div class="hidden-list" id="list2">     
         </div><script>buildListTag();</script>
       
-<!--         <a class="menu-item list-open-button" name="list3">list3&ensp; <i id="open-icon3" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
+        <a class="menu-item list-open-button" name="list3">Random&ensp; <i id="open-icon3" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
         <div class="hidden-list" id="list3">
-            <input type="text" id="input-of-hidden-list-3" placeholder="Filter...">
-            <a class="sub-item">Sub Item 3.1</a>                    
-        </div> -->
+          <a id="random-track" class="sub-item" style="cursor:pointer">🍀 <span class="hover">Open Random Track</span></a>
+          <script>
+            document.querySelector('#random-track').onclick = function() {
+              location.href = rootPage+"/watch?code="+database.code[Math.floor(Math.random()*database.code.length)];
+            }
+          </script>
+          <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=8">🍀 <span class="hover">Random 8 Track</span></a>
+          <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=16">🍀 <span class="hover">Random 16 Track</span></a>
+          <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=24">🍀 <span class="hover">Random 24 Track</span></a>
+        </div>
     </div>
 
     <div class="container">

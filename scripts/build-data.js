@@ -14,7 +14,7 @@ if(urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
 let numberpage;
 let listOfData = [];
 let listDataToInner = [];
-let message = 'NHD Hentai - List of ASMR Hentai';
+let message = 'NHD Hentai - ASMR Hentai Tracks';
 
 if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv') && !urlParams.get('random')) {
    listOfData = dataProcessing.separateData(databaseTypeObject);
@@ -117,12 +117,22 @@ function buildActionData() {
     let code = element.id;
     let obj = document.querySelector('#hidden_info_of_'+code);
     
-    element.addEventListener('mouseenter', () => { obj.style.display = 'block'; });
+    element.addEventListener('mouseenter', () => { 
+      obj.style.display = 'block'; 
+      const x = event.clientX;
+      const y = event.clientY;
+      if(x <= -50 + screen.width - obj.offsetWidth) {
+        obj.style.left = x+"px";
+      } else {
+        obj.style.left = (x - obj.offsetWidth)+"px";
+      }
+      obj.style.top = y+"px";
+    });
     element.addEventListener('mouseleave', () => { obj.style.display = 'none'; });
     element.addEventListener('mousemove', (event) => {
       const x = event.clientX;
       const y = event.clientY;
-      if(x <= 20 + screen.width - obj.offsetWidth) {
+      if(x <= -50 + screen.width - obj.offsetWidth) {
         obj.style.left = x+"px";
       } else {
         obj.style.left = (x - obj.offsetWidth)+"px";
