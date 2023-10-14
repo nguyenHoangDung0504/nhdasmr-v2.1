@@ -82,7 +82,7 @@ function buildListData() {
         tag_string += track.tags[j];
       }
     }
-    dataToInner += '<div class="grid-item">'+
+    dataToInner += '<div class="grid-item" id="'+track.code+'">'+
                       '<div class="image-container">'+
                         '<a href="/watch?code='+track.code+'"><img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'"/></a>'+
                       '</div>'+
@@ -95,7 +95,12 @@ function buildListData() {
                         '</div>'+
                       '</div>'+
                   '</div>';
-    hiddenData += '';
+    hiddenData += '<div class="hidden-info" id="hidden_info_of_'+track.code+'">'
+                    +'<img src="'+track.thumbnail+'" alt="thumbnail of "'+track.code+'>'
+                    +'<h3>'+track.engName+'</h3>'
+                    +'<h3>'+cv_string+'</h3>'
+                    +'<h3>'+tag_string+'</h3>'
+                  +'</div>';
   }
   document.querySelector('.content .grid-container').innerHTML = dataToInner;
   document.querySelector('.header').innerHTML += hiddenData; 
@@ -103,7 +108,28 @@ function buildListData() {
 }
 
 function buildActionData() {
-  
+  let elements = document.querySelector('.grid-container .grid-item');
+  elements.forEach(element => {
+    let code = element.id;
+    let obj = document.querySelector('#hidden_info_of_'+code);
+    
+    element.addEventListener('mouseenter', () => {
+      
+      obj.style.display = 'block';
+    });
+
+    element.addEventListener('mouseleave', () => {
+      console.log('Ra khỏi element');
+    });
+
+    // Gắn sự kiện khi chuột di chuyển trong element
+    element.addEventListener('mousemove', (event) => {
+      const x = event.clientX; // Tọa độ x của chuột
+      const y = event.clientY; // Tọa độ y của chuột
+      console.log(`Tọa độ chuột: (${x}, ${y})`);
+    });
+    
+  });
 }
 
 function buildPagination() {
