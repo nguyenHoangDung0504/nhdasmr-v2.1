@@ -62,7 +62,7 @@
 }
 .container .content_div div a img {
   display: block;
-  width: 38%;
+  width: 36%;
   margin-right: 3%;
   aspect-ratio: 4/3;
   border-radius: 3px;
@@ -71,7 +71,8 @@
   flex: 1;
   display: flex;
   align-items: center;
-  width: 59%;
+  width: 62%;
+  margin-left: 2%;
 }
 .container .content_div div a .text-box p.content {
   padding: 0;

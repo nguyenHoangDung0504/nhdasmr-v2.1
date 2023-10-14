@@ -55,7 +55,7 @@ body.openMenu .footer, body.openMenu .pagination{
     width: calc(100% - calc(calc(var(--screen-width) * 0.185) - 20px));
 }
 a {text-decoration: none; color: var(--text-color)}
-a, img, audio {user-select: none;}
+a:not(.hover), img, audio {user-select: none;}
 ::selection {background-color: var(--text-color); color: var(--bg2);}
 /*HEADER*/
 .header{

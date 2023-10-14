@@ -10,14 +10,14 @@ function buildIframeAndContent() {
   let cv = document.querySelector('#track_list_cv');
   let tag = document.querySelector('#track_list_tag');
   let data = databaseTypeObject[index];
-  name.innerHTML = '<b>'+data.rjCode+'</b> - '+data.engName+'<br>(Original Name: '+data.japName+')';
+  name.innerHTML = '<b><i>'+data.rjCode+'</i></b> - '+data.engName+'<br>(Original Name: '+data.japName+')';
   
   let cvString = (data.cvs.length>1)?'CVs: ':'CV: ';
   for(let i=0; i<data.cvs.length; i++) {
     if(i<data.cvs.length-1) {
-      cvString += '<a class="cv" href="'+rootPage+'?cv='+data.cvs[i]+'">'+data.cvs[i]+'</a>, ';
+      cvString += '<a class="cv hover" href="'+rootPage+'?cv='+data.cvs[i]+'">'+data.cvs[i]+'</a>, ';
     } else {
-      cvString += '<a class="cv" href="'+rootPage+'?cv='+data.cvs[i]+'">'+data.cvs[i]+'</a>';
+      cvString += '<a class="cv hover" href="'+rootPage+'?cv='+data.cvs[i]+'">'+data.cvs[i]+'</a>';
     }
   }
   cv.innerHTML = cvString;
@@ -40,7 +40,7 @@ function buildListRandom() {
   for(let i=0; i<listData.length; i++) {
     let track = listData[i];
     dataToInner += '<a href="'+rootPage+'watch?code='+track.code+'"><img src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'">'
-                    +'<div class="text-box"><p class="content"><b>'+track.rjCode+'</b> - '+track.engName+'</p></div>'
+                    +'<div class="text-box"><p class="content"><b><i>'+track.rjCode+'</i></b> - '+track.engName+'</p></div>'
                     +'</a>'; 
   }
   container.innerHTML = dataToInner;
@@ -57,8 +57,9 @@ function buildListCvRandom() {
     let listdata = dataProcessing.getRandomDataFrom(convertListDataType(dataProcessing.getDataAdvance(cv, '')), 4);
     for(let j=0; j<listdata.length; j++) {
       let track = listdata[j];
+      if(track.code == id_vid) {continue;}
       dataToInner1 += '<a href="'+rootPage+'watch?code='+track.code+'"><img src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'">'
-                    +'<div class="text-box"><p class="content"><b>'+track.rjCode+'</b> - '+track.engName+'</p></div>'
+                    +'<div class="text-box"><p class="content"><b><i>'+track.rjCode+'</i></b> - '+track.engName+'</p></div>'
                     +'</a>';
     }
     dataToInner1 += '</div>'
