@@ -11,7 +11,7 @@ function settingLightModeButton() {
     button.innerHTML = "Light: <span style=\"color: green\">Turned On</span>";
   }
   
-  button.onclick=function(){
+  button.onclick = function(){
       let body = document.querySelector('body');
       if(isLightMode()==false){
           body.classList.add('lightMode');
@@ -24,7 +24,18 @@ function settingLightModeButton() {
       }  
   } 
 }
-
+function changeLightMode() {
+  let body = document.querySelector('body');
+  if(isLightMode()==false){
+      body.classList.add('lightMode');
+      this.innerHTML = "Light: <span style=\"color: green\">Turned On</span>";
+      localStorage.setItem('lightMode', 'on');
+  } else {
+      body.classList.remove('lightMode');  
+      this.innerHTML = "Light: <span style=\"color: red\">Turned Off</span>";
+      localStorage.removeItem('lightMode');
+  }    
+}
 function turnOnLightMode(){
   localStorage.setItem('lightMode', 'on');
   document.querySelector('body').classList.add('lightMode'); 
