@@ -16,21 +16,27 @@ let listOfData = [];
 let listDataToInner = [];
 let message = 'NHD Hentai - List of ASMR Hentai';
 
-if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
+if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv') && !urlParams.get('random')) {
    listOfData = dataProcessing.separateData(databaseTypeObject);
    numberpage = listOfData.length;
-} else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv')) {
+} else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv') && !urlParams.get('random')) {
    let listFinded = convertListDataType(dataProcessing.getDataAdvance(urlParams.get('cv'), ''));
    let sl = listFinded.length;
    listOfData = dataProcessing.separateData(listFinded);
    numberpage = listOfData.length;
    message = '<b>CV</b>: <span class="cv">'+urlParams.get('cv')+'</span> ('+sl+')';
-} else if(!urlParams.get('s') && urlParams.get('tag') && !urlParams.get('cv')) {
+} else if(!urlParams.get('s') && urlParams.get('tag') && !urlParams.get('cv') && !urlParams.get('random')) {
    let listFinded = convertListDataType(dataProcessing.getDataAdvance('', urlParams.get('tag')));
    let sl = listFinded.length;
    listOfData = dataProcessing.separateData(listFinded);
    numberpage = listOfData.length;
    message = '<b>Tag</b>: <span class="tag">'+urlParams.get('tag')+'</span> ('+sl+')';
+} else if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv') && urlParams.get('random')) {
+  let sl = Number(urlParams.get('random'));
+  let listFinded = dataProcessing.getRandomDataFrom(databaseTypeObject, sl); 
+  listOfData = dataProcessing.separateData(listFinded);
+  numberpage = listOfData.length;
+  message = 'Random '+sl+' Track';
 }
 
 if(page && (page<1 || page>numberpage)) {

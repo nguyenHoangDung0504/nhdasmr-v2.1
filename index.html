@@ -61,11 +61,14 @@
         <div class="hidden-list" id="list2">     
         </div><script>buildListTag();</script>
 
-        <a class="menu-item list-open-button" name="list3">Tags&ensp; <i id="open-icon3" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
-        <div class="hidden-list" id="list3">   
-          <input type="text" id="input-of-hidden-list-3" placeholder="Find...">
-          <a id="random-track" class="sub-item" href="">🍀 <span class="hover">Open Random Track</span></a>
-          <script>document.querySelector('#random-track').href=rootPage+"/watch?"</script>
+        <a class="menu-item list-open-button" name="list3">Random&ensp; <i id="open-icon3" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
+        <div class="hidden-list" id="list3">
+          <a id="random-track" class="sub-item" style="cursor:pointer">🍀 <span class="hover">Open Random Track</span></a>
+          <script>
+            document.querySelector('#random-track').onclick = function() {
+              location.href = rootPage+"/watch?code="+database.code[Math.floor(Math.random()*database.code.length)];
+            }
+          </script>
         </div>
     </div>
 
