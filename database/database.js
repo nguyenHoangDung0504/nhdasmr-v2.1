@@ -505,7 +505,7 @@ console.time('build_database_and_database_functions_time');
         return databaseTypeObject[database.code.indexOf(Number(code))];
       },
       
-      getRandomDataFromDatabase(array, n) {
+      getRandomDataFrom(array, n) {
         array = array.slice();
         let result = [];
         
