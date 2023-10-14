@@ -43,7 +43,7 @@ function buildListRandom() {
       <div class="text-box"><p class="content">Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello</p></div>
     </a>*/
     let track = listData[i];
-    dataToInner += '<a><img src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'">'
+    dataToInner += '<a href="https://nhdasmr-v4.glitch.me/watch?code='+track.code+'"><img src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'">'
                     +'<div class="text-box"><p class="content"><b>'+track.rjCode+'</b> - '+track.engName+'</p></div>'
                     +'</a>'; 
   }

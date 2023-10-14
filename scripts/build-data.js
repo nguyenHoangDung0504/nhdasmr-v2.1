@@ -20,13 +20,13 @@ if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
    listOfData = dataProcessing.separateData(databaseTypeObject);
    numberpage = listOfData.length;
 } else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv')) {
-   let listFinded = dataProcessing.findData(urlParams.get('cv'));
+   let listFinded = convertListDataType(dataProcessing.getDataAdvance(urlParams.get('cv'), ''));
    let sl = listFinded.length;
    listOfData = dataProcessing.separateData(listFinded);
    numberpage = listOfData.length;
    message = '<b>CV</b>: <span class="cv">'+urlParams.get('cv')+'</span> ('+sl+')';
 } else if(!urlParams.get('s') && urlParams.get('tag') && !urlParams.get('cv')) {
-   let listFinded = dataProcessing.findData(urlParams.get('tag'));
+   let listFinded = convertListDataType(dataProcessing.getDataAdvance('', urlParams.get('tag')));
    let sl = listFinded.length;
    listOfData = dataProcessing.separateData(listFinded);
    numberpage = listOfData.length;
