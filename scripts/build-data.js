@@ -227,6 +227,7 @@ function buildListTag() {
   container.innerHTML = dataToInner;
 }
 
+
 // Lấy tất cả các tham số và giá trị
 // const allParams = {};
 // for (const param of urlParams) {

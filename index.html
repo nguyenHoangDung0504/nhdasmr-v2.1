@@ -42,11 +42,7 @@
             </div>
             <div class="result-box">
               <a><h4>*General search function is under development, please use the existing search functions in the menu for now.</h4></a>
-<!--                 <a href="?s=result1"><i class="fas fa-search"></i> Result 1</a>
-                <a href="?s=result2"><i class="fas fa-search"></i> Result 2</a>
-                <a href="?s=result3"><i class="fas fa-search"></i> Result 3</a>
-                <a href="?s=resultx"><i class="fas fa-search"></i> ...</a>
-                <a href="?s=resultn"><i class="fas fa-search"></i> Result n</a> -->
+              <!--<a href="?s=result1"><i class="fas fa-search"></i> Result 1</a>-->
             </div>
         </div>
     </div>
@@ -64,12 +60,13 @@
         <a class="menu-item list-open-button" name="list2">Tags&ensp; <i id="open-icon2" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
         <div class="hidden-list" id="list2">     
         </div><script>buildListTag();</script>
-      
-<!--         <a class="menu-item list-open-button" name="list3">list3&ensp; <i id="open-icon3" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
-        <div class="hidden-list" id="list3">
-            <input type="text" id="input-of-hidden-list-3" placeholder="Filter...">
-            <a class="sub-item">Sub Item 3.1</a>                    
-        </div> -->
+
+        <a class="menu-item list-open-button" name="list3">Tags&ensp; <i id="open-icon3" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
+        <div class="hidden-list" id="list3">   
+          <input type="text" id="input-of-hidden-list-3" placeholder="Find...">
+          <a id="random-track" class="sub-item" href="">🍀 <span class="hover">Open Random Track</span></a>
+          <script>document.querySelector('#random-track').href=rootPage+"/watch?"</script>
+        </div>
     </div>
 
     <p class="message"></p>
