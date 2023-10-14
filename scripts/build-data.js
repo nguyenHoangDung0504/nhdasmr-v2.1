@@ -64,9 +64,9 @@ function buildListData() {
   listDataToInner = listOfData[page-1];
   for(let i=0; i<listDataToInner.length; i++){
     let track = listDataToInner[i];
-    let cv_string = '<br>CV';
+    let cv_string = '<br><b>CV';
     if(track.cvs.length>1){cv_string+='s';}
-    cv_string += ': '
+    cv_string += '</b>: '
     for(let j=0; j<track.cvs.length; j++) {
       if(j<track.cvs.length-1) {//event.stopPropagation()   ?cv='+track.cvs[j]+'
         cv_string += '<a class=cv onclick="" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>, ';
@@ -74,7 +74,7 @@ function buildListData() {
         cv_string += '<a class=cv onclick="" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>';
       }
     }
-    let tag_string = 'Tags: ';
+    let tag_string = '<b>Tags</b>: ';
     for(let j=0; j<track.tags.length; j++) {
       if(j<track.tags.length-1) {
         tag_string += track.tags[j]+', ';
@@ -97,10 +97,10 @@ function buildListData() {
                   '</div>';
     hiddenData += '<div class="hidden-info" id="hidden_info_of_'+track.code+'">'
                     +'<img src="'+track.thumbnail+'" alt="thumbnail of "'+track.code+'>'
-                    +'<h3>RJ Code: '+track.rjCode+'</h3>'
-                    +'<h3>Eng Name: '+track.engName+'</h3>'
-                    +'<h3>Original Name:'+track.japName+'</h3>'
-                    +'<h3>'+cv_string+'</h3>'
+                    +'<h3><b>RJ Code</b>: '+track.rjCode+'</h3>'
+                    +'<h3><b>Eng Name</b>: '+track.engName+'</h3>'
+                    +'<h3><b>Original Name</b>:'+track.japName+'</h3>'
+                    +'<h3>'+cv_string.substring(4)+'</h3>'
                     +'<h3>'+tag_string+'</h3>'
                   +'</div>';
   }

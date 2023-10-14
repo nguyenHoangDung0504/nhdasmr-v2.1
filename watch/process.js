@@ -40,7 +40,7 @@ function buildListRandom() {
   for(let i=0; i<listData.length; i++) {
     let track = listData[i];
     dataToInner += '<a href="'+rootPage+'watch?code='+track.code+'"><img src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'">'
-                    +'<div class="text-box"><p class="content"><b><i>'+track.rjCode+'</i></b> - '+track.engName+'</p></div>'
+                    +'<div class="text-box"><p class="content-p"><b><i>'+track.rjCode+'</i></b> - '+track.engName+'</p></div>'
                     +'</a>'; 
   }
   container.innerHTML = dataToInner;
@@ -59,7 +59,7 @@ function buildListCvRandom() {
       let track = listdata[j];
       if(track.code == id_vid) {continue;}
       dataToInner1 += '<a href="'+rootPage+'watch?code='+track.code+'"><img src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'">'
-                    +'<div class="text-box"><p class="content"><b><i>'+track.rjCode+'</i></b> - '+track.engName+'</p></div>'
+                    +'<div class="text-box"><p class="content-p"><b><i>'+track.rjCode+'</i></b> - '+track.engName+'</p></div>'
                     +'</a>';
     }
     dataToInner1 += '</div>'
