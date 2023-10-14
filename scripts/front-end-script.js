@@ -8,10 +8,10 @@ document.querySelector("h1.button-open").onclick=function(){
     let body = document.querySelector('body');
     if(isOpenMenu()==false){
       body.classList.add('openMenu');
-      localStorage.setItem('menuIs', 'open');
+      location.href.indexOf('/watch') == -1 ? localStorage.setItem('menuIs', 'open') : '';
     } else {
       body.classList.remove('openMenu');
-      localStorage.removeItem('menuIs');
+      location.href.indexOf('/watch') == -1 ? localStorage.removeItem('menuIs') : '';
     }
 };
 /*END OPEN&CLOSE MENU*/

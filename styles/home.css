@@ -10,7 +10,6 @@
     box-sizing: border-box; 
     margin: 0; padding: 0; 
     scroll-behavior: smooth; 
-    user-select: none;
     scrollbar-width: thin; 
     line-height: 1.3;
     -webkit-tap-highlight-color:transparent;
@@ -56,6 +55,8 @@ body.openMenu .footer, body.openMenu .pagination{
     width: calc(100% - calc(calc(var(--screen-width) * 0.185) - 20px));
 }
 a {text-decoration: none; color: var(--text-color)}
+a, img, audio {user-select: none;}
+::selection {background-color: var(--text-color); color: var(--bg2);}
 /*HEADER*/
 .header{
     transition: var(--time);
