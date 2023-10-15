@@ -6,10 +6,18 @@
     <title>NHD ASMR - Generate Code To Upload</title>
   <script src="database/database.js"></script>
   <script src="https://nhdasmr-v2.glitch.me/upload/process.js"></script>
-  <style>td{padding: 5px;}h3{margin:1px;}</style>
+  <style>
+    body{font-size: 18px; display: block; border: 1px solid; min-height: 100vh;}
+    table{display: block; margin: auto; min-width: 400px; width: fit-content; border: 1px solid; padding:20px;}
+    tr{width: 100%;}
+    td{padding: 5px;}
+    input{width: 600px; font-size: 18px; padding: 5px;}
+    h3{margin:1px;}
+  </style>
 </head>
 <body>
   <table>
+    <caption><h3>Generate Code To Upload</h3></caption>
     <form>
       <tr><td><label for="code">Code: </label></td> <td><input type="number" id="code" value=""></td></tr> 
       <tr><td><label for="rjcode">RJ Code: </label></td> <td><input type="text" id="rjcode" value=""></td></tr> 
@@ -25,9 +33,11 @@
     </form>
     
   </table>
-  <p id="result">
-    
-  </p>
+  <table>
+    <caption><h3>Result</h3></caption>
+    <tr><td ><p id="result"></p></td></tr>
+  </table>
+  
   
 </body>
 </html>
