@@ -3,51 +3,62 @@ const urlParams = new URLSearchParams(window.location.search);
 // Lấy giá trị của một tham số cụ thể
 var page = urlParams.get('page');
 let linkToProcess = "?";
-if(urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
-  linkToProcess = "?s="+urlParams.get('s')+"&";
-} else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv')) {
-  linkToProcess = "?cv="+urlParams.get('cv')+"&";
-} else if(!urlParams.get('s') && urlParams.get('tag') && !urlParams.get('cv')) {
-  linkToProcess = "?tag="+urlParams.get('tag')+"&";
+if(location.href.indexOf('?newest') == -1) {
+  if(urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv')) {
+    linkToProcess = "?s="+urlParams.get('s')+"&";
+  } else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv')) {
+    linkToProcess = "?cv="+urlParams.get('cv')+"&";
+  } else if(!urlParams.get('s') && urlParams.get('tag') && !urlParams.get('cv')) {
+    linkToProcess = "?tag="+urlParams.get('tag')+"&";
+  }  
+} else {
+  linkToProcess = "?newest&";
 }
+
 
 let numberpage;
 let listOfData = [];
 let listDataToInner = [];
 let message = 'NHD Hentai - ASMR Hentai Tracks';
 
-if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv') && !urlParams.get('random')) {
-   listOfData = dataProcessing.separateData(databaseTypeObject);
-   numberpage = listOfData.length;
-} else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv') && !urlParams.get('random')) {
-   let listFinded = convertListDataType(dataProcessing.getDataAdvance(urlParams.get('cv'), ''));
-   let sl = listFinded.length;
-   listOfData = dataProcessing.separateData(listFinded);
-   numberpage = listOfData.length;
-   message = '<b>CV</b>: <span class="cv">'+urlParams.get('cv')+'</span> ('+sl+')';
-} else if(!urlParams.get('s') && urlParams.get('tag') && !urlParams.get('cv') && !urlParams.get('random')) {
-   let listFinded = convertListDataType(dataProcessing.getDataAdvance('', urlParams.get('tag')));
-   let sl = listFinded.length;
-   listOfData = dataProcessing.separateData(listFinded);
-   numberpage = listOfData.length;
-   message = '<b>Tag</b>: <span class="tag">'+urlParams.get('tag')+'</span> ('+sl+')';
-} else if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv') && urlParams.get('random')) {
-  let sl = Number(urlParams.get('random'));
-  let listFinded = dataProcessing.getRandomDataFrom(databaseTypeObject, sl); 
-  listOfData = dataProcessing.separateData(listFinded);
-  numberpage = listOfData.length;
-  message = 'Random '+sl+' Track';
-} else if(urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv') && !urlParams.get('random')) {
-  let listFinded = dataProcessing.findData(urlParams.get('s'));
-  if(listFinded != null) {
+if(location.href.indexOf('?newest') == -1) {
+  if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv') && !urlParams.get('random')) {
+     listOfData = dataProcessing.separateData(databaseTypeObject);
+     numberpage = listOfData.length;
+  } else if(!urlParams.get('s') && !urlParams.get('tag') && urlParams.get('cv') && !urlParams.get('random')) {
+     let listFinded = convertListDataType(dataProcessing.getDataAdvance(urlParams.get('cv'), ''));
+     let sl = listFinded.length;
+     listOfData = dataProcessing.separateData(listFinded);
+     numberpage = listOfData.length;
+     message = '<b>CV</b>: <span class="cv">'+urlParams.get('cv')+'</span> ('+sl+')';
+  } else if(!urlParams.get('s') && urlParams.get('tag') && !urlParams.get('cv') && !urlParams.get('random')) {
+     let listFinded = convertListDataType(dataProcessing.getDataAdvance('', urlParams.get('tag')));
+     let sl = listFinded.length;
+     listOfData = dataProcessing.separateData(listFinded);
+     numberpage = listOfData.length;
+     message = '<b>Tag</b>: <span class="tag">'+urlParams.get('tag')+'</span> ('+sl+')';
+  } else if(!urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv') && urlParams.get('random')) {
+    let sl = Number(urlParams.get('random'));
+    let listFinded = dataProcessing.getRandomDataFrom(databaseTypeObject, sl); 
     listOfData = dataProcessing.separateData(listFinded);
     numberpage = listOfData.length;
-    message = 'Search Results: '+urlParams.get('s')+' ('+listFinded.length+')';    
-  } else {
-    numberpage = 0;
-    message = 'No Result';
-  }
+    message = 'Random '+sl+' Track';
+  } else if(urlParams.get('s') && !urlParams.get('tag') && !urlParams.get('cv') && !urlParams.get('random')) {
+    let listFinded = dataProcessing.findData(urlParams.get('s'));
+    if(listFinded != null) {
+      listOfData = dataProcessing.separateData(listFinded);
+      numberpage = listOfData.length;
+      message = 'Search Results: '+urlParams.get('s')+' ('+listFinded.length+')';    
+    } else {
+      numberpage = 0;
+      message = 'No Result';
+    }
+  }  
+} else {
+   listOfData = dataProcessing.separateData(newUploadDatabase);
+   numberpage = listOfData.length; 
 }
+
 
 if(page && (page<1 || page>numberpage)) {
   alert("Page not found!");
