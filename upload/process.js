@@ -7,9 +7,9 @@ function removeCommasAndTrim(str) {
 function handleForm() {
   let error = '';
   let code = document.querySelector('#code').value;
-  if(database.code.indexOf(code)!=-1) {error+="trùng code<br>"}
+  if(database.code.indexOf(Number(code))!=-1) {error+="&ensp;Chú Ý! Trùng Code&ensp;<br>"}
   let rjcode = document.querySelector('#rjcode').value;
-  if(database.rjCode.indexOf(rjcode)!=-1) {error+="trùng rjcode<br>"}
+  if(database.rjCode.indexOf(rjcode)!=-1) {error+="&ensp;Chú Ý! Trùng RJ Code&ensp;<br>"}
   let cvs = removeCommasAndTrim(document.querySelector('#cvs').value);
   let japname = document.querySelector('#japname').value;
   let engname = document.querySelector('#engname').value;
