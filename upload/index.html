@@ -7,12 +7,13 @@
   <script src="database/database.js"></script>
   <script src="https://nhdasmr-v2.glitch.me/upload/process.js"></script>
   <style>
-    body{font-size: 18px; display: block; border: 1px solid; min-height: 100vh;}
-    table{display: block; margin: auto; min-width: 400px; width: fit-content; border: 1px solid; padding:20px;}
+    body{font-size: 20px; display: block; min-height: 100vh; background-color: #222; color: white;}
+    table{display: block; margin: auto; width: fit-content; border: 1px solid; padding:20px; margin-bottom: 20px;}
     tr{width: 100%;}
     td{padding: 5px;}
-    input{width: 600px; font-size: 18px; padding: 5px;}
-    h3{margin:1px;}
+    input{width: 700px; font-size: 18px; padding: 10px; background-color: #333; color: white;}
+    h3{margin:1px; padding: 10px;}
+    #result{line-height: 1.5;}
   </style>
 </head>
 <body>
@@ -28,16 +29,23 @@
       <tr><td><label for="thumbnail">Thumbnail: </label></td> <td><input type="text" id="thumbnail" value=""></td></tr> 
       <tr><td><label for="images">Images: </label></td> <td><input type="text" id="images" value=""></td></tr> 
       <tr><td><label for="tracks">Tracks:</label></td> <td><input type="text" id="tracks" value=""></td></tr> 
-      <tr><td colspan="2"><h3 style="display: block; text-align: center; border: 1px solid; cursor:pointer;" onclick="handleForm();">Genarate</h3></td></tr>
-      <tr><td colspan="2"><h3 style="display: block; text-align: center; border: 1px solid; cursor:pointer;" onclick="reserForm();">Reset</h3></td></tr>
+      <tr><td colspan="2"><h3 style="display: block; color: black; background-color: white; text-align: center; cursor:pointer;" onclick="handleForm();">Genarate</h3></td></tr>
+      <tr><td colspan="2"><h3 style="display: block; color: black; background-color: white; text-align: center; cursor:pointer;" onclick="reserForm();">Reset</h3></td></tr>
     </form>
     
   </table>
   <table>
     <caption><h3>Result</h3></caption>
     <tr><td ><p id="result"></p></td></tr>
+     <tr>
+       <td>
+         <h3 style="display: block; color: black; background-color: white; text-align: center; cursor:pointer;" 
+             onclick="document.querySelector('#result').innerHTML = '';">
+           Clear Result
+         </h3>
+       </td>
+    </tr>
   </table>
-  
   
 </body>
 </html>

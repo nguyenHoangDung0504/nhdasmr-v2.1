@@ -194,7 +194,11 @@ console.time('build_database_and_database_functions_time');
         pushData(53311, "RJ338641", "MOMOKA,Yuka Hinata", "【低音クール×正統派クール】おま○こ学園臨海学校「えっちサボりはダメですよ!」～クールな風紀委員とラブラブ生ハメ特別実習～【KU100/フォーリーサウンド】", "Oma*ko Gakuen Rinkai School “Don’t Skip Sex!” ~Cool Discipline Committee and Lovey-dovey Raw Fucking Special Practice~", "https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/53311(0)?v=1693795264955", "Breast Sex, Ear Licking, Hand Job, Swimwear, School Girl, <i><b>Oma*ko Gakuen (Series)</b></i>", "https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/53311(1)?v=1693795267607,https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/53311(2)?v=1693795271261", "https://cdn.glitch.me/1d46fb5f-c750-4e6d-9785-7de06c91262f/53311.mp3?v=1693795337573");
         pushData(98389, "RJ01072089", "MOMOKA,Yui Otokura,Yuka Hinata", "おま〇こ学園定期試験「テスト赤点許しません!」～クールな3人の風紀委員とみっちり生ハメ補習～【低音×ダウナー×正統派3種のクール!/KU100】", "Oma*ko Gakuen Regular Exam “I won’t allow red marks on the test!” ～Supplementary raw sex lesson with three cool disciplinary committee members～", "https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/98389(0)?v=1693799352188", "Big Breasts, Blowjob, Ear Licking, School Uniform, School, School Girl, <i><b>Oma*ko Gakuen (Series)</b></i>", "https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/98389(1)?v=1693799354667,https://cdn.glitch.global/1d46fb5f-c750-4e6d-9785-7de06c91262f/98389(2)?v=1693799358353", "https://cdn.glitch.me/1d46fb5f-c750-4e6d-9785-7de06c91262f/98389t1.mp3?v=1693799493232,https://cdn.glitch.me/1d46fb5f-c750-4e6d-9785-7de06c91262f/98389t2.mp3?v=1693799558158");
         pushData(88888, "RJ01065824", "Meiya Yume", "迷夜ゆめ ファンティアオナサポASMR総集編2022.9-2023.2", "Meiya Yume Fantia Ona Support ASMR Compilation", "https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(0)?v=1694502918272", "3D, Ahegao, Animation, ASMR, Blowjob, Ear Licking, Foot Job, Futanari, Hand Job, Kissing, Peeing, Peeing, Perverted, School Uniform, Vtuber", "https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(1)?v=1694503283496,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(2)?v=1694503421366,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(3)?v=1694503519083,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(4)?v=1694503834216,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(5)?v=1694504051626,https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/rj01065824(6)?v=1694504178551", "https://cdn.glitch.global/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_1.mp4?v=1694504395153,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_2.mp4?v=1694504429342,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_3.mp4?v=1694504466949,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_4.mp4?v=1694504506876,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_5.mp4?v=1694504532582,https://cdn.glitch.me/cedb5300-5543-41d1-998d-e607a61661f4/RJ01065824_6.mp4?v=1694504553862");
-        // pushData(, [""], "", "", "", [""], "", "", [""], [""]);
+        
+      
+      
+      
+      // pushData(, [""], "", "", "", [""], "", "", [""], [""]);
     })();
 
 /*END ADD DATA TO DATABASE*/
@@ -280,6 +284,7 @@ console.time('build_database_and_database_functions_time');
       databaseTypeObject.push(obj);
     } CODE CŨ BỊ THAY BỞI DÒNG DƯỚI.*/
     var databaseTypeObject = convertListDataType(database);
+    var newUploadDatabase = databaseTypeObject.slice();
     //SẮP XẾP LẠI DỮ LIỆU THEO CODE TĂNG DẦN.
     databaseTypeObject.sort(function(a, b) {
       return a.code-b.code;
