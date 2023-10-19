@@ -36,9 +36,12 @@ function buildIframeAndContent() {
 function buildListRandom() {
   let container = document.querySelector('#random-post');
   let dataToInner = '';
-  let listData = dataProcessing.getRandomDataFrom(databaseTypeObject, 7);
+  let listData = dataProcessing.getRandomDataFrom(databaseTypeObject, 8);
   for(let i=0; i<listData.length; i++) {
     let track = listData[i];
+    if(track.code==id_vid) {
+      continue;
+    }
     dataToInner += '<a href="'+rootPage+'watch?code='+track.code+'"><img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'">'
                     +'<div class="text-box"><p class="content-p"><b><i>'+track.rjCode+'</i></b> - '+track.engName+'</p></div>'
                     +'</a>'; 
