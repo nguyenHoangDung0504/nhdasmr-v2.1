@@ -150,6 +150,34 @@ for (let i=0; i<menu_buttons.length; i++) {
 /*HANDLING HOVER*/
 /*END HANDLING HOVER*/
 
+/*FULLSCREEN*/
+let element = document.documentElement;
+function openFullscreen() {
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+    localStorage.setItem('fullscreen', 'on');
+  } else if (element.webkitRequestFullscreen) { /* Safari */
+    element.webkitRequestFullscreen();
+    localStorage.setItem('fullscreen', 'on');
+  } else if (element.msRequestFullscreen) { /* IE11 */
+    element.msRequestFullscreen();
+    localStorage.setItem('fullscreen', 'on');
+  }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+    localStorage.setItem('fullscreen', 'off');
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+    localStorage.setItem('fullscreen', 'off');
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+    localStorage.setItem('fullscreen', 'off');
+  }
+}
 function fullscreen() {
-  
+  (!localStorage.getItem('fullscreen') || localStorage.getItem('fullscreen')=='off')?openFullscreen():closeFullscreen();
 }
