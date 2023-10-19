@@ -181,3 +181,14 @@ function closeFullscreen() {
 function fullscreen() {
   (!localStorage.getItem('fullscreen') || localStorage.getItem('fullscreen')=='off')?openFullscreen():closeFullscreen();
 }
+
+let links = document.querySelectorAll('a');
+for(let i=0; i<links.length; i++) {
+  links[i].addEventListener('click', function(event) {
+    event.preventDefault();
+    let url = this.getAttribute('href');
+    if(url.indexOf('javascript:void(0)') != -1) {
+      history.replaceState(null, "", url);
+    }
+  });
+}
