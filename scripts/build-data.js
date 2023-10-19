@@ -139,9 +139,17 @@ function buildActionData() {
       }
       obj.style.top = y+"px";
     });
-    element.addEventListener('mouseleave', () => { obj.style.display = 'none'; });
+    
+    element.addEventListener('mouseleave', () => { 
+      obj.style.display = 'none'; 
+    });
+    
     element.addEventListener('mousemove', (event) => {
-      if(event.target.classList)
+      if(event.target.classList[0] == 'cv') {
+        obj.style.display = 'none'; 
+      } else {
+        obj.style.display = 'block'; 
+      }
       const x = event.clientX;
       const y = event.clientY;
       if(x <= -50 + screen.width - obj.offsetWidth) {
