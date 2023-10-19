@@ -149,3 +149,7 @@ for (let i=0; i<menu_buttons.length; i++) {
 
 /*HANDLING HOVER*/
 /*END HANDLING HOVER*/
+
+function fullscreen() {
+  
+}

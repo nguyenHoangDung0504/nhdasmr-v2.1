@@ -22,7 +22,7 @@
   
 </head>
   
-<body class="" onload=""><!-- 🔎 -->
+<body class="openMenu" onload="localStorage.setItem('menuIs', 'open');"><!-- 🔎 -->
     
     <script src="scripts/keep-setting.js"></script>
     
@@ -50,6 +50,7 @@
     <div class="menu">
         <a class="title"><h1>NHD ASMR - Menu</h1></a>
         <a class="menu-item light-mode-button" onclick=""><script>settingLightModeButton();</script></a>
+        <a href="javascript:void(0);" class="menu-item fullscreen-button" onclick="fullscreen()">Open/Close Full Screen</a>
         <a href="javascript:void(0);" class="menu-item">Advance Search 🔎</a>
         
       
@@ -137,7 +138,7 @@
   
     <script src="scripts/front-end-script.js"></script>
   
-    <script>document.querySelector("h1.button-open").click; settingLightModeButton();</script>
+    <script>settingLightModeButton();</script>
   
     <script>
       window.addEventListener('load', function() {
