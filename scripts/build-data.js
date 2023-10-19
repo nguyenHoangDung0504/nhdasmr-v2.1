@@ -80,9 +80,9 @@ function buildListData() {
     cv_string += '</b>: '
     for(let j=0; j<track.cvs.length; j++) {
       if(j<track.cvs.length-1) {//event.stopPropagation()   ?cv='+track.cvs[j]+'
-        cv_string += '<a class=cv onclick="" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>, ';
+        cv_string += '<a title="CV: '+track.cvs[j]+'" class=cv onclick="" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>, ';
       } else if(j==track.cvs.length-1) {
-        cv_string += '<a class=cv onclick="" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>';
+        cv_string += '<a title="CV: '+track.cvs[j]+'" class=cv onclick="" href="?cv='+track.cvs[j]+'">'+track.cvs[j]+'</a>';
       }
     }
     let tag_string = '<b>Tags</b>: ';
@@ -141,6 +141,7 @@ function buildActionData() {
     });
     element.addEventListener('mouseleave', () => { obj.style.display = 'none'; });
     element.addEventListener('mousemove', (event) => {
+      if(event.target.classList)
       const x = event.clientX;
       const y = event.clientY;
       if(x <= -50 + screen.width - obj.offsetWidth) {
