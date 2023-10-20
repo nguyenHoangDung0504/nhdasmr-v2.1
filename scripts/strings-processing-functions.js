@@ -22,3 +22,56 @@ function writePushData() {
   }
   console.log(rs);
 }
+
+
+function createCopyButton() {
+  // Tạo phần tử button
+  const button = document.createElement('button');
+  button.textContent = 'Copy Images';
+  button.style.position = 'fixed';
+  button.style.top = '100px';
+  button.style.right = '100px';
+
+  // Gắn sự kiện click cho button
+  button.addEventListener('click', function() {
+    const dataTransfer = new DataTransfer();
+    // Lặp qua từng phần tử <img> và thêm nội dung vào DataTransfer
+    let imageElements = document.querySelectorAll('div.fotorama__stage__frame img');
+  // Tạo một mảng chứa các promise tải xuống hình ảnh
+  const downloadPromises = Array.from(imageElements).map(img => {
+    const imageUrl = img.src;
+    return fetch(imageUrl)
+      .then(response => response.blob())
+      .then(blob => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(blob);
+        });
+      });
+  });
+
+  // Chờ tất cả các promise hoàn thành
+  Promise.all(downloadPromises)
+    .then(results => {
+      // Tạo một mảng chứa các chuỗi base64 của hình ảnh
+      const imageBase64Array = results.filter(result => typeof result === 'string');
+
+      // Nếu có hình ảnh, sao chép chuỗi base64 vào clipboard
+      if (imageBase64Array.length > 0) {
+        const textToCopy = imageBase64Array.join('\n');
+        return navigator.clipboard.writeText(textToCopy);
+      }
+    })
+    .then(() => {
+      console.log('Images copied to clipboard.');
+    })
+    .catch(error => {
+      console.error('Error copying images to clipboard:', error);
+    });
+  });
+
+  // Gắn button vào DOM
+  document.body.appendChild(button);
+}
