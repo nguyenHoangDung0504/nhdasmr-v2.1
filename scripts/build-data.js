@@ -93,19 +93,19 @@ function buildListData() {
         tag_string += track.tags[j];
       }
     }
-    dataToInner += '<div class="grid-item" id="'+track.code+'">'+
-                      '<div class="info-button">i</div>'+
+    dataToInner += '<div class="grid-item" id="link_to_'+track.code+'"><a href="/watch?code='+track.code+'">'+
+                      '<div class="info-button" code="'+track.code+'">i</div>'+
                       '<div class="image-container">'+
-                        '<a href="/watch?code='+track.code+'"><img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'"/></a>'+
+                        '<img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'"/></a>'+
                       '</div>'+
                       '<div class="flex-container">'+
-                        '<div class="text-container"><a href="/watch?code='+track.code+'">'+
+                        '<div class="text-container">'+
                           '<p class="multiline-ellipsis">'+'<b><i>'+track.rjCode+'</i></b> - '+track.engName+'</p>'+
-                        '</a></div>'+
+                        '</div>'+
                         '<div class="text-container">'+
                           '<p class="singleline-ellipsis">'+cv_string+'</p>'+
                         '</div>'+
-                      '</div>'+
+                      '</a></div>'+
                   '</div>';
     hiddenData += '<div class="hidden-info" id="hidden_info_of_'+track.code+'">'
                     +'<img src="'+track.thumbnail+'" alt="thumbnail of "'+track.code+'>'
@@ -126,8 +126,7 @@ function buildActionData() {
   let elements = document.querySelectorAll('.grid-container .grid-item .info-button');
   for(let i=0; i < elements.length; i++) {
     let element = elements[i];
-    let code = element.id;
-    let obj = document.querySelector('#hidden_info_of_'+code);
+    let obj = document.querySelector('#hidden_info_of_'+element.getAttribute('code'));
     
     element.addEventListener('mouseenter', () => { 
       obj.style.display = 'block'; 
