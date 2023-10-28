@@ -22,8 +22,16 @@
   
 </head>
   
-<body class="openMenu" onload="(!localStorage.getItem('menuIs') || localStorage.getItem('menuIs')!='open')?'':localStorage.setItem('menuIs', 'open');"><!-- 🔎 --> 
-  
+<body class="" onload="if(localStorage.getItem('menuIs')){
+                         localStorage.setItem('menuIs', 'open'); 
+                         document.querySelector('body').classList.add('openMenu');
+                       } else if(!localStorage.getItem('menuIs')) {
+                         if(!localStorage.getItem('first')) {
+                           localStorage.setItem('menuIs', 'open'); 
+                           document.querySelector('body').classList.add('openMenu');
+                           localStorage.setItem('first','_');
+                         }
+                       }"><!-- 🔎 --> 
     <script src="scripts/keep-setting.js"></script>
     
     <div class="header">
