@@ -9,6 +9,7 @@ request.onreadystatechange = function() {
     lines.forEach(function(line) {
       let dataInLine = line.split(',');
       if(dataInLine.length>=2) {
+        innerData += '<div style="display:inline-block;border:2px solid blue;width:fit-content;">';
         dataInLine.forEach(function(col) {
           let code = col.split('*')[0];
           if(checkedCode.indexOf(code)!=-1) { console.log('Trùng code: '+code); }
@@ -17,7 +18,8 @@ request.onreadystatechange = function() {
           innerData += `
             <a target="_blank" href='https://japaneseasmr.com/`+code+`'>`+col+` `+mess+`</a>
           `;        
-        });        
+        });  
+        innerData += '</div>';
       } else {
           let code = line.split('*')[0];
           if(checkedCode.indexOf(code)!=-1) { console.log('Trùng code: '+code); }
