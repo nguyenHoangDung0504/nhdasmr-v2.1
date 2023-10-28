@@ -96,7 +96,7 @@ function buildListData() {
     dataToInner += '<div class="grid-item" id="link_to_'+track.code+'"><a href="/watch?code='+track.code+'">'+
                       '<div class="info-button" code="'+track.code+'">i</div>'+
                       '<div class="image-container">'+
-                        '<img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'"/></a>'+
+                        '<img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'"/>'+
                       '</div>'+
                       '<div class="flex-container">'+
                         '<div class="text-container">'+
@@ -105,8 +105,8 @@ function buildListData() {
                         '<div class="text-container">'+
                           '<p class="singleline-ellipsis">'+cv_string+'</p>'+
                         '</div>'+
-                      '</a></div>'+
-                  '</div>';
+                      '</div>'+
+                  '</a></div>';
     hiddenData += '<div class="hidden-info" id="hidden_info_of_'+track.code+'">'
                     +'<img src="'+track.thumbnail+'" alt="thumbnail of "'+track.code+'>'
                     +'<h3><b>RJ Code</b>: '+track.rjCode+'</h3>'

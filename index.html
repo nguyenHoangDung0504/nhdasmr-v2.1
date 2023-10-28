@@ -22,7 +22,7 @@
   
 </head>
   
-<body class="openMenu" onload="localStorage.setItem('menuIs', 'open');"><!-- 🔎 --> 
+<body class="openMenu" onload="(!localStorage.getItem('menuIs') || localStorage.getItem('menuIs')!='open')?'':localStorage.setItem('menuIs', 'open');"><!-- 🔎 --> 
   
     <script src="scripts/keep-setting.js"></script>
     

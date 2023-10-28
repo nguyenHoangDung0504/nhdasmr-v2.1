@@ -259,9 +259,10 @@ body.openMenu>.menu{
   color: var(--text-color);
   padding: 13px;
   border-radius: 10px;
-  width: 380px;
+  width: 400px;
   z-index: 99999999;
   pointer-events: none;
+  border: .5px solid var(--text-color);
 }
 .hidden-info img {
   border-radius: 8px;
