@@ -93,23 +93,30 @@ let arr_tags = [
     "Yandere",
     "Yuri"
 ]
-
 let tags = document.querySelectorAll('.post-meta.post-tags a');
 let tags_after = [];
-
 for(let i=0; i<tags.length; i++) {
   for(let j=0; j<arr_tags.length; j++) {
     if( tags[i].innerHTML.indexOf(arr_tags[j]) != -1 ) {
       tags_after.push(arr_tags[j]);
+    } else if( tags[i].innerHTML = 'Student' ) {
+      tags_after.push('School Girl');
     }
   }
 }
+tags_after.sort();
 console.log(tags_after);
 
+//==========================================================================================================================
+
+
 let imgs = document.querySelectorAll('img');
+for(let i=0; i<imgs.length; i++) {
+  
+}
 const downloadLink = document.createElement('a');
 downloadLink.target = '_blank';
-downloadLink.href = 'https://pic.weeabo0.xyz/RJ01111383_img_main.jpg';
+downloadLink.href = '';
 downloadLink.download = 'image';
 document.body.appendChild(downloadLink);
 
@@ -119,7 +126,15 @@ downloadLink.click();
 // Gỡ bỏ phần tử <a> sau khi tải xuống hoàn tất
 document.body.removeChild(downloadLink);
 
-//
+function getImages(rjCode) {
+  let imgs = document.querySelectorAll('img');
+  for(let i=0; i<imgs.length; i++) {
+    
+  }  
+}
+
+//===========================================================================================================================
+
 let dl_buttons = document.querySelectorAll('.download-btn');
 for (let i = 0; i < dl_buttons.length; i++) {
   dl_buttons[i].click();
