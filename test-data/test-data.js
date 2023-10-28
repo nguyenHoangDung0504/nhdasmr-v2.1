@@ -107,6 +107,7 @@ for(let i=0; i<tags.length; i++) {
 }
 console.log(tags_after);
 
+let imgs = document.querySelectorAll('img');
 
 
 //
