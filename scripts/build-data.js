@@ -94,6 +94,7 @@ function buildListData() {
       }
     }
     dataToInner += '<div class="grid-item" id="'+track.code+'">'+
+                      '<div class="info-button">i</div>'+
                       '<div class="image-container">'+
                         '<a href="/watch?code='+track.code+'"><img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'"/></a>'+
                       '</div>'+
@@ -116,13 +117,13 @@ function buildListData() {
                   +'</div>';
   }
   document.querySelector('.content .grid-container').innerHTML = dataToInner;
-  document.querySelector('.hidden-data-container').innerHTML += hiddenData; 
+  document.querySelector('.hidden-data-container').innerHTML = hiddenData; 
   console.timeEnd('build_list_data_time');
 }
 
 function buildActionData() {
   console.time('build_mouse_action');
-  let elements = document.querySelectorAll('.grid-container .grid-item');
+  let elements = document.querySelectorAll('.grid-container .grid-item .info-button');
   for(let i=0; i < elements.length; i++) {
     let element = elements[i];
     let code = element.id;
@@ -310,7 +311,7 @@ function buildListCv() {
   let container = document.querySelector('div.hidden-list#list1');
   let dataToInner = '<input type="text" id="input-of-hidden-list-1" placeholder="Find...">';
   for(let i=0; i<listToFilter.cvs.length; i++) {
-    dataToInner += '<a class="sub-item" href="https://nhdasmr-v2.glitch.me/?cv='+listToFilter.cvs[i]+'"><span style="color: red;">❤</span> <span class="hover">'+listToFilter.cvs[i]+'</span></a>';
+    dataToInner += '<a class="sub-item" href="?cv='+listToFilter.cvs[i]+'"><span style="color: red;">❤</span> <span class="hover">'+listToFilter.cvs[i]+'</span></a>';
   }
   container.innerHTML = dataToInner;
 }
@@ -318,7 +319,7 @@ function buildListTag() {
   let container = document.querySelector('div.hidden-list#list2');
   let dataToInner = '<input type="text" id="input-of-hidden-list-2" placeholder="Find...">';
   for(let i=0; i<listToFilter.tags.length; i++) {
-    dataToInner += '<a class="sub-item" href="https://nhdasmr-v2.glitch.me/?tag='+listToFilter.tags[i]+'"><span style="color: #00BFFF;">►</span> <span class="hover">'+listToFilter.tags[i]+'</span></a>';
+    dataToInner += '<a class="sub-item" href="?tag='+listToFilter.tags[i]+'"><span style="color: #00BFFF;">►</span> <span class="hover">'+listToFilter.tags[i]+'</span></a>';
   }
   container.innerHTML = dataToInner;
 }
@@ -326,20 +327,21 @@ function buildListRandomLinks() {
   let container = document.querySelector('div.hidden-list#list3');
   container.innerHTML = `
     <a id="random-track" class="sub-item" style="cursor:pointer">🍀 <span class="hover">Open Random Track</span></a>
-    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=8">🍀 <span class="hover">Random 8 Track</span></a>
-    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=16">🍀 <span class="hover">Random 16 Track</span></a>
-    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=24">🍀 <span class="hover">Random 24 Track</span></a>`;
+    <a class="sub-item" href="?random=8">🍀 <span class="hover">Random 8 Track</span></a>
+    <a class="sub-item" href="?random=16">🍀 <span class="hover">Random 16 Track</span></a>
+    <a class="sub-item" href="?random=24">🍀 <span class="hover">Random 24 Track</span></a>`;
   document.querySelector('#random-track').onclick = function() {
-    location.href = rootPage+"/watch?code="+database.code[Math.floor(Math.random()*database.code.length)];
+    location.href = "watch?code="+database.code[Math.floor(Math.random()*database.code.length)];
   }
 }
 function buildListAdvance() {
   let container = document.querySelector('div.hidden-list#list4');
   container.innerHTML = `
-    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?newest"><span class="hover">Sort from new to old</span></a>
-    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/test-data"><span class="hover">Test data</span></a>
-    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/upload"><span class="hover">Generate upload code</span></a>
+    <a class="sub-item" href="?newest"><span class="hover">Sort from new to old</span></a>
+    <a class="sub-item" href="test-data"><span class="hover">Test data</span></a>
+    <a class="sub-item" href="upload"><span class="hover">Generate upload code</span></a>
     <a class="sub-item" href="https://loadresourcesnhdasmr.glitch.me/" target="blank"><span class="hover">Run resource page</span></a>
+    <a class="sub-item" href="txt" target="blank"><span class="hover">List code</span></a>
   `;
 }
 

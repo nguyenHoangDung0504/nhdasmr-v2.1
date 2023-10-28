@@ -298,6 +298,15 @@ body.openMenu>.menu{
     position: relative;
     flex-direction: column;
 }
+.content .grid-container .grid-item .info-button {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 30px;
+}
 .content .grid-container .grid-item .image-container {
     width: 100%;
     aspect-ratio: 4 / 3;
