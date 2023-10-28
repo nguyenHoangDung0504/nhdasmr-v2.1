@@ -351,6 +351,7 @@ function buildFooterContent() {
         <a target="_blank" href="https://japaneseasmr.com/"><span style="color: #00BFFF;">►</span> Japanese ASMR</a>
         <a target="_blank" href="https://www.asmr.one/works"><span style="color: #00BFFF;">►</span> ASMR ONE</a>
         <a target="_blank" href="https://nightfawn.com/listen-public/"><span style="color: #00BFFF;">►</span> Nightfawn ASMR</a>
+        <a target="_blank" href="https://www.jasmr.net/"><span style="color: #00BFFF;">►</span> JASMR</a>
     </div>
     <div class="grid-item">
         <h2>Many Type Of Hentai Website</h2>
