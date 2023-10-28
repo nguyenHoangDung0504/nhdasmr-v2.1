@@ -340,6 +340,9 @@ body.openMenu>.menu{
   margin-top: 15px;
   font-size: 18px;
 }
+body:not(.openMenu) .content .grid-container .grid-item .flex-container .text-container {
+  font-size: 16px;
+}
 .cv {
   font-weight: bold;
   color: deeppink;
