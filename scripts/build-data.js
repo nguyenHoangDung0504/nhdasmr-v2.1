@@ -116,7 +116,7 @@ function buildListData() {
                   +'</div>';
   }
   document.querySelector('.content .grid-container').innerHTML = dataToInner;
-  document.querySelector('.menu').innerHTML += hiddenData; 
+  document.querySelector('.hidden-data-container').innerHTML += hiddenData; 
   console.timeEnd('build_list_data_time');
 }
 
@@ -133,9 +133,9 @@ function buildActionData() {
       const x = event.clientX;
       const y = event.clientY;
       if(x <= -50 + screen.width - obj.offsetWidth) {
-        obj.style.left = x+"px";
+        obj.style.right = x+"px";
       } else {
-        obj.style.left = (x - obj.offsetWidth)+"px";
+        obj.style.right = (x - obj.offsetWidth)+"px";
       }
       obj.style.top = y+"px";
     });
@@ -153,9 +153,9 @@ function buildActionData() {
       const x = event.clientX;
       const y = event.clientY;
       if(x <= -50 + screen.width - obj.offsetWidth) {
-        obj.style.left = x+"px";
+        obj.style.right = x+"px";
       } else {
-        obj.style.left = (x - obj.offsetWidth)+"px";
+        obj.style.right = (x - obj.offsetWidth)+"px";
       }
       obj.style.top = y+"px";
     });
