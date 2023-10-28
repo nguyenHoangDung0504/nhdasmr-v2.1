@@ -345,7 +345,22 @@ function buildListAdvance() {
 
 function buildFooterContent() {
   document.querySelector('.footer-content').innerHTML = `
-  
+    <div class="grid-item">
+        <h2>Source ASMR Websites</h2>
+        <a target="_blank" href="https://www.dlsite.com/maniax/asmr"><span style="color: #00BFFF;">►</span> DLsite</a>
+        <a target="_blank" href="https://japaneseasmr.com/"><span style="color: #00BFFF;">►</span> Japanese ASMR</a>
+        <a target="_blank" href="https://www.asmr.one/works"><span style="color: #00BFFF;">►</span> ASMR ONE</a>
+        <a target="_blank" href="https://nightfawn.com/listen-public/"><span style="color: #00BFFF;">►</span> Nightfawn ASMR</a>
+    </div>
+    <div class="grid-item">
+        <h2>Many Type Of Hentai Website</h2>
+        <a  target="_blank" href="https://hentaianimezone.com/"><span style="color: #00BFFF;">►</span> HentaiAnimeZone</a>
+    </div>
+    <div class="grid-item">
+        <h2>Manga Hentai Websites</h2>
+        <a target="_blank" href="https://imhentai.xxx/"><span style="color: #00BFFF;">►</span> IMHentai</a>
+        <a target="_blank" href="https://hentaifox.com/"><span style="color: #00BFFF;">►</span> HentaiFox</a>
+    </div> 
   `;
 }
 // Lấy tất cả các tham số và giá trị
