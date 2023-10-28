@@ -9,7 +9,7 @@ request.onreadystatechange = function() {
     lines.forEach(function(line) {
       let dataInLine = line.split(',');
       if(dataInLine.length>=2) {
-        innerData += '<div style="display:inline-block;border:2px solid blue;width:fit-content;">';
+        innerData += '<div class="cont">';
         dataInLine.forEach(function(col) {
           let code = col.split('*')[0];
           if(checkedCode.indexOf(code)!=-1) { console.log('Trùng code: '+code); }
