@@ -322,6 +322,20 @@ function buildListTag() {
   }
   container.innerHTML = dataToInner;
 }
+function buildListRandomLinks() {
+  let container = document.querySelector('div.hidden-list#list3');
+  container.innerHTML = `
+    <a id="random-track" class="sub-item" style="cursor:pointer">🍀 <span class="hover">Open Random Track</span></a>
+    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=8">🍀 <span class="hover">Random 8 Track</span></a>
+    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=16">🍀 <span class="hover">Random 16 Track</span></a>
+    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=24">🍀 <span class="hover">Random 24 Track</span></a>`;
+  document.querySelector('#random-track').onclick = function() {
+    location.href = rootPage+"/watch?code="+database.code[Math.floor(Math.random()*database.code.length)];
+  }
+}
+function buildListAdvance() {
+  let container = document.querySelector('div.hidden-list#list4');
+}
 
 
 // Lấy tất cả các tham số và giá trị

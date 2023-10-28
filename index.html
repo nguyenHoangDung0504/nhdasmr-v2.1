@@ -63,22 +63,14 @@
 
         <a class="menu-item list-open-button" name="list3">Random&ensp; <i id="open-icon3" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
         <div class="hidden-list" id="list3">
-          <a id="random-track" class="sub-item" style="cursor:pointer">🍀 <span class="hover">Open Random Track</span></a>
-          <script>
-            document.querySelector('#random-track').onclick = function() {
-              location.href = rootPage+"/watch?code="+database.code[Math.floor(Math.random()*database.code.length)];
-            }
-          </script>
-          <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=8">🍀 <span class="hover">Random 8 Track</span></a>
-          <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=16">🍀 <span class="hover">Random 16 Track</span></a>
-          <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?random=24">🍀 <span class="hover">Random 24 Track</span></a>
-        </div>
+        </div><script>buildListRandomLinks();</script>
       
         <a class="menu-item list-open-button" name="list4">For Developer&ensp; <i id="open-icon4" style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
         <div class="hidden-list" id="list4"> 
-          <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?newest"><span class="hover">Sort from New to Old</span></a>
+          <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?newest"><span class="hover">Sort from new to old</span></a>
 <!--           <a class="sub-item" href="https://nhdasmr-v2.glitch.me/test-data"><span class="hover">Test Data</span></a> -->
           <a class="sub-item" href="https://nhdasmr-v2.glitch.me/upload"><span class="hover">Upload</span></a>
+          <a class="sub-item" href="https://loadresourcesnhdasmr.glitch.me/" target="blank"><span class="hover">Run resource page</span></a>
         </div>
     </div>
 
