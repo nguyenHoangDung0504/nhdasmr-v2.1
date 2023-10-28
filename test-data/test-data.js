@@ -110,7 +110,7 @@ console.log(tags_after);
 
 
 //
-let dl = document.querySelectorAll('.download-btn'); 
-for(let i=0; i<=dl; i++) {
-  dl[i].click();
+let dl_buttons = document.querySelectorAll('.download-btn');
+for (let i = 0; i < dl_buttons.length; i++) {
+  dl_buttons[i].click();
 }
