@@ -133,9 +133,9 @@ function buildActionData() {
       const x = event.clientX;
       const y = event.clientY;
       if(x <= -50 + screen.width - obj.offsetWidth) {
-        obj.style.right = x+"px";
+        obj.style.left = x+"px";
       } else {
-        obj.style.right = (x - obj.offsetWidth)+"px";
+        obj.style.left = (x - obj.offsetWidth)+"px";
       }
       obj.style.top = y+"px";
     });
@@ -153,9 +153,9 @@ function buildActionData() {
       const x = event.clientX;
       const y = event.clientY;
       if(x <= -50 + screen.width - obj.offsetWidth) {
-        obj.style.right = x+"px";
+        obj.style.left = x+"px";
       } else {
-        obj.style.right = (x - obj.offsetWidth)+"px";
+        obj.style.left = (x - obj.offsetWidth)+"px";
       }
       obj.style.top = y+"px";
     });
