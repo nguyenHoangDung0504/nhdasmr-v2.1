@@ -95,7 +95,6 @@ let arr_tags = [
 ]
 
 let tags = document.querySelectorAll('.post-meta.post-tags a');
-
 let tags_after = [];
 
 for(let i=0; i<tags.length; i++) {
@@ -108,7 +107,17 @@ for(let i=0; i<tags.length; i++) {
 console.log(tags_after);
 
 let imgs = document.querySelectorAll('img');
+const downloadLink = document.createElement('a');
+downloadLink.target = '_blank';
+downloadLink.href = 'https://pic.weeabo0.xyz/RJ01111383_img_main.jpg';
+downloadLink.download = 'image';
+document.body.appendChild(downloadLink);
 
+// Kích hoạt sự kiện nhấp vào liên kết để bắt đầu tải xuống
+downloadLink.click();
+
+// Gỡ bỏ phần tử <a> sau khi tải xuống hoàn tất
+document.body.removeChild(downloadLink);
 
 //
 let dl_buttons = document.querySelectorAll('.download-btn');
