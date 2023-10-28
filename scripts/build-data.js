@@ -335,9 +335,19 @@ function buildListRandomLinks() {
 }
 function buildListAdvance() {
   let container = document.querySelector('div.hidden-list#list4');
+  container.innerHTML = `
+    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/?newest"><span class="hover">Sort from new to old</span></a>
+    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/test-data"><span class="hover">Test data</span></a>
+    <a class="sub-item" href="https://nhdasmr-v2.glitch.me/upload"><span class="hover">Generate upload code</span></a>
+    <a class="sub-item" href="https://loadresourcesnhdasmr.glitch.me/" target="blank"><span class="hover">Run resource page</span></a>
+  `;
 }
 
-
+function buildFooterContent() {
+  document.querySelector('.footer-content').innerHTML = `
+  
+  `;
+}
 // Lấy tất cả các tham số và giá trị
 // const allParams = {};
 // for (const param of urlParams) {
