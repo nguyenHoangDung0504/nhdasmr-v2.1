@@ -127,11 +127,19 @@ downloadLink.click();
 document.body.removeChild(downloadLink);
 
 function getImages(rjCode) {
+  let result = [];
+  let srcs = [];
   let imgs = document.querySelectorAll('img');
   for(let i=0; i<imgs.length; i++) {
-    
-  }  
+    if(imgs[i].src.indexOf(rjCode) != -1 && srcs.indexOf(imgs[i].src) == -1) {
+      result.push(imgs[i]);
+      srcs.push(imgs[i].src);
+    }
+  }
+  console.log(result.sort());
+  return result;
 }
+getImages('');
 
 //===========================================================================================================================
 
