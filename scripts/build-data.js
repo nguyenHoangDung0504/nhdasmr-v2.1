@@ -88,6 +88,11 @@ function buildListData() {
     let tag_string = '<b>Tags</b>: ';
     for(let j=0; j<track.tags.length; j++) {
       if(j<track.tags.length-1) {
+        if(track.tags[j].indexOf('(Series)') != -1) {
+          
+        } else {
+          
+        }
         tag_string += track.tags[j]+', ';
       } else if(j==track.tags.length-1) {
         tag_string += track.tags[j];
