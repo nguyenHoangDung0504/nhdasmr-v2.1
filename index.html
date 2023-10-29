@@ -23,8 +23,8 @@
 </head>
   
 <body class="" onload="if(localStorage.getItem('menuIs')){
-                         localStorage.setItem('menuIs', 'open'); 
                          document.querySelector('body').classList.add('openMenu');
+                         localStorage.setItem('menuIs', 'open'); 
                        } else if(!localStorage.getItem('menuIs')) {
                          if(!localStorage.getItem('first')) {
                            localStorage.setItem('menuIs', 'open'); 

@@ -132,7 +132,7 @@ function buildActionData() {
       obj.style.display = 'block'; 
       const x = event.clientX;
       const y = event.clientY;
-      if(x <= -50 + screen.width - obj.offsetWidth) {
+      if(x <= -30 + screen.width - obj.offsetWidth) {
         obj.style.left = x+"px";
       } else {
         obj.style.left = (x - obj.offsetWidth)+"px";
@@ -152,7 +152,7 @@ function buildActionData() {
       }
       const x = event.clientX;
       const y = event.clientY;
-      if(x <= -50 + screen.width - obj.offsetWidth) {
+      if(x <= -30 + screen.width - obj.offsetWidth) {
         obj.style.left = x+"px";
       } else {
         obj.style.left = (x - obj.offsetWidth)+"px";
