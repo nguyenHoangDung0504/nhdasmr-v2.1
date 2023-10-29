@@ -100,14 +100,26 @@ function getTagArr() {
     for(let j=0; j<arr_tags.length; j++) {
       if( tags[i].innerHTML.indexOf(arr_tags[j]) != -1 ) {
         tags_after.push(arr_tags[j]);
-      } else if( tags[i].innerHTML = 'Student' ) {
+      } else if( tags[j].innerHTML == 'Student' ) {
         tags_after.push('School Girl');
       }
     }
   }
   console.log(tags_after.sort());
-  return tags_after;  
+  return tags_after; 
 }
+getTagArr();
+function getData() {
+  let ps = document.querySelectorAll('p');
+  let data = {
+    jname: ps[1].textContent,
+    cvs: ps[2].textContent.split(': ')[1],
+    rjcode: ps[3].textContent.split(': ')[1]
+  }
+  console.table(data);
+  return data;
+}
+getData();
 
 //==========================================================================================================================
 
