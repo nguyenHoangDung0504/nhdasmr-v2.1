@@ -9,10 +9,11 @@ console.time('build_database_and_database_functions_time');
     var db_tags       = [];
     var db_images     = [];
     var db_audios     = [];
+    var download      = [];
 /*END DATA OF DATABASE*/
 
 /*ADD DATA TO DATABASE*/
-    function pushData(code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios) {
+    function pushData(code, rjCode, cvs, japName, engName, thumbnail, tags, images, audios, downloadLink) {
       db_code.push(code);
       db_rjCode.push(rjCode);
       db_cvs.push( (cvs.trim().replaceAll(/\s*,\s*/g, ",")).split(",").sort() );
@@ -22,6 +23,9 @@ console.time('build_database_and_database_functions_time');
       db_tags.push( (tags.trim().replaceAll(/\s*,\s*/g, ",")).split(",").sort() );
       db_images.push( (images.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
       db_audios.push( (audios.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
+      if(downloadLink) {
+        download[code] = downloadLink;
+      }
     }
     
     (function() {
@@ -205,7 +209,7 @@ console.time('build_database_and_database_functions_time');
         pushData(102368, "RJ01100097", "Yuka Hinata", "【あまあま/耳舐め/KU100】爆乳メイドさんとお布団の中でぬくぬくあまあまえっち", "Warm and sweet sex in the futon with a big breasts maid", "https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/102368(0)?v=1697355628209", "Big Breasts, Breast Sex, Ear Licking, Maid, Blowjob", "https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/102368(1)?v=1697355632135", "https://cdn.glitch.me/36049008-0c55-496e-873e-a2f971037d73/102368.mp3?v=1697355745694");
         
         pushData(81777, "RJ01060391", "Yuka Hinata", "【KU100】【密着低音オホ】事務的ダウナーなシスターに強制催眠をかけて本性モロバレ媚び媚びご奉仕! ～孕むまで中出し懇願で堕ちる聖職者～", "Forcibly hypnotizes a clerical downer sister and flatters her true nature to serve her! ~A priest who falls for begging for creampie until she becomes pregnant~", "https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/81777(0)?v=1697515341121", "Anal, ASMR, Big Breasts, Blowjob, Ear Licking, Hand Job, Naughty, Pregnancy, Sister, Tanned Skin", "https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/81777(1)?v=1697515344862", "https://cdn.glitch.me/36049008-0c55-496e-873e-a2f971037d73/81777t1.mp3?v=1697631786376,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/81777freetalk.mp3?v=1697631771097");
-        pushData(101653, "RJ01054418", "Kaede Akino,Minase Suzuka,Shiho Bubaigawara,Tsubame Yuzuki,Narumi Aisaka", "にんかつアイドル総選挙〜あなたのことが大大大好きなガチ恋DSKBアイドルとの孕ませおま〇こプロジェクト～", "Ninkatsu Idol General Election ~ Impregnated Pussy Project with a seriously love DSKB idol who loves you very much ~", "https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-0.jpg?v=1698567815875", "Blowjob,Dirty Talk,Hand Job,Idol,Harem", "https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-1.jpg?v=1698567816915,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-2.jpg?v=1698567818784,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-3.jpg?v=1698567820058,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-4.jpg?v=1698567821163,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-5.jpg?v=1698567822177,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-6.jpg?v=1698567823269,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-7.jpg?v=1698567824286,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-8.jpg?v=1698567825304,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-9.jpg?v=1698567826317,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-10.jpg?v=1698567827314,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-11.jpg?v=1698567828343,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-12.jpg?v=1698567829322", "");
+        pushData(101653, "RJ01054418", "Kaede Akino,Minase Suzuka,Shiho Bubaigawara,Tsubame Yuzuki,Narumi Aisaka", "にんかつアイドル総選挙〜あなたのことが大大大好きなガチ恋DSKBアイドルとの孕ませおま〇こプロジェクト～", "Ninkatsu Idol General Election ~ Impregnated Pussy Project with a seriously love DSKB idol who loves you very much ~", "https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-0.jpg?v=1698567815875", "Blowjob,Dirty Talk,Hand Job,Idol,Harem", "https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-1.jpg?v=1698567816915,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-2.jpg?v=1698567818784,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-3.jpg?v=1698567820058,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-4.jpg?v=1698567821163,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-5.jpg?v=1698567822177,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-6.jpg?v=1698567823269,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-7.jpg?v=1698567824286,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-8.jpg?v=1698567825304,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-9.jpg?v=1698567826317,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-10.jpg?v=1698567827314,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-11.jpg?v=1698567828343,https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/101653-12.jpg?v=1698567829322", "https://cdn.glitch.me/36049008-0c55-496e-873e-a2f971037d73/101653t1.mp3?v=1698569311566,https://cdn.glitch.me/36049008-0c55-496e-873e-a2f971037d73/101653t2.mp3?v=1698569326059,https://cdn.glitch.me/36049008-0c55-496e-873e-a2f971037d73/101653t3.mp3?v=1698569343358", "https://www.mediafire.com/file/d1mah5qhy3qk2lo/101653_-_RJ01054418.rar/file");
     })();
 
 /*END ADD DATA TO DATABASE*/
