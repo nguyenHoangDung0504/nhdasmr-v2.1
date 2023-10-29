@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://nhdasmr-v2.glitch.me/alt-player/style.css"/>
+    <link rel="stylesheet" href="/alt-player/style.css"/>
     <link rel="icon" type="image/x-icon" href="https://cdn.glitch.global/59cd60db-caa3-4316-b0ea-44f47d68054c/75e4a449-5026-4d1f-b34b-ffe16f706675.image.ico?v=1678545578735"/>
-    <script src="https://nhdasmr-v2.glitch.me/database/database.js"></script>
+    <script src="/database/database.js"></script>
     <script>
       var open=false;
       var isPortrait=false;
@@ -17,7 +17,7 @@
       var id_vid = urlParams.get("code");
       if(!id_vid || id_vid<=0) {
         alert("Page not found!");
-        window.location="https://nhdasmr-v2.glitch.me/";
+        window.location="..";
       }
       document.title = "Watch "+id_vid+" - NHD ASMR";
       let index = database.code.indexOf(Number(id_vid));
