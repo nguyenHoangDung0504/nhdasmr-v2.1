@@ -26,15 +26,15 @@ function buildIframeAndContent() {
   for(let i=0; i<data.tags.length; i++) {
     if(i<data.tags.length-1) {
       if(data.tags[i].indexOf('Series') != -1) {
-        tagString += '<a class="hover" href="?tag='+data.tags[i]+'"><span style="font-style:italic; font-weight:bold;">'+data.tags[i]+'</span></a>, ';
+        tagString += '<a class="hover" href="../?tag='+data.tags[i]+'"><span style="font-style:italic; font-weight:bold;">'+data.tags[i]+'</span></a>, ';
       } else {
-        tagString += '<a class="hover" href="?tag='+data.tags[i]+'">'+data.tags[i]+'</a>, ';
+        tagString += '<a class="hover" href="../?tag='+data.tags[i]+'">'+data.tags[i]+'</a>, ';
       }
     } else {
       if(data.tags[i].indexOf('Series') != -1) {
-        tagString += '<a class="hover" href="?tag='+data.tags[i]+'"><span style="font-style:italic; font-weight:bold;">'+data.tags[i]+'</span></a>';
+        tagString += '<a class="hover" href="../?tag='+data.tags[i]+'"><span style="font-style:italic; font-weight:bold;">'+data.tags[i]+'</span></a>';
       } else {
-        tagString += '<a class="hover" href="?tag='+data.tags[i]+'">'+data.tags[i]+'</a>';
+        tagString += '<a class="hover" href="../?tag='+data.tags[i]+'">'+data.tags[i]+'</a>';
       }
     }
   }
