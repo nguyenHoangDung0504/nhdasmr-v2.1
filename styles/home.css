@@ -255,8 +255,8 @@ body.openMenu>.menu{
 .hidden-info {
   position: fixed;
   display: none;
-  background-color: var(--text-color);
-  color: var(--bg2);
+  background-color: var(--bg2);
+  color: var(--text-color);
   padding: 13px;
   border-radius: 10px;
   width: 380px;
@@ -303,10 +303,10 @@ body.openMenu>.menu{
     right: 3px;
     top: 3px;
     border-radius: 50%;
-    font-weight: bold;
+    font-weight: 900;
     font-style: italic;
     font-size: 20px;
-    padding: 3px 12px;
+    padding: 4px 14px;
     background-color: black;
     color: white;
     z-index: 1000;

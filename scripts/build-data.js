@@ -101,20 +101,20 @@ function buildListData() {
         }
       }
     }
-    dataToInner += '<div class="grid-item" id="link_to_'+track.code+'"><a href="/watch?code='+track.code+'">'+
+    dataToInner += '<div class="grid-item" id="link_to_'+track.code+'">'+
                       '<div class="info-button" code="'+track.code+'">i</div>'+
-                      '<div class="image-container">'+
+                      '<div class="image-container"><a href="/watch?code='+track.code+'">'+
                         '<img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'"/>'+
-                      '</div>'+
+                      '</a></div>'+
                       '<div class="flex-container">'+
-                        '<div class="text-container">'+
+                        '<a href="/watch?code='+track.code+'"><div class="text-container">'+
                           '<p class="multiline-ellipsis">'+'<b><i>'+track.rjCode+'</i></b> - '+track.engName+'</p>'+
-                        '</div>'+
+                        '</div></a>'+
                         '<div class="text-container">'+
                           '<p class="singleline-ellipsis">'+cv_string+'</p>'+
                         '</div>'+
                       '</div>'+
-                  '</a></div>';
+                  '</div>';
     hiddenData += '<div class="hidden-info" id="hidden_info_of_'+track.code+'">'
                     +'<img src="'+track.thumbnail+'" alt="thumbnail of "'+track.code+'>'
                     +'<h3><b>RJ Code</b>: '+track.rjCode+'</h3>'
@@ -345,8 +345,8 @@ function buildListAdvance() {
   let container = document.querySelector('div.hidden-list#list4');
   container.innerHTML = `
     <a class="sub-item" href="../?newest"><span class="hover">Sort from new to old</span></a>
-    <a class="sub-item" href="test-data"><span class="hover">Test data</span></a>
-    <a class="sub-item" href="upload"><span class="hover">Generate upload code</span></a>
+    <a class="sub-item" href="test-data" target="blank"><span class="hover">Test data</span></a>
+    <a class="sub-item" href="upload" target="blank"><span class="hover">Generate upload code</span></a>
     <a class="sub-item" href="https://loadresourcesnhdasmr.glitch.me/" target="blank"><span class="hover">Run resource page</span></a>
     <a class="sub-item" href="txt" target="blank"><span class="hover">List code</span></a>
   `;
