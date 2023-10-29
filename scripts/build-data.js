@@ -88,14 +88,17 @@ function buildListData() {
     let tag_string = '<b>Tags</b>: ';
     for(let j=0; j<track.tags.length; j++) {
       if(j<track.tags.length-1) {
-        if(track.tags[j].indexOf('(Series)') != -1) {
-          
+        if(track.tags[j].indexOf('Series') != -1) {
+          tag_string += '<span style="font-style:italic; font-weight:bold;">'+track.tags[j]+'</span>, ';
         } else {
-          
+          tag_string += track.tags[j]+', ';
         }
-        tag_string += track.tags[j]+', ';
       } else if(j==track.tags.length-1) {
-        tag_string += track.tags[j];
+        if(track.tags[j].indexOf('Series') != -1) {
+          tag_string += '<span style="font-style:italic; font-weight:bold;">'+track.tags[j]+'</span>';
+        } else {
+          tag_string += track.tags[j];
+        }
       }
     }
     dataToInner += '<div class="grid-item" id="link_to_'+track.code+'"><a href="/watch?code='+track.code+'">'+
