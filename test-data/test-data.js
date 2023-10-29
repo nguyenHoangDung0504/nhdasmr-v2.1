@@ -309,7 +309,13 @@
       alert('Trùng code!');
       return;
     }
-    return `pushData(${location.href.match(/\d+/)[0]}, "${data.rjCode}", "${data.cvs.replaceAll(', ',',')}", "${data.japName}", "engName", "thumbnail", "${getTagArr().join(',')}", "imgs", "tracks");`;
+    let str = `pushData(${location.href.match(/\d+/)[0]}, "${data.rjCode}", "${data.cvs.replaceAll(', ',',')}", "${data.japName}", "engName", "thumbnail", "${getTagArr().join(',')}", "imgs", "tracks");`;
+    if (window.confirm('Xác nhận sao chép')) {
+      navigator.clipboard.writeText(str)
+        .then(() => {console.log('Đã sao chép.')})
+        .catch(error => {console.error('Lỗi khi sao chép', error)});
+    }
+    return str;
   }
   return generateUploadCode();  
 })();
