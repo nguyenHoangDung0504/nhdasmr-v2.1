@@ -97,29 +97,36 @@ function getTagArr() {
   let tags = document.querySelectorAll('.post-meta.post-tags a');
   let tags_after = [];
   for(let i=0; i<tags.length; i++) {
+    if( tags[i].textContent.indexOf('Student') != -1 ) {
+      tags_after.push('School Girl');
+      continue;
+    }
     for(let j=0; j<arr_tags.length; j++) {
-      if( tags[i].innerHTML.indexOf(arr_tags[j]) != -1 ) {
+      if( tags[i].textContent.indexOf(arr_tags[j]) != -1 ) {
         tags_after.push(arr_tags[j]);
-      } else if( tags[j].innerHTML == 'Student' ) {
-        tags_after.push('School Girl');
       }
     }
   }
   console.log(tags_after.sort());
   return tags_after; 
 }
-getTagArr();
+
 function getData() {
   let ps = document.querySelectorAll('p');
   let data = {
-    jname: ps[1].textContent,
+    japName: ps[1].textContent,
     cvs: ps[2].textContent.split(': ')[1],
-    rjcode: ps[3].textContent.split(': ')[1]
+    rjCode: ps[3].textContent.split(': ')[1]
   }
   console.table(data);
   return data;
 }
-getData();
+
+function generateCode() {
+  let data = getData();
+  let str = `pushData(${location.href.match(/\d+/)[0]}, "${data.rjCode}", "${data.cvs.replaceAll(' ','')}", "${data.japName}", "", "", "${getTagArr().join(',')}", "${images}", "${tracks}");`;
+}
+
 
 //==========================================================================================================================
 
