@@ -1,4 +1,4 @@
-(function() {
+(function leakData() {
   let codes = [
       1,
       6265,
@@ -314,7 +314,12 @@
   return generateUploadCode();  
 })();
 
-
+(function downloadAudio(){
+  let dl_buttons = document.querySelectorAll('.download-btn');
+  for (let i = 0; i < dl_buttons.length; i++) {
+    dl_buttons[i].click();
+  }  
+})();
 
 //==========================================================================================================================
 
@@ -350,7 +355,3 @@ getImages('');
 
 //===========================================================================================================================
 
-let dl_buttons = document.querySelectorAll('.download-btn');
-for (let i = 0; i < dl_buttons.length; i++) {
-  dl_buttons[i].click();
-}
