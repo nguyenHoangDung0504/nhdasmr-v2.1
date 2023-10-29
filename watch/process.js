@@ -15,9 +15,9 @@ function buildIframeAndContent() {
   let cvString = (data.cvs.length>1)?'CVs: ':'CV: ';
   for(let i=0; i<data.cvs.length; i++) {
     if(i<data.cvs.length-1) {
-      cvString += '<a class="cv hover" href="?cv='+data.cvs[i]+'">'+data.cvs[i]+'</a>, ';
+      cvString += '<a class="cv hover" href="../?cv='+data.cvs[i]+'">'+data.cvs[i]+'</a>, ';
     } else {
-      cvString += '<a class="cv hover" href="?cv='+data.cvs[i]+'">'+data.cvs[i]+'</a>';
+      cvString += '<a class="cv hover" href="../?cv='+data.cvs[i]+'">'+data.cvs[i]+'</a>';
     }
   }
   cv.innerHTML = cvString;
