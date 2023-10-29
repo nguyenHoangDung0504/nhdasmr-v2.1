@@ -318,7 +318,7 @@ function buildListCv() {
   let container = document.querySelector('div.hidden-list#list1');
   let dataToInner = '<input type="text" id="input-of-hidden-list-1" placeholder="Find...">';
   for(let i=0; i<listToFilter.cvs.length; i++) {
-    dataToInner += '<a class="sub-item" href="?cv='+listToFilter.cvs[i]+'"><span style="color: red;">❤</span> <span class="hover">'+listToFilter.cvs[i]+'</span></a>';
+    dataToInner += '<a class="sub-item" href="../?cv='+listToFilter.cvs[i]+'"><span style="color: red;">❤</span> <span class="hover">'+listToFilter.cvs[i]+'</span></a>';
   }
   container.innerHTML = dataToInner;
 }
@@ -326,7 +326,7 @@ function buildListTag() {
   let container = document.querySelector('div.hidden-list#list2');
   let dataToInner = '<input type="text" id="input-of-hidden-list-2" placeholder="Find...">';
   for(let i=0; i<listToFilter.tags.length; i++) {
-    dataToInner += '<a class="sub-item" href="?tag='+listToFilter.tags[i]+'"><span style="color: #00BFFF;">►</span> <span class="hover">'+listToFilter.tags[i]+'</span></a>';
+    dataToInner += '<a class="sub-item" href="../?tag='+listToFilter.tags[i]+'"><span style="color: #00BFFF;">►</span> <span class="hover">'+listToFilter.tags[i]+'</span></a>';
   }
   container.innerHTML = dataToInner;
 }
@@ -334,9 +334,9 @@ function buildListRandomLinks() {
   let container = document.querySelector('div.hidden-list#list3');
   container.innerHTML = `
     <a id="random-track" class="sub-item" style="cursor:pointer">🍀 <span class="hover">Open Random Track</span></a>
-    <a class="sub-item" href="?random=8">🍀 <span class="hover">Random 8 Track</span></a>
-    <a class="sub-item" href="?random=16">🍀 <span class="hover">Random 16 Track</span></a>
-    <a class="sub-item" href="?random=24">🍀 <span class="hover">Random 24 Track</span></a>`;
+    <a class="sub-item" href="../?random=8">🍀 <span class="hover">Random 8 Track</span></a>
+    <a class="sub-item" href="../?random=16">🍀 <span class="hover">Random 16 Track</span></a>
+    <a class="sub-item" href="../?random=24">🍀 <span class="hover">Random 24 Track</span></a>`;
   document.querySelector('#random-track').onclick = function() {
     location.href = "watch?code="+database.code[Math.floor(Math.random()*database.code.length)];
   }
@@ -344,7 +344,7 @@ function buildListRandomLinks() {
 function buildListAdvance() {
   let container = document.querySelector('div.hidden-list#list4');
   container.innerHTML = `
-    <a class="sub-item" href="?newest"><span class="hover">Sort from new to old</span></a>
+    <a class="sub-item" href="../?newest"><span class="hover">Sort from new to old</span></a>
     <a class="sub-item" href="test-data"><span class="hover">Test data</span></a>
     <a class="sub-item" href="upload"><span class="hover">Generate upload code</span></a>
     <a class="sub-item" href="https://loadresourcesnhdasmr.glitch.me/" target="blank"><span class="hover">Run resource page</span></a>

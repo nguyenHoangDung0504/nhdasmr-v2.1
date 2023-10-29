@@ -25,9 +25,17 @@ function buildIframeAndContent() {
   let tagString = 'Tags: ';
   for(let i=0; i<data.tags.length; i++) {
     if(i<data.tags.length-1) {
-      tagString += '<a class="hover" href="?tag='+data.tags[i]+'">'+data.tags[i]+'</a>, ';
+      if(data.tags[i].indexOf('Series') != -1) {
+        tagString += '<a class="hover" href="?tag='+data.tags[i]+'"><span style="font-style:italic; font-weight:bold;">'+data.tags[i]+'</span></a>, ';
+      } else {
+        tagString += '<a class="hover" href="?tag='+data.tags[i]+'">'+data.tags[i]+'</a>, ';
+      }
     } else {
-      tagString += '<a class="hover" href="?tag='+data.tags[i]+'">'+data.tags[i]+'</a>';
+      if(data.tags[i].indexOf('Series') != -1) {
+        tagString += '<a class="hover" href="?tag='+data.tags[i]+'"><span style="font-style:italic; font-weight:bold;">'+data.tags[i]+'</span></a>';
+      } else {
+        tagString += '<a class="hover" href="?tag='+data.tags[i]+'">'+data.tags[i]+'</a>';
+      }
     }
   }
   tag.innerHTML = tagString; 
