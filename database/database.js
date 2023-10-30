@@ -9,7 +9,7 @@ console.time('build_database_and_database_functions_time');
     var db_tags       = [];
     var db_images     = [];
     var db_audios     = [];
-    var download      = [];
+    var download      = new Map();
 /*END DATA OF DATABASE*/
 
 /*ADD DATA TO DATABASE*/
@@ -24,7 +24,7 @@ console.time('build_database_and_database_functions_time');
       db_images.push( (images.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
       db_audios.push( (audios.trim().replaceAll(/\s*,\s*/g, ",")).split(",") );
       if(downloadLink) {
-        download[code] = downloadLink;
+        download.set(code, downloadLink);
       }
     }
     

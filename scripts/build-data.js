@@ -102,7 +102,6 @@ function buildListData() {
       }
     }
     dataToInner += '<div class="grid-item" id="link_to_'+track.code+'">'+
-                      '<div class="info-button" code="'+track.code+'">i</div>'+
                       '<div class="image-container"><a href="/watch?code='+track.code+'">'+
                         '<img loading="lazy" src="'+track.thumbnail+'" alt="thumbnail of '+track.code+'"/>'+
                       '</a></div>'+
@@ -114,6 +113,7 @@ function buildListData() {
                           '<p class="singleline-ellipsis">'+cv_string+'</p>'+
                         '</div>'+
                       '</div>'+
+                      '<div class="info-button" code="'+track.code+'">i</div>'+
                   '</div>';
     hiddenData += '<div class="hidden-info" id="hidden_info_of_'+track.code+'">'
                     +'<img src="'+track.thumbnail+'" alt="thumbnail of "'+track.code+'>'

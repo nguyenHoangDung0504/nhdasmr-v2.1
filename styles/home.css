@@ -119,7 +119,7 @@ img, audio {user-select: none;}
     background-color: var(--big-bg);
     font-size: 20px;    
     border: 1px solid black;
-    z-index: 99999;
+    z-index: 99999999;
     display: none;
     border-radius: 10px;
     overflow: hidden;
@@ -309,7 +309,6 @@ body.openMenu>.menu{
     padding: 4px 14px;
     background-color: black;
     color: white;
-    z-index: 1000;
     user-select: none;
     cursor:pointer;
 }
