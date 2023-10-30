@@ -43,6 +43,7 @@ function buildIframeAndContent() {
   if(download.has(data.code)) {
     let downloadBox = document.querySelector('#download-box');
     downloadBox.innerHTML = '<a href="'+download.get(data.code)+'">Download &darr;</a>';
+    downloadBox.style.display = 'block';
   }
 }
 
