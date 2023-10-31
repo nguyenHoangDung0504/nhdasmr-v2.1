@@ -326,9 +326,15 @@
 
 
 function leakLinkImgAndAud(){//css-9pg23n
+  global.link = {
+    rar: '',
+    images: [],
+    audios: []
+  }
   let linkBox = document.querySelectorAll('.css-vurnku');
   for(let i=0; i<linkBox.length; i++) {
     linkBox[i].onclick = function() {
+      // document.querySelector('.input-wrap input').getAttribute('value');
       setTimeout(function(){document.querySelector('button.css-2wa2b5').click()},50);
       // this.onclick = "";
     }
