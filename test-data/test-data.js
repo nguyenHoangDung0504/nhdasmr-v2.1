@@ -324,39 +324,12 @@
   return generateUploadCode();  
 })();
 
-function getDataFormClipboard() {
-  if (navigator.clipboard) {
-    navigator.clipboard.read()
-      .then(data => {
-        for (const item of data) {
-          for (const type of item.types) {
-            if (type === "text/plain") {
-              item.getType(type)
-                .then(blob => blob.text())
-                .then(text => {
-                  console.log("Dữ liệu từ clipboard: ", text);
-                  // Xử lý dữ liệu tại đây
-                })
-                .catch(err => {
-                  console.error("Lỗi khi đọc clipboard: ", err);
-                });
-            }
-          }
-        }
-      })
-      .catch(err => {
-        console.error("Lỗi khi đọc clipboard: ", err);
-      });
-  } else {
-    console.log("Trình duyệt không hỗ trợ Clipboard API.");
-  } 
-}
 
 function leakLinkImgAndAud(code){
   let linkBox = document.querySelectorAll('.css-vurnku');
   for(let i=0; i<linkBox.length; i++) {
     if(linkBox[i].innerHTML.indexOf(code) != -1) {
-      linkBox[i].click();
+      linkBox[i].querySelector('div[type="button"]').click();
       setTimeout(function(){console.log(document.querySelector('button.css-2wa2b5'))/*document.querySelector('.css-2wa2b5').click()*/}, 200);
     }
   }

@@ -1,82 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GCD</title>
-  <style>
-    .confirmation-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .confirmation-box {
-      background-color: white;
-      padding: 20px;
-      border-radius: 5px;
-      text-align: center;
-    }
-
-    .confirmation-actions {
-      margin-top: 10px;
-    }
-  </style>
+  <script>
+  function readClipboard() {
+    navigator.clipboard.read()
+      .then(function(data) {
+        var pastedData = '';
+        var promises = [];
+        for (var i = 0; i < data.length; i++) {
+          var item = data[i];
+          promises.push(item.getType().then(function(type) {
+            return item.getData('text/plain').then(function(text) {
+              pastedData += text + '\n';
+            });
+          }));
+        }
+        Promise.all(promises).then(function() {
+          console.log("Dữ liệu từ clipboard:\n", pastedData);
+          // Xử lý dữ liệu tại đây
+        });
+      })
+      .catch(function(error) {
+        console.log("Lỗi khi đọc clipboard:", error);
+      });
+  }
+  </script>
 </head>
 <body>
-  <div id="confirmationOverlay" class="confirmation-overlay">
-    <div class="confirmation-box">
-      <p>Xác nhận sao chép?</p>
-      <div class="confirmation-actions">
-        <button id="confirmButton">Đồng ý</button>
-        <button id="cancelButton">Hủy</button>
-      </div>
-    </div>
-  </div>
-
-  <textarea id="clipboardData" style="display: none;"></textarea>
-
-  <script>
-    document.getElementById("confirmButton").addEventListener("click", function() {
-      document.getElementById("confirmationOverlay").style.display = "none";
-      getDataFromClipboard();
-    });
-
-    document.getElementById("cancelButton").addEventListener("click", function() {
-      document.getElementById("confirmationOverlay").style.display = "none";
-    });
-
-    function getDataFromClipboard() {
-      navigator.permissions.query({ name: 'clipboard-read' }).then(result => {
-        if (result.state == 'granted' || result.state == 'prompt') {
-          navigator.clipboard.read()
-            .then(function(data) {
-              var pastedData = '';
-              var promises = [];
-              for (var i = 0; i < data.length; i++) {
-                promises.push(data[i].getType().then(function(type) {
-                  return data[i].getType().then(function(blob) {
-                    return blob.text().then(function(text) {
-                      pastedData += type + ': ' + text + '\n';
-                    });
-                  });
-                }));
-              }
-              Promise.all(promises).then(function() {
-                console.log("Dữ liệu từ clipboard:\n", pastedData);
-                // Xử lý dữ liệu tại đây
-              });
-            })
-            .catch(function(error) {
-              console.log("Lỗi khi đọc clipboard: ", error);
-            });
-        }
-      });
-    }
-  </script>
+  <button onclick="readClipboard()">Đọc Clipboard</button>
 </body>
 </html>
