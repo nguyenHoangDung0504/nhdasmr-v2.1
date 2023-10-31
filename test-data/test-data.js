@@ -351,7 +351,9 @@ function leakLinkImgAndAud(code){//css-9pg23n
 }
 leakLinkImgAndAud('60511');
 
-function leakLinkImgAndAudFast(code){//css-9pg23n
+function leakLinkImgAndAudFast(code){
+  let result;
+  let timeout = 0;
   window.link = {
     rar: '',
     images: [],
@@ -376,11 +378,20 @@ function leakLinkImgAndAudFast(code){//css-9pg23n
         window.link.audios.push(data);
       }
       document.querySelector('button.css-10jd2z1').click();
-      }, 10);
+      }, timeout);
   }
-  window.link.images.sort();
-  window.link.audios.sort();
-  window.link.images = window.link.images.join()
+  setTimeout(function() {
+    window.link.images.sort();
+    window.link.audios.sort();
+    let result = {
+      thumbnail: window.link.images[0],
+      images: window.link.images.join(","),
+      audios: window.link.audios.join(","),
+      rar: window.link.rar
+    }
+    console.table(result);
+  }, timeout * linkNeed.length);
+  return result;
 }
 leakLinkImgAndAudFast('60511');
 
