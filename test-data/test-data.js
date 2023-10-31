@@ -282,6 +282,10 @@
         tags_after.push('School Girl');
         continue;
       }
+      if( tags[i].textContent.indexOf('Imouto') != -1 ) {
+        tags_after.push('Sister');
+        continue;
+      }
       for(let j=0; j<arr_tags.length; j++) {
         if( tags[i].textContent.indexOf(arr_tags[j]) != -1 && tags_after.indexOf(arr_tags[j]) == -1) {
           tags_after.push(arr_tags[j]);
