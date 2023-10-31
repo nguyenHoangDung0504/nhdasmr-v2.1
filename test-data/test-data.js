@@ -324,6 +324,18 @@
   return generateUploadCode();  
 })();
 
+function leakLinkImgAndAud(code){
+  let linkBox = document.querySelectorAll('.css-vurnku');
+  for(let i=0; i<linkBox.length; i++) {
+    if(linkBox[i].innerHTML.indexOf(code) != -1) {
+      linkBox[i].onclick = function() {
+        setTimeout(function(){document.querySelector('.css-2wa2b5').click()}, 100);
+      }    
+      linkBox[i].click();
+    }
+  }
+}
+leakLinkImgAndAud('');
 (function downloadAudio(){
   let dl_buttons = document.querySelectorAll('.download-btn');
   for (let i = 0; i < dl_buttons.length; i++) {
