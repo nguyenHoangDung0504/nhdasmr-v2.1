@@ -309,7 +309,7 @@
       alert('Trùng code!');
       return;
     }
-    let str = `pushData(${location.href.match(/\d+/)[0]}, "${data.rjCode}", "${data.cvs.replaceAll(', ',',')}", "${data.japName}", "engName", "thumbnail", "${getTagArr().join(',')}", "imgs", "tracks");`;
+    let str = `pushData(${location.href.match(/\d+/)[0]}, "${data.rjCode}", "${data.cvs.replaceAll(', ',',')}", "${data.japName}", "engName", "thumbnail", "${getTagArr().join(',')}", "imgs", "tracks", "down");`;
     if (window.confirm('Xác nhận sao chép')) {
       navigator.clipboard.writeText(str)
         .then(() => {console.log('Đã sao chép.')})
