@@ -366,10 +366,21 @@ function leakLinkImgAndAudFast(code){//css-9pg23n
   }
   for(let i=0; i<linkNeed.length; i++) {
       linkNeed[i].click();
+      setTimeout(function() {
       let data = document.querySelector('.input-wrap input').getAttribute('value');
-      console.log(data);
+      if(data.indexOf('.rar') != -1) {
+        window.link.rar = data;
+      } else if(data.indexOf('.jpg') != -1 || data.indexOf('.png') != -1 || data.indexOf('.webp') != -1) {
+        window.link.images.push(data);
+      } else if(data.indexOf('.mp3') != -1) {
+        window.link.audios.push(data);
+      }
       document.querySelector('button.css-10jd2z1').click();
+      }, 10);
   }
+  window.link.images.sort();
+  window.link.audios.sort();
+  window.link.images = window.link.images.join()
 }
 leakLinkImgAndAudFast('60511');
 
