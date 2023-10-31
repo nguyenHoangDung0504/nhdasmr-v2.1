@@ -326,21 +326,52 @@
 
 
 function leakLinkImgAndAud(code){//css-9pg23n
-  global.link = {
+  window.link = {
     rar: '',
     images: [],
     audios: []
   }
-  
   let linkBox = document.querySelectorAll('.css-vurnku div[type="button"]');
+  let linkNeed = [];
   for(let i=0; i<linkBox.length; i++) {
     if(linkBox[i].innerText.indexOf(code) != -1) {
-      setTimeout(function() {
-        
-      }, i*250);
+      linkNeed.push(linkBox[i]);
     }
   }
+  for(let i=0; i<linkNeed.length; i++) {
+    setTimeout(function() {
+      linkNeed[i].click();
+      setTimeout(function() {
+        let data = document.querySelector('.input-wrap input').getAttribute('value');
+        console.log(data);
+        document.querySelector('button.css-10jd2z1').click();
+      }, 40);
+    }, i*80);
+  }
 }
+leakLinkImgAndAud('60511');
+
+function leakLinkImgAndAudFast(code){//css-9pg23n
+  window.link = {
+    rar: '',
+    images: [],
+    audios: []
+  }
+  let linkBox = document.querySelectorAll('.css-vurnku div[type="button"]');
+  let linkNeed = [];
+  for(let i=0; i<linkBox.length; i++) {
+    if(linkBox[i].innerText.indexOf(code) != -1) {
+      linkNeed.push(linkBox[i]);
+    }
+  }
+  for(let i=0; i<linkNeed.length; i++) {
+      linkNeed[i].click();
+      let data = document.querySelector('.input-wrap input').getAttribute('value');
+      console.log(data);
+      document.querySelector('button.css-10jd2z1').click();
+  }
+}
+leakLinkImgAndAudFast('60511');
 
 (function downloadAudio(){
   let dl_buttons = document.querySelectorAll('.download-btn');
