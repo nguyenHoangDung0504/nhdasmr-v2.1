@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>GCD</title>
   <style>
     .confirmation-overlay {
       position: fixed;
@@ -50,17 +51,31 @@
     });
 
     function getDataFromClipboard() {
-      var clipboardData = document.getElementById("clipboardData");
-      clipboardData.focus();
-      clipboardData.select();
-      
-      clipboardData.addEventListener("input", function() {
-        var pastedData = clipboardData.value;
-        console.log("Dữ liệu từ clipboard: ", pastedData);
-        // Xử lý dữ liệu tại đây
+      navigator.permissions.query({ name: 'clipboard-read' }).then(result => {
+        if (result.state == 'granted' || result.state == 'prompt') {
+          navigator.clipboard.read()
+            .then(function(data) {
+              var pastedData = '';
+              var promises = [];
+              for (var i = 0; i < data.length; i++) {
+                promises.push(data[i].getType().then(function(type) {
+                  return data[i].getType().then(function(blob) {
+                    return blob.text().then(function(text) {
+                      pastedData += type + ': ' + text + '\n';
+                    });
+                  });
+                }));
+              }
+              Promise.all(promises).then(function() {
+                console.log("Dữ liệu từ clipboard:\n", pastedData);
+                // Xử lý dữ liệu tại đây
+              });
+            })
+            .catch(function(error) {
+              console.log("Lỗi khi đọc clipboard: ", error);
+            });
+        }
       });
-
-      document.execCommand("paste");
     }
   </script>
 </body>
