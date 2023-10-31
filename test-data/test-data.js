@@ -325,17 +325,14 @@
 })();
 
 
-function leakLinkImgAndAud(code){
+function leakLinkImgAndAud(code){//css-9pg23n
   let linkBox = document.querySelectorAll('.css-vurnku');
   for(let i=0; i<linkBox.length; i++) {
     if(linkBox[i].innerHTML.indexOf(code) != -1) {
-      setTimeout(function() {
-        linkBox[i].querySelector('div[type="button"]').click();
-        setTimeout(function() {
-          document.querySelector('.css-2wa2b5').click();
-          document.querySelector('.css-10jd2z1').click();
-        }, 1000);
-      }, 3000);
+      linkBox[i].querySelector('div[type="button"]').onclick = function() {
+        setTimeout(document.querySelector('button.css-2wa2b5').click(),200);
+        this.onclick = "";
+      }
     }
   }
 }
