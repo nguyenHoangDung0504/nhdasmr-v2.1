@@ -325,22 +325,31 @@
 })();
 
 function getDataFormClipboard() {
-  if(window.confirm('Xác nhận sao chép')) {
-    // Kiểm tra xem trình duyệt hỗ trợ Clipboard API hay không
-    if (navigator.clipboard) {
-      // Lấy dữ liệu từ clipboard
-      navigator.clipboard.readText()
-        .then(text => {
-          console.log("Dữ liệu từ clipboard: ", text);
-          // Xử lý dữ liệu ở đây
-        })
-        .catch(err => {
-          console.error("Lỗi khi đọc clipboard: ", err);
-        });
-    } else {
-      console.log("Trình duyệt không hỗ trợ Clipboard API.");
-    }  
-  }
+  if (navigator.clipboard) {
+    navigator.clipboard.read()
+      .then(data => {
+        for (const item of data) {
+          for (const type of item.types) {
+            if (type === "text/plain") {
+              item.getType(type)
+                .then(blob => blob.text())
+                .then(text => {
+                  console.log("Dữ liệu từ clipboard: ", text);
+                  // Xử lý dữ liệu tại đây
+                })
+                .catch(err => {
+                  console.error("Lỗi khi đọc clipboard: ", err);
+                });
+            }
+          }
+        }
+      })
+      .catch(err => {
+        console.error("Lỗi khi đọc clipboard: ", err);
+      });
+  } else {
+    console.log("Trình duyệt không hỗ trợ Clipboard API.");
+  } 
 }
 
 function leakLinkImgAndAud(code){

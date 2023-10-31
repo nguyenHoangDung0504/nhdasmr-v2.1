@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .confirmation-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .confirmation-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .confirmation-actions {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="confirmationOverlay" class="confirmation-overlay">
+    <div class="confirmation-box">
+      <p>Xác nhận sao chép?</p>
+      <div class="confirmation-actions">
+        <button id="confirmButton">Đồng ý</button>
+        <button id="cancelButton">Hủy</button>
+      </div>
+    </div>
+  </div>
+
+  <textarea id="clipboardData" style="display: none;"></textarea>
+
+  <script>
+    document.getElementById("confirmButton").addEventListener("click", function() {
+      document.getElementById("confirmationOverlay").style.display = "none";
+      getDataFromClipboard();
+    });
+
+    document.getElementById("cancelButton").addEventListener("click", function() {
+      document.getElementById("confirmationOverlay").style.display = "none";
+    });
+
+    function getDataFromClipboard() {
+      var clipboardData = document.getElementById("clipboardData");
+      clipboardData.focus();
+      clipboardData.select();
+      
+      clipboardData.addEventListener("input", function() {
+        var pastedData = clipboardData.value;
+        console.log("Dữ liệu từ clipboard: ", pastedData);
+        // Xử lý dữ liệu tại đây
+      });
+
+      document.execCommand("paste");
+    }
+  </script>
+</body>
+</html>
