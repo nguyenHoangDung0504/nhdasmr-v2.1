@@ -381,8 +381,22 @@ function leakLinkImgAndAudFast(code){
       }, timeout);
   }
   setTimeout(function() {
+    function move(arr, index) {
+      if (index < 0 || index >= arr.length) {
+        console.error('Vị trí không hợp lệ.');
+        return arr;
+      }
+      const element = arr.splice(index, 1)[0];
+      arr.push(element);
+      return arr;
+    }
     window.link.images.sort();
     window.link.audios.sort();
+    for(let i=0; i<window.link.audios.length; i++) {
+      if(window.link.audios[i].indexOf('track') == -1) {
+        move(window.link.audios, i);
+      }
+    }
     let result = {
       thumbnail: window.link.images[0],
       images: window.link.images.join(","),
@@ -393,7 +407,7 @@ function leakLinkImgAndAudFast(code){
   }, timeout * linkNeed.length);
   return result;
 }
-leakLinkImgAndAudFast('60511');
+leakLinkImgAndAudFast('103086');
 
 (function downloadAudio(){
   let dl_buttons = document.querySelectorAll('.download-btn');
