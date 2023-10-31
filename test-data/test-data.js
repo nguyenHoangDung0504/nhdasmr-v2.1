@@ -325,18 +325,19 @@
 })();
 
 
-function leakLinkImgAndAud(){//css-9pg23n
+function leakLinkImgAndAud(code){//css-9pg23n
   global.link = {
     rar: '',
     images: [],
     audios: []
   }
-  let linkBox = document.querySelectorAll('.css-vurnku');
+  
+  let linkBox = document.querySelectorAll('.css-vurnku div[type="button"]');
   for(let i=0; i<linkBox.length; i++) {
-    linkBox[i].onclick = function() {
-      // document.querySelector('.input-wrap input').getAttribute('value');
-      setTimeout(function(){document.querySelector('button.css-2wa2b5').click()},50);
-      // this.onclick = "";
+    if(linkBox[i].innerText.indexOf(code) != -1) {
+      setTimeout(function() {
+        
+      }, i*250);
     }
   }
 }
