@@ -328,14 +328,12 @@ function leakLinkImgAndAud(code){
   let linkBox = document.querySelectorAll('.css-vurnku');
   for(let i=0; i<linkBox.length; i++) {
     if(linkBox[i].innerHTML.indexOf(code) != -1) {
-      linkBox[i].onclick = function() {
-        setTimeout(function(){document.querySelector('.css-2wa2b5').click()}, 100);
-      }    
       linkBox[i].click();
+      setTimeout(function(){console.log(document.querySelector('button.css-2wa2b5'))/*document.querySelector('.css-2wa2b5').click()*/}, 200);
     }
   }
 }
-leakLinkImgAndAud('');
+leakLinkImgAndAud('60511');
 (function downloadAudio(){
   let dl_buttons = document.querySelectorAll('.download-btn');
   for (let i = 0; i < dl_buttons.length; i++) {
