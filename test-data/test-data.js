@@ -324,6 +324,25 @@
   return generateUploadCode();  
 })();
 
+function getDataFormClipboard() {
+  if(window.confirm('Xác nhận sao chép')) {
+    // Kiểm tra xem trình duyệt hỗ trợ Clipboard API hay không
+    if (navigator.clipboard) {
+      // Lấy dữ liệu từ clipboard
+      navigator.clipboard.readText()
+        .then(text => {
+          console.log("Dữ liệu từ clipboard: ", text);
+          // Xử lý dữ liệu ở đây
+        })
+        .catch(err => {
+          console.error("Lỗi khi đọc clipboard: ", err);
+        });
+    } else {
+      console.log("Trình duyệt không hỗ trợ Clipboard API.");
+    }  
+  }
+}
+
 function leakLinkImgAndAud(code){
   let linkBox = document.querySelectorAll('.css-vurnku');
   for(let i=0; i<linkBox.length; i++) {
@@ -334,6 +353,7 @@ function leakLinkImgAndAud(code){
   }
 }
 leakLinkImgAndAud('60511');
+
 (function downloadAudio(){
   let dl_buttons = document.querySelectorAll('.download-btn');
   for (let i = 0; i < dl_buttons.length; i++) {
