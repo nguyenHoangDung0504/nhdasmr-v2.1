@@ -11,3 +11,7 @@ table{
 img {
   width: 500px;
 }
+button {
+  width: 300px;
+  display: block;
+}
