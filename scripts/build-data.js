@@ -59,8 +59,11 @@ if(location.href.indexOf('?newest') == -1) {
    numberpage = listOfData.length; 
 }
 
-if(location.href.indexOf('?all') != -1) {
-   listOfData = dataProcessing.separateData(newUploadDatabase);
+if(location.href.indexOf('?all&newest') != -1) {
+   listOfData = 'all-newest';
+   numberpage = 1;   
+} else if(location.href.indexOf('?all&oldest') != -1) {
+   listOfData = 'all-oldest';
    numberpage = 1;   
 }
 
@@ -77,6 +80,7 @@ function buildListData() {
   let dataToInner = '';
   let hiddenData = '';
   listDataToInner = listOfData[page-1];
+  /******/if(listOfData == 'all-newest') {listDataToInner = databaseTypeObject.slice().reverse()} else if(listOfData == 'all-oldest') {}
   for(let i=0; i<listDataToInner.length; i++){
     let track = listDataToInner[i];
     let cv_string = '<br><b>CV';
@@ -349,6 +353,8 @@ function buildListAdvance() {
   let container = document.querySelector('div.hidden-list#list4');
   container.innerHTML = `
     <a class="sub-item" href="../?newest"><span class="hover">Sort from new to old</span></a>
+    <a class="sub-item" href="../?all&newest"><span class="hover">Show all track in 1 page (newest)</span></a>
+    <a class="sub-item" href="../?all&oldest"><span class="hover">Show all track in 1 page (oldest)</span></a>
     <a class="sub-item" href="test-data" target="blank"><span class="hover">Test data</span></a>
     <a class="sub-item" href="upload" target="blank"><span class="hover">Generate upload code</span></a>
     <a class="sub-item" href="https://loadresourcesnhdasmr.glitch.me/" target="blank"><span class="hover">Run resource page</span></a>
