@@ -326,7 +326,7 @@
 
 function leakLinkImgAndAud(code){
   let result;
-  let timeout = 100;
+  let timeout = 200;
   window.link = {
     rar: '',
     images: [],
@@ -355,7 +355,7 @@ function leakLinkImgAndAud(code){
       }, timeout);
     }, i * timeout);
   }
-  setTimeout(function() {
+  setTimeout(async function() {
     function move(arr, index) {
       if (index < 0 || index >= arr.length) {
         console.error('Vị trí không hợp lệ.');
@@ -379,13 +379,30 @@ function leakLinkImgAndAud(code){
       rar: window.link.rar
     }
     console.log(result);
-    if(confirm('Xác nhận sao chép')) {
-      navigator.clipboard.writeText(result.rar);
-      navigator.clipboard.writeText(result.audios);
-      navigator.clipboard.writeText(result.images);
-      navigator.clipboard.writeText(result.thumbnail);
+    if (confirm('Xác nhận sao chép')) {
+      // Hàm để sao chép giá trị và trả về một Promise
+      const copyValue = async (value) => {
+        await navigator.clipboard.writeText(value);
+      };
+
+      // Mảng các giá trị cần sao chép
+      const valuesToCopy = [result.rar, result.audios, result.images, result.thumbnail];
+
+      // Hàm chạy lần lượt các lệnh sao chép với khoảng thời gian trễ
+      const copyValuesSequentially = async () => {
+        for (const value of valuesToCopy) {
+          await copyValue(value);
+          await new Promise((resolve) => setTimeout(resolve, 400)); // Khoảng thời gian trễ 100ms
+        }
+        console.log('Đã sao chép thành công!');
+      };
+
+      // Gọi hàm chạy sao chép tuần tự
+      copyValuesSequentially().catch((error) => {
+        console.error('Đã xảy ra lỗi khi sao chép:', error);
+      });
     }
-  }, timeout * linkNeed.length);
+  }, timeout * linkNeed.length + 100);
 }
 leakLinkImgAndAud('103086');
 
