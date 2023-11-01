@@ -220,7 +220,7 @@ img, audio {user-select: none;}
     transition: var(--time);
     /* border-top: 1px solid var(--text-color);
     border-bottom: 1px solid var(--text-color); */
-    background-color: var(--big-bg);
+    background-color: var(--bg);
     
 }
 .menu .hidden-list input[type="text"]{

@@ -80,7 +80,7 @@ function buildListData() {
   let dataToInner = '';
   let hiddenData = '';
   listDataToInner = listOfData[page-1];
-  /******/if(listOfData == 'all-newest') {listDataToInner = databaseTypeObject.slice().reverse()} else if(listOfData == 'all-oldest') {}
+  /******/if(listOfData == 'all-newest') {listDataToInner = newUploadDatabase.slice().reverse()} else if(listOfData == 'all-oldest') {listDataToInner = newUploadDatabase}
   for(let i=0; i<listDataToInner.length; i++){
     let track = listDataToInner[i];
     let cv_string = '<br><b>CV';
@@ -334,7 +334,7 @@ function buildListTag() {
   let container = document.querySelector('div.hidden-list#list2');
   let dataToInner = '<input type="text" id="input-of-hidden-list-2" placeholder="Find...">';
   for(let i=0; i<listToFilter.tags.length; i++) {
-    dataToInner += '<a class="sub-item" href="../?tag='+listToFilter.tags[i]+'"><span style="color: #00BFFF;">►</span> <span class="hover">'+listToFilter.tags[i]+'</span></a>';
+    dataToInner += '<a class="sub-item" href="../?tag='+listToFilter.tags[i]+'"><span style="color: gold">♦</span> <span class="hover">'+listToFilter.tags[i]+'</span></a>';
   }
   container.innerHTML = dataToInner;
 }
@@ -352,13 +352,13 @@ function buildListRandomLinks() {
 function buildListAdvance() {
   let container = document.querySelector('div.hidden-list#list4');
   container.innerHTML = `
-    <a class="sub-item" href="../?newest"><span class="hover">Sort from new to old</span></a>
-    <a class="sub-item" href="../?all&newest"><span class="hover">Show all track in 1 page (newest)</span></a>
-    <a class="sub-item" href="../?all&oldest"><span class="hover">Show all track in 1 page (oldest)</span></a>
-    <a class="sub-item" href="test-data" target="blank"><span class="hover">Test data</span></a>
-    <a class="sub-item" href="upload" target="blank"><span class="hover">Generate upload code</span></a>
-    <a class="sub-item" href="https://loadresourcesnhdasmr.glitch.me/" target="blank"><span class="hover">Run resource page</span></a>
-    <a class="sub-item" href="txt" target="blank"><span class="hover">List code</span></a>
+    <a class="sub-item" href="../?newest"><span style="color: #00BFFF;">►</span><span class="hover">Sort from new to old</span></a>
+    <a class="sub-item" href="../?all&newest"><span style="color: #00BFFF;">►</span><span class="hover">Show all track in 1 page (from new to old)</span></a>
+    <a class="sub-item" href="../?all&oldest"><span style="color: #00BFFF;">►</span><span class="hover">Show all track in 1 page (from old to new)</span></a>
+    <a class="sub-item" href="test-data" target="blank"><span style="color: #00BFFF;">►</span><span class="hover">Test data</span></a>
+    <a class="sub-item" href="upload" target="blank"><span style="color: #00BFFF;">►</span><span class="hover">Generate upload code</span></a>
+    <a class="sub-item" href="https://loadresourcesnhdasmr.glitch.me/" target="blank"><span style="color: #00BFFF;">►</span><span class="hover">Run resource page</span></a>
+    <a class="sub-item" href="txt" target="blank"><span style="color: #00BFFF;">►</span><span class="hover">List code</span></a>
   `;
 }
 
