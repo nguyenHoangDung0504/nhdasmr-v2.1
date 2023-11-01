@@ -59,6 +59,10 @@ if(location.href.indexOf('?newest') == -1) {
    numberpage = listOfData.length; 
 }
 
+if(location.href.indexOf('?all') != -1) {
+   listOfData = dataProcessing.separateData(newUploadDatabase);
+   numberpage = 1;   
+}
 
 if(page && (page<1 || page>numberpage)) {
   alert("Page not found!");
