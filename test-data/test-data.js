@@ -326,7 +326,7 @@
 
 function leakLinkImgAndAud(code){
   let result;
-  let timeout = 1000;
+  let timeout = 100;
   window.link = {
     rar: '',
     images: [],
@@ -378,9 +378,14 @@ function leakLinkImgAndAud(code){
       audios: window.link.audios.join(","),
       rar: window.link.rar
     }
-    console.table(result);
+    console.log(result);
+    if(confirm('Xác nhận sao chép')) {
+      navigator.clipboard.writeText(result.rar);
+      navigator.clipboard.writeText(result.audios);
+      navigator.clipboard.writeText(result.images);
+      navigator.clipboard.writeText(result.thumbnail);
+    }
   }, timeout * linkNeed.length);
-  return result;
 }
 leakLinkImgAndAud('103086');
 
@@ -424,4 +429,3 @@ function getImages(rjCode) {
 getImages('');
 
 //===========================================================================================================================
-
