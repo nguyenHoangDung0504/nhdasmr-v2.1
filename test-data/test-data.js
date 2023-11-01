@@ -324,8 +324,9 @@
   return generateUploadCode();  
 })();
 
-
-function leakLinkImgAndAud(code){//css-9pg23n
+function leakLinkImgAndAud(code){
+  let result;
+  let timeout = 1000;
   window.link = {
     rar: '',
     images: [],
@@ -342,33 +343,6 @@ function leakLinkImgAndAud(code){//css-9pg23n
     setTimeout(function() {
       linkNeed[i].click();
       setTimeout(function() {
-        let data = document.querySelector('.input-wrap input').getAttribute('value');
-        console.log(data);
-        document.querySelector('button.css-10jd2z1').click();
-      }, 40);
-    }, i*80);
-  }
-}
-leakLinkImgAndAud('60511');
-
-function leakLinkImgAndAudFast(code){
-  let result;
-  let timeout = 0;
-  window.link = {
-    rar: '',
-    images: [],
-    audios: []
-  }
-  let linkBox = document.querySelectorAll('.css-vurnku div[type="button"]');
-  let linkNeed = [];
-  for(let i=0; i<linkBox.length; i++) {
-    if(linkBox[i].innerText.indexOf(code) != -1) {
-      linkNeed.push(linkBox[i]);
-    }
-  }
-  for(let i=0; i<linkNeed.length; i++) {
-      linkNeed[i].click();
-      setTimeout(function() {
       let data = document.querySelector('.input-wrap input').getAttribute('value');
       if(data.indexOf('.rar') != -1) {
         window.link.rar = data;
@@ -379,6 +353,7 @@ function leakLinkImgAndAudFast(code){
       }
       document.querySelector('button.css-10jd2z1').click();
       }, timeout);
+    }, i * timeout);
   }
   setTimeout(function() {
     function move(arr, index) {
@@ -399,7 +374,7 @@ function leakLinkImgAndAudFast(code){
     }
     let result = {
       thumbnail: window.link.images[0],
-      images: window.link.images.join(","),
+      images: window.link.images.slice(1).join(","),
       audios: window.link.audios.join(","),
       rar: window.link.rar
     }
@@ -407,7 +382,7 @@ function leakLinkImgAndAudFast(code){
   }, timeout * linkNeed.length);
   return result;
 }
-leakLinkImgAndAudFast('103086');
+leakLinkImgAndAud('103086');
 
 (function downloadAudio(){
   let dl_buttons = document.querySelectorAll('.download-btn');
