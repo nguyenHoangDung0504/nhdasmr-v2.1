@@ -42,8 +42,8 @@
           <div id="audioContainer"></div>
         </div>
         <div id="btc">
-          <img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/a2e6aef6-02fd-4a25-96bb-005ac1180109/32f2255d-712c-4704-ac5a-c776310595d3.image.png?v=1691763900617">
-          <img id="f5btn" title="Reload Audios & Images" class="control" onclick="reloadContent()" src="https://cdn.glitch.global/a2e6aef6-02fd-4a25-96bb-005ac1180109/2cd3bf7a-a540-4bbc-b9b3-0bfc64999107.image.png?v=1688360404385">
+          <img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/rolate-button?v=1698832066475">
+          <img id="f5btn" title="Reload Audios & Images" class="control" onclick="reloadContent()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/reload-button?v=1698832385995">
           <img id="btn" title="Open Full Screen" class="control" onclick="openFullscreen()" src="https://cdn.glitch.global/893bea06-bcc2-468c-9199-5e9f30c3066e/23523ef1-5dbf-41f8-b2dc-e24039aacfc1.image.png?v=1682082970016">
         </div>
       </div>
@@ -54,8 +54,8 @@
     var elem = document.documentElement;
     function openFullscreen() {
       if(isVideo==false) {
-        btc.innerHTML = '<img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/a2e6aef6-02fd-4a25-96bb-005ac1180109/32f2255d-712c-4704-ac5a-c776310595d3.image.png?v=1691763900617">'+
-                        '<img id="f5btn" title="Reload Audios & Images" class="control" onclick="reloadContent()" src="https://cdn.glitch.global/a2e6aef6-02fd-4a25-96bb-005ac1180109/2cd3bf7a-a540-4bbc-b9b3-0bfc64999107.image.png?v=1688360404385">'+
+        btc.innerHTML = '<img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/rolate-button?v=1698832066475">'+
+                        '<img id="f5btn" title="Reload Audios & Images" class="control" onclick="reloadContent()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/reload-button?v=1698832385995">'+
                         '<img id="btn" title="Close Full Screen" class="control" onclick="closeFullscreen()" style="background-color: white; padding: 1%; cursor:pointer; width:20px; height: 20px; border-radius:15%; position: absolute; right:0%; top:0%;" src="https://cdn.glitch.global/893bea06-bcc2-468c-9199-5e9f30c3066e/d8998529-5f78-491a-b3fd-e35218769d0f.image.png?v=1682083358604">';
       }
       if (elem.requestFullscreen) {
@@ -78,8 +78,8 @@
     }
     function closeFullscreen() {     
       if(isVideo==false) {
-      btc.innerHTML = '<img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/a2e6aef6-02fd-4a25-96bb-005ac1180109/32f2255d-712c-4704-ac5a-c776310595d3.image.png?v=1691763900617">'+
-                      '<img id="f5btn" title="Reload Audios & Images" class="control" onclick="reloadContent()" src="https://cdn.glitch.global/a2e6aef6-02fd-4a25-96bb-005ac1180109/2cd3bf7a-a540-4bbc-b9b3-0bfc64999107.image.png?v=1688360404385">'+
+      btc.innerHTML = '<img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/rolate-button?v=1698832066475">'+
+                      '<img id="f5btn" title="Reload Audios & Images" class="control" onclick="reloadContent()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/reload-button?v=1698832385995">'+
                       '<img id="btn" title="Open Full Screen" class="control" onclick="openFullscreen()" style="background-color: white; padding: 1%; cursor:pointer; width:20px; height: 20px; border-radius:15%; position: absolute; right:0%; top:0%;" src="https://cdn.glitch.global/893bea06-bcc2-468c-9199-5e9f30c3066e/23523ef1-5dbf-41f8-b2dc-e24039aacfc1.image.png?v=1682082970016">';
       }
       if (document.exitFullscreen) {
@@ -250,7 +250,7 @@
       body.style.width = 'auto';
       //body.ondbclick = function(){return;}
       if(screen.width<900) {
-       body.innerHTML += '<img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/a2e6aef6-02fd-4a25-96bb-005ac1180109/32f2255d-712c-4704-ac5a-c776310595d3.image.png?v=1691763900617">'+
+       body.innerHTML += '<img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/rolate-button?v=1698832066475">'+
                           '<img id="btn" title="Full Screen" class="control" onclick="fullScreenOnDoubleClick(event)" style="background-color: white; padding: 1%; cursor:pointer; width:20px; height: 20px; border-radius:15%; position: absolute; right:0%; top:0%;" src="https://cdn.glitch.global/893bea06-bcc2-468c-9199-5e9f30c3066e/23523ef1-5dbf-41f8-b2dc-e24039aacfc1.image.png?v=1682082970016">';       
       } else {
         body.innerHTML += '<img id="btn" title="Full Screen" class="control" onclick="fullScreenOnDoubleClick(event)" style="background-color: white; padding: 1%; cursor:pointer; width:20px; height: 20px; border-radius:15%; position: absolute; right:0%; top:0%;" src="https://cdn.glitch.global/893bea06-bcc2-468c-9199-5e9f30c3066e/23523ef1-5dbf-41f8-b2dc-e24039aacfc1.image.png?v=1682082970016">';
