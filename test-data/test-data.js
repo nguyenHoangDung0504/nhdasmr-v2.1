@@ -413,6 +413,13 @@ leakLinkImgAndAud('103086');
   }  
 })();
 
+function getImagesCG() {
+  let imgBlock = document.querySelectorAll(`.fotorama__nav__shaft.fotorama__grab 
+                             .fotorama__nav__frame.fotorama__nav__frame--thumb
+                             .fotorama__thumb fotorama__loaded.fotorama__loaded--img`);
+  
+}
+
 //==========================================================================================================================
 
 function downloadAllImage(code, imgs) {
