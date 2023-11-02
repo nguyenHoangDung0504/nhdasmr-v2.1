@@ -416,9 +416,15 @@ leakLinkImgAndAud('103086');
 function getImagesCG() {
   let imgBlock = document.querySelectorAll(`.fotorama__nav__shaft.fotorama__grab 
                              .fotorama__nav__frame.fotorama__nav__frame--thumb
-                             .fotorama__thumb fotorama__loaded.fotorama__loaded--img`);
+                             .fotorama__thumb.fotorama__loaded.fotorama__loaded--img`);
+  for(let i=0; i<imgBlock.length; i++) {
+    link = imgBlock[i].querySelector('img').src);
+    let inner = 
+    imgBlock
+  }
   
 }
+getImagesCG();
 
 //==========================================================================================================================
 
