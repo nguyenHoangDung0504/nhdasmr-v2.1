@@ -414,15 +414,29 @@ leakLinkImgAndAud('103086');
 })();
 
 function getImagesCG() {
+  function downloadFile(url, filename) {
+    fetch(url)
+      .then(response => response.blob())
+      .then(blob => {
+        const blobURL = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = blobURL;
+        link.download = filename;
+        link.click();
+        URL.revokeObjectURL(blobURL);
+    })
+    .catch(error => {
+      console.error('Đã xảy ra lỗi khi tải xuống:', error);
+    });
+  }
   let imgBlock = document.querySelectorAll(`.fotorama__nav__shaft.fotorama__grab 
                              .fotorama__nav__frame.fotorama__nav__frame--thumb
                              .fotorama__thumb.fotorama__loaded.fotorama__loaded--img`);
   for(let i=0; i<imgBlock.length; i++) {
-    link = imgBlock[i].querySelector('img').src);
-    let inner = 
-    imgBlock
+    let link = imgBlock[i].querySelector('img').src;
+    let name = Number(location.href.match(/\d+/)[0])+"-"+i;
+    imgBlock.onclick = downloadFile(link, name);
   }
-  
 }
 getImagesCG();
 
