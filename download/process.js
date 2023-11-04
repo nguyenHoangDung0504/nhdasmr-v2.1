@@ -17,7 +17,12 @@ var id_vid = urlParams.get("code");
 if(!id_vid || database.code.indexOf(id_vid) == -1) {
   // window.location = '..';
 } 
-const data = databaseTypeObject.find((item) => item.maSV === 'abc');
+const data = databaseTypeObject.find((item) => item.code == id_vid);
+let images = [databaseTypeObject.thumbnail];
+const uniqueElements = databaseTypeObject.images.filter(item => !images.includes(item));
+images.push(...uniqueElements);
+let audios = databaseTypeObject.audios;
+
 function extractNumberFromLink(link) {
     // Tách phần số từ đường link
     let startIndex = link.lastIndexOf('/') + 1;
@@ -29,14 +34,10 @@ function extractNumberFromLink(link) {
 
 function downloadZip() {
     var zip = new JSZip();
-    const filename = '103086';
+    const filename = `${data.code} - ${data.rjCode}`;
     var folder = zip.folder(filename);
 
-    let imageLinks = [
-        'https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/103086-0.jpg?v=1698745286699',
-        'https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/103086-1.jpg?v=1698745288972',
-        'https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/103086-2.jpg?v=1698745290941'
-    ];
+    let imageLinks = images;
 
     let audioLinks = [
         'https://cdn.glitch.me/36049008-0c55-496e-873e-a2f971037d73/103086track1.mp3?v=1698745306516',
