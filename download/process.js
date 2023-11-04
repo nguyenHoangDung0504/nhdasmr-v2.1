@@ -12,7 +12,12 @@
 // } else {
 //     console.log('Không tìm thấy sinh viên có mã "abc"');
 // }
-
+const urlParams = new URLSearchParams(window.location.search);
+var id_vid = urlParams.get("code");
+if(!id_vid || database.code.indexOf(id_vid) == -1) {
+  // window.location = '..';
+} 
+const data = databaseTypeObject.find((item) => item.maSV === 'abc');
 function extractNumberFromLink(link) {
     // Tách phần số từ đường link
     let startIndex = link.lastIndexOf('/') + 1;
@@ -21,6 +26,7 @@ function extractNumberFromLink(link) {
     let number = link.substring(startIndex, endIndex);
     return number;
 }
+
 function downloadZip() {
     var zip = new JSZip();
     const filename = '103086';
@@ -41,7 +47,7 @@ function downloadZip() {
     const numberOfAudios = audioLinks.length;
 
     const statusElement = document.getElementById('status');
-    statusElement.innerText = 'Files are being compressed for download. This will take a while.<br>(Các file đang được nén lại để tải xuống. Việc này sẽ mất một lúc.)';
+    statusElement.innerHTML = 'Files are being compressed for download. This will take a while.<br>(Các file đang được nén lại để tải xuống. Việc này sẽ mất một lúc.)';
 
     Promise.all(
         imageLinks.map(function(link) {
@@ -72,7 +78,7 @@ function downloadZip() {
             zip.generateAsync({ type: 'blob' })
                 .then(function(content) {
                     saveAs(content, filename);
-                    statusElement.innerText = 'Done!';
+                    statusElement.innerHTML = 'Done!';
                 });
         });
     });
