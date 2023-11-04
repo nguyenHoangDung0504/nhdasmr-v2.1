@@ -11,10 +11,10 @@
     <script>
       function extractNumberFromLink(link) {
           // Tách phần số từ đường link
-          const startIndex = link.lastIndexOf('/') + 1;
-          const endIndex = link.lastIndexOf('.');
-          
-          const number = link.substring(startIndex, endIndex);
+          let startIndex = link.lastIndexOf('/') + 1;
+          let endIndex = link.lastIndexOf('.');
+          endIndex = (endIndex > startIndex)?endIndex:(link.lastIndexOf('?v'));
+          let number = link.substring(startIndex, endIndex);
           return number;
       }
       function downloadZip() {
