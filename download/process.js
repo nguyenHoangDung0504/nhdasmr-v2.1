@@ -4,7 +4,7 @@ if(!id_vid || database.code.indexOf(id_vid) == -1) {
   // window.location = '..';
 } 
 
-document.title = 'Download '+id_vid;
+document.title = 'Download - '+id_vid;
 
 const data = databaseTypeObject.find((item) => item.code == id_vid);
 let images = [data.thumbnail];
@@ -45,8 +45,8 @@ function downloadZip() {
 
     const statusElement = document.getElementById('status');
     statusElement.innerHTML = `Processing: ${filename}.zip<br>
-                                Files are being compressed for download. This will take a while.<br>
-                                (Các file đang được nén lại để tải xuống. Việc này sẽ mất một lúc.)`;
+                                The file is being compressed and ready to download immediately, you will not have to wait for the download anymore when the compression process is completed.
+                                (File đang được nén và sẵn sàng tải xuống lập tức, bạn sẽ không phải chờ tải nữa khi tiến trình nén hoàn thành.)`;
 
 //     Promise.all(
 //         imageLinks.map(function(link) {
