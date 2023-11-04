@@ -23,7 +23,7 @@ function extractNumberFromLink(link) {
 }
 function downloadZip() {
     var zip = new JSZip();
-    const filename = 'download.zip';
+    const filename = '103086';
     var folder = zip.folder(filename);
 
     let imageLinks = [
@@ -40,7 +40,6 @@ function downloadZip() {
     const numberOfImages = imageLinks.length;
     const numberOfAudios = audioLinks.length;
 
-    // Hiển thị thông báo cho người dùng
     const statusElement = document.getElementById('status');
     statusElement.innerText = 'Files are being compressed for download. This will take a while.<br>(Các file đang được nén lại để tải xuống. Việc này sẽ mất một lúc.)';
 
@@ -54,7 +53,7 @@ function downloadZip() {
     .then(function(imageBlobs) {
         imageBlobs.forEach(function(blob, index) {
             const imageNumber = extractNumberFromLink(imageLinks[index]);
-            zip.file(`${imageNumber}.jpg`, blob, { binary: true });
+            folder.file(`${imageNumber}.jpg`, blob, { binary: true });
         });
 
         Promise.all(
@@ -67,10 +66,9 @@ function downloadZip() {
         .then(function(audioBlobs) {
             audioBlobs.forEach(function(blob, index) {
                 const audioNumber = extractNumberFromLink(audioLinks[index]);
-                zip.file(`${audioNumber}.mp3`, blob, { binary: true });
+                folder.file(`${audioNumber}.mp3`, blob, { binary: true });
             });
 
-            // Tạo và tải xuống file ZIP
             zip.generateAsync({ type: 'blob' })
                 .then(function(content) {
                     saveAs(content, filename);
