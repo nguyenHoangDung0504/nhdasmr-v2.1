@@ -42,12 +42,19 @@ function downloadZip() {
 
     const numberOfImages = imageLinks.length;
     const numberOfAudios = audioLinks.length;
-
+  
     const statusElement = document.getElementById('status');
     statusElement.innerHTML = `Processing: ${filename}.zip<br>
                                 The file is being compressed and ready to download immediately, you will not have to wait for the download anymore when the compression process is completed.
                                 (File đang được nén và sẵn sàng tải xuống lập tức, bạn sẽ không phải chờ tải nữa khi tiến trình nén hoàn thành.)`;
-
+    const percent = document.getElementById('percent');
+    const process = document.getElementById('process');
+    function updateProgress(total, current) {
+      const percentage = Math.floor((current / total) * 100);
+      percent.innerText = `${percentage}%`;
+      process.style.width = `${percentage}%`;
+    }
+    let filesDownloaded = 0;
 //     Promise.all(
 //         imageLinks.map(function(link) {
 //             return fetch(link).then(function(res) {
@@ -93,7 +100,9 @@ function downloadZip() {
             const imageNumber = extractNumberFromLink(imageLinks[index]);
             folder.file(`${imageNumber}.jpg`, blob, { binary: true });
           });
-
+          filesDownloaded += imageBlobs.length;
+          updateProgress(imageLinks.length + audioLinks.length, filesDownloaded);
+        
           Promise.all(
             audioLinks.map(function(link) {
               return fetch(link).then(function(res) {
@@ -107,7 +116,9 @@ function downloadZip() {
                 const audioExtension = isVideoLink(audioLinks[index]) ? '.mp4' : '.mp3';
                 folder.file(`${audioNumber}${audioExtension}`, blob, { binary: true });
               });
-
+              filesDownloaded += audioBlobs.length;
+              updateProgress(imageLinks.length + audioLinks.length, filesDownloaded);
+            
               zip.generateAsync({ type: 'blob' })
                 .then(function(content) {
                   saveAs(content, filename);
