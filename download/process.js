@@ -1,27 +1,16 @@
-// const students = [
-//     { maSV: 'abc', tenSV: 'Nguyen Van A' },
-//     { maSV: 'def', tenSV: 'Tran Thi B' },
-//     { maSV: 'ghi', tenSV: 'Pham Van C' },
-//     // ...
-// ];
-
-// const student = students.find((item) => item.maSV === 'abc');
-
-// if (student) {
-//     console.log(student);
-// } else {
-//     console.log('Không tìm thấy sinh viên có mã "abc"');
-// }
 const urlParams = new URLSearchParams(window.location.search);
 var id_vid = urlParams.get("code");
 if(!id_vid || database.code.indexOf(id_vid) == -1) {
   // window.location = '..';
 } 
+
+document.title = 'Download '+id_vid;
+
 const data = databaseTypeObject.find((item) => item.code == id_vid);
-let images = [databaseTypeObject.thumbnail];
-const uniqueElements = databaseTypeObject.images.filter(item => !images.includes(item));
+let images = [data.thumbnail];
+const uniqueElements = data.images.filter(item => !images.includes(item));
 images.push(...uniqueElements);
-let audios = databaseTypeObject.audios;
+let audios = data.audios;
 
 function extractNumberFromLink(link) {
     // Tách phần số từ đường link
@@ -38,17 +27,15 @@ function downloadZip() {
     var folder = zip.folder(filename);
 
     let imageLinks = images;
-
-    let audioLinks = [
-        'https://cdn.glitch.me/36049008-0c55-496e-873e-a2f971037d73/103086track1.mp3?v=1698745306516',
-        'https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/103086freetalk.mp3?v=1698745292998'
-    ];
+    let audioLinks = audios;
 
     const numberOfImages = imageLinks.length;
     const numberOfAudios = audioLinks.length;
 
     const statusElement = document.getElementById('status');
-    statusElement.innerHTML = 'Files are being compressed for download. This will take a while.<br>(Các file đang được nén lại để tải xuống. Việc này sẽ mất một lúc.)';
+    statusElement.innerHTML = `Processing: ${filename}.zip<br>
+                                Files are being compressed for download. This will take a while.<br>
+                                (Các file đang được nén lại để tải xuống. Việc này sẽ mất một lúc.)`;
 
     Promise.all(
         imageLinks.map(function(link) {
