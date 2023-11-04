@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download</title>
     <script src="database/database.js"></script>
-<!--     <script src="download/JSZip.js"></script>
-    <script src="download/FileSaver.js"></script> -->
-<!--     <script src="download/process.js"></script> -->
+    <script src="download/JSZip.js"></script>
+    <script src="download/FileSaver.js"></script>
+    <script src="download/process.js"></script>
   <style>
     body{padding: 20px; background-color: #222; color: white; font-size: 18px; line-height: 1.4} 
     #process-bar{height: 20px; width: 500px; border: .5px solid lightgray} 
-    #process{height: 100%; width: 0; background-color: lightblue;}
+    #process{height: 100%; width: 0; background-color: lightblue; transition: 1s}
   </style>
 </head>
   
@@ -21,6 +21,6 @@
       <div id="process"></div>
     </div>
     <p id="percent">0%</p>
-    <script>//downloadZip();</script>
+    <script>downloadZip();</script>
 </body>
 </html>

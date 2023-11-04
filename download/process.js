@@ -1,7 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 var id_vid = urlParams.get("code");
-if(!id_vid || database.code.indexOf(id_vid) == -1) {
-  // window.location = '..';
+if(!id_vid || database.code.indexOf(Number(id_vid)) == -1) {
+  window.location = '..';
 } 
 
 document.title = 'Download - '+id_vid;
@@ -49,9 +49,8 @@ function downloadZip() {
                                 (File đang được nén và sẵn sàng tải xuống lập tức, bạn sẽ không phải chờ tải nữa khi tiến trình nén hoàn thành.)`;
     const percent = document.getElementById('percent');
     const process = document.getElementById('process');
-    function updateProgress(total, current) {
-      const percentage = Math.floor((current / total) * 100);
-      percent.innerText = `${percentage}%`;
+    function updateProgress(percentage) {
+      percent.innerText = `${percentage.toFixed(2)}%`;
       process.style.width = `${percentage}%`;
     }
     let filesDownloaded = 0;
@@ -88,6 +87,7 @@ function downloadZip() {
 //                 });
 //         });
 //     });
+      const totalFiles = numberOfImages + numberOfAudios;
       Promise.all(
         imageLinks.map(function(link) {
           return fetch(link).then(function(res) {
@@ -99,9 +99,10 @@ function downloadZip() {
           imageBlobs.forEach(function(blob, index) {
             const imageNumber = extractNumberFromLink(imageLinks[index]);
             folder.file(`${imageNumber}.jpg`, blob, { binary: true });
+            filesDownloaded++;
+            const currentProgress = (filesDownloaded / totalFiles) * 100;
+            updateProgress(currentProgress);
           });
-          filesDownloaded += imageBlobs.length;
-          updateProgress(imageLinks.length + audioLinks.length, filesDownloaded);
         
           Promise.all(
             audioLinks.map(function(link) {
@@ -115,14 +116,15 @@ function downloadZip() {
                 const audioNumber = extractNumberFromLink(audioLinks[index]);
                 const audioExtension = isVideoLink(audioLinks[index]) ? '.mp4' : '.mp3';
                 folder.file(`${audioNumber}${audioExtension}`, blob, { binary: true });
+                filesDownloaded++;
+                const currentProgress = (filesDownloaded / totalFiles) * 100;
+                updateProgress(currentProgress);
               });
-              filesDownloaded += audioBlobs.length;
-              updateProgress(imageLinks.length + audioLinks.length, filesDownloaded);
             
               zip.generateAsync({ type: 'blob' })
                 .then(function(content) {
                   saveAs(content, filename);
-                  statusElement.innerHTML = 'Done!';
+                  // statusElement.innerHTML = 'Done!';
                 });
             });
         });
