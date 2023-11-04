@@ -44,13 +44,13 @@ function downloadZip() {
     const numberOfAudios = audioLinks.length;
   
     const statusElement = document.getElementById('status');
-    statusElement.innerHTML = `Processing: ${filename}.zip<br>
-                                The file is being compressed and ready to download immediately, you will not have to wait for the download anymore when the compression process is completed.
+    statusElement.innerHTML = `Processing: ${filename}.zip<br><br>
+                                The file is being compressed and ready to download immediately, you will not have to wait for the download anymore when the compression process is completed.<br>
                                 (File đang được nén và sẵn sàng tải xuống lập tức, bạn sẽ không phải chờ tải nữa khi tiến trình nén hoàn thành.)`;
     const percent = document.getElementById('percent');
     const process = document.getElementById('process');
     function updateProgress(percentage) {
-      percent.innerText = `${percentage.toFixed(2)}%`;
+      percent.innerText = `${percentage.toFixed(1)}%`;
       process.style.width = `${percentage}%`;
     }
     let filesDownloaded = 0;
