@@ -98,8 +98,8 @@ function downloadZip() {
           let filesDownloaded = 0;
           imageBlobs.forEach(function(blob, index) {
             const imageNumber = extractNumberFromLink(imageLinks[index]);
-            const audioExtension = isVideoLink(audioLinks[index]) ? '.mp4' : '.jpg';
-            folder.file(`${imageNumber}${audioExtension}`, blob, { binary: true });
+            const imageExtension = isVideoLink(imageLinks[index]) ? '.mp4' : '.mp3';
+            folder.file(`${imageNumber}.${imageExtension}`, blob, { binary: true });
             filesDownloaded++;
             updateProgress((filesDownloaded / totalFiles) * 100);
           });
