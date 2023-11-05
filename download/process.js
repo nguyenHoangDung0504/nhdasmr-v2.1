@@ -53,7 +53,6 @@ function downloadZip() {
       percent.innerText = `${percentage.toFixed(1)}%`;
       process.style.width = `${percentage}%`;
     }
-    let filesDownloaded = 0;
 //     Promise.all(
 //         imageLinks.map(function(link) {
 //             return fetch(link).then(function(res) {
@@ -96,12 +95,13 @@ function downloadZip() {
         })
       )
         .then(function(imageBlobs) {
+          let filesDownloaded = 0;
           imageBlobs.forEach(function(blob, index) {
             const imageNumber = extractNumberFromLink(imageLinks[index]);
-            folder.file(`${imageNumber}.jpg`, blob, { binary: true });
+            const audioExtension = isVideoLink(audioLinks[index]) ? '.mp4' : '.jpg';
+            folder.file(`${imageNumber}${audioExtension}`, blob, { binary: true });
             filesDownloaded++;
-            const currentProgress = (filesDownloaded / totalFiles) * 100;
-            updateProgress(currentProgress);
+            updateProgress((filesDownloaded / totalFiles) * 100);
           });
         
           Promise.all(
@@ -117,8 +117,7 @@ function downloadZip() {
                 const audioExtension = isVideoLink(audioLinks[index]) ? '.mp4' : '.mp3';
                 folder.file(`${audioNumber}${audioExtension}`, blob, { binary: true });
                 filesDownloaded++;
-                const currentProgress = (filesDownloaded / totalFiles) * 100;
-                updateProgress(currentProgress);
+                updateProgress((filesDownloaded / totalFiles) * 100);
               });
             
               zip.generateAsync({ type: 'blob' })
