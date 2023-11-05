@@ -40,9 +40,12 @@ function buildIframeAndContent() {
   }
   tag.innerHTML = tagString; 
   
-  let downloadBox = document.querySelector('#download-box');
-  downloadBox.innerHTML = '<a t href="download?code='+id_vid+'">Download &darr;</a>';
-  downloadBox.style.display = 'block';
+  if(id_vid!=88888) {
+    let downloadBox = document.querySelector('#download-box');
+    downloadBox.innerHTML = '<a target="_blank" href="download?code='+id_vid+'">Download &darr;</a>';
+    downloadBox.style.display = 'block';    
+  }
+
 }
 
 function buildListRandom() {
