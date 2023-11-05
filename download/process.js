@@ -21,17 +21,6 @@ function extractNumberFromLink(link) {
     return number;
 }
 
-function isVideoLink(link) {
-  return fetch(link, { method: 'HEAD' })
-    .then(response => {
-      const contentType = response.headers.get('content-type');
-      return contentType.includes('video');
-    })
-    .catch(error => {
-      console.error('Lỗi khi gửi yêu cầu HEAD:', error);
-      return false;
-    });
-}
 function downloadZip() {
     var zip = new JSZip();
     const filename = `${data.code} - ${data.rjCode}`;
@@ -98,8 +87,11 @@ function downloadZip() {
           let filesDownloaded = 0;
           imageBlobs.forEach(function(blob, index) {
             const imageNumber = extractNumberFromLink(imageLinks[index]);
-            const imageExtension = isVideoLink(imageLinks[index]) ? '.mp4' : '.mp3';
-            folder.file(`${imageNumber}.${imageExtension}`, blob, { binary: true });
+            if(imageLinks[index].indexOf('.mp4')!=-1) {
+              folder.file(`${imageNumber}.mp4`, blob, { binary: true });
+            } else {
+              folder.file(`${imageNumber}.jpg`, blob, { binary: true });
+            }
             filesDownloaded++;
             updateProgress((filesDownloaded / totalFiles) * 100);
           });
@@ -114,8 +106,11 @@ function downloadZip() {
             .then(function(audioBlobs) {
               audioBlobs.forEach(function(blob, index) {
                 const audioNumber = extractNumberFromLink(audioLinks[index]);
-                const audioExtension = isVideoLink(audioLinks[index]) ? '.mp4' : '.mp3';
-                folder.file(`${audioNumber}${audioExtension}`, blob, { binary: true });
+                if(audioLinks[index].indexOf('.mp4')!=-1) {
+                  folder.file(`${audioNumber}.mp4`, blob, { binary: true });
+                } else {
+                  folder.file(`${audioNumber}.mp3`, blob, { binary: true });
+                }
                 filesDownloaded++;
                 updateProgress((filesDownloaded / totalFiles) * 100);
               });
