@@ -3,6 +3,38 @@
 window.settingfs.openMenuAtFirst();
 window.settingfs.openLightModeAtFirst();
 
+// let countTime = 0;
+// const build = setInterval(()=>{
+//   const header = document.querySelector('.header');
+//   const modelContainer = document.querySelector('.model-container');
+//   const footer = document.querySelector('.footer-content');
+//   const menu = document.querySelector('.menu');
+//   const hiddenData = document.querySelector('.hidden-data-container');
+//   const mess = document.querySelector('.message');
+//   const grid = document.querySelector('.content .grid-container');
+//   const pagbody = document.querySelector('.pagination-body');
+  
+//   if(header && modelContainer && footer && menu && hiddenData && mess && grid && pagbody) {
+//     header.innerHTML = window.sharedView.headerContent;
+//     modelContainer.innerHTML = window.sharedView.modelContent;
+//     footer.innerHTML = window.sharedView.footerContent;
+//     menu.innerHTML = window.sharedView.menuContent;
+//     hiddenData.innerHTML = window.sharedView.hiddenDataContent;
+//     mess.innerHTML = window.homeView.messageContent;
+//     grid.innerHTML = window.homeView.dataContent;
+//     pagbody.innerHTML = window.homeView.paginationContent;
+//     clearInterval(build);
+//   }
+  
+//   countTime++;
+//   console.log(`Waiting ${countTime*10}ms...`);
+  
+//   if(countTime == 10) {
+//     alert('Time out! please reload page');
+//     clearInterval(build);
+//   }
+// }, 10);
+
 document.addEventListener('DOMContentLoaded', ()=>{
   console.time('Build html time');
     /*SHARED VIEWS*/{
@@ -65,20 +97,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
           document.querySelector('body').removeEventListener('keyup', window.sharedActions.getEnter);
         });    
       }
-      document.querySelector('div.search-icon').addEventListener('click', ()=>{
-        if(searchBox.value) {
-          let search = searchBox.value;
-          if(search == '@listcode' || search == '@lc' ) {
-            window.open('../develop/list-code', '_blank');
-            document.querySelector('input#input.search-input').value = '';
-          } else if(search == '@datacapacity' || search == '@dc' ) {
-            window.open('../develop/data-capacity', '_blank');
-            document.querySelector('input#input.search-input').value = '';
-          } else {
-            window.location = `..?search=${searchBox.value}`; 
-          }
-        }
-      });
+      document.querySelector('div.search-icon').addEventListener('click', window.sharedActions.clickBtnSearch);
       window.sharedActions.addTrackGridAction();
     }/*SHARED ACTION*/
   console.timeEnd('Build actions time');

@@ -166,7 +166,13 @@ window.sharedActions.developerSearch = (value)=>{
   return active;
 }
 window.sharedActions.clickBtnSearch = ()=>{
-  
+  let search = document.querySelector('input#input.search-input').value;
+  if(search) {
+    document.querySelector('input#input.search-input').value = '';
+    if(!window.sharedActions.developerSearch(search)) {
+      window.location = `..?search=${search}`;
+    } 
+  }
 }
 window.sharedActions.getEnter = (event)=>{
   if (event.key == 'Enter') {

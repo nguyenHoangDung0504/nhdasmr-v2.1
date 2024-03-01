@@ -32,21 +32,18 @@ function leakLinkImgAndAud(code){
   }
   setTimeout(async function() {
     function move(arr, index) {
-      if (index < 0 || index >= arr.length) {
-        console.error('Vị trí không hợp lệ.');
-        return arr;
+    let template = ['t1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', 'omake', 'freetalk']
+    window.link.audios.sort((a, b)=>{
+      for (let i = 0; i < arrMau.length; i++) {
+        const mau = arrMau[i];
+        if (a.includes(mau) && !b.includes(mau)) {
+          return -1;
+        } else if (!a.includes(mau) && b.includes(mau)) {
+          return 1;
+        }
       }
-      const element = arr.splice(index, 1)[0];
-      arr.push(element);
-      return arr;
-    }
-    window.link.images.sort();
-    window.link.audios.sort();
-    for(let i=0; i<window.link.audios.length; i++) {
-      if(window.link.audios[i].indexOf('track') == -1) {
-        move(window.link.audios, i);
-      }
-    }
+      return a.localeCompare(b);
+    });
     let thumbnail = window.link.images[0];
     window.link.images.sort((a, b) => {
         const indexA = parseInt(a.match(/-(\d+)(\.[^.]+)?\?/)[1]);
