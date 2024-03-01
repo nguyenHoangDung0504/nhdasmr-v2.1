@@ -63,11 +63,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
           document.querySelector('body').removeEventListener('keyup', window.sharedActions.getEnter);
         });
       }
-      document.querySelector('div.search-icon').addEventListener('click', ()=>{
-        if(searchBox.value) { 
-          window.location = `..?search=${searchBox.value}`; 
-        }
-      });
+      document.querySelector('div.search-icon').addEventListener('click', window.sharedActions.clickBtnSearch);
       window.sharedActions.addTrackGridAction();
     }/*SHARED ACTION*/
   console.timeEnd('Build actions time');

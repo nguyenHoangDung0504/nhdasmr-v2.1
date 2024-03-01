@@ -60,7 +60,7 @@ window.sharedView = {
   let menuContent =
   `<a class="title"><h1>NHD ASMR - Menu</h1></a>
   <a class="menu-item close-menu-button" href="javascript:void(0)">Close Menu</a>
-  <a class="menu-item light-mode-button" onclick=""><script>settingLightModeButton();</script></a>
+  <a class="menu-item light-mode-button" href="javascript:void(0)"></a>
   <a href="javascript:void(0);" class="menu-item">Advance Search 🔎</a>
 
   <a data-label-of="cvs-hidden-list" class="menu-item list-open-button">CVs (${window.database.listCv.length})&ensp; <i style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
@@ -69,7 +69,8 @@ window.sharedView = {
   <div class="hidden-list" id="tags-hidden-list">${listTagStr}</div>
   <a data-label-of="sorts-hidden-list" class="menu-item list-open-button">Sorts&ensp; <i style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
   <div class="hidden-list" id="sorts-hidden-list">${listSortStr}</div>
-  <a class="menu-item open-model-btn">Gacha Machine</a>`;
+  <a class="menu-item open-model-btn">Gacha Machine</a>
+  <a href="https://nhdasmr-v.glitch.me/" class="menu-item">Another versions</a>`;
   
   window.sharedView.menuContent = menuContent.replace(/\s+/g, ' ');
 }
