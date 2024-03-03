@@ -3,7 +3,14 @@
 let isPortrait = false;
 const elem = document.documentElement;
 
+const fullscreenBtn = document.querySelector('#fullscreen-btn')
+
 const openFullscreen = () => {
+    const icon = fullscreenBtn.querySelector('i');
+    if (Array.from(icon.classList).includes('fa-expand')) {
+        icon.classList.remove('fa-expand');
+        icon.classList.add('fa-compress');
+    }
     if (elem.requestFullscreen) {
         elem.requestFullscreen();
     } else if (elem.webkitRequestFullscreen) {
@@ -18,6 +25,11 @@ const openFullscreen = () => {
 }
 
 const closeFullscreen = () => {
+    const icon = fullscreenBtn.querySelector('i');
+    if (Array.from(icon.classList).includes('fa-compress')) {
+        icon.classList.remove('fa-compress');
+        icon.classList.add('fa-expand');
+    }
     if (document.exitFullscreen) {
         document.exitFullscreen();
     } else if (document.webkitExitFullscreen) {
@@ -72,18 +84,8 @@ alignBtn.addEventListener('click', () => {
     }
 });
 
-const fullscreenBtn = document.querySelector('#fullscreen-btn')
 fullscreenBtn.addEventListener('click', () => {
     document.fullscreen ? closeFullscreen() : openFullscreen();
-    
-    const icon = fullscreenBtn.querySelector('i');
-    if (Array.from(icon.classList).includes('fa-expand')) {
-        icon.classList.remove('fa-expand');
-        icon.classList.add('fa-compress');
-    } else if (Array.from(icon.classList).includes('fa-compress')) {
-        icon.classList.remove('fa-compress');
-        icon.classList.add('fa-expand');
-    }
 });
 
 const contentContainer = document.querySelector('.content-container');

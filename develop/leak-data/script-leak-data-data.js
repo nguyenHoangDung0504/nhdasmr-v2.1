@@ -1,7 +1,7 @@
 const scriptFiles = [
-  'https://nhdasmr-v2-1.glitch.me/utils/utils.js', 
-  'https://nhdasmr-v2-1.glitch.me/model/classes.js',
-  'https://nhdasmr-v2-1.glitch.me/model/database/build-database.js'
+  'https://nhdasmr.glitch.me/utils/utils.js', 
+  'https://nhdasmr.glitch.me/model/classes.js',
+  'https://nhdasmr.glitch.me/model/database/build-database.js'
 ];
 
 function fetchDatabase(scriptFiles, callback) {
