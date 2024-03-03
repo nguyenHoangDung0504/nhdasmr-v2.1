@@ -28,7 +28,7 @@ document.title = "Watch "+track.code+" - NHD ASMR";
     <br><br>
     <span id="track_list_tag">${track.getTagsHtmlWithCount().replaceAll('<br>', '')}</span>
   </h3>
-  <h3 id="download-box" style="display: block"><a target="_blank" href="watch/download?code=${track.code}">Download &darr;</a></h3>`;
+  <h3 id="download-box" style="display: block"><a class="series" target="_blank" href="watch/download?code=${track.code}">Download &darr;</a></h3>`;
   window.watchView.vidDivContent = vidDivContent.replace(/\s+/g, ' ');  
 }
 //Content-div-content---------------------------------------------------------------------------------------

@@ -5,7 +5,8 @@ window.utils = {
   shuffleArr: 'Xáo trộn mảng',
   highlight: 'Highlight kết quả tìm kiếm',
   removeHighlight: 'Loại bỏ highlight',
-  convertToTitleCase: 'Xử lý string: abcDef -> Abc Def, abc -> Abc,...'
+  convertToTitleCase: 'Xử lý string: abcDef -> Abc Def, abc -> Abc,...',
+  getFileName: 'Trích xuất file name từ URL asset glitch'
 }
 
 window.utils.getStartAndEnd = (page, trackPerPage, limitTrack)=>{
@@ -113,4 +114,7 @@ window.utils.convertToTitleCase = (str)=>{
   formattedStr = formattedStr.replace(/([a-z])([A-Z])/g, '$1 $2');
   formattedStr = formattedStr.replace(/\b\w/g, (match) => match.toUpperCase());
   return formattedStr;
+}
+window.utils.getFileName = (link) => {
+  return link.slice(link.lastIndexOf('/')+1, link.lastIndexOf('?'));
 }

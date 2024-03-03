@@ -31,11 +31,10 @@ function leakLinkImgAndAud(code){
     }, i * timeout);
   }
   setTimeout(async function() {
-    function move(arr, index) {
     let template = ['t1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', 'omake', 'freetalk']
     window.link.audios.sort((a, b)=>{
-      for (let i = 0; i < arrMau.length; i++) {
-        const mau = arrMau[i];
+      for (let i = 0; i < template.length; i++) {
+        const mau = template[i];
         if (a.includes(mau) && !b.includes(mau)) {
           return -1;
         } else if (!a.includes(mau) && b.includes(mau)) {
@@ -44,12 +43,13 @@ function leakLinkImgAndAud(code){
       }
       return a.localeCompare(b);
     });
-    let thumbnail = window.link.images[0];
+    
     window.link.images.sort((a, b) => {
         const indexA = parseInt(a.match(/-(\d+)(\.[^.]+)?\?/)[1]);
         const indexB = parseInt(b.match(/-(\d+)(\.[^.]+)?\?/)[1]);
         return indexA - indexB;
     });
+    let thumbnail = window.link.images[0];
     let result = {
       thumbnail: thumbnail,
       images: (window.link.images.slice(1)).join(","),
@@ -61,29 +61,9 @@ function leakLinkImgAndAud(code){
       try{
         navigator.clipboard.writeText(`"${result.thumbnail}", "${result.images}", "${result.audios}"`);
         console.log('Sao chép thành công!');
-      } catch(e) {console.log('error')}
-      
-//       // Hàm để sao chép giá trị và trả về một Promise
-//       const copyValue = async (value) => {
-//         await navigator.clipboard.writeText(value);
-//       };
-
-//       // Mảng các giá trị cần sao chép
-//       const valuesToCopy = [result.rar, result.audios, result.images, result.thumbnail];
-
-//       // Hàm chạy lần lượt các lệnh sao chép với khoảng thời gian trễ
-//       const copyValuesSequentially = async () => {
-//         for (const value of valuesToCopy) {
-//           await copyValue(value);
-//           await new Promise((resolve) => setTimeout(resolve, 400)); // Khoảng thời gian trễ 100ms
-//         }
-//         console.log('Đã sao chép thành công!');
-//       };
-
-//       // Gọi hàm chạy sao chép tuần tự
-//       copyValuesSequentially().catch((error) => {
-//         console.error('Đã xảy ra lỗi khi sao chép:', error);
-//       });
+      } catch(e) {
+        console.log('error')
+      }
     }
   }, timeout * linkNeed.length + 100);
 }

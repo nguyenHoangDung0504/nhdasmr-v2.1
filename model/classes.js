@@ -371,9 +371,9 @@ class ImageDisplayer {
   handleTouchEnd(evt) {
     if (event.changedTouches.length === 1) {
       if ((this.diffX > 15) && (Math.abs(this.diffY) < 30)) {
-        document.querySelector('#next-btn').click();
-      } else if ((this.diffX < -15) && (Math.abs(this.diffY) < 30)) {
         document.querySelector('#prev-btn').click();
+      } else if ((this.diffX < -15) && (Math.abs(this.diffY) < 30)) {
+        document.querySelector('#next-btn').click();
       } else if((this.diffY > 15) && (Math.abs(this.diffX) < 50)) {
         document.body.classList.remove('open-menu-mp3');
       } else if ((this.diffY < -15) && (Math.abs(this.diffX) < 50)) {
@@ -408,12 +408,12 @@ class ImageDisplayer {
   handleMouseUp(evt) {
     if (this.mouseDown) {
       if (this.diffMouseX > 15 && this.diffMouseY < 20) {
-        document.querySelector('#next-btn').click();
-      } else if (this.diffMouseX < -15 && this.diffMouseY < 20) {
         document.querySelector('#prev-btn').click();
-      } else if (this.diffMouseY > 15 && this.diffMouseX < 30) {
+      } else if (this.diffMouseX < -15 && this.diffMouseY < 20) {
+        document.querySelector('#next-btn').click();
+      } else if (this.diffMouseY > 15 && this.diffMouseX < 20) {
         document.body.classList.remove('open-menu-mp3');
-      } else if (this.diffMouseY < -15 && this.diffMouseX < 30) {
+      } else if (this.diffMouseY < -15 && this.diffMouseX < 20) {
         document.body.classList.add('open-menu-mp3');
       }
       this.mouseDown = false;
@@ -432,6 +432,7 @@ class AudioPlayer {
     this.currentTime = 0;
     this.touchStartX = 0;
     this.time = 3;
+    this.filename = window.utils.getFileName(src);
 
     this.audContainer = document.createElement('div');
     this.audio = document.createElement('audio');
@@ -445,7 +446,7 @@ class AudioPlayer {
 
     this.audio.addEventListener('play', ()=>{
       this.audContainer.classList.add('playing');
-      this.audContainer.setAttribute('before', `Playing...`);
+      this.audContainer.setAttribute('before', `Playing: ${this.filename}`);
       this.audio.dataset.isPause = false;
     });
 
@@ -455,7 +456,7 @@ class AudioPlayer {
       const countdown = (time)=>{
         if (time > 0) {
           if(this.audio.dataset.isPause != 'true') {
-            this.audContainer.setAttribute('before', 'Playing...');
+            this.audContainer.setAttribute('before', `Playing: ${this.filename}`);
             this.time = 3;
           } else {
             let timeOut = setTimeout(() => {
@@ -544,7 +545,7 @@ class AudioPlayer {
   }
 
   play() {
-    this.audContainer.setAttribute('before', 'Playing...');
+    this.audContainer.setAttribute('before', `Playing: ${this.filename}`);
     setTimeout(()=>{    
       if(this.audio.dataset.isPause == 'false')
         return;

@@ -93,6 +93,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  border-radius: 10px;
 }
 .container .content_div div a .text-box {
   flex: 1;
