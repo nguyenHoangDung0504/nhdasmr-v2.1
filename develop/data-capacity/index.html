@@ -4,19 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NHD ASMR - Web Data</title>
-  <script src="database/database.js"></script>
-  
-  <style>
-    body{line-height: 1.5; font-size:20px; overflow: auto; background-color: #333; color: white}
-    h3{color: white;}
-    h4,a{color: white; margin: 3px;display: inline-block;}
-/*     a{ overflow: hidden; white-space: nowrap; text-overflow: ellipsis;} */
-    img{margin: 5px;}
-  </style>
+  <script src="../model/classes.js"></script>
+  <script src="../model/database/build-database.js"></script>
+  <link rel="stylesheet" href="./data-capacity/style.css">
 </head>
 <body>
-<!--   <button onclick="getResult()">Get result</button> -->
-  <div><h3>Loading...</h3></div>
-  <script src="web-data-capacity/get-webdata.js"></script>
+  <div class="top"><h3 class="total" style="margin-right: 30px;">Loading...</h3><h3 class="cpl"></h3></div>
+  <div id="top2" style="display: flex; justify-content: center; align-items: center;"><button style="background-color: black; color: white; padding: 10px 50px; outline: none; border: none; border: 2px solid #00BFFF; border-radius: 5px; cursor: pointer;">Stop (Click continuously)</button></div>
+  <script src="./data-capacity/build.js"></script>
 </body>
 </html>
