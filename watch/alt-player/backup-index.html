@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/alt-player-styles/styles.css"/>
+    <link rel="icon" type="image/x-icon" href="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/icon-edited.webp?v=1704340956129"/>
+    <!-- BUILD DATABASE -->
+      <script src="../utils/utils.js"></script>
+      <script src="../model/classes.js"></script>
+      <script src="../model/database/build-database.js"></script>
+      <script src="../model/database/build-database-functions.js"></script>
+    <!-- BUILD DATABASE -->
+    <script>
+      var open=false, isPortrait=false, number_images = 0, isVideo = false;
+      const urlParams = new URLSearchParams(window.location.search);
+      let trackId = urlParams.get("code");
+      let track = window.databasefs.getTrackByCode(trackId) || window.databasefs.getTrackByRjCode(trackId);
+      if(!trackId || !track) {
+        window.history.back();
+      }
+      document.title = "NHD ASMR - Alt Player: "+track.code;
+      let watch_data = track;
+      if(watch_data.audios[0].indexOf('.mp4')>-1) { isVideo = true; }
+    </script>
+  </head>
+  
+  <body ondblclick="fullScreenOnDoubleClick(event)">
+<!--     <div id="dbc" style="position:fixed; height:100%; width:100%; z-index:2;"></div><!--background-color: blue; opacity: 0.2; --> 
+    <div id="cont"><!--ondblclick="fullScreenOnDoubleClick()"-->
+      <div id="myvideo">
+        <div id="imgContainer" style="width:100%;height:100%;position:relative;">
+          <div title="Next Image" onclick="showNext()" id="next"><h1 id="next2">&#10097;&#10093;</h1></div>
+          <div title="Previous Image" onclick="showPrevious()" id="prev"><h1 id="prev2">&#10096;&#10092;</h1></div>
+          
+        </div>
+        <div id="videoContainer" style="position: absolute; bottom: 0;">
+          <div class="button" onclick="changeControl()"><!---->
+            <i class="fas fa-chevron-up"></i>
+          </div>
+          <div id="audioContainer"></div>
+        </div>
+        <div id="btc">
+          <img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/rolate-button?v=1698832066475">
+          <img id="f5btn" title="Reload Audios & Images" class="control" onclick="reloadContent()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/reload-button?v=1698832385995">
+          <img id="btn" title="Open Full Screen" class="control" onclick="openFullscreen()" src="https://cdn.glitch.global/893bea06-bcc2-468c-9199-5e9f30c3066e/23523ef1-5dbf-41f8-b2dc-e24039aacfc1.image.png?v=1682082970016">
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  <script>
+    var elem = document.documentElement;
+    function openFullscreen() {
+      if(isVideo==false) {
+        btc.innerHTML = '<img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/rolate-button?v=1698832066475">'+
+                        '<img id="f5btn" title="Reload Audios & Images" class="control" onclick="reloadContent()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/reload-button?v=1698832385995">'+
+                        '<img id="btn" title="Close Full Screen" class="control" onclick="closeFullscreen()" style="background-color: white; padding: 1%; cursor:pointer; width:20px; height: 20px; border-radius:15%; position: absolute; right:0%; top:0%;" src="https://cdn.glitch.global/893bea06-bcc2-468c-9199-5e9f30c3066e/d8998529-5f78-491a-b3fd-e35218769d0f.image.png?v=1682083358604">';
+      }
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+      if(screen.width>1200 && isVideo==false) {
+        let audios = document.getElementsByTagName('audio');
+        let i=0;
+        while(audios[i]) {
+          audios[i].style.width="94%";
+          i++;
+        }       
+      }
+      if(window.screen.width<=600 && isVideo==false) {screen.orientation.lock('landscape');}
+      isPortrait=false;
+    }
+    function closeFullscreen() {     
+      if(isVideo==false) {
+      btc.innerHTML = '<img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/rolate-button?v=1698832066475">'+
+                      '<img id="f5btn" title="Reload Audios & Images" class="control" onclick="reloadContent()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/reload-button?v=1698832385995">'+
+                      '<img id="btn" title="Open Full Screen" class="control" onclick="openFullscreen()" style="background-color: white; padding: 1%; cursor:pointer; width:20px; height: 20px; border-radius:15%; position: absolute; right:0%; top:0%;" src="https://cdn.glitch.global/893bea06-bcc2-468c-9199-5e9f30c3066e/23523ef1-5dbf-41f8-b2dc-e24039aacfc1.image.png?v=1682082970016">';
+      }
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+      }
+      if(screen.width>1200 && isVideo==false) {
+        let audios = document.getElementsByTagName('audio');
+        let i=0;
+        while(audios[i]) {
+          audios[i].style.width="91%";
+          i++;
+        }
+        document.getElementById("xoaybtn").style.display="none";
+        document.getElementById("f5btn").style.left="0";
+      }
+      screen.orientation.unlock();
+    }
+    
+    function fullScreenOnDoubleClick(event) {
+      if((event.target.id == 'next') || (event.target.id == 'prev') || (event.target.id == 'next2') || (event.target.id == 'prev2')) {return;}
+      if(document.fullscreen){closeFullscreen();} 
+      else{openFullscreen();}
+    }
+    function rolateScreen(){
+      if(document.fullscreen) {
+        closeControl();
+        if(isPortrait==true){screen.orientation.unlock();screen.orientation.lock('landscape');screen.orientation.lock('landscape');isPortrait=false;} 
+        else{screen.orientation.unlock();screen.orientation.lock('portrait');screen.orientation.lock('portrait');isPortrait=true;}
+        setTimeout(changeControl, 500);
+      } else {return;}
+    }
+    function changeControl() {
+      let btn = document.getElementsByClassName("button")[0];
+      let audioList = document.getElementById("audioContainer");
+      if(open==false) {
+        btn.innerHTML = '<i class="fas fa-chevron-down"></i>';
+        btn.classList.add("reverse");
+        audioList.classList.add("showAudio");
+        open=true;
+      } else {
+        btn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        btn.classList.remove("reverse");
+        audioList.classList.remove("showAudio");
+        open=false;        
+      }
+    }    
+    function openControl() {
+      let btn = document.getElementsByClassName("button")[0];
+      let audioList = document.getElementById("audioContainer");
+      if(open==false) {
+        btn.innerHTML = '<i class="fas fa-chevron-down"></i>';
+        btn.classList.add("reverse");
+        audioList.classList.add("showAudio");
+        open=true;
+      }
+    }
+    function closeControl() {
+      let btn = document.getElementsByClassName("button")[0];
+      let audioList = document.getElementById("audioContainer");
+      if(open==false) {
+      } else {
+        btn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        btn.classList.remove("reverse");
+        audioList.classList.remove("showAudio");
+        open=false;        
+      }
+    }
+  </script>
+  
+  <script type="text/javascript">
+    function show(index) {
+      var showing = document.getElementsByClassName('showImg');
+      if(showing[0]) {showing[0].classList.remove('showImg');}
+      document.getElementById(index).classList.add('showImg');
+    }
+    function showNext() {
+      //if(document.fullscreen ==false) {return;}
+      var showing = document.getElementsByClassName('showImg');
+      if(showing[0]) {
+        var now = Number(showing[0].id);
+        showing[0].classList.remove('active'); 
+        now++;
+        if(now>number_images) {now = 1;}
+        show(now);
+      }
+      else {return;}
+    }
+    function showPrevious() {
+      //if(document.fullscreen ==false) {return;}
+      var showing = document.getElementsByClassName('showImg');
+      if(showing[0]) {
+        var now = Number(showing[0].id);
+        showing[0].classList.remove('active'); 
+        now--;
+        if(now<1) {now = number_images;}
+        show(now);
+      }
+      else {return;}
+    }
+  </script>
+  <script>
+    function createContent() {
+      const images_container = document.getElementById("imgContainer");
+      const audios_container = document.getElementById("audioContainer");
+      let i=0;
+      let dataToInner = '';
+      
+      while(watch_data.images[i]) {
+        let link = watch_data.images[i];
+        if(link.indexOf(".mp4")>-1) {
+          //document.getElementById('dbc').style.display='none';
+          dataToInner += '<video poster="'+(watch_data.images[0])+'" controls id="'+Number(Number(i)+1)+'" class="img" style="height:99%; width: 100%;"><source src="'+link+'"></video>';
+          //continue;
+        } else {
+          dataToInner += '<img id="'+Number(Number(i)+1)+'" class="img" src="'+watch_data.images[i]+'" style="height:100%;">';
+        }
+        i++;
+      } 
+      images_container.innerHTML += dataToInner;
+      number_images = i;
+      if(number_images==1) {document.getElementById("next").style.display="none";document.getElementById("prev").style.display="none";}
+      
+      i=0;
+      dataToInner = '';
+      
+      while(watch_data.audios[i]) {
+        if(screen.width>1200) {
+          dataToInner += '<i onclick="setTime('+i+', 5)" class="material-icons control-audio" style="font-size:36px; float:right;">forward_5</i>'+
+                         '<i onclick="setTime('+i+', -5)" class="material-icons control-audio" style="font-size:36px; float:right;">replay_5</i>'+
+                         '<audio id="aud'+i+'" controls style="width:91%; float:left;"><source src="'+watch_data.audios[i]+'"></audio>';
+        } else {
+          dataToInner += '<i onclick="setTime('+i+', -5)" class="material-icons control-audio" style="font-size:36px">replay_5</i>'+
+                         '<i onclick="setTime('+i+', 5)" class="material-icons control-audio" style="font-size:36px">forward_5</i>'+
+                         '<audio id="aud'+i+'" controls><source src="'+watch_data.audios[i]+'"></audio>';
+        }
+        i++;
+      }
+      audios_container.innerHTML += dataToInner;
+    }
+    
+    function reloadContent() {
+      let audios = document.getElementsByTagName('audio');
+      let images = document.getElementsByTagName('img');
+      let i=0; let j=0;
+      while(audios[i]){audios[i].load();i++;}
+      while(images[j]){images[j].load();j++;}
+    }
+  </script>
+  <script name="createContent">
+    if(isVideo==false) {
+      createContent(); show(1); 
+      if(screen.width>1200){
+        document.getElementById('videoContainer').classList.add('pc');
+        document.getElementById("xoaybtn").style.display="none";
+        document.getElementById("f5btn").style.left="0";
+      } 
+      if(screen.width<1200){
+        openControl();
+      }      
+    } else if(isVideo==true) {
+      let body = document.querySelector('body');
+      body.innerHTML = '';
+      body.style.height = 'auto';
+      body.style.width = 'auto';
+      //body.ondbclick = function(){return;}
+      if(screen.width<900) {
+       body.innerHTML += '<img id="xoaybtn" title="Rolate Screen" class="control" onclick="rolateScreen()" src="https://cdn.glitch.global/36049008-0c55-496e-873e-a2f971037d73/rolate-button?v=1698832066475">'+
+                          '<img id="btn" title="Full Screen" class="control" onclick="fullScreenOnDoubleClick(event)" style="background-color: white; padding: 1%; cursor:pointer; width:20px; height: 20px; border-radius:15%; position: absolute; right:0%; top:0%;" src="https://cdn.glitch.global/893bea06-bcc2-468c-9199-5e9f30c3066e/23523ef1-5dbf-41f8-b2dc-e24039aacfc1.image.png?v=1682082970016">';       
+      } else {
+        body.innerHTML += '<img id="btn" title="Full Screen" class="control" onclick="fullScreenOnDoubleClick(event)" style="background-color: white; padding: 1%; cursor:pointer; width:20px; height: 20px; border-radius:15%; position: absolute; right:0%; top:0%;" src="https://cdn.glitch.global/893bea06-bcc2-468c-9199-5e9f30c3066e/23523ef1-5dbf-41f8-b2dc-e24039aacfc1.image.png?v=1682082970016">';
+      }
+      body.innerHTML += '<center id="center-container" style="height: 100vh; background-color:black;"></center>';
+      //<video height="100%" width="100%" poster="'+links_image[id_vid][0]+'" controls><source src="'+links_audio[id_vid][0]+'"></video>
+      let i=0;
+      let centerContainer = document.getElementById('center-container');
+      let dataToInner = '';
+      while(watch_data.images[i]) {
+        dataToInner += '<video class="vid" id="'+Number(Number(i)+1)+'" height="100%" width="100%" poster="'+watch_data.images[i]+'" controls><source src="'+watch_data.audios[i]+'"></video>';
+        number_images++;
+        i++;
+      }
+      centerContainer.innerHTML = dataToInner;
+      show(1);
+      if(i>1) {
+        if(screen.width<900) {
+          //body.innerHTML += '<div style="position:fixed; top:0; left:0; height:90%; width:100%" ondbclick="fullScreenOnDoubleClick(event)"></div>'
+        }
+        body.innerHTML += '<div title="Next Image" onclick="showNext()" id="next"><h1 id="next2">&#10097;&#10093;</h1></div>'+
+                          '<div title="Previous Image" onclick="showPrevious()" id="prev"><h1 id="prev2">&#10096;&#10092;</h1></div>'
+                          ;
+        show(1);
+      }
+    }
+  </script>
+  <script name="getTouch">
+    var get_touch_container = document.querySelector('body');
+    get_touch_container.addEventListener('touchstart', handleTouchStart, false);
+    get_touch_container.addEventListener('touchmove', handleTouchMove, false);  
+    var xDown = null;                                                        
+    var yDown = null;
+    function getTouches(evt) {
+      return evt.touches ||             // browser API
+             evt.originalEvent.touches; // jQuery
+    }
+    function handleTouchStart(evt) {
+      const firstTouch = getTouches(evt)[0];                                      
+      xDown = firstTouch.clientX;                                      
+      yDown = firstTouch.clientY;                                      
+    };
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {return;}
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+            if ( xDiff > 0 ) {
+                showNext();
+            } else {
+                showPrevious();
+            }                       
+        } else {
+          if (yDiff > 0) {
+            openControl();
+          } else {
+            closeControl();
+          }
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+     function handleTouchMove2(evt) {
+        if ( ! xDown || ! yDown ) {return;}
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+            if ( xDiff > 0 ) {
+                showNext();
+            } else {
+                showPrevious();
+            }                       
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+  </script>
+  <script>
+    function setTime(id_aud, incre) {
+      let aud = document.querySelector('#aud'+id_aud);
+      aud.play();
+      aud.currentTime = aud.currentTime + incre;
+    }
+  </script>
+</html>

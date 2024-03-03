@@ -1,95 +1,87 @@
-var allLink = [];
-var cpc = 0;
-var loopTime = 0;
+let size = 0;
+let stop = 0;
+const sizectn = document.querySelector('.total');
+const topCtn = document.querySelector('.top');
+const cpl = document.querySelector('.cpl');
+document.querySelector('button').addEventListener('click', ()=>{
+  stop = 1;
+})
 
-var result = [];
-var tk = {
-  numberImage: 0,
-  numberAudio: 0,
-  numberVideo: 0
+const getFileName = (link) => {
+  return link.slice(link.lastIndexOf('/')+1, link.lastIndexOf('?'));
 }
 
-for(let i=0; i<database.thumbnail.length; i++) {
-  let track = {
-    code: database.code[i],
-    links: []
-  }
-  track.links.push(database.thumbnail[i]);
-  for(let j=0; j<database.images[i].length; j++) {
-    if(database.images[i][j].indexOf('kiko') != -1) {continue;}
-    track.links.push(database.images[i][j]);
-  }  
-  for(let j=0; j<database.audios[i].length; j++) {
-    track.links.push(database.audios[i][j]);
-  }
+const toMb = (value, digit) => {
+  return (value/(1024*1024)).toFixed(digit ?? 2);
+}
+
+const calculateFileSizes = async (tracks)=>{
+  let count = 0;
   
-  allLink.push(track);
-}
+  for (const track of tracks) {
+    if(stop != 0) {
+      break;
+    }
+    const thumbnail = track.thumbnail, images = track.images, audios = track.audios;
+    const trackData = {
+      thumbnail: thumbnail,
+      imageSizes: [],
+      audioSizes: []
+    };
 
-function fetchLinks() {
-  let promises = [];
-  for(let i=0; i<allLink.length; i++) {
-    for(let j=0; j<allLink[i].links.length; j++) {
-      let promise = fetch(allLink[i].links[j], {
-        method: 'HEAD'}).then(function (response) {
-          let size = Number((response.headers.get("content-length")/(1024*1024)).toFixed(2));
-          let type = response.headers.get("content-type");
-          cpc += size;
-          let rs = {
-            size: size+"MB",
-            type: type
-          }
-          result.push({
-            code: allLink[i].code,
-            type: type.split('/')[0],
-            size: size,
-            link: allLink[i].links[j],
-            mess: `${allLink[i].code} - ${type.split('/')[0]}: ${size}MB - Link:${allLink[i].links[j]}`
-          });
-          console.log(`${allLink[i].code} - ${type.split('/')[0]}: ${size}MB - Link:${allLink[i].links[j]}`);
-          if(type.indexOf('image')!=-1) {
-            tk.numberImage++;
-          } else if(type.indexOf('audio')!=-1) {
-            tk.numberAudio++;
-          } else if(type.indexOf('video')!=-1) {
-            tk.numberVideo++;
-          }
-        loopTime++;
-      });    
-      promises.push(promise);
+    if (!images.includes(thumbnail)) {
+      images.unshift(thumbnail);
+    }
+
+    for (const image of images) {
+      if (!image.includes('glitch')) continue;
+      const imageSize = await getFileSize(image);
+      trackData.imageSizes.push({ link: image, size: imageSize });
+    }
+
+    for (const audio of audios) {
+      if (!audio.includes('glitch')) continue;
+      const audioSize = await getFileSize(audio);
+      trackData.audioSizes.push({ link: audio, size: audioSize });
+    }
+    console.log(trackData);
+    let div = document.createElement('div');
+    div.classList.add('databox');
+    div.innerHTML = `<a class="img" target="_blank" href="../../watch?code=${track.code}"><img src="${trackData.thumbnail}"></a>
+      <div class="contentctn">
+        <div class="content">
+          ${trackData.imageSizes.concat(trackData.audioSizes).reduce((html, data)=>{
+            html+=`<div class="actn"><p>File name:</p>&ensp;<a target="_blank" class="highlight" href="${data.link}">${getFileName(data.link)}</a> | <p>Capacity: </p>&ensp;<a>${toMb(data.size)} MB</a></div>`;
+            return html;
+          }, ``)}
+        </div>
+      </div>`;
+    document.body.insertBefore(div, document.body.firstChild);
+    document.body.insertBefore(document.body.querySelector('#top2'), document.body.firstChild);
+    document.body.insertBefore(topCtn, document.body.firstChild);
+    count++;
+    document.querySelector('.cpl').textContent = 'Complete '+count+'/'+tracks.length;
+    if(count == tracks.length) {
+      window.scrollTop = 0;
     }
   }
-  return Promise.all(promises);
 }
-fetchLinks().then(function() {
-  let body = document.querySelector('div');
-  let innerData = '<h3>Total Capacity: '+cpc.toFixed(0)+' MB</h3><br>';
-  result.sort(function(a, b) {
-    return a.code - b.code;
-    /*GIẢM DẦN: return b.code-a.code;*/
+
+const getFileSize = async (url)=>{
+  if(stop != 0) {
+    return;
+  }
+  const response = await fetch(url, { method: 'HEAD' });
+  const contentLength = response.headers.get('content-length');
+  size += parseInt(contentLength);
+  sizectn.textContent = `Total: ${toMb(size)} MB ~ ${toMb(size/1024)} GB`;
+  return parseInt(contentLength);
+}
+
+calculateFileSizes(window.database.listTrackNewest)
+  .then(result => {
+    console.log(result);
+  })
+  .catch(error => {
+    console.error('Error:', error);
   });
-  for(let i=0; i<result.length; i++) {
-    // console.log(`${result[i].mess}`);
-    let j=i;
-    while(result[j].type!='image') { 
-      if(result[j].link.indexOf('(0)')!=-1 || result[j].link.indexOf('-0.')!=-1) {break;}
-      j++; 
-    }
-    let code = result[i].code;
-    innerData += "<h4>&ensp;Code: "+code+"</h4><br><img loading='lazy' style='display: block; width: 400px;' src='"+result[j].link+"'>";
-    let codenow = result[i].code;
-    let cap = 0;
-    try {
-      while(result[i].code == codenow){
-        innerData += "&ensp;- Type: "+result[i].type+"&ensp;&ensp;Size: "+result[i].size+" MB&ensp;&ensp;Link: <a target='_blank' href='"+result[i].link+"'>"+result[i].link+"</a><br>";
-        cap += result[i].size;
-        i++;
-      }
-    }catch(e){}
-    innerData += '<h4>&ensp;&ensp;Total: '+cap.toFixed(2)+' MB&ensp;&ensp;&ensp;           <a target="_blank" href="https://nhdasmr-v2.glitch.me/download?code='+code+'">Download</a></h4><hr><br>';
-    i--;
-  }
-  body.innerHTML = innerData;  
-}).then(console.log('success'));
-
-
