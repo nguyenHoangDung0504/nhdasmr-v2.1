@@ -1,5 +1,5 @@
 class Track {
-  constructor(code, rjCode, cvs, tags, series, engName, japName, thumbnail, images, audios) {
+  constructor(code, rjCode, cvs, tags, series, engName, japName, thumbnail, images, audios, mangaLink) {
     this.code = code;
     this.rjCode = rjCode;
     this.cvs = cvs;
@@ -10,6 +10,7 @@ class Track {
     this.thumbnail = thumbnail;
     this.images = images;
     this.audios = audios;
+    this.mangaLink = mangaLink;
   }
   
   getCvsHtml() {
@@ -76,7 +77,7 @@ class Track {
                 '</a></div>'+
                 '<div class="flex-container">'+
                   '<a href="/watch?code='+this.code+'"><div class="text-container">'+
-                    '<p title="'+this.rjCode+' - '+this.engName+'" class="multiline-ellipsis">'+'<b><i>'+this.rjCode+'</i></b> - <span>'+this.engName+'</span></p>'+
+                    '<p class="multiline-ellipsis">'+'<b><i>'+this.rjCode+'</i></b> - <span>'+this.engName+'</span></p>'+
                   '</div></a>'+
                   '<div class="text-container">'+
                     '<p class="singleline-ellipsis">'+this.getCvsHtml()+'</p>'+
@@ -88,18 +89,18 @@ class Track {
   }
   getHiddenDataHtml() {
     let returnValue = '<div class="hidden-info" id="hidden_info_of_'+this.code+'">'
-              +'<div class="image-container"><img loading="lazy" src="'+this.thumbnail+'" alt="thumbnail of "'+this.code+'></div>'
-              +'<h3><b>RJ Code</b>: '+this.rjCode+'</h3>'
+              +'<div class="content-container"><h3><b>RJ Code</b>: '+this.rjCode+'</h3>'
               +(this.series?'<h3><b>Series</b>: <span class="series">'+this.series+'</span></h3>':'')
               +'<h3><b>Eng Name</b>: '+this.engName+'</h3>'
               +'<h3><b>Original Name</b>: '+this.japName+'</h3>'
               +'<h3>'+this.getCvsHtml().substring(4)+'</h3>'
-              +'<h3>'+this.getTagsHtmlNolink()+'</h3>'
+              +'<h3>'+this.getTagsHtmlNolink()+'</h3></div>'
+              +'<div class="image-container"><img loading="lazy" src="'+this.thumbnail+'" alt="thumbnail of "'+this.code+'></div>'
             +'</div>';
     return returnValue.replace(/\s+/g, ' '); 
   }
   getDisplayContentHtml() {
-    let returnValue = '<a href="../watch?code='+this.code+'"><div class="imgcontainer"><img loading="lazy" src="'+this.thumbnail+'" alt="thumbnail of '+this.code+'"></div>'
+    let returnValue = '<a data-code="'+this.code+'" href="../watch?code='+this.code+'"><div class="imgcontainer image-container"><img loading="lazy" src="'+this.thumbnail+'" alt="thumbnail of '+this.code+'"></div>'
                     +'<div class="text-box"><p class="content-p"><b><i>'+this.rjCode+'</i></b> - '+this.engName+'</p></div>'
                     +'</a>';
     return returnValue.replace(/\s+/g, ' ');

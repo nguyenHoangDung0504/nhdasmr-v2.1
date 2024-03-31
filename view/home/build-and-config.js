@@ -41,7 +41,6 @@ console.time('Build actions time');
     });
     document.querySelectorAll('.hidden-list input').forEach((input)=>{
       input.addEventListener('input', ()=>{
-        console.log(input.value);
         window.sharedActions.searchInList(input.parentElement.id, input.value);
       })
     });

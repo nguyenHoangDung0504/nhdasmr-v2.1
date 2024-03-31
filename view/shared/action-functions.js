@@ -16,18 +16,27 @@ window.sharedActions = {
   getEnter: ''
 }
 
-window.sharedActions.addTrackGridAction = (rootSelector = '.content')=>{
+window.sharedActions.addTrackGridAction = (rootSelector = '.content', different = null)=>{
   if(window.settingfs.isMobile() || screen.width <= 780)
     return;
-  let elements = document.querySelectorAll(rootSelector+' .grid-container .grid-item');
+
+  let elements;
+  if(different) {
+    elements = document.querySelectorAll('.post-box a');
+  } else {
+    elements = document.querySelectorAll(rootSelector+' .grid-container .grid-item');
+  }
+  
   let timeOut = 400;
   elements.forEach((element)=>{
     if(element.dataset.addedAction == 'true')
       return;
+    
     let code = element.dataset.code;
     let obj = document.querySelector(`#hidden_info_of_${code}`);
-    let actionBox = element.querySelector('.image-container');
+    let actionBox = element.querySelector('.image-container') //element.querySelector('.text-container') || element.querySelector('.text-box');
     let timeoutId;
+    
     actionBox.addEventListener('mouseenter', () => {
       timeoutId = setTimeout(() => {
         obj.style.opacity = '1';
@@ -102,7 +111,7 @@ window.sharedActions.searchInList = (listId, keyWord)=>{
   if(keyWord.length == 0 || keyWord=='' || keyWord==null || keyWord==undefined) {
     listOfDataBox.forEach((dataBox)=>{
       dataBox.style.display = "block";
-      dataBox.innerHTML = window.utils.removeHighlight(dataBox.innerHTML); 
+      dataBox.innerHTML = window.utils.removeHighlight(dataBox.innerHTML);
     });
     return;
   }
@@ -124,7 +133,8 @@ window.sharedActions.clearAllInputInList = ()=>{
   let childOfList = document.querySelectorAll('a.sub-item');
   for(let i=0; i<childOfList.length; i++) {
     childOfList[i].style.display = "block";
-  }   
+    childOfList[i].innerHTML = window.utils.removeHighlight(childOfList[i].innerHTML);
+  }
 }
 window.sharedActions.searchInHeader = (value)=>{
   if(value=='') {
@@ -132,17 +142,28 @@ window.sharedActions.searchInHeader = (value)=>{
     window.settingfs.hideRB();
   } else {
     let resultBox = document.querySelector('.result-box');
-    let suggestions = window.databasefs.getSearchSuggestions(value);
-    if(suggestions.length == 0) {
-      resultBox.innerHTML = `<a style="text-align:center;">-No Result-</a>`;
+    if(value.includes('@')) {
+      resultBox.innerHTML = `
+      <a href="../?search=@n"><span style="color: #00BFFF;">►</span><strong>@n</strong>: <span class="cnt">View newest tracks</span></a>
+      <a href="../develop/list-code"><span style="color: #00BFFF;">►</span><strong>@lc or @listcode</strong>: <span class="cnt">View list code</span></a>
+      <a href="../develop/data-capacity"><span style="color: #00BFFF;">►</span><strong>@dc or @datacapacity</strong>: <span class="cnt">View data capacity</span></a>
+      <a href="https://japaneseasmr.com/"><span style="color: #00BFFF;">►</span><strong>@ja</strong>: <span class="cnt">Japanese ASMR</span></a>
+      <a href="https://www.asmr.one/works"><span style="color: #00BFFF;">►</span><strong>@ao</strong>: <span class="cnt">ASMR ONE</span></a>
+      `.trim();
+      window.settingfs.showRB();
     } else {
-      let innerData = ``;
-      for(let i=0; i<suggestions.length; i++) {
-        innerData += suggestions[i].getSRHtml();
+      let suggestions = window.databasefs.getSearchSuggestions(value);
+      if(suggestions.length == 0) {
+        resultBox.innerHTML = `<a style="text-align:center;">-No Result-</a>`;
+      } else {
+        let innerData = ``;
+        for(let i=0; i<suggestions.length; i++) {
+          innerData += suggestions[i].getSRHtml();
+        }
+        resultBox.innerHTML = innerData;
       }
-      resultBox.innerHTML = innerData;
+      window.settingfs.showRB();
     }
-    window.settingfs.showRB();
   }
 }
 window.sharedActions.developerSearch = (value)=>{

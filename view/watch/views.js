@@ -22,8 +22,10 @@ document.title = "Watch "+track.code+" - NHD ASMR";
   <h3 id="track-info">
     <span id="track_name"><b><i>${track.rjCode}</i></b> - ${track.engName} (Original name: ${track.japName})</span>
     <br><br>
+    <span style="display: ${track.mangaLink?'':'none'}"><span id="track_series"><b>Manga ver: </b><a class="series" target="_blank" href="${track.mangaLink}">Here</a></span>
+    <br><br></span>
     <span style="display: ${track.series?'':'none'}"><span id="track_series"><b>Series: </b><a href="..?series=${series.name}">${series.getHtml('yes', 'yes')}</a></span>
-    <br><br></span>            
+    <br><br></span>
     <span id="track_list_cv">${track.getCvsHtmlWithCount().replaceAll('<br>', '')}</span>
     <br><br>
     <span id="track_list_tag">${track.getTagsHtmlWithCount().replaceAll('<br>', '')}</span>
@@ -33,12 +35,12 @@ document.title = "Watch "+track.code+" - NHD ASMR";
 }
 //Content-div-content---------------------------------------------------------------------------------------
 {
-  let contentDivContent = `<h2>Random post</h2> <div id="random-post">`;
+  let contentDivContent = `<h2>Random post</h2> <div class="post-box" id="random-post">`;
   localStorage.removeItem('shuffledIndexes');
   let listToRandom = [...window.database.listTrack].filter((element)=>{
     return (element.code !== track.code && !element.cvs.some(item => track.cvs.includes(item)));
   });
-  listToRandom = window.databasefs.getRandomTracks(listToRandom, 10);
+  listToRandom = window.databasefs.getRandomTracks(listToRandom, 12);
   listToRandom.forEach((e)=>{
     contentDivContent += e.getDisplayContentHtml();
   })
@@ -52,9 +54,9 @@ document.title = "Watch "+track.code+" - NHD ASMR";
     if(end<=0)
       return;
     localStorage.removeItem('shuffledIndexes');
-    end = end<=5 ? end : 5;
+    end = end<=6 ? end : 6;
     listToRandom = window.databasefs.getRandomTracks(listToRandom, end);
-    contentDivContent += `<h2>Related tracks by <a href="..?cv=${cv}"><span class="cv">${cv}</span></a></h2> <div id="CV - ${cv}">`;
+    contentDivContent += `<h2>Related tracks by <a href="..?cv=${cv}"><span class="cv">${cv}</span></a></h2> <div class="post-box" id="CV - ${cv}">`;
     listToRandom.forEach((e)=>{
       contentDivContent += e.getDisplayContentHtml();
     })

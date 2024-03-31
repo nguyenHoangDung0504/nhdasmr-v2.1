@@ -42,9 +42,12 @@ request.onreadystatechange = function() {
           checkedCode.push(code);
           numberOfTrack++;
           let mess = line.split('*')[1]?line.split('*')[1]:'';
-          innerData += `
-            <a target="_blank" href='https://japaneseasmr.com/`+code+`'>`+code+` `+mess+`</a>
-          `;
+          if(mess.indexOf('http') != -1) {
+            mess = mess.replaceAll("(", "").replaceAll(")", "")
+            innerData += `<div class="cont2"><a target="_blank" href='https://japaneseasmr.com/${code}'>${code}</a> <a target="_blank" href="${mess}">Link Of ${code}</a></div>`;
+          } else {
+            innerData += `<a target="_blank" href='https://japaneseasmr.com/${code}'>${code} ${mess}</a>`;
+          }
       }
     });
   }

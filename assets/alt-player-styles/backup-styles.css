@@ -8,7 +8,7 @@ video::-webkit-media-controls-enclosure {overflow: hidden;}
 #videoContainer:hover>#audioContainer{display:block;}
 #myvideo {height:100vh; width:100%; text-align:center;}
 .img {display:none;}
-img.showImg {display:inline-block; image-rendering: high-quality;}
+img.showImg {display:inline-block;}
 video.showImg{display: block;}
 .vid{display: none;}
 .control {opacity: 0.3; display:block; z-index:999;}
