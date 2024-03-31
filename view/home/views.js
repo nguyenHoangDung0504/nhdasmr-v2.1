@@ -20,7 +20,7 @@ let listTrack = [...window.database.listTrack],
     cv = urlParams.get('cv'),
     tag = urlParams.get('tag'),
     sort = urlParams.get('sort'),
-    search = urlParams.get('search'),
+    search = urlParams.get('search') || urlParams.get('s'),
     page = Number(urlParams.get('page'));
 if(search) {
   listTrack = window.databasefs.searchTracks(search, listTrack);
@@ -46,9 +46,10 @@ if(sort == 'oldest') {
   listTrack = listTrack.reverse();
 }
 if(listTrack.length==0) {
-  window.homeView.messageContent = 'No result!'
+  window.homeView.messageContent = `No result for key word: "${search}"&ensp;&ensp; <a href="javascript:void(0)" class="series" onclick="window.history.back()">Back</a>`;
 }
-const limitPage = Math.ceil(listTrack.length/trackPerPage);
+let limitPage = Math.ceil(listTrack.length/trackPerPage);
+limitPage == 0 ? limitPage = 1 : limitPage;
 page = (!page)? 1 : page;
 page<1 || page>limitPage ? /*window.location.href = ".."*/ window.history.back() : '';
 

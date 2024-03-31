@@ -41,7 +41,6 @@ console.time('Build actions time');
     });
     document.querySelectorAll('.hidden-list input').forEach((input)=>{
       input.addEventListener('input', ()=>{
-        console.log(input.value);
         window.sharedActions.searchInList(input.parentElement.id, input.value);
       })
     });
@@ -65,5 +64,11 @@ console.time('Build actions time');
     }
     document.querySelector('div.search-icon').addEventListener('click', window.sharedActions.clickBtnSearch);
     window.sharedActions.addTrackGridAction();
+    window.sharedActions.addTrackGridAction('', 'alo');
   }/*SHARED ACTION*/
 console.timeEnd('Build actions time');
+
+window.addEventListener('load', ()=>{
+  const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+  console.log(`Loading time: ${loadTime} ms`);
+});

@@ -1,15 +1,16 @@
 @media screen and (max-width: 780px) and (orientation: landscape) {
-  .container .vid_div { width: 68%; padding: 8px;}
+  .container { margin-bottom: 0px; padding: 0 2px; }
+  .container .vid_div { width: 60%; padding: 8px;}
   .container iframe#vid_frame { aspect-ratio: 5/3; border-radius: 5px; }
   .container h3 { padding: 15px; font-size: 12px; border-bottom: 1px solid var(--text-color); }
   .container h3#download-box a{ font-size: 14px; }
   .container h3#download-box a:hover{ background-color: var(--big-bg); }
-  .container .content_div { width: 32%; padding-right: 0px; }
+  .container .content_div { width: 40%; padding-right: 0px; border: none; height: auto;}
   .container .content_div h2 { font-size: 13px; border-radius: 0; padding: 12px; }
-  .container .content_div div a { padding: 5px; border-radius: 5px; flex-direction: column; background-color: var(--bg); margin-bottom: 5px; }
-  .container .content_div div a:hover { background-color: var(--bg); }
-  .container .content_div div a .imgcontainer { width: 100%; margin-right: 0; }
-  .container .content_div div a .text-box { width: 100%; margin-left: 0; margin: 7px 3px 3px 3px;}
-  .container .content_div div a .text-box p.content-p { font-size: 10px; -webkit-line-clamp: 2; }
+  .container .content_div div.post-box a { padding: 2px; border-radius: 5px; flex-direction: column; background-color: var(--bg); margin-bottom: 5px; width: 49%; }
+  .container .content_div div.post-box a:hover { background-color: var(--bg); }
+  .container .content_div div.post-box a .imgcontainer { width: 100%; margin-right: 0; }
+  .container .content_div div.post-box a .text-box { width: 100%; margin-left: 0; margin: 7px 3px 3px 3px;}
+  .container .content_div div.post-box a .text-box p.content-p { font-size: 10px; -webkit-line-clamp: 2; }
   .hover:hover { text-decoration: none; }
 }

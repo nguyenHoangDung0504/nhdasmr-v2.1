@@ -79,11 +79,11 @@
   /*END FOOTER*/  
   
   body { width: 100vw; }
-  body p.message{ display: block; font-size: 15px; padding: 10px; }
+  body p.message{ display: block; font-size: 15px; padding: 10px; margin: calc(var(--screen-width) * .02); }
+  body.openMenu p.message{ display: block; font-size: 15px; padding: 10px; margin: calc(var(--screen-width) * .02); }
   body.openMenu{ overflow: hidden; }
   body.openMenu .footer, 
   body.openMenu .pagination{ margin-left: 0; width: var(--screen-width); }
-  body.openMenu p.message{ margin-left: 7px; }
   body.openMenu .menu{ left: 0; }
   body.openMenu .close-menu{display: block;}
   body.openMenu .content{ --number-col: 2; grid-template-columns: calc(var(--screen-width) * 0) calc(var(--screen-width) * 1) calc(var(--screen-width) * 0); }

@@ -52,10 +52,18 @@ body p.message{
     color: var(--text-color);
     display: block; 
     font-size: 24px; 
+    margin: calc(var(--screen-width) * .02) calc(var(--screen-width) * .06);
+}
+body.openMenu p.message{
+    transition: margin var(--time);
+    color: var(--text-color);
+    display: block; 
+    font-size: 24px; 
     margin: calc(var(--screen-width) * .02);
 }
 body.openMenu .close-menu{
   display: block;
+  cursor: pointer;
 }
 body.openMenu .content{
     --number-col: 4;
@@ -292,30 +300,39 @@ body.openMenu>.menu{
   transition: opacity var(--time);
   user-select: none;
   position: fixed;
-/*   display: none; */
+  display: flex;
+  gap: 20px;
+  flex-direction: row-reverse;
   opacity: 0;
   background-color: var(--bg2);
   color: var(--text-color);
   padding: 13px;
   border-radius: 10px;
-  width: 350px;
+  width: 650px;
+  height: auto;
   z-index: 99999999999;
   pointer-events: none;
 }
 .hidden-info .image-container {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
+  aspect-ratio: 4 / 3;
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+/*   border: 1px solid white; */
 }
-.hidden-info img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
+.hidden-info .content-container {
+  width: 50%;
+  height: fit-content;
+/*   border: 1px solid white; */
+}
+.hidden-info .image-container img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 5px;
+/*   position: absolute;
+  top: 0;
+  left: 0; */
 }
 /* .hidden-info img {
   border-radius: 8px;
@@ -323,9 +340,11 @@ body.openMenu>.menu{
 } */
 .hidden-info h3 {
   display: block;
-  margin: 10px 0 0 0;
   font-size: 14px;
   font-weight: normal;
+}
+.hidden-info h3:not(:last-child) {
+  margin: 0 0 10px 0;
 }
 .content{
     padding-top: 10px;
