@@ -1,5 +1,17 @@
 'use strict'
 
+//Send status
+parent.postMessage({ type: 'urlChange', version: 2.1, url: window.location.href }, '*');
+window.addEventListener('beforeunload', event => {
+  parent.postMessage({ type: 'beforeUnload' }, '*');
+});
+window.addEventListener('message', event => {
+  if (event.data && event.data.type === 'requestReload') {
+    window.location.reload();
+  }
+});
+
+
 console.time('Build setting functions time');
 window.settingfs = {
   isOpenMenu: 'Kiểm tra menu mở hay đóng',
@@ -21,7 +33,10 @@ window.settingfs = {
   openModel: 'Mở model',
   closeModel: 'Đóng model',
   hideRB: 'Ẩn result box',
-  showRB: 'Hiện result box'
+  showRB: 'Hiện result box',
+  openFullscreen: '',
+  closeFullscreen: '',
+  toggleFullscreen: ''
 }
 window.settingfs.isOpenMenu = ()=>{
   let classList = document.querySelector('body').classList;
@@ -142,6 +157,33 @@ window.settingfs.showRB = ()=>{
   let resultBox = document.querySelector('.result-box');
   if(searchBox.value) {
     resultBox.style.display = 'block';
+  }
+}
+window.settingfs.openFullscreen = () => {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+    }
+}
+window.settingfs.closeFullscreen = () => {
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    } else if (document.webkitFullscreenElement) {
+        document.webkitExitFullscreen();
+    } else if (document.msFullscreenElement) {
+        document.msExitFullscreen();
+    }
+}
+window.settingfs.toggleFullscreen = () => {
+  console.log('alo')
+  if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+    window.settingfs.openFullscreen();
+  } else {
+    window.settingfs.closeFullscreen();
   }
 }
 console.timeEnd('Build setting functions time');

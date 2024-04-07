@@ -22,6 +22,12 @@ console.time('Build actions time');
     window.settingfs.updateLightModeButton();
     document.querySelector('h1.button-open').addEventListener('click', window.settingfs.changeMenu);
     document.querySelector('.close-menu-button').addEventListener('click', window.settingfs.closeMenu);
+    document.querySelector('.fullscreen-button').addEventListener('click', window.settingfs.toggleFullscreen);
+
+    document.querySelector('.back-item').addEventListener('click', () => {window.history.back()});
+    document.querySelector('.reload-item').addEventListener('click', () => {window.location.reload()});
+    document.querySelector('.forward-item').addEventListener('click', () => {window.history.forward()});
+    
     document.querySelector('.light-mode-button').addEventListener('click', window.settingfs.changeLightMode);
     document.querySelector('.close-model-btn').addEventListener('click', window.settingfs.closeModel);
     document.querySelector('.open-model-btn').addEventListener('click', window.settingfs.openModel);
