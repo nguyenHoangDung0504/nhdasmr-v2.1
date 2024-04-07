@@ -1,7 +1,7 @@
 :root{
     --screen-height: 864px;
     --screen-width: 1536px;
-    --time: .3s;
+    --time: .5s;
 }
 .content{
     --number-col: 5;
@@ -51,7 +51,7 @@ body p.message{
     transition: margin var(--time);
     color: var(--text-color);
     display: block; 
-    font-size: 24px; 
+    font-size: 22px; 
     margin: calc(var(--screen-width) * .02) calc(var(--screen-width) * .06);
 }
 body.openMenu p.message{
@@ -230,7 +230,7 @@ input[type="text"]::selection {background-color: rgba(0, 0, 0, 0.3);}
     height: fit-content;
     /* background-color: var(--bg2); */
     color: var(--text-color);
-    font-size: 20px;
+    font-size: 18px;
     padding: 10px 15px;
     text-decoration: none;
     cursor: pointer;
@@ -242,14 +242,32 @@ input[type="text"]::selection {background-color: rgba(0, 0, 0, 0.3);}
     top: 0;
     background-color: var(--bg2);
 } */
-.menu .menu-item:hover{
+.menu :where(.menu-item:not(.direct-items), .menu-item.direct-items .item):hover{
     background-color: var(--text-color);
     color: var(--bg2);
+}
+.menu .menu-item.direct-items {
+  display: flex;
+  align-items: center;
+  cursor: default;
+  padding: 0;
+  padding-left: 15px;
+}
+.menu .menu-item.direct-items .item {
+  display: flex;
+  height: auto;
+  aspect-ratio: 1/1;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
 }
 .menu .title{
     display: block;
     text-align: center;
-    font-size: 80%;
+    font-size: 70%;
     color: var(--text-color);
     margin: 10px 0px;
 }
@@ -269,7 +287,7 @@ input[type="text"]::selection {background-color: rgba(0, 0, 0, 0.3);}
     display: block;
     width: 100%;
     height: fit-content;
-    font-size: 18px;
+    font-size: 17px;
     padding: 10px 15px;
     border: .5px solid var(--text-color);
     outline: none;
@@ -281,7 +299,7 @@ input[type="text"]::selection {background-color: rgba(0, 0, 0, 0.3);}
     width: 100%;
     height: fit-content;
     color: var(--text-color);
-    font-size: 18px;
+    font-size: 17px;
     padding: 10px 30px;
     text-decoration: none;
     cursor: pointer;
@@ -350,7 +368,7 @@ body.openMenu>.menu{
     padding-top: 10px;
     display: grid;
     grid-template-columns: calc(var(--screen-width) * 0.052) calc(var(--screen-width) * 0.89) calc(var(--screen-width) * 0.052);
-    transition: grid-template-columns .3s;
+    transition: grid-template-columns var(--time);
     min-height: 20vh;
 }
 .content .grid-container {
@@ -489,7 +507,7 @@ body:not(.openMenu) .content .grid-container .grid-item .flex-container .text-co
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   z-index: 999999999;
   display: flex;
   align-items: center;
@@ -688,19 +706,24 @@ body.openModel > .model-container {
     transform: translateY(-50%) translateX(-50%);
     width: fit-content;
     height: fit-content;
-    font-size: 18px;
+    font-size: 17px;
 }
 .pagination .pagination-body a{
     display: block;
-    border-radius: 10px;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    padding: 12.5px 0;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 3px;
 }
 .pagination .pagination-body a:not(#none-link,.active){
     background-color: var(--bg);
+}
+.pagination .pagination-body a:not(#none-link,.active):hover{
+    color: var(--bg);
+    background-color: var(--text-color);
 }
 .pagination .pagination-body a.active{
     color: var(--bg);
@@ -709,11 +732,11 @@ body.openModel > .model-container {
 .pagination .pagination-body a.block{
     display: none;
 }
-.pagination .pagination-body a:not(#none-link,.active):hover{
+/* .pagination .pagination-body a:not(#none-link,.active):hover{
     background-color: var(--bg2);
     color: var(--text-color);
     border: 1px solid var(--text-color);
-}
+} */
 .pagination .pagination-body a#none-link{
     border: none;
     padding: 13px 15px;
@@ -735,10 +758,10 @@ body.openModel > .model-container {
     user-select: none;
 }
 .footer h1.title{
-    font-size: 30px;
+    font-size: 25px;
     color: var(--text-color);
     display: block;
-    margin: 10px 0;
+    margin: 8px 0;
 }
 .footer .footer-content{
     --col-footer: 3;
@@ -747,13 +770,14 @@ body.openModel > .model-container {
 }
 .footer .footer-content .grid-item{
     display: block;
-    margin: 10px 0 20px 0;
+    margin: 5px 0 20px 0;
     padding: 20px;
 }
 .footer .footer-content .grid-item a{
     display: block;
     width: fit-content;
     margin: 12px 0;
+    font-size: 17px;
 }
 .footer .footer-content .grid-item a:hover{
 /*     text-decoration: underline; */
@@ -761,11 +785,11 @@ body.openModel > .model-container {
 }
 .footer .footer-content .grid-item h2{
     display: block;
-    font-size: 24px;
+    font-size: 20px;
     margin: 0 0 15px 0;
 }
 .footer .c {
-  display: block; width: 100%; border-top: 1px solid var(--text-color); padding-top: 10px
+  display: block; width: 100%; border-top: 1px solid var(--text-color); padding-top: 10px; font-size: 17px;
 }
 /*END FOOTER*/
 

@@ -1,7 +1,7 @@
 const scriptFiles = [
-  'https://nhdasmr.glitch.me/utils/utils.js', 
-  'https://nhdasmr.glitch.me/model/classes.js',
-  'https://nhdasmr.glitch.me/model/database/build-database.js'
+  'https://nhdasmr-v2-1.glitch.me/utils/utils.js', 
+  'https://nhdasmr-v2-1.glitch.me/model/classes.js',
+  'https://nhdasmr-v2-1.glitch.me/model/database/build-database.js'
 ];
 
 function fetchDatabase(scriptFiles, callback) {
@@ -58,7 +58,7 @@ let generateCode = ()=>{
         // });
       }
       console.log(tags_after.sort());
-      return tags_after;
+      return tags_after.filter(it => it!='Licking');
     }
 
     function getData() {
@@ -86,7 +86,7 @@ let generateCode = ()=>{
       }
       return str;
     }
-    return generateUploadCode();  
+    return generateUploadCode();
   })();
 }
 

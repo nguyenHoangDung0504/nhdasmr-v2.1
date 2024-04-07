@@ -1,5 +1,6 @@
 let size = 0;
 let stop = 0;
+const trackDataArr = [];
 const sizectn = document.querySelector('.total');
 const topCtn = document.querySelector('.top');
 const cpl = document.querySelector('.cpl');
@@ -45,6 +46,7 @@ const calculateFileSizes = async (tracks)=>{
       trackData.audioSizes.push({ link: audio, size: audioSize });
     }
     console.log(trackData);
+    trackDataArr.push(trackData);
     let div = document.createElement('div');
     div.classList.add('databox');
     div.innerHTML = `<a class="img" target="_blank" href="../../watch?code=${track.code}"><img src="${trackData.thumbnail}"></a>

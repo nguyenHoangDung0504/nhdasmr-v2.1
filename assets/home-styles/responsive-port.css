@@ -32,11 +32,11 @@
   /*CONTENT*/
   .content { --number-col: 2; grid-template-columns: calc(var(--screen-width) * 0) calc(var(--screen-width) * 1) calc(var(--screen-width) * 0); transition: grid-template-columns 0s; }
   .content .grid-container { grid-row-gap: 1px; grid-column-gap: 1px; padding: 1px;}
-  .content .grid-container .grid-item { border-radius: 5px; padding: 10px 5px 15px 5px; }
+  .content .grid-container .grid-item { border-radius: 5px; padding: 10px 5px 10px 5px; }
   .content .grid-container .grid-item .info-button { display: none; }
   .content .grid-container .grid-item .flex-container .text-container { margin-top: 8px; font-size: 10px; }
   body:not(.openMenu) .content .grid-container .grid-item .flex-container .text-container { font-size: 10px; }
-  body:not(.openMenu) .content .grid-container .grid-item { padding: 10px 5px 15px 5px; }
+  body:not(.openMenu) .content .grid-container .grid-item { padding: 10px 5px 10px 5px; }
   .cv { font-weight: normal; }
   .hidden-info {display: none!important; width: 0px; height: 0; padding: 0; margin: 0; background-color: rgba(0,0,0,0);}
   /*END CONTENT*/
@@ -65,8 +65,8 @@
   /*END PAGINATION*/  
   
   /*FOOTER*/
-  .footer { padding: 8px 15px; font-size: 11px; line-height: 1.25;}
-  .footer h1.title{ font-size: 12px; }
+  .footer { padding: 8px 15px; line-height: 1.25;}
+  .footer h1.title{ font-size: 15px; }
   .footer .footer-content {
     --row-footer: 3;
     display: grid;
@@ -74,8 +74,10 @@
     grid-auto-rows: auto;
   }
   .footer .footer-content .grid-item{ margin: 0; padding: 10px 20px; height: fit-content; }
+  .footer .footer-content .grid-item a{ font-size: 11px; margin-left: 20px; }
+  .footer .c{ font-size: 11px; }
   .footer .footer-content .grid-item a:hover{ color: var(--text-color); }
-  .footer .footer-content .grid-item h2{ font-size: 11.5px; margin: 0 0 10px 0;}
+  .footer .footer-content .grid-item h2{ font-size: 13px; margin: 0 0 10px 0;}
   /*END FOOTER*/  
   
   body { width: 100vw; }
@@ -160,10 +162,10 @@
   /*END FOOTER*/
   
   body { width: 100vw; }
-  body p.message{ display: block; font-size: 15px; padding: 10px; }
+  body p.message{ display: block; padding: 10px; margin-left: calc(var(--screen-width) * .02); }
   body.openMenu .footer, 
   body.openMenu .pagination{ margin-left: 0; width: var(--screen-width); }
-  body.openMenu p.message{ margin-left: 13px; }
+  body.openMenu p.message{ margin-left: calc(var(--screen-width) * .02); }
   body.openMenu .menu{ left: 0; }
   body.openMenu .close-menu{display: block;}
   body.openMenu .content{ --number-col: 4; grid-template-columns: calc(var(--screen-width) * 0.02) calc(var(--screen-width) * 0.96) calc(var(--screen-width) * 0.02); }

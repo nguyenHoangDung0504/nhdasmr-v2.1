@@ -60,6 +60,13 @@ window.sharedView = {
   let menuContent =
   `<a class="title"><h1>NHD ASMR - Menu</h1></a>
   <a class="menu-item close-menu-button" href="javascript:void(0)">Close Menu</a>
+  <a class="menu-item direct-items">
+    Directions:
+    <div class="item back-item" title="Back"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+    <div class="item reload-item" title="Reload"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+    <div class="item forward-item" title="Forward"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+  </a>
+  <a class="menu-item fullscreen-button" href="javascript:void(0)" style="display: none;">Toggle Full Screen</a>
   <a class="menu-item light-mode-button" href="javascript:void(0)"></a>
   <a href="javascript:void(0);" class="menu-item">Advance Search 🔎</a>
 

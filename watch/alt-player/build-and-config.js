@@ -30,11 +30,11 @@ const closeFullscreen = () => {
         icon.classList.remove('fa-compress');
         icon.classList.add('fa-expand');
     }
-    if (document.exitFullscreen) {
+    if (document.fullscreenElement) {
         document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
+    } else if (document.webkitFullscreenElement) {
         document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
+    } else if (document.msFullscreenElement) {
         document.msExitFullscreen();
     }
     screen.orientation.unlock();

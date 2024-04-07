@@ -1,5 +1,5 @@
 'use strict'
-
+console.time('Build action functions time');
 window.sharedActions = {
   addTrackGridAction: '',
   listInMenuIsOpen: '',
@@ -199,15 +199,6 @@ window.sharedActions.getEnter = (event)=>{
   if (event.key == 'Enter') {
     let search = document.querySelector('input#input.search-input').value;
     if(search) {
-      // if(search == '@listcode' || search == '@lc' ) {
-      //   window.open('../develop/list-code', '_blank');
-      //   document.querySelector('input#input.search-input').value = '';
-      // } else if(search == '@datacapacity' || search == '@dc' ) {
-      //   window.open('../develop/data-capacity', '_blank');
-      //   document.querySelector('input#input.search-input').value = '';
-      // } else {
-      //   window.location = `..?search=${search}`; 
-      // }
       document.querySelector('input#input.search-input').value = '';
       if(!window.sharedActions.developerSearch(search)) {
         window.location = `..?search=${search}`;
@@ -215,3 +206,4 @@ window.sharedActions.getEnter = (event)=>{
     }
   }    
 }
+console.timeEnd('Build action functions time');
