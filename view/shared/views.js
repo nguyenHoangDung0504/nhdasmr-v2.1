@@ -50,9 +50,9 @@ window.sharedView = {
 }
 //Menu--------------------------------------------------------------------------------------------------------
 {
-  let listCvStr = `<input type="text" placeholder="Find...">` 
+  let listCvStr = `<input type="text" placeholder="Find...">`
                     + window.buildhtmlfs.buildListCvOrTag ('cv', window.database.listCv), 
-      listTagStr = `<input type="text" placeholder="Find...">` 
+      listTagStr = `<input type="text" placeholder="Find...">`
                     + window.buildhtmlfs.buildListCvOrTag ('tag', window.database.listTag),
       listSortStr = `<a class="sub-item" href="${window.utils.addQuery('sort', 'newest')}"><span style="color: #00BFFF;">►</span>  <span class="hover">Newest (Default)</span></a>`+
                     `<a class="sub-item" href="${window.utils.addQuery('sort', 'oldest')}"><span style="color: #00BFFF;">►</span>  <span class="hover">Oldest</span></a>`;
@@ -77,7 +77,7 @@ window.sharedView = {
   <a data-label-of="sorts-hidden-list" class="menu-item list-open-button">Sorts&ensp; <i style="font-size: 16px;" class="fas fa-chevron-down"></i></a>
   <div class="hidden-list" id="sorts-hidden-list">${listSortStr}</div>
   <a class="menu-item open-model-btn">Gacha Machine</a>
-  <a href="https://nhdasmr-v.glitch.me/" class="menu-item">Another versions</a>`;
+  <a target="_blank" href="https://nhdasmr-v.glitch.me/" class="menu-item">Another versions</a>`;
   
   window.sharedView.menuContent = menuContent.replace(/\s+/g, ' ');
 }

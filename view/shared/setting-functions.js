@@ -2,15 +2,12 @@
 
 //Send status
 parent.postMessage({ type: 'urlChange', version: 2.1, url: window.location.href }, '*');
+setInterval(()=>{
+  parent.postMessage({ type: 'alive' }, '*');
+}, 2000);
 window.addEventListener('beforeunload', event => {
   parent.postMessage({ type: 'beforeUnload' }, '*');
 });
-window.addEventListener('message', event => {
-  if (event.data && event.data.type === 'requestReload') {
-    window.location.reload();
-  }
-});
-
 
 console.time('Build setting functions time');
 window.settingfs = {

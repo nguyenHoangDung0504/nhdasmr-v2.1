@@ -116,3 +116,66 @@ track.images.forEach(iov => {
 track.audios.forEach(src => {
   mp3Container.appendChild(new window.classes.AudioPlayer(src));
 });
+
+
+//Interact with peripheral devices
+const audioElements = document.querySelectorAll('audio');
+let currentAudioIndex = 0;
+
+function playCurrentTrack() {
+  audioElements[currentAudioIndex].play();
+}
+
+function pauseCurrentTrack() {
+  audioElements[currentAudioIndex].pause();
+}
+
+// Chuyển đến bài hát tiếp theo
+function playNextTrack() {
+  pauseCurrentTrack();
+  
+  currentAudioIndex++;
+  if (currentAudioIndex >= audioElements.length) {
+    currentAudioIndex = 0;
+  }
+  
+  playCurrentTrack();
+}
+
+// Chuyển đến bài hát trước đó
+function playPreviousTrack() {
+  pauseCurrentTrack();
+  
+  currentAudioIndex--;
+  if (currentAudioIndex < 0) {
+    currentAudioIndex = audioElements.length - 1;
+  }
+  
+  playCurrentTrack();
+}
+
+// Đăng ký các sự kiện Media Session
+if ('mediaSession' in navigator) {
+  navigator.mediaSession.metadata = new MediaMetadata({
+    // title: '-',
+    // artist: '-',
+    // album: '-',
+    // artwork: [{ src: track.thumbnail, sizes: '512x512', type: 'image/jpeg' }]
+  });
+
+  navigator.mediaSession.setActionHandler('play', ()=>{
+    playCurrentTrack();
+  });
+
+  navigator.mediaSession.setActionHandler('pause', function() {
+    pauseCurrentTrack();
+  });
+
+  navigator.mediaSession.setActionHandler('nexttrack', function() {
+    playNextTrack();
+  });
+
+  navigator.mediaSession.setActionHandler('previoustrack', function() {
+    playPreviousTrack();
+  });
+}

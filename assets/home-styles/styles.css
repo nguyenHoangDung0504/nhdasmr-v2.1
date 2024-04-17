@@ -807,3 +807,8 @@ body.openModel > .model-container {
     margin-right: 0px;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  /* Áp dụng kiểu dáng tùy chỉnh cho dark mode */
+  /* Các quy tắc CSS khác cho dark mode */
+}
