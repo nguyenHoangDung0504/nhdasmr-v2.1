@@ -77,4 +77,5 @@ console.timeEnd('Build actions time');
 window.addEventListener('load', ()=>{
   const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
   console.log(`Loading time: ${loadTime} ms`);
+  // setTimeout(()=>{console.clear}, 4000);
 });

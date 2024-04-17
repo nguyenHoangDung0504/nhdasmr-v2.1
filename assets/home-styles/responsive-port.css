@@ -61,7 +61,7 @@
   .pagination { margin: 0px 0px; min-height: calc(var(--screen-height) * .1);}
   .pagination .pagination-body { font-size: 13px; }
   .pagination .pagination-body a{ border-radius: 5px; width: 35.5px; height: 35px; padding: 10px 0; margin: 1.5px; }
-  .pagination .pagination-body a:not(#none-link,.active):hover{ background-color: var(--bg); border: 0px solid; }
+  .pagination .pagination-body a:not(#none-link,.active):hover{ background-color: var(--bg); color: var(--text-color); border: 0px solid; }
   /*END PAGINATION*/  
   
   /*FOOTER*/

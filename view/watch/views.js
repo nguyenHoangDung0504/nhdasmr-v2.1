@@ -11,7 +11,7 @@ let track = window.databasefs.getTrackByCode(trackId) || window.databasefs.getTr
 if(!trackId || !track) {
   window.history.back();
 } 
-document.title = "Watch "+track.code+" - NHD ASMR";
+document.title = "~"+track.code+"";
 //Vid-div-content---------------------------------------------------------------------------------------
 {
   let series = window.databasefs.findSingleSeries(track.series);
