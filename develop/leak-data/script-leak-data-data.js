@@ -7,7 +7,7 @@ const scriptFiles = [
 function fetchDatabase(scriptFiles, callback) {
   const fetchPromises = scriptFiles.map(scriptFile => fetch(scriptFile));
 
-  Promise.all(fetchPromises)
+  return Promise.all(fetchPromises)
     .then(responses => Promise.all(responses.map(response => response.text())))
     .then(scripts => {
       scripts.forEach(script => {
@@ -15,16 +15,16 @@ function fetchDatabase(scriptFiles, callback) {
       });
 
       // Gọi callback sau khi tất cả các file script đã chạy xong
-      callback();
+      return callback();
     })
     .catch(error => {
       console.error('Đã xảy ra lỗi khi fetch hoặc chạy script:', error);
     });
 }
 
-let generateCode = ()=>{
+function generateCode () {
   let series = '';
-  (function leakData() {
+  function leakData() {
     let codes = window.database.listCode;
     function getTagArr() {
       let arr_tags = [];
@@ -76,19 +76,26 @@ let generateCode = ()=>{
       let data = getData();
       if(codes.indexOf( Number(location.href.match(/\d+/)[0]) ) != -1) {
         alert('Trùng code!');
-        return;
+        return null;
       }
       let str = `addTrack(${location.href.match(/\d+/)[0]}, "${data.rjCode}", "${data.cvs.replaceAll(', ',',')}", "${getTagArr().join(',')}", "${series}", "engName", "${data.japName}", t0i0a);`;
-      if (window.confirm('Xác nhận sao chép')) {
-        navigator.clipboard.writeText(str)
-          .then(() => {console.log('Đã sao chép.')})
-          .catch(error => {console.error('Lỗi khi sao chép', error)});
-      }
       return str;
     }
     return generateUploadCode();
-  })();
+  };
+  
+  return leakData();
 }
 
-
-fetchDatabase(scriptFiles, generateCode);
+fetchDatabase(scriptFiles, generateCode)
+.then(result => {
+  const textarea = document.createElement('textarea');
+  textarea.value = result;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textarea);
+})
+.catch(error => {
+  console.error('Đã xảy ra lỗi:', error);
+});

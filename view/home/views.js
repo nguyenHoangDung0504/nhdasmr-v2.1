@@ -11,7 +11,7 @@ window.homeView = {
   linksPerGroupPaginationMobile: 5
 };
 
-const trackPerPage = window.settingfs.isMobile() 
+const trackPerPage = window.settingfs.isMobile()
                       ? window.homeView.trackPerPageMobile 
                       : window.homeView.trackPerPage;
 const urlParams = new URLSearchParams(window.location.search);

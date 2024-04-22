@@ -32,7 +32,9 @@ async function leakLinkImgAndAud(code){
       }, i * timeout);
     }
     setTimeout(async function() {
-      let template = ['t1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', 'omake', 'freetalk']
+      let template = ['t1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9', 't10', 't11', 't12', 't13', 't14', 't15', 't16',
+                      't17', 't18', 't19', 't20', 't21', 't22', 't23', 't24', 't25', 't26', 't27', 't28', 't29', 't30',
+                      'omake', 'freetalk']
       window.link.audios.sort((a, b)=>{
         for (let i = 0; i < template.length; i++) {
           const mau = template[i];
@@ -58,14 +60,14 @@ async function leakLinkImgAndAud(code){
         rar: window.link.rar
       }
       console.log(result);
-      if (confirm('Xác nhận sao chép')) {
-        try{
-          navigator.clipboard.writeText(`"${result.thumbnail}", "${result.images}", "${result.audios}"`);
-          console.log('Sao chép thành công!');
-        } catch(e) {
-          console.log('error')
-        }
-      }
+      
+      const textarea = document.createElement('textarea');
+      textarea.value = `"${result.thumbnail}", "${result.images}", "${result.audios}"`;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      
       resolve(`"${result.thumbnail}", "${result.images}", "${result.audios}"`);
     }, timeout * linkNeed.length + 100);
   });

