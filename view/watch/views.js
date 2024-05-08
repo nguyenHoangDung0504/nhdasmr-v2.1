@@ -24,7 +24,7 @@ document.title = "~"+track.code+"";
     <br><br>
     <span style="display: ${track.mangaLink?'':'none'}"><span id="track_series"><b>Manga ver: </b><a class="series" target="_blank" href="${track.mangaLink}">Here</a></span>
     <br><br></span>
-    <span style="display: ${track.series?'':'none'}"><span id="track_series"><b>Series: </b><a href="..?series=${series.name}">${series.getHtml('yes', 'yes')}</a></span>
+    <span style="display: ${track.series?'':'none'}"><span id="track_series"><b>Series: </b><a href="..?series=${encodeURIComponent(series.name)}">${series.getHtml('yes', 'yes')}</a></span>
     <br><br></span>
     <span id="track_list_cv">${track.getCvsHtmlWithCount().replaceAll('<br>', '')}</span>
     <br><br>
@@ -62,5 +62,5 @@ document.title = "~"+track.code+"";
     })
     contentDivContent += `</div>`;
   })
-  window.watchView.contentDivContent = contentDivContent.replace(/\s+/g, ' '); 
+  window.watchView.contentDivContent = contentDivContent.replace(/\s+/g, ' ');
 }
