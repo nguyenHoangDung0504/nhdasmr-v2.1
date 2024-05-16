@@ -66,7 +66,7 @@ console.time('Build actions time');
       });
       searchBox.addEventListener('blur', ()=>{
         document.querySelector('body').removeEventListener('keyup', window.sharedActions.getEnter);
-      });    
+      });
     }
     document.querySelector('div.search-icon').addEventListener('click', window.sharedActions.clickBtnSearch);
     window.sharedActions.addTrackGridAction();
