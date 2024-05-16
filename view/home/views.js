@@ -39,7 +39,7 @@ if(search) {
   } else if(tag) {
     listTrack = window.databasefs.getTracksByTag(tag, listTrack);
     window.homeView.messageContent += `<br>Tag: ${window.databasefs.findSingleCvOrTag('tag', tag).getHtml('yes', 'yes')}`;
-  }  
+  }
 }
 
 if(sort == 'oldest') {
