@@ -78,7 +78,7 @@ function generateCode () {
         alert('Trùng code!');
         return null;
       }
-      let str = `addTrack(${location.href.match(/\d+/)[0]}, "${data.rjCode}", "${data.cvs.replaceAll(', ',',')}", "${getTagArr().join(',')}", "${series}", "engName", "${data.japName}", t0i0a);`;
+      let str = `at(${location.href.match(/\d+/)[0]}, "${data.rjCode}", "${data.cvs.replaceAll(', ',',')}", "${getTagArr().join(',')}", "${series}", "engName", "${data.japName}", t0i0a);`;
       return str;
     }
     return generateUploadCode();
